@@ -4,8 +4,8 @@
   },
   "class": "other",
   "capabilities": [
-    "finished",
-    "charging",
+    "is_finished",
+    "is_charging",
     "onoff",
     "old_onoff",
     "meter_power",
@@ -16,11 +16,11 @@
     "measure_temperature.charge_port",
     "status",
     "old_status",
-    "errr",
+    "is_error",
     "charge_amp",
     "charge_amp_limit",
     "energy_total",
-    "pluggedin"
+    "is_plugged_in"
   ],
   "capabilitiesOptions": {
     "measure_temperature.internal": {

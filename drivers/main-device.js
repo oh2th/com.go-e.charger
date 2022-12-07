@@ -18,14 +18,14 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} init completed.`);
 
     // Register Flow Card Conditions
-    const isCompletedCondition = this.homey.flow.getConditionCard('is_completed');
+    const isCompletedCondition = this.homey.flow.getConditionCard('is_finished');
     isCompletedCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('is_completed');
+      const result = this.getCapabilityValue('is_finished');
       return Promise.resolve(result);
     });
     const isChargingCondition = this.homey.flow.getConditionCard('is_charging');
     isChargingCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('charging');
+      const result = this.getCapabilityValue('is_charging');
       return Promise.resolve(result);
     });
     const isAllowedCondition = this.homey.flow.getConditionCard('is_allowed');
@@ -33,9 +33,9 @@ class mainDevice extends Device {
       const result = this.getCapabilityValue('onoff');
       return Promise.resolve(result);
     });
-    const isPluggedCondition = this.homey.flow.getConditionCard('is_plugged');
+    const isPluggedCondition = this.homey.flow.getConditionCard('is_plugged_in');
     isPluggedCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('pluggedin');
+      const result = this.getCapabilityValue('is_plugged_in');
       return Promise.resolve(result);
     });
   }
@@ -124,8 +124,8 @@ class mainDevice extends Device {
     const capabilitySetMap = new Map([
       ['onoff', this._setOnOff],
       ['charge_amp', this._setChargeCurrent],
-      ['is_completed', null],
-      ['charging', null]]);
+      ['is_finished', null],
+      ['is_charging', null]]);
     this.getCapabilities().forEach((capability) => this.registerCapabilityListener(capability, (value) => {
       return capabilitySetMap.get(capability).call(this, value).catch((err) => {
         return Promise.reject(err);
@@ -147,7 +147,7 @@ class mainDevice extends Device {
         this.setCapabilityValue('meter_power', infoJson.meter_power);
         this.setCapabilityValue('status', infoJson.status);
         this.setCapabilityValue('old_status', infoJson.status);
-        this.setCapabilityValue('errr', infoJson.error);
+        this.setCapabilityValue('is_error', infoJson.error);
         this.setCapabilityValue('charge_amp', infoJson.charge_amp);
         this.setCapabilityValue('charge_amp_limit', infoJson.charge_amp_limit);
         this.setCapabilityValue('energy_total', infoJson.energy_total);
@@ -158,45 +158,45 @@ class mainDevice extends Device {
           this.log('status CHANGED');
           const statusChangedTrigger = new this.homey.FlowCardTrigger('status_changed');
           statusChangedTrigger.register().trigger().catch(this.error).then(this.log);
-          if (_statusNew === 'Charging finished') {
+          if (_statusNew === 'car_finished') {
             this.log('Status changed to completed');
-            this.setCapabilityValue('is_completed', true);
+            this.setCapabilityValue('is_finished', true);
             this.setCapabilityValue('is_charging', false);
             this.setCapabilityValue('is_plugged_in', true);
-            const chargingCompletedTrigger = new this.homey.FlowCardTrigger('completed');
+            const chargingCompletedTrigger = new this.homey.FlowCardTrigger('charging_finished');
             chargingCompletedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-          if (_statusOld === 'Charging car') {
+          if (_statusOld === 'car_charging') {
             this.log('Status changed from charging to no car connected');
-            this.setCapabilityValue('is_completed', true);
+            this.setCapabilityValue('is_finished', true);
             this.setCapabilityValue('is_charging', false);
             const chargingEndedTrigger = new this.homey.FlowCardTrigger('charging_ended');
             chargingEndedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-          if (_statusNew === 'Charging car') {
+          if (_statusNew === 'car_charging') {
             this.log('Status changed to charging');
             this.setCapabilityValue('is_charging', true);
-            this.setCapabilityValue('is_completed', false);
+            this.setCapabilityValue('is_finished', false);
             this.setCapabilityValue('is_plugged_in', true);
             const chargingStartedTrigger = new this.homey.FlowCardTrigger('charging_started');
             chargingStartedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-          if (_statusNew === 'Car connected') {
+          if (_statusNew === 'car_waiting') {
             this.log('Status changed to car connected');
             this.setCapabilityValue('is_charging', false);
-            this.setCapabilityValue('is_completed', false);
+            this.setCapabilityValue('is_finished', false);
             this.setCapabilityValue('is_plugged_in', true);
             const carConnectedTrigger = new this.homey.FlowCardTrigger('car_connected');
             carConnectedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-          if (_statusNew === 'No car connected') {
+          if (_statusNew === 'station_idle') {
             this.setCapabilityValue('is_plugged_in', false);
             this.setCapabilityValue('is_charging', false);
-            this.setCapabilityValue('is_completed', false);
+            this.setCapabilityValue('is_finished', false);
           }
-          if (_statusNew === 'No car connected' && _statusOld != null) {
+          if (_statusNew === 'station_idle' && _statusOld != null) {
             this.log('Status changed to car unplugged');
-            const carDisconnectedTrigger = new this.homey.FlowCardTrigger('car_unplugged');
+            const carDisconnectedTrigger = new this.homey.FlowCardTrigger('unplugged');
             carDisconnectedTrigger.register().trigger().catch(this.error).then(this.log);
           }
         } else {

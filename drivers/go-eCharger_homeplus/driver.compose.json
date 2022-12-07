@@ -4,22 +4,23 @@
   },
   "class": "other",
   "capabilities": [
-    "finished",
-    "charging",
+    "is_finished",
+    "is_charging",
     "onoff",
     "old_onoff",
     "meter_power",
     "measure_power",
     "measure_current",
     "measure_voltage",
-    "measure_temperature",
+    "measure_temperature.internal",
+    "measure_temperature.charge_port",
     "status",
     "old_status",
-    "errr",
+    "is_error",
     "charge_amp",
     "charge_amp_limit",
     "energy_total",
-    "pluggedin"
+    "is_plugged_in"
   ],
   "platforms": [
     "local"

@@ -50,7 +50,7 @@
           "en": "Finished charging",
           "nl": "Laden afgerond"
         },
-        "id": "finished"
+        "id": "finished_charging"
       }
     ],
     "conditions": [
@@ -73,14 +73,14 @@
           "en": "!{{Charging complete|Charging not complete}}",
           "nl": "!{{Laden afgerond|Laden niet afgerond}}"
         },
-        "id": "is_completed"
+        "id": "is_finished"
       },
       {
         "title": {
           "en": "!{{Car plugged in|No car plugged in}}",
           "nl": "!{{Auto verbonden|Geen auto verbonden}}"
         },
-        "id": "is_plugged"
+        "id": "is_plugged_in"
       }
     ],
     "actions": [
@@ -99,8 +99,8 @@
       },
       "class": "other",
       "capabilities": [
-        "finished",
-        "charging",
+        "is_finished",
+        "is_charging",
         "onoff",
         "old_onoff",
         "meter_power",
@@ -111,11 +111,11 @@
         "measure_temperature.charge_port",
         "status",
         "old_status",
-        "errr",
+        "is_error",
         "charge_amp",
         "charge_amp_limit",
         "energy_total",
-        "pluggedin"
+        "is_plugged_in"
       ],
       "capabilitiesOptions": {
         "measure_temperature.internal": {
@@ -162,22 +162,23 @@
       },
       "class": "other",
       "capabilities": [
-        "finished",
-        "charging",
+        "is_finished",
+        "is_charging",
         "onoff",
         "old_onoff",
         "meter_power",
         "measure_power",
         "measure_current",
         "measure_voltage",
-        "measure_temperature",
+        "measure_temperature.internal",
+        "measure_temperature.charge_port",
         "status",
         "old_status",
-        "errr",
+        "is_error",
         "charge_amp",
         "charge_amp_limit",
         "energy_total",
-        "pluggedin"
+        "is_plugged_in"
       ],
       "platforms": [
         "local"
@@ -242,17 +243,6 @@
       "icon": "/assets/icon.svg",
       "insights": true
     },
-    "charging": {
-      "type": "boolean",
-      "title": {
-        "en": "Charging",
-        "nl": "Laden"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "insights": false
-    },
     "energy_total": {
       "type": "number",
       "title": {
@@ -267,7 +257,18 @@
       },
       "insights": true
     },
-    "errr": {
+    "is_charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "nl": "Laden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "is_error": {
       "type": "boolean",
       "title": {
         "en": "Errorstatus",
@@ -278,11 +279,22 @@
       "icon": "assets/icon.svg",
       "insights": false
     },
-    "is_completed": {
+    "is_finished": {
       "type": "boolean",
       "title": {
         "en": "Charging finished",
         "nl": "Laden afgerond"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "is_plugged_in": {
+      "type": "boolean",
+      "title": {
+        "en": "Car plugged in",
+        "nl": "Auto verbonden"
       },
       "getable": true,
       "setable": false,
@@ -430,17 +442,6 @@
       "uiQuickAction": true,
       "insights": false
     },
-    "pluggedin": {
-      "type": "boolean",
-      "title": {
-        "en": "Car plugged in",
-        "nl": "Auto verbonden"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "insights": false
-    },
     "status": {
       "type": "enum",
       "title": {
@@ -453,28 +454,28 @@
       },
       "values": [
         {
-          "id": "No car connected",
+          "id": "station_idle",
           "title": {
             "en": "No car connected",
             "nl": "Geen auto verbonden"
           }
         },
         {
-          "id": "Car connected",
-          "title": {
-            "en": "Getting ready to start charging",
-            "nl": "Klaarmaken voor laden"
-          }
-        },
-        {
-          "id": "Charging car",
+          "id": "car_charging",
           "title": {
             "en": "Charging car",
             "nl": "Bezig met laden"
           }
         },
         {
-          "id": "Charging finished",
+          "id": "car_waiting",
+          "title": {
+            "en": "Waiting to charge",
+            "nl": "Klaarmaken voor laden"
+          }
+        },
+        {
+          "id": "car_finished",
           "title": {
             "en": "Charging finished",
             "nl": "Klaar met laden"

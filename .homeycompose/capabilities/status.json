@@ -10,28 +10,28 @@
   },
   "values":[
     {
-      "id":"No car connected",
+      "id":"station_idle",
       "title":{
         "en":"No car connected",
         "nl":"Geen auto verbonden"
       }
     },
     {
-      "id":"Car connected",
-      "title":{
-        "en":"Getting ready to start charging",
-        "nl":"Klaarmaken voor laden"
-      }
-    },
-    {
-      "id":"Charging car",
+      "id":"car_charging",
       "title":{
         "en":"Charging car",
         "nl":"Bezig met laden"
       }
     },
     {
-      "id":"Charging finished",
+      "id":"car_waiting",
+      "title":{
+        "en":"Waiting to charge",
+        "nl":"Klaarmaken voor laden"
+      }
+    },
+    {
+      "id":"car_finished",
       "title":{
         "en":"Charging finished",
         "nl":"Klaar met laden"
