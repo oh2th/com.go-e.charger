@@ -1,0 +1,1 @@
+Support for the go-e Home and Gemini family of EV chargers.
