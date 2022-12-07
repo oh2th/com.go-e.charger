@@ -1,0 +1,45 @@
+{
+  "id": "com.go-e.charger",
+  "version": "0.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "go-e Charger"
+  },
+  "description": {
+    "en": "Smart EV Charging from go-e",
+    "nl": "Slim EV-opladen van go-e"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Tapio Heiskanen",
+    "email": "oh2th@iki.fi"
+  },
+  "brandColor": "#0a58a9",
+  "tags": {
+    "en": [
+      "ev",
+      "electric vehicle",
+      "charge",
+      "charging",
+      "car"
+    ],
+    "nl": [
+      "ev",
+      "elektrisch voertuig",
+      "opladen",
+      "auto"
+    ]
+  }
+}

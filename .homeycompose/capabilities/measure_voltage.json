@@ -1,0 +1,15 @@
+{
+  "type":"number",
+  "title":{
+    "en":"Current Voltage Supplied",
+    "nl":"Actueel voltage"
+  },
+  "getable":true,
+  "setable":false,
+  "units":{
+    "en":"V"
+  },
+  "min":0,
+  "max":750,
+  "insights":true
+}

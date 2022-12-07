@@ -1,0 +1,543 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.go-e.charger",
+  "version": "0.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "go-e Charger"
+  },
+  "description": {
+    "en": "Smart EV Charging from go-e",
+    "nl": "Slim EV-opladen van go-e"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Tapio Heiskanen",
+    "email": "oh2th@iki.fi"
+  },
+  "brandColor": "#0a58a9",
+  "tags": {
+    "en": [
+      "ev",
+      "electric vehicle",
+      "charge",
+      "charging",
+      "car"
+    ],
+    "nl": [
+      "ev",
+      "elektrisch voertuig",
+      "opladen",
+      "auto"
+    ]
+  },
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Finished charging",
+          "nl": "Laden afgerond"
+        },
+        "id": "finished"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "!{{Charging allowed|Charging not allowed}}",
+          "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
+        },
+        "id": "is_allowed"
+      },
+      {
+        "title": {
+          "en": "!{{Charging|Not charging}}",
+          "nl": "!{{Bezig met laden|Niet bezig met laden}}"
+        },
+        "id": "is_charging"
+      },
+      {
+        "title": {
+          "en": "!{{Charging complete|Charging not complete}}",
+          "nl": "!{{Laden afgerond|Laden niet afgerond}}"
+        },
+        "id": "is_completed"
+      },
+      {
+        "title": {
+          "en": "!{{Car plugged in|No car plugged in}}",
+          "nl": "!{{Auto verbonden|Geen auto verbonden}}"
+        },
+        "id": "is_plugged"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Allow charging"
+        },
+        "id": "allow_charging"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "go-e Charger Gemini"
+      },
+      "class": "other",
+      "capabilities": [
+        "finished",
+        "charging",
+        "onoff",
+        "old_onoff",
+        "meter_power",
+        "measure_power",
+        "measure_current",
+        "measure_voltage",
+        "measure_temperature.internal",
+        "measure_temperature.charge_port",
+        "status",
+        "old_status",
+        "errr",
+        "charge_amp",
+        "charge_amp_limit",
+        "energy_total",
+        "pluggedin"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature.internal": {
+          "title": {
+            "en": "Internal Temperature"
+          }
+        },
+        "measure_temperature.charge_port": {
+          "title": {
+            "en": "Charge Port Temperature"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_gemini/assets/images/small.png",
+        "large": "/drivers/go-eCharger_gemini/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_gemini/assets/images/xlarge.png"
+      },
+      "discovery": "mdns_http_gemini",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "go-eCharger_gemini"
+    },
+    {
+      "name": {
+        "en": "go-e Charger Home+"
+      },
+      "class": "other",
+      "capabilities": [
+        "finished",
+        "charging",
+        "onoff",
+        "old_onoff",
+        "meter_power",
+        "measure_power",
+        "measure_current",
+        "measure_voltage",
+        "measure_temperature",
+        "status",
+        "old_status",
+        "errr",
+        "charge_amp",
+        "charge_amp_limit",
+        "energy_total",
+        "pluggedin"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_homeplus/assets/images/small.png",
+        "large": "/drivers/go-eCharger_homeplus/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_homeplus/assets/images/xlarge.png"
+      },
+      "discovery": "mdns_http_homeplus",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "go-eCharger_homeplus"
+    }
+  ],
+  "capabilities": {
+    "charge_amp": {
+      "type": "number",
+      "title": {
+        "en": "Maximum power from source available for charging",
+        "nl": "Maximaal bronvermogen beschikbaar voor laden"
+      },
+      "getable": true,
+      "setable": false,
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "units": {
+        "en": "A"
+      },
+      "icon": "/assets/icon.svg",
+      "insights": true
+    },
+    "charge_amp_limit": {
+      "type": "number",
+      "title": {
+        "en": "Maximum power as set in the device's app",
+        "nl": "Maximaal vermogen zoals ingesteld in de app van het apparaat"
+      },
+      "getable": true,
+      "setable": false,
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "units": {
+        "en": "A"
+      },
+      "icon": "/assets/icon.svg",
+      "insights": true
+    },
+    "charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "nl": "Laden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "energy_total": {
+      "type": "number",
+      "title": {
+        "en": "Total Energy Supplied",
+        "nl": "Totaal geleverde energie"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true
+    },
+    "errr": {
+      "type": "boolean",
+      "title": {
+        "en": "Errorstatus",
+        "nl": "Foutstatus"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "assets/icon.svg",
+      "insights": false
+    },
+    "is_completed": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging finished",
+        "nl": "Laden afgerond"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "measure_current": {
+      "type": "number",
+      "title": {
+        "en": "Current Amperage Supplied",
+        "nl": "Actueel amperage"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "A"
+      },
+      "min": 0,
+      "max": 32,
+      "insights": true
+    },
+    "measure_power": {
+      "type": "number",
+      "title": {
+        "en": "Current Power Supplied",
+        "nl": "Actueel wattage"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "W"
+      },
+      "min": 0,
+      "max": 22000,
+      "insights": true
+    },
+    "measure_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true
+    },
+    "measure_voltage": {
+      "type": "number",
+      "title": {
+        "en": "Current Voltage Supplied",
+        "nl": "Actueel voltage"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "V"
+      },
+      "min": 0,
+      "max": 750,
+      "insights": true
+    },
+    "meter_power": {
+      "type": "number",
+      "title": {
+        "en": "Power supplied in this session",
+        "nl": "Vermogen in deze laadsessie geleverd"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true
+    },
+    "old_onoff": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging allowed",
+        "nl": "Laden toegestaan"
+      },
+      "getable": false,
+      "setable": false,
+      "uiQuickAction": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "old_status": {
+      "type": "enum",
+      "uiComponent": null,
+      "title": {
+        "en": "Device status",
+        "nl": "Status van het apparaat"
+      },
+      "desc": {
+        "en": "Previous device status",
+        "nl": "Vorige Status van het apparaat"
+      },
+      "values": [
+        {
+          "id": "No car connected",
+          "title": {
+            "en": "No car connected",
+            "nl": "Geen auto verbonden"
+          }
+        },
+        {
+          "id": "Car connected",
+          "title": {
+            "en": "Getting ready to start charging",
+            "nl": "Klaarmaken voor laden"
+          }
+        },
+        {
+          "id": "Charging car",
+          "title": {
+            "en": "Charging car",
+            "nl": "Bezig met laden"
+          }
+        },
+        {
+          "id": "Charging finished",
+          "title": {
+            "en": "Charging finished",
+            "nl": "Klaar met laden"
+          }
+        }
+      ],
+      "getable": false,
+      "setable": false,
+      "insights": false
+    },
+    "onoff": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging allowed",
+        "nl": "Laden toegestaan"
+      },
+      "getable": true,
+      "setable": true,
+      "uiQuickAction": true,
+      "insights": false
+    },
+    "pluggedin": {
+      "type": "boolean",
+      "title": {
+        "en": "Car plugged in",
+        "nl": "Auto verbonden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "status": {
+      "type": "enum",
+      "title": {
+        "en": "Device status",
+        "nl": "Status van het apparaat"
+      },
+      "desc": {
+        "en": "Device status",
+        "nl": "Status van het apparaat"
+      },
+      "values": [
+        {
+          "id": "No car connected",
+          "title": {
+            "en": "No car connected",
+            "nl": "Geen auto verbonden"
+          }
+        },
+        {
+          "id": "Car connected",
+          "title": {
+            "en": "Getting ready to start charging",
+            "nl": "Klaarmaken voor laden"
+          }
+        },
+        {
+          "id": "Charging car",
+          "title": {
+            "en": "Charging car",
+            "nl": "Bezig met laden"
+          }
+        },
+        {
+          "id": "Charging finished",
+          "title": {
+            "en": "Charging finished",
+            "nl": "Klaar met laden"
+          }
+        }
+      ],
+      "setable": false,
+      "getable": true,
+      "insights": false
+    }
+  },
+  "discovery": {
+    "mdns_http_gemini": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.serial}}",
+      "conditions": [
+        [
+          {
+            "field": "txt.manufacturer",
+            "match": {
+              "type": "string",
+              "value": "go-e"
+            }
+          },
+          {
+            "field": "txt.devicetype",
+            "match": {
+              "type": "string",
+              "value": "go-eCharger_V4"
+            }
+          }
+        ]
+      ]
+    },
+    "mdns_http_homeplus": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.serial}}",
+      "conditions": [
+        [
+          {
+            "field": "txt.manufacturer",
+            "match": {
+              "type": "string",
+              "value": "go-e"
+            }
+          },
+          {
+            "field": "txt.devicetype",
+            "match": {
+              "type": "string",
+              "value": "go-eCharger_homeplus"
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

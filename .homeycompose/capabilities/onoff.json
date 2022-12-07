@@ -1,0 +1,11 @@
+{
+  "type":"boolean",
+  "title":{
+    "en":"Charging allowed",
+    "nl":"Laden toegestaan"
+  },
+  "getable":true,
+  "setable":true,
+  "uiQuickAction":true,
+  "insights":false
+}

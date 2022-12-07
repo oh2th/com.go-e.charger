@@ -1,0 +1,45 @@
+{
+  "type":"enum",
+  "uiComponent":null,
+  "title":{
+    "en":"Device status",
+    "nl":"Status van het apparaat"
+  },
+  "desc":{
+    "en":"Previous device status",
+    "nl":"Vorige Status van het apparaat"
+  },
+  "values":[
+    {
+      "id":"No car connected",
+      "title":{
+        "en":"No car connected",
+        "nl":"Geen auto verbonden"
+      }
+    },
+    {
+      "id":"Car connected",
+      "title":{
+        "en":"Getting ready to start charging",
+        "nl":"Klaarmaken voor laden"
+      }
+    },
+    {
+      "id":"Charging car",
+      "title":{
+        "en":"Charging car",
+        "nl":"Bezig met laden"
+      }
+    },
+    {
+      "id":"Charging finished",
+      "title":{
+        "en":"Charging finished",
+        "nl":"Klaar met laden"
+      }
+    }
+  ],
+  "getable":false,
+  "setable":false,
+  "insights":false
+}

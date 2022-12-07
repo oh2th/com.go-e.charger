@@ -1,0 +1,62 @@
+{
+  "name": {
+    "en": "go-e Charger Gemini"
+  },
+  "class": "other",
+  "capabilities": [
+    "finished",
+    "charging",
+    "onoff",
+    "old_onoff",
+    "meter_power",
+    "measure_power",
+    "measure_current",
+    "measure_voltage",
+    "measure_temperature.internal",
+    "measure_temperature.charge_port",
+    "status",
+    "old_status",
+    "errr",
+    "charge_amp",
+    "charge_amp_limit",
+    "energy_total",
+    "pluggedin"
+  ],
+  "capabilitiesOptions": {
+    "measure_temperature.internal": {
+      "title": {
+        "en": "Internal Temperature"
+      }
+    },
+    "measure_temperature.charge_port": {
+      "title": {
+        "en": "Charge Port Temperature"
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "discovery": "mdns_http_gemini",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}
