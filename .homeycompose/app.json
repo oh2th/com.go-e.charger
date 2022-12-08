@@ -41,5 +41,12 @@
       "opladen",
       "auto"
     ]
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "phatenl"
+      }
+    ]
   }
 }
