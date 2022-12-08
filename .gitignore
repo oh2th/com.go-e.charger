@@ -17,3 +17,7 @@ Thumbs.db
 /env.json
 /node_modules/
 /.homeybuild/
+package-lock.json
+package.json
+app.js
+tsconfig.json
