@@ -16,7 +16,7 @@
     "measure_temperature.charge_port",
     "status",
     "old_status",
-    "is_error",
+    "is_device_error",
     "charge_amp",
     "charge_amp_limit",
     "energy_total",

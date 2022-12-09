@@ -81,6 +81,7 @@ class mainDevice extends Device {
     return discoveryResult.id === this.getData().id;
   }
 
+  // This method will be executed once when the device has been found (onDiscoveryResult returned true)
   async onDiscoveryAvailable(discoveryResult) {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} available - result: ${discoveryResult.address}.`);
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} api version: ${discoveryResult.txt.protocol}.`);
@@ -88,19 +89,15 @@ class mainDevice extends Device {
     this.api = new GoeChargerApi(discoveryResult.address);
     this.interval = setInterval(() => {
       try {
-        this.log('=============refresh state=============');
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} =============refresh state=============`);
         const _statusOld = this.getCapabilityValue('old_status');
-        this.log(`old_status: '${_statusOld}'`);
-        const _onOffOld = this.getCapabilityValue('old_onoff');
-        this.log(`old_onoff: '${_onOffOld}'`);
-        this._pollChargerState(_statusOld, _onOffOld);
+        const _chargingAllowedOld = this.getCapabilityValue('old_onoff_charging_allowed');
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - old values: '${_statusOld}', '${_chargingAllowedOld}'`);
+        this._pollChargerState(_statusOld, _chargingAllowedOld);
       } catch (e) {
         return e;
       }
     }, POLL_INTERVAL);
-
-    // This method will be executed once when the device has been found (onDiscoveryResult returned true)
-    // this.api = new GoeChargerV2Api(discoveryResult.address);
     // await this.api.connect(); // When this throws, the device will become unavailable.
   }
 
@@ -147,19 +144,17 @@ class mainDevice extends Device {
         this.setCapabilityValue('meter_power', infoJson.meter_power);
         this.setCapabilityValue('status', infoJson.status);
         this.setCapabilityValue('old_status', infoJson.status);
-        this.setCapabilityValue('is_error', infoJson.is_error);
+        this.setCapabilityValue('is_device_error', infoJson.is_device_error);
         this.setCapabilityValue('charge_amp', infoJson.charge_amp);
         this.setCapabilityValue('charge_amp_limit', infoJson.charge_amp_limit);
         this.setCapabilityValue('energy_total', infoJson.energy_total);
-        let _statusNew = 'newstatustext';
+        let _statusNew = '';
         _statusNew = infoJson.status;
-        this.log(`new status: '${_statusNew}'`);
         if (_statusOld !== _statusNew) {
-          this.log('status CHANGED');
+          this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new status: '${_statusNew}'`);
           const statusChangedTrigger = new this.homey.FlowCardTrigger('status_changed');
           statusChangedTrigger.register().trigger().catch(this.error).then(this.log);
           if (_statusNew === 'car_finished') {
-            this.log('Status changed to completed');
             this.setCapabilityValue('is_finished', true);
             this.setCapabilityValue('is_charging', false);
             this.setCapabilityValue('is_plugged_in', true);
@@ -167,14 +162,12 @@ class mainDevice extends Device {
             chargingCompletedTrigger.register().trigger().catch(this.error).then(this.log);
           }
           if (_statusOld === 'car_charging') {
-            this.log('Status changed from charging to no car connected');
             this.setCapabilityValue('is_finished', true);
             this.setCapabilityValue('is_charging', false);
             const chargingEndedTrigger = new this.homey.FlowCardTrigger('charging_ended');
             chargingEndedTrigger.register().trigger().catch(this.error).then(this.log);
           }
           if (_statusNew === 'car_charging') {
-            this.log('Status changed to charging');
             this.setCapabilityValue('is_charging', true);
             this.setCapabilityValue('is_finished', false);
             this.setCapabilityValue('is_plugged_in', true);
@@ -182,7 +175,6 @@ class mainDevice extends Device {
             chargingStartedTrigger.register().trigger().catch(this.error).then(this.log);
           }
           if (_statusNew === 'car_waiting') {
-            this.log('Status changed to car connected');
             this.setCapabilityValue('is_charging', false);
             this.setCapabilityValue('is_finished', false);
             this.setCapabilityValue('is_plugged_in', true);
@@ -195,30 +187,23 @@ class mainDevice extends Device {
             this.setCapabilityValue('is_finished', false);
           }
           if (_statusNew === 'station_idle' && _statusOld != null) {
-            this.log('Status changed to car unplugged');
             const carDisconnectedTrigger = new this.homey.FlowCardTrigger('unplugged');
             carDisconnectedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-        } else {
-          this.log('status unchanged');
         }
         let _allowChargingNew = '';
         _allowChargingNew = infoJson.onoff_charging_allowed;
-        this.log(`new onoff_charging_allowed: '${_allowChargingNew}'`);
         if (_allowChargingOld !== _allowChargingNew) {
-          this.log('onoff_charging_allowed CHANGED');
           if (_allowChargingNew === true && _allowChargingOld != null) {
-            this.log('onoff_charging_allowed changed to TRUE');
+            this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'TRUE'`);
             const onoffChargingAllowedTrigger = new this.homey.FlowCardTrigger('charging_allowed');
             onoffChargingAllowedTrigger.register().trigger().catch(this.error).then(this.log);
           }
           if (_allowChargingNew === false && _allowChargingOld != null) {
-            this.log('onoff_charging_allowed changed to FALSE');
+            this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'FALSE'`);
             const onoffChargingNotAllowedTrigger = new this.homey.FlowCardTrigger('charging_disallowed');
             onoffChargingNotAllowedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-        } else {
-          this.log('onoff_charging_allowed unchanged');
         }
       }
     } catch (e) {

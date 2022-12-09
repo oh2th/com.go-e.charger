@@ -188,8 +188,8 @@
       "capabilities": [
         "is_finished",
         "is_charging",
-        "onoff",
-        "old_onoff",
+        "onoff_charging_allowed",
+        "old_onoff_charging_allowed",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -198,7 +198,7 @@
         "measure_temperature.charge_port",
         "status",
         "old_status",
-        "is_error",
+        "is_device_error",
         "charge_amp",
         "charge_amp_limit",
         "energy_total",
@@ -251,17 +251,16 @@
       "capabilities": [
         "is_finished",
         "is_charging",
-        "onoff",
-        "old_onoff",
+        "onoff_charging_allowed",
+        "old_onoff_charging_allowed",
         "meter_power",
         "measure_power",
         "measure_current",
         "measure_voltage",
-        "measure_temperature.internal",
-        "measure_temperature.charge_port",
+        "measure_temperature",
         "status",
         "old_status",
-        "is_error",
+        "is_device_error",
         "charge_amp",
         "charge_amp_limit",
         "energy_total",
@@ -355,10 +354,10 @@
       "uiComponent": null,
       "insights": false
     },
-    "is_error": {
+    "is_device_error": {
       "type": "boolean",
       "title": {
-        "en": "Errorstatus",
+        "en": "Device error",
         "nl": "Foutstatus"
       },
       "getable": true,
@@ -461,11 +460,10 @@
       },
       "insights": true
     },
-    "old_onoff": {
+    "old_onoff_charging_allowed": {
       "type": "boolean",
       "title": {
-        "en": "Charging allowed",
-        "nl": "Laden toegestaan"
+        "en": "Charging allowed old value"
       },
       "getable": false,
       "setable": false,
@@ -518,7 +516,7 @@
       "setable": false,
       "insights": false
     },
-    "onoff": {
+    "onoff_charging_allowed": {
       "type": "boolean",
       "title": {
         "en": "Charging allowed",

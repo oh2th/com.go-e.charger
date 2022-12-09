@@ -1,7 +1,7 @@
 {
   "type":"boolean",
   "title":{
-    "en":"Errorstatus",
+    "en":"Device error",
     "nl":"Foutstatus"
   },
   "getable":true,
