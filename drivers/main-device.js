@@ -110,8 +110,8 @@ class mainDevice extends Device {
 
   _registerCapabilities() {
     const capabilitySetMap = new Map([
-      ['onoff_charging_allowed', this._setChargingAllowed],
-      ['current_limit', this._setCurrentLimit],
+      ['onoff_charging_allowed', this.setChargingAllowed],
+      ['current_limit', this.setCurrentLimit],
       ['is_finished', null],
       ['is_charging', null]]);
     this.getCapabilities().forEach((capability) => this.registerCapabilityListener(capability, (value) => {
@@ -202,26 +202,28 @@ class mainDevice extends Device {
     }
   }
 
-  async _setChargingAllowed(_state) {
-    this.log('_ChargingCharging');
+  async setChargingAllowed(_state) {
     try {
       if (_state) {
         if (!this.getCapabilityValue('onoff_charging_allowed')) {
-          return Promise.resolve(await this.api.setChargingAllowed(1));
+          this.log(`[Device] ${this.getName()}:  ${this.getData().id} setChargingAllowed: 'TRUE'`);
+          return Promise.resolve(await this.api.setGoeCharger('alw', 1));
         }
       } else if (this.getCapabilityValue('onoff_charging_allowed')) {
-        return Promise.resolve(await this.api.setChargingAllowed(0));
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setChargingAllowed: 'FALSE'`);
+        return Promise.resolve(await this.api.setGoeCharger('alw', 0));
       }
     } catch (e) {
       return Promise.reject(e);
     }
   }
 
-  async _setCurrentLimit(_limit) {
+  async setCurrentLimit(_limit) {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${_limit}'`);
     try {
       if (_limit) {
-        return Promise.resolve(await this.api.setCurrentLimit(_limit));
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${_limit}'`);
+        return Promise.resolve(await this.api.setGoeCharger('amp', _limit));
       }
     } catch (e) {
       return Promise.reject(e);
