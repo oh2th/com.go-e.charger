@@ -295,11 +295,11 @@
     }
   ],
   "capabilities": {
-    "charge_amp": {
+    "current_limit": {
       "type": "number",
       "title": {
-        "en": "Maximum power from source available for charging",
-        "nl": "Maximaal bronvermogen beschikbaar voor laden"
+        "en": "Applied Current Limit",
+        "nl": "Toegepast huidige limiet"
       },
       "getable": true,
       "setable": false,
@@ -312,11 +312,11 @@
       "icon": "/assets/icon.svg",
       "insights": true
     },
-    "charge_amp_limit": {
+    "current_max": {
       "type": "number",
       "title": {
-        "en": "Maximum power as set in the device's app",
-        "nl": "Maximaal vermogen zoals ingesteld in de app van het apparaat"
+        "en": "Maximum Available Current",
+        "nl": "Maximaal beschikbare stroom"
       },
       "getable": true,
       "setable": false,
@@ -357,8 +357,8 @@
     "is_device_error": {
       "type": "boolean",
       "title": {
-        "en": "Device error",
-        "nl": "Foutstatus"
+        "en": "Device Error",
+        "nl": "Apparaat fout"
       },
       "getable": true,
       "setable": false,
@@ -368,7 +368,7 @@
     "is_finished": {
       "type": "boolean",
       "title": {
-        "en": "Charging finished",
+        "en": "Charging Finished",
         "nl": "Laden afgerond"
       },
       "getable": true,
@@ -379,7 +379,7 @@
     "is_plugged_in": {
       "type": "boolean",
       "title": {
-        "en": "Car plugged in",
+        "en": "Car Plugged In",
         "nl": "Auto verbonden"
       },
       "getable": true,
@@ -390,7 +390,7 @@
     "measure_current": {
       "type": "number",
       "title": {
-        "en": "Current Amperage Supplied",
+        "en": "Supplied Current",
         "nl": "Actueel amperage"
       },
       "getable": true,
@@ -405,7 +405,7 @@
     "measure_power": {
       "type": "number",
       "title": {
-        "en": "Current Power Supplied",
+        "en": "Supplied Power",
         "nl": "Actueel wattage"
       },
       "getable": true,
@@ -435,7 +435,7 @@
     "measure_voltage": {
       "type": "number",
       "title": {
-        "en": "Current Voltage Supplied",
+        "en": "Supplied Voltage",
         "nl": "Actueel voltage"
       },
       "getable": true,
@@ -450,7 +450,7 @@
     "meter_power": {
       "type": "number",
       "title": {
-        "en": "Power supplied in this session",
+        "en": "Delivered Power This Session",
         "nl": "Vermogen in deze laadsessie geleverd"
       },
       "getable": true,
@@ -460,66 +460,10 @@
       },
       "insights": true
     },
-    "old_onoff_charging_allowed": {
-      "type": "boolean",
-      "title": {
-        "en": "Charging allowed old value"
-      },
-      "getable": false,
-      "setable": false,
-      "uiQuickAction": false,
-      "uiComponent": null,
-      "insights": false
-    },
-    "old_status": {
-      "type": "enum",
-      "uiComponent": null,
-      "title": {
-        "en": "Device status",
-        "nl": "Status van het apparaat"
-      },
-      "desc": {
-        "en": "Previous device status",
-        "nl": "Vorige Status van het apparaat"
-      },
-      "values": [
-        {
-          "id": "No car connected",
-          "title": {
-            "en": "No car connected",
-            "nl": "Geen auto verbonden"
-          }
-        },
-        {
-          "id": "Car connected",
-          "title": {
-            "en": "Getting ready to start charging",
-            "nl": "Klaarmaken voor laden"
-          }
-        },
-        {
-          "id": "Charging car",
-          "title": {
-            "en": "Charging car",
-            "nl": "Bezig met laden"
-          }
-        },
-        {
-          "id": "Charging finished",
-          "title": {
-            "en": "Charging finished",
-            "nl": "Klaar met laden"
-          }
-        }
-      ],
-      "getable": false,
-      "setable": false,
-      "insights": false
-    },
     "onoff_charging_allowed": {
       "type": "boolean",
       "title": {
-        "en": "Charging allowed",
+        "en": "Charging Allowed",
         "nl": "Laden toegestaan"
       },
       "getable": true,
@@ -530,39 +474,39 @@
     "status": {
       "type": "enum",
       "title": {
-        "en": "Device status",
+        "en": "Device Status",
         "nl": "Status van het apparaat"
       },
       "desc": {
-        "en": "Device status",
+        "en": "Device Status",
         "nl": "Status van het apparaat"
       },
       "values": [
         {
           "id": "station_idle",
           "title": {
-            "en": "No car connected",
+            "en": "No Car Connected",
             "nl": "Geen auto verbonden"
           }
         },
         {
           "id": "car_charging",
           "title": {
-            "en": "Charging car",
-            "nl": "Bezig met laden"
+            "en": "Car Charging",
+            "nl": "Auto opladen"
           }
         },
         {
           "id": "car_waiting",
           "title": {
-            "en": "Waiting to charge",
+            "en": "Waiting to Charge",
             "nl": "Klaarmaken voor laden"
           }
         },
         {
           "id": "car_finished",
           "title": {
-            "en": "Charging finished",
+            "en": "Charging Finished",
             "nl": "Klaar met laden"
           }
         }
