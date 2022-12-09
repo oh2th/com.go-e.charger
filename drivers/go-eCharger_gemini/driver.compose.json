@@ -6,8 +6,8 @@
   "capabilities": [
     "is_finished",
     "is_charging",
-    "onoff_allow_charging",
-    "old_onoff_allow_charging",
+    "onoff_charging_allow",
+    "old_onoff_charging_allow",
     "meter_power",
     "measure_power",
     "measure_current",
