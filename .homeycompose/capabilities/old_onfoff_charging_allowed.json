@@ -1,8 +1,7 @@
 {
   "type":"boolean",
   "title":{
-    "en":"Charging allowed",
-    "nl":"Laden toegestaan"
+    "en":"Charging allowed old value"
   },
   "getable":false,
   "setable":false,

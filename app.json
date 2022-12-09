@@ -43,14 +43,70 @@
       "auto"
     ]
   },
+  "contributors": {
+    "developers": [
+      {
+        "name": "phatenl"
+      }
+    ]
+  },
   "flow": {
     "triggers": [
+      {
+        "title": {
+          "en": "Car connected",
+          "nl": "Auto verbonden"
+        },
+        "id": "car_connected"
+      },
+      {
+        "title": {
+          "en": "Car unplugged",
+          "nl": "Auto ontkoppeld"
+        },
+        "id": "car_unplugged"
+      },
+      {
+        "title": {
+          "en": "Charging allowed",
+          "nl": "Opladen toegestaan"
+        },
+        "id": "charging_allowed"
+      },
+      {
+        "title": {
+          "en": "Charging disallowed",
+          "nl": "Opladen niet meer toegestaan"
+        },
+        "id": "charging_disallowed"
+      },
+      {
+        "title": {
+          "en": "Charging ended",
+          "nl": "Laden beëindigd"
+        },
+        "id": "charging_ended"
+      },
       {
         "title": {
           "en": "Finished charging",
           "nl": "Laden afgerond"
         },
-        "id": "finished_charging"
+        "id": "charging_finished"
+      },
+      {
+        "title": {
+          "en": "Charging started",
+          "nl": "Laden gestart"
+        },
+        "id": "charging_started"
+      },
+      {
+        "title": {
+          "en": "Status changed",
+          "nl": "Status gewijzigd"
+        },
+        "id": "status_changed"
       }
     ],
     "conditions": [
@@ -86,9 +142,40 @@
     "actions": [
       {
         "title": {
-          "en": "Allow charging"
+          "en": "Allow charging",
+          "nl": "Laden toestaan"
         },
         "id": "allow_charging"
+      },
+      {
+        "title": {
+          "en": "Change current to...",
+          "nl": "Amperage veranderen naar..."
+        },
+        "titleformatted": {
+          "en": "Change current to [[amps]]",
+          "nl": "Amperage veranderen naar [[amps]]"
+        },
+        "args": [
+          {
+            "type": "range",
+            "name": "amps",
+            "min": 6,
+            "max": 32,
+            "step": 1,
+            "label": "A",
+            "labelMultiplier": 1,
+            "labelDecimals": 0
+          }
+        ],
+        "id": "change_current"
+      },
+      {
+        "title": {
+          "en": "Stop charging",
+          "nl": "Laden stoppen"
+        },
+        "id": "stop_charging"
       }
     ]
   },

@@ -122,24 +122,24 @@ class mainDevice extends Device {
 
   _registerCapabilities() {
     const capabilitySetMap = new Map([
-      ['onoff', this._setOnOff],
+      ['onoff', this._setChargingAllowed],
       ['charge_amp', this._setChargeCurrent],
       ['is_finished', null],
       ['is_charging', null]]);
     this.getCapabilities().forEach((capability) => this.registerCapabilityListener(capability, (value) => {
-      return capabilitySetMap.get(capability).call(this, value).catch((err) => {
-        return Promise.reject(err);
+      return capabilitySetMap.get(capability).call(this, value).catch((e) => {
+        return Promise.reject(e);
       });
     }));
   }
 
-  async _pollChargerState(_statusOld, _onOffOld) {
+  async _pollChargerState(_statusOld, _allowChargingOld) {
     try {
       const infoJson = await this.api.getInfo();
       if (infoJson) {
         this.setAvailable();
-        this.setCapabilityValue('onoff', infoJson.onoff);
-        this.setCapabilityValue('old_onoff', infoJson.onoff);
+        this.setCapabilityValue('onoff_charging_allowed', infoJson.onoff_charging_allowed);
+        this.setCapabilityValue('old_onoff_charging_allowed', infoJson.onoff_charging_allowed);
         this.setCapabilityValue('measure_power', infoJson.measure_power);
         this.setCapabilityValue('measure_current', infoJson.measure_current);
         this.setCapabilityValue('measure_voltage', infoJson.measure_voltage);
@@ -147,7 +147,7 @@ class mainDevice extends Device {
         this.setCapabilityValue('meter_power', infoJson.meter_power);
         this.setCapabilityValue('status', infoJson.status);
         this.setCapabilityValue('old_status', infoJson.status);
-        this.setCapabilityValue('is_error', infoJson.error);
+        this.setCapabilityValue('is_error', infoJson.is_error);
         this.setCapabilityValue('charge_amp', infoJson.charge_amp);
         this.setCapabilityValue('charge_amp_limit', infoJson.charge_amp_limit);
         this.setCapabilityValue('energy_total', infoJson.energy_total);
@@ -202,23 +202,23 @@ class mainDevice extends Device {
         } else {
           this.log('status unchanged');
         }
-        let _onOffNew = 'newonofftext';
-        _onOffNew = infoJson.onoff;
-        this.log(`new onoff: '${_onOffNew}'`);
-        if (_onOffOld !== _onOffNew) {
-          this.log('onoff CHANGED');
-          if (_onOffNew === true && _onOffOld != null) {
-            this.log('OnOff changed to TRUE');
-            const onoffAllowedTrigger = new this.homey.FlowCardTrigger('charging_allowed');
-            onoffAllowedTrigger.register().trigger().catch(this.error).then(this.log);
+        let _allowChargingNew = '';
+        _allowChargingNew = infoJson.onoff_charging_allowed;
+        this.log(`new onoff_charging_allowed: '${_allowChargingNew}'`);
+        if (_allowChargingOld !== _allowChargingNew) {
+          this.log('onoff_charging_allowed CHANGED');
+          if (_allowChargingNew === true && _allowChargingOld != null) {
+            this.log('onoff_charging_allowed changed to TRUE');
+            const onoffChargingAllowedTrigger = new this.homey.FlowCardTrigger('charging_allowed');
+            onoffChargingAllowedTrigger.register().trigger().catch(this.error).then(this.log);
           }
-          if (_onOffNew === false && _onOffOld != null) {
-            this.log('OnOff changed to FALSE');
-            const onoffNotAllowedTrigger = new this.homey.FlowCardTrigger('charging_disallowed');
-            onoffNotAllowedTrigger.register().trigger().catch(this.error).then(this.log);
+          if (_allowChargingNew === false && _allowChargingOld != null) {
+            this.log('onoff_charging_allowed changed to FALSE');
+            const onoffChargingNotAllowedTrigger = new this.homey.FlowCardTrigger('charging_disallowed');
+            onoffChargingNotAllowedTrigger.register().trigger().catch(this.error).then(this.log);
           }
         } else {
-          this.log('onoff unchanged');
+          this.log('onoff_charging_allowed unchanged');
         }
       }
     } catch (e) {
@@ -228,15 +228,15 @@ class mainDevice extends Device {
     }
   }
 
-  async _setOnOff(_onOff) {
-    this.log('_setOnOff');
+  async _setChargingAllowed(_state) {
+    this.log('_ChargingCharging');
     try {
-      if (_onOff) {
-        if (!this.getCapabilityValue('onoff')) {
-          return Promise.resolve(await this.api.setOnOff(1));
+      if (_state) {
+        if (!this.getCapabilityValue('onoff_charging_allowed')) {
+          return Promise.resolve(await this.api.setChargingAllowed(1));
         }
-      } else if (this.getCapabilityValue('onoff')) {
-        return Promise.resolve(await this.api.setOnOff(0));
+      } else if (this.getCapabilityValue('onoff_charging_allowed')) {
+        return Promise.resolve(await this.api.setChargingAllowed(0));
       }
     } catch (e) {
       return Promise.reject(e);
