@@ -1,44 +1,44 @@
 {
-  "type":"enum",
-  "title":{
-    "en":"Device status",
+  "type": "enum",
+  "title": {
+    "en": "Device Status",
     "nl":"Status van het apparaat"
   },
-  "desc":{
-    "en":"Device status",
-    "nl":"Status van het apparaat"
+  "desc": {
+    "en": "Device Status",
+    "nl": "Status van het apparaat"
   },
-  "values":[
+  "values": [
     {
-      "id":"station_idle",
-      "title":{
-        "en":"No car connected",
-        "nl":"Geen auto verbonden"
+      "id": "station_idle",
+      "title": {
+        "en": "No Car Connected",
+        "nl": "Geen auto verbonden"
       }
     },
     {
-      "id":"car_charging",
-      "title":{
-        "en":"Charging car",
-        "nl":"Bezig met laden"
+      "id": "car_charging",
+      "title": {
+        "en": "Car Charging",
+        "nl": "Auto opladen"
       }
     },
     {
-      "id":"car_waiting",
-      "title":{
-        "en":"Waiting to charge",
-        "nl":"Klaarmaken voor laden"
+      "id": "car_waiting",
+      "title": {
+        "en": "Waiting to Charge",
+        "nl": "Klaarmaken voor laden"
       }
     },
     {
-      "id":"car_finished",
-      "title":{
-        "en":"Charging finished",
-        "nl":"Klaar met laden"
+      "id": "car_finished",
+      "title": {
+        "en": "Charging Finished",
+        "nl": "Klaar met laden"
       }
     }
   ],
-  "setable":false,
-  "getable":true,
-  "insights":false
+  "setable": false,
+  "getable": true,
+  "insights": false
 }

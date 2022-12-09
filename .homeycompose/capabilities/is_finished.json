@@ -1,11 +1,11 @@
 {
-  "type":"boolean",
-  "title":{
-    "en":"Charging finished",
-    "nl":"Laden afgerond"
+  "type": "boolean",
+  "title": {
+    "en": "Charging Finished",
+    "nl": "Laden afgerond"
   },
-  "getable":true,
-  "setable":false,
-  "uiComponent":null,
-  "insights":false
+  "getable": true,
+  "setable": false,
+  "uiComponent": null,
+  "insights": false
 }

@@ -1,11 +1,11 @@
 {
-  "type":"boolean",
-  "title":{
-    "en":"Device error",
-    "nl":"Foutstatus"
+  "type": "boolean",
+  "title": {
+    "en": "Device Error",
+    "nl": "Apparaat fout"
   },
-  "getable":true,
-  "setable":false,
-  "icon":"assets/icon.svg",
-  "insights":false
+  "getable": true,
+  "setable": false,
+  "icon": "assets/icon.svg",
+  "insights": false
 }

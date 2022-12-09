@@ -1,17 +1,17 @@
 {
-  "type":"number",
-  "title":{
-    "en":"Maximum power as set in the device's app",
-    "nl":"Maximaal vermogen zoals ingesteld in de app van het apparaat"
+  "type": "number",
+  "title": {
+    "en": "Applied Current Limit",
+    "nl": "Toegepast huidige limiet"
   },
-  "getable":true,
-  "setable":false,
-  "min":6,
-  "max":32,
-  "step":1,
-  "units":{
-    "en":"A"
+  "getable": true,
+  "setable": false,
+  "min": 6,
+  "max": 32,
+  "step": 1,
+  "units": {
+    "en": "A"
   },
-  "icon":"/assets/icon.svg",
-  "insights":true
+  "icon": "/assets/icon.svg",
+  "insights": true
 }

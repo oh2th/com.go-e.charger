@@ -1,17 +1,17 @@
 {
-  "type":"number",
-  "title":{
-    "en":"Maximum power from source available for charging",
-    "nl":"Maximaal bronvermogen beschikbaar voor laden"
+  "type": "number",
+  "title": {
+    "en": "Maximum Available Current",
+    "nl": "Maximaal beschikbare stroom"
   },
-  "getable":true,
-  "setable":false,
-  "min":6,
-  "max":32,
-  "step":1,
-  "units":{
-    "en":"A"
+  "getable": true,
+  "setable": false,
+  "min": 6,
+  "max": 32,
+  "step": 1,
+  "units": {
+    "en": "A"
   },
-  "icon":"/assets/icon.svg",
-  "insights":true
+  "icon": "/assets/icon.svg",
+  "insights": true
 }

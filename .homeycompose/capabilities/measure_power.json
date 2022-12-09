@@ -1,15 +1,15 @@
 {
-  "type":"number",
-  "title":{
-    "en":"Current Power Supplied",
-    "nl":"Actueel wattage"
+  "type": "number",
+  "title": {
+    "en": "Supplied Power",
+    "nl": "Actueel wattage"
   },
-  "getable":true,
-  "setable":false,
-  "units":{
-    "en":"W"
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "W"
   },
-  "min":0,
-  "max":22000,
-  "insights":true
+  "min": 0,
+  "max": 22000,
+  "insights": true
 }

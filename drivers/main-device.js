@@ -110,8 +110,8 @@ class mainDevice extends Device {
 
   _registerCapabilities() {
     const capabilitySetMap = new Map([
-      ['onoff', this._setChargingAllowed],
-      ['charge_amp', this._setChargeCurrent],
+      ['onoff_charging_allowed', this._setChargingAllowed],
+      ['current_limit', this._setCurrentLimit],
       ['is_finished', null],
       ['is_charging', null]]);
     this.getCapabilities().forEach((capability) => this.registerCapabilityListener(capability, (value) => {
@@ -129,15 +129,15 @@ class mainDevice extends Device {
       if (infoJson) {
         this.setAvailable();
         this.setCapabilityValue('onoff_charging_allowed', infoJson.onoff_charging_allowed);
+        this.setCapabilityValue('meter_power', infoJson.meter_power);
         this.setCapabilityValue('measure_power', infoJson.measure_power);
         this.setCapabilityValue('measure_current', infoJson.measure_current);
         this.setCapabilityValue('measure_voltage', infoJson.measure_voltage);
         this.setCapabilityValue('measure_temperature', infoJson.measure_temperature);
-        this.setCapabilityValue('meter_power', infoJson.meter_power);
         this.setCapabilityValue('status', infoJson.status);
         this.setCapabilityValue('is_device_error', infoJson.is_device_error);
-        this.setCapabilityValue('charge_amp', infoJson.charge_amp);
-        this.setCapabilityValue('charge_amp_limit', infoJson.charge_amp_limit);
+        this.setCapabilityValue('current_limit', infoJson.current_limit);
+        this.setCapabilityValue('current_max', infoJson.current_max);
         this.setCapabilityValue('energy_total', infoJson.energy_total);
 
         if (infoJson.status !== this.getStoreValue('old_status')) {
@@ -217,11 +217,11 @@ class mainDevice extends Device {
     }
   }
 
-  async _setChargeCurrent(_chargeCurrent) {
-    this.log('_setChargeCurrent');
+  async _setCurrentLimit(_limit) {
+    this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${_limit}'`);
     try {
-      if (_chargeCurrent) {
-        return Promise.resolve(await this.api.setChargeCurrent(_chargeCurrent));
+      if (_limit) {
+        return Promise.resolve(await this.api.setCurrentLimit(_limit));
       }
     } catch (e) {
       return Promise.reject(e);
