@@ -1,56 +1,56 @@
 {
   "triggers": [
     {
-      "id": "car_connected",
+      "id": "gemini_car_connected",
       "title": {
         "en": "Car connected",
         "nl": "Auto verbonden"
       }
     },
     {
-      "id": "car_unplugged",
+      "id": "gemini_car_unplugged",
       "title": {
         "en": "Car unplugged",
         "nl": "Auto ontkoppeld"
       }
     },
     {
-      "id": "charging_allowed",
+      "id": "gemini_charging_allowed",
       "title": {
         "en": "Charging allowed",
         "nl": "Opladen toegestaan"
       }
     },
     {
-      "id": "charging_disallowed",
+      "id": "gemini_charging_disallowed",
       "title": {
         "en": "Charging disallowed",
         "nl": "Opladen niet meer toegestaan"
       }
     },
     {
+      "id": "gemini_charging_started",
       "title": {
-        "id": "charging_started",
         "en": "Charging started",
         "nl": "Laden gestart"
       }
     },
     {
-      "id": "charging_ended",
+      "id": "gemini_charging_ended",
       "title": {
         "en": "Charging ended",
         "nl": "Laden beëindigd"
       }
     },
     {
+      "id": "gemini_charging_finished",
       "title": {
-        "id": "charging_finished",
         "en": "Charging finished",
         "nl": "Laden afgerond"
       }
     },
     {
-      "id": "status_changed",
+      "id": "gemini_status_changed",
       "title": {
         "en": "Status changed",
         "nl": "Status gewijzigd"
@@ -59,28 +59,28 @@
   ],
   "conditions": [
     {
-      "id": "is_allowed",
+      "id": "gemini_is_allowed",
       "title": {
         "en": "!{{Charging allowed|Charging not allowed}}",
         "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
       }
     },
     {
-      "id": "is_charging",
+      "id": "gemini_is_charging",
       "title": {
         "en": "!{{Charging|Not charging}}",
         "nl": "!{{Bezig met laden|Niet bezig met laden}}"
       }
     },
     {
-      "id": "is_finished",
+      "id": "gemini_is_finished",
       "title": {
         "en": "!{{Charging complete|Charging not complete}}",
         "nl": "!{{Laden afgerond|Laden niet afgerond}}"
       }
     },
     {
-      "id": "is_plugged_in",
+      "id": "gemini_is_plugged_in",
       "title": {
         "en": "!{{Car plugged in|No car plugged in}}",
         "nl": "!{{Auto verbonden|Geen auto verbonden}}"
@@ -89,21 +89,21 @@
   ],
   "actions": [
     {
-      "id": "allow_charging",
+      "id": "gemini_allow_charging",
       "title": {
         "en": "Allow charging",
         "nl": "Laden toestaan"
       }
     },
     {
-      "id": "stop_charging",
+      "id": "gemini_stop_charging",
       "title": {
         "en": "Stop charging",
         "nl": "Laden stoppen"
       }
     },
     {
-      "id": "change_current",
+      "id": "gemini_change_current",
       "title": {
         "en": "Change current to...",
         "nl": "Amperage veranderen naar..."

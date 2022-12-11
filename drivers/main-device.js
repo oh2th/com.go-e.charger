@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-
 'use strict';
 
 const { Device } = require('homey');
@@ -13,31 +11,9 @@ class mainDevice extends Device {
    * onInit is called when the device is initialized.
    */
   async onInit() {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} (${this.getStoreValue('address')}) start init.`);
+    this.log(`[Device] ${this.getName()}:  ${this.getData().id} start init.`);
     this._registerCapabilities();
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} init completed.`);
-
-    // Register Flow Card Conditions
-    const isCompletedCondition = this.homey.flow.getConditionCard('is_finished');
-    isCompletedCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('is_finished');
-      return Promise.resolve(result);
-    });
-    const isChargingCondition = this.homey.flow.getConditionCard('is_charging');
-    isChargingCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('is_charging');
-      return Promise.resolve(result);
-    });
-    const isAllowedCondition = this.homey.flow.getConditionCard('is_allowed');
-    isAllowedCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('onoff');
-      return Promise.resolve(result);
-    });
-    const isPluggedCondition = this.homey.flow.getConditionCard('is_plugged_in');
-    isPluggedCondition.registerRunListener(async (args, state) => {
-      const result = this.getCapabilityValue('is_plugged_in');
-      return Promise.resolve(result);
-    });
   }
 
   /**
@@ -87,7 +63,8 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} available - result: ${discoveryResult.address}.`);
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} api version: ${discoveryResult.txt.protocol}.`);
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
-    this.api = new GoeChargerApi(discoveryResult.address);
+    this.api = new GoeChargerApi();
+    this.api.address = discoveryResult.address;
     await this.setCapabilityValuesInterval();
     // await this.api.connect(); // When this throws, the device will become unavailable.
   }
@@ -119,87 +96,6 @@ class mainDevice extends Device {
         return Promise.reject(e);
       });
     }));
-  }
-
-  async setCapabilityValues() {
-    try {
-      this.setStoreValue('old_status', this.getCapabilityValue('status'));
-      this.setStoreValue('old_chargingAllowed', this.getCapabilityValue('onoff_charging_allowed'));
-      const infoJson = await this.api.getInfo();
-      if (infoJson) {
-        this.setAvailable();
-        this.setCapabilityValue('onoff_charging_allowed', infoJson.onoff_charging_allowed);
-        this.setCapabilityValue('meter_power', infoJson.meter_power);
-        this.setCapabilityValue('measure_power', infoJson.measure_power);
-        this.setCapabilityValue('measure_current', infoJson.measure_current);
-        this.setCapabilityValue('measure_voltage', infoJson.measure_voltage);
-        this.setCapabilityValue('measure_temperature', infoJson.measure_temperature);
-        this.setCapabilityValue('status', infoJson.status);
-        this.setCapabilityValue('is_device_error', infoJson.is_device_error);
-        this.setCapabilityValue('current_limit', infoJson.current_limit);
-        this.setCapabilityValue('current_max', infoJson.current_max);
-        this.setCapabilityValue('energy_total', infoJson.energy_total);
-
-        if (infoJson.status !== this.getStoreValue('old_status')) {
-          this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new status: '${infoJson.status}'`);
-          const statusChangedTrigger = new this.homey.FlowCardTrigger('status_changed');
-          statusChangedTrigger.register().trigger().catch(this.error).then(this.log);
-          if (infoJson.status === 'car_finished') {
-            this.setCapabilityValue('is_finished', true);
-            this.setCapabilityValue('is_charging', false);
-            this.setCapabilityValue('is_plugged_in', true);
-            const chargingCompletedTrigger = new this.homey.FlowCardTrigger('charging_finished');
-            chargingCompletedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-          if (this.getStoreValue('old_status') === 'car_charging') {
-            this.setCapabilityValue('is_finished', true);
-            this.setCapabilityValue('is_charging', false);
-            const chargingEndedTrigger = new this.homey.FlowCardTrigger('charging_ended');
-            chargingEndedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-          if (infoJson.status === 'car_charging') {
-            this.setCapabilityValue('is_charging', true);
-            this.setCapabilityValue('is_finished', false);
-            this.setCapabilityValue('is_plugged_in', true);
-            const chargingStartedTrigger = new this.homey.FlowCardTrigger('charging_started');
-            chargingStartedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-          if (infoJson.status === 'car_waiting') {
-            this.setCapabilityValue('is_charging', false);
-            this.setCapabilityValue('is_finished', false);
-            this.setCapabilityValue('is_plugged_in', true);
-            const carConnectedTrigger = new this.homey.FlowCardTrigger('car_connected');
-            carConnectedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-          if (infoJson.status === 'station_idle') {
-            this.setCapabilityValue('is_plugged_in', false);
-            this.setCapabilityValue('is_charging', false);
-            this.setCapabilityValue('is_finished', false);
-          }
-          if (infoJson.status === 'station_idle' && this.getStoreValue('old_status') != null) {
-            const carDisconnectedTrigger = new this.homey.FlowCardTrigger('unplugged');
-            carDisconnectedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-        }
-
-        if (infoJson.onoff_charging_allowed !== this.getStoreValue('old_chargingAllowed')) {
-          if (infoJson.onoff_charging_allowed === true && this.getStoreValue('old_chargingAllowed') != null) {
-            this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'TRUE'`);
-            const onoffChargingAllowedTrigger = new this.homey.FlowCardTrigger('charging_allowed');
-            onoffChargingAllowedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-          if (infoJson.onoff_charging_allowed === false && this.getStoreValue('old_chargingAllowed') != null) {
-            this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'FALSE'`);
-            const onoffChargingNotAllowedTrigger = new this.homey.FlowCardTrigger('charging_disallowed');
-            onoffChargingNotAllowedTrigger.register().trigger().catch(this.error).then(this.log);
-          }
-        }
-      }
-    } catch (e) {
-      this.setUnavailable(e);
-      // console.log(e);
-      return 'not connected';
-    }
   }
 
   async setChargingAllowed(_state) {

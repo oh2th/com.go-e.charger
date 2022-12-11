@@ -29,8 +29,8 @@
       }
     },
     {
+      "id": "charging_started",
       "title": {
-        "id": "charging_started",
         "en": "Charging started",
         "nl": "Laden gestart"
       }
@@ -43,8 +43,8 @@
       }
     },
     {
+      "id": "charging_finished",
       "title": {
-        "id": "charging_finished",
         "en": "Charging finished",
         "nl": "Laden afgerond"
       }
