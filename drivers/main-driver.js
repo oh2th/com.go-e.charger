@@ -30,8 +30,26 @@ module.exports = class mainDriver extends Homey.Driver {
   triggerStatusChanged(device, tokens, state) {
     this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: statusChanged`);
   }
+  triggerCarConnected(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: carConnected`);
+  }
+  triggerCarUnplugged(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: carUnplugged`);
+  }
   triggerChargingAllowed(device, tokens, state) {
     this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: chargingAllowed`);
+  }
+  triggerChargingDisallowed(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: chargingDisallowed`);
+  }
+  triggerChargingStarted(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: chargingStarted`);
+  }
+  triggerChargingEnded(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: chargingEnded`);
+  }
+  triggerChargingFinished(device, tokens, state) {
+    this.log(`[Device] ${device.getName()}: ${device.getData().id} trigger: chargingFinished`);
   }
 
 };

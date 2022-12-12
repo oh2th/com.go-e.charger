@@ -1,6 +1,13 @@
 {
   "triggers": [
     {
+      "id": "status_changed",
+      "title": {
+        "en": "Status changed",
+        "nl": "Status gewijzigd"
+      }
+    },
+    {
       "id": "car_connected",
       "title": {
         "en": "Car connected",
@@ -47,13 +54,6 @@
       "title": {
         "en": "Charging finished",
         "nl": "Laden afgerond"
-      }
-    },
-    {
-      "id": "status_changed",
-      "title": {
-        "en": "Status changed",
-        "nl": "Status gewijzigd"
       }
     }
   ],
