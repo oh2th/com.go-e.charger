@@ -30,7 +30,7 @@
     "large": "{{driverAssetsPath}}/images/large.png",
     "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
   },
-  "discovery": "mdns_http_homeplus",
+  "discovery": "mdns_http_go-e",
   "pair": [
     {
       "id": "list_devices",

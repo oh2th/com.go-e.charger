@@ -13,13 +13,6 @@
           "type": "string",
           "value": "go-e"
         }
-      },
-      {
-        "field": "txt.devicetype",
-        "match": {
-          "type": "string",
-          "value": "go-eCharger_V4"
-        }
       }
     ]
   ]
