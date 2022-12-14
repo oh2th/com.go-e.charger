@@ -10,8 +10,8 @@ module.exports = class goeChargerV1andV2Device extends mainDevice {
     let state = {};
 
     try {
-      this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last status: '${this.getStoreValue('old_status')}'`);
-      this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last chargingAllowed: '${this.getStoreValue('old_chargingAllowed')}'`);
+      // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last status: '${this.getStoreValue('old_status')}'`);
+      // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last chargingAllowed: '${this.getStoreValue('old_chargingAllowed')}'`);
 
       const infoJson = await this.api.getInfo();
       if (infoJson) {
@@ -30,7 +30,7 @@ module.exports = class goeChargerV1andV2Device extends mainDevice {
     
         // Check for status change and trigger accordingly
         if (infoJson.status !== this.getStoreValue('old_status')) {
-          this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new status: '${infoJson.status}'`);    
+          // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new status: '${infoJson.status}'`);    
           this.driver.triggerStatusChanged(device, tokens, state);
 
           // Check the actual status and trigger flows
@@ -62,7 +62,7 @@ module.exports = class goeChargerV1andV2Device extends mainDevice {
         // Check for chargingAllowed status change and trigger accordingly
         if (this.getStoreValue('old_chargingAllowed') != null) {
           if (infoJson.onoff_charging_allowed !== this.getStoreValue('old_chargingAllowed')) {
-            this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new chargingAllowed: '${infoJson.onoff_charging_allowed}'`);
+            // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new chargingAllowed: '${infoJson.onoff_charging_allowed}'`);
             if (infoJson.onoff_charging_allowed === true) {
               this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'TRUE'`);
               this.driver.triggerChargingAllowed(device, tokens, state);
