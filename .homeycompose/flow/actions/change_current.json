@@ -9,6 +9,11 @@
   },
   "args": [
     {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+    },
+    {
       "type": "range",
       "name": "amps",
       "min": 6,

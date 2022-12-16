@@ -2,5 +2,12 @@
   "title": {
     "en": "!{{Car plugged in|No car plugged in}}",
     "nl": "!{{Auto verbonden|Geen auto verbonden}}"
-  }
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+    }
+  ]
 }
