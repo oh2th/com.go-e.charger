@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Car connected",
+    "nl": "Auto verbonden"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+    }
+  ]
+}

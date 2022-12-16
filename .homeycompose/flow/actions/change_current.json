@@ -1,0 +1,27 @@
+{
+  "title": {
+    "en": "Change current to...",
+    "nl": "Amperage veranderen naar..."
+  },
+  "titleformatted": {
+    "en": "Change current to [[amps]]",
+    "nl": "Amperage veranderen naar [[amps]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+    },
+    {
+      "type": "range",
+      "name": "amps",
+      "min": 6,
+      "max": 32,
+      "step": 1,
+      "label": "A",
+      "labelMultiplier": 1,
+      "labelDecimals": 0
+    }
+  ]
+}

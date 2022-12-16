@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Charging ended",
+    "nl": "Laden beëindigd"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+    }
+  ]
+}
