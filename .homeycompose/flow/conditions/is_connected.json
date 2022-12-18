@@ -1,13 +1,17 @@
 {
   "title": {
-    "en": "!{{Car is connected|Car is ot connected}}",
-    "nl": "!{{Auto verbonden|Geen auto verbonden}}"
+    "en": "is connected",
+    "nl": "verbonden"
+  },
+  "titleFormated": {
+    "en": "Car !{{is|isn't}} connected}}",
+    "nl": "!{{Auto|Geen auto}} verbonden"
   },
   "args": [
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+      "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     }
   ]
 }

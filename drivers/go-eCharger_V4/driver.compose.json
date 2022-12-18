@@ -4,21 +4,20 @@
   },
   "class": "other",
   "capabilities": [
-    "is_finished",
-    "is_charging",
+    "status",
     "onoff_charging_allowed",
+    "is_charging",
+    "is_device_error",
+    "is_connected",
     "meter_power",
     "measure_power",
     "measure_current",
     "measure_voltage",
     "measure_temperature.internal",
     "measure_temperature.charge_port",
-    "status",
-    "is_device_error",
     "current_limit",
     "current_max",
-    "energy_total",
-    "is_connected"
+    "energy_total"
   ],
   "capabilitiesOptions": {
     "measure_temperature.internal": {

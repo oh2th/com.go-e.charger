@@ -1,13 +1,13 @@
 {
   "title": {
-    "en": "Charging state changed",
-    "nl": "Laden gestart"
+    "en": "Charging changed",
+    "nl": "Opladen veranderd"
   },
   "args": [
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+      "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     }
   ]
 }

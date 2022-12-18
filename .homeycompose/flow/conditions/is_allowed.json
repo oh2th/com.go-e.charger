@@ -1,13 +1,17 @@
 {
   "title": {
-    "en": "!{{Charging is allowed|Charging not allowed}}",
-    "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
+    "en": "charging allowed",
+    "nl": "laden toegestaan"
+  },
+  "titleFormated": {
+    "en": "Charging !{{is|isn't}} allowed",
+    "nl": "!{{Laden !{{is|is niet}} toegestaan"
   },
   "args": [
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+      "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     }
   ]
 }

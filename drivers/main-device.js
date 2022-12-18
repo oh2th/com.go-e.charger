@@ -72,6 +72,8 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
     this.api = new GoeChargerApi();
     this.api.address = discoveryResult.address;
+    await this.setCapabilityValues(true);
+    await this.setAvailable();
     await this.setCapabilityValuesInterval();
     // await this.api.connect(); // When this throws, the device will become unavailable.
   }
@@ -130,41 +132,34 @@ class mainDevice extends Device {
       if (infoJson) {
         await this.setAvailable();
 
-        await this.setValue('onoff_charging_allowed', infoJson.onoff_charging_allowed, check);
-        await this.setValue('meter_power', infoJson.meter_power, check);
+        await this.setValue('current_limit', infoJson.current_limit, check);
+        await this.setValue('current_max', infoJson.current_max, check);
+        await this.setValue('energy_total', infoJson.energy_total, check);
+        await this.setValue('is_connected', infoJson.is_connected, check);
+        await this.setValue('is_device_error', infoJson.is_device_error, check);
         await this.setValue('measure_power', infoJson.measure_power, check);
         await this.setValue('measure_current', infoJson.measure_current, check);
         await this.setValue('measure_voltage', infoJson.measure_voltage, check);
         await this.setValue('measure_temperature', infoJson.measure_temperature, check);
         await this.setValue('measure_temperature.internal', infoJson.measure_temperature, check);
         await this.setValue('measure_temperature.charge_port', infoJson.measure_temperature, check);
-        await this.setValue('status', infoJson.status, check);
-        await this.setValue('is_device_error', infoJson.is_device_error, check);
-        await this.setValue('current_limit', infoJson.current_limit, check);
-        await this.setValue('current_max', infoJson.current_max, check);
-        await this.setValue('energy_total', infoJson.energy_total, check);
+        await this.setValue('meter_power', infoJson.meter_power, check);
+        await this.setValue('onoff_charging_allowed', infoJson.onoff_charging_allowed, check);
 
         // Check for status change and trigger accordingly
+        await this.setValue('status', infoJson.status, check);
         if (infoJson.status !== oldStatus) {
           if(infoJson.status === 'station_idle') {
-            await this.setValue('is_connected', false);
             await this.setValue('is_charging', false);
-            await this.setValue('is_finished', true);
           }
           if(infoJson.status === 'car_charging') {
-            await this.setValue('is_connected', true);
             await this.setValue('is_charging', true);
-            await this.setValue('is_finished', false);
           }
           if(infoJson.status === 'car_waiting') {
-            await this.setValue('is_connected', true);
             await this.setValue('is_charging', false);
-            await this.setValue('is_finished', false);
           }
           if(infoJson.status === 'car_finished') {
-            await this.setValue('is_connected', true);
             await this.setValue('is_charging', false);
-            await this.setValue('is_finished', true);
           }
         }
       }

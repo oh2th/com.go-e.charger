@@ -19,7 +19,7 @@
     {
       "id": "car_charging",
       "title": {
-        "en": "Car Charging",
+        "en": "Charging",
         "nl": "Auto opladen"
       }
     },
@@ -33,7 +33,7 @@
     {
       "id": "car_finished",
       "title": {
-        "en": "Charging Finished",
+        "en": "Charging Stopped",
         "nl": "Klaar met laden"
       }
     }

@@ -54,7 +54,7 @@
     "triggers": [
       {
         "title": {
-          "en": "Charging started",
+          "en": "Charging state changed",
           "nl": "Laden gestart"
         },
         "args": [
@@ -68,7 +68,7 @@
       },
       {
         "title": {
-          "en": "Car connected",
+          "en": "Car connection changed",
           "nl": "Auto verbonden"
         },
         "args": [
@@ -79,20 +79,6 @@
           }
         ],
         "id": "is_connected_changed"
-      },
-      {
-        "title": {
-          "en": "Charging finished",
-          "nl": "Laden afgerond"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
-          }
-        ],
-        "id": "is_finished_changed"
       },
       {
         "title": {
@@ -126,7 +112,7 @@
     "conditions": [
       {
         "title": {
-          "en": "!{{Charging allowed|Charging not allowed}}",
+          "en": "!{{Charging is allowed|Charging not allowed}}",
           "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
         },
         "args": [
@@ -154,21 +140,7 @@
       },
       {
         "title": {
-          "en": "!{{Charging complete|Charging not complete}}",
-          "nl": "!{{Laden afgerond|Laden niet afgerond}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
-          }
-        ],
-        "id": "is_finished"
-      },
-      {
-        "title": {
-          "en": "!{{Car plugged in|No car plugged in}}",
+          "en": "!{{Car is connected|Car is ot connected}}",
           "nl": "!{{Auto verbonden|Geen auto verbonden}}"
         },
         "args": [
@@ -178,7 +150,7 @@
             "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
         ],
-        "id": "is_plugged_in"
+        "id": "is_connected"
       }
     ],
     "actions": [
@@ -243,24 +215,23 @@
   "drivers": [
     {
       "name": {
-        "en": "go-e Charger Home+"
+        "en": "go-e Charger CC1"
       },
       "class": "other",
       "capabilities": [
-        "is_finished",
-        "is_charging",
+        "status",
         "onoff_charging_allowed",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
         "measure_voltage",
         "measure_temperature",
-        "status",
-        "is_device_error",
         "current_limit",
         "current_max",
-        "energy_total",
-        "is_connected"
+        "energy_total"
       ],
       "platforms": [
         "local"
@@ -269,9 +240,9 @@
         "lan"
       ],
       "images": {
-        "small": "/drivers/go-eCharger_V1andV2/assets/images/small.png",
-        "large": "/drivers/go-eCharger_V1andV2/assets/images/large.png",
-        "xlarge": "/drivers/go-eCharger_V1andV2/assets/images/xlarge.png"
+        "small": "/drivers/go-eCharger_V1/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V1/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V1/assets/images/xlarge.png"
       },
       "discovery": "mdns_http_go-e",
       "pair": [
@@ -287,29 +258,155 @@
           "template": "add_devices"
         }
       ],
-      "id": "go-eCharger_V1andV2"
+      "id": "go-eCharger_V1"
     },
     {
       "name": {
-        "en": "go-e Charger Gemini"
+        "en": "go-e Charger CM-02"
       },
       "class": "other",
       "capabilities": [
-        "is_finished",
-        "is_charging",
+        "status",
         "onoff_charging_allowed",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
+        "meter_power",
+        "measure_power",
+        "measure_current",
+        "measure_voltage",
+        "measure_temperature",
+        "current_limit",
+        "current_max",
+        "energy_total"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V2/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V2/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V2/assets/images/xlarge.png"
+      },
+      "discovery": "mdns_http_go-e",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "go-eCharger_V2"
+    },
+    {
+      "name": {
+        "en": "go-e Charger CM-03"
+      },
+      "class": "other",
+      "capabilities": [
+        "status",
+        "onoff_charging_allowed",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
         "measure_voltage",
         "measure_temperature.internal",
         "measure_temperature.charge_port",
-        "status",
-        "is_device_error",
         "current_limit",
         "current_max",
-        "energy_total",
-        "is_connected"
+        "energy_total"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature.internal": {
+          "type": "number",
+          "title": {
+            "en": "Internal Temperature",
+            "nl": "Internaal Temperatuur"
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "C"
+          },
+          "min": -50,
+          "max": 50,
+          "insights": true
+        },
+        "measure_temperature.charge_port": {
+          "type": "number",
+          "title": {
+            "en": "Charge Port Temperature",
+            "nl": "Laad Poort Temperatuur"
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "C"
+          },
+          "min": -50,
+          "max": 50,
+          "insights": true
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V3/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V3/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V3/assets/images/xlarge.png"
+      },
+      "discovery": "mdns_http_go-e",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "go-eCharger_V3"
+    },
+    {
+      "name": {
+        "en": "go-e Charger GM-10"
+      },
+      "class": "other",
+      "capabilities": [
+        "status",
+        "onoff_charging_allowed",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
+        "meter_power",
+        "measure_power",
+        "measure_current",
+        "measure_voltage",
+        "measure_temperature.internal",
+        "measure_temperature.charge_port",
+        "current_limit",
+        "current_max",
+        "energy_total"
       ],
       "capabilitiesOptions": {
         "measure_temperature.internal": {
@@ -453,17 +550,6 @@
       "icon": "assets/icon.svg",
       "insights": false
     },
-    "is_finished": {
-      "type": "boolean",
-      "title": {
-        "en": "Charging is finished",
-        "nl": "Laden afgerond"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "insights": false
-    },
     "measure_current": {
       "type": "number",
       "title": {
@@ -569,7 +655,7 @@
         {
           "id": "car_charging",
           "title": {
-            "en": "Car Charging",
+            "en": "Charging",
             "nl": "Auto opladen"
           }
         },
@@ -583,7 +669,7 @@
         {
           "id": "car_finished",
           "title": {
-            "en": "Charging Finished",
+            "en": "Charging Stopped",
             "nl": "Klaar met laden"
           }
         }
