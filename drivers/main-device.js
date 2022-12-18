@@ -74,6 +74,7 @@ class mainDevice extends Device {
     this.api.address = discoveryResult.address;
     await this.setCapabilityValues(true);
     await this.setAvailable();
+    await sleep(100);
     await this.setCapabilityValuesInterval();
     // await this.api.connect(); // When this throws, the device will become unavailable.
   }

@@ -1,10 +1,6 @@
 {
   "title": {
-    "en": "is connected",
-    "nl": "verbonden"
-  },
-  "titleFormated": {
-    "en": "Car !{{is|isn't}} connected}}",
+    "en": "Car !{{is|isn't}} connected",
     "nl": "!{{Auto|Geen auto}} verbonden"
   },
   "args": [

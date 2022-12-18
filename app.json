@@ -54,14 +54,14 @@
     "triggers": [
       {
         "title": {
-          "en": "Charging state changed",
-          "nl": "Laden gestart"
+          "en": "Charging changed",
+          "nl": "Opladen veranderd"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "is_charging_changed"
@@ -69,13 +69,13 @@
       {
         "title": {
           "en": "Car connection changed",
-          "nl": "Auto verbonden"
+          "nl": "Autoverbinding gewijzigd"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "is_connected_changed"
@@ -89,7 +89,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "onoff_charging_allowed_changed"
@@ -103,7 +103,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "status_changed"
@@ -112,42 +112,42 @@
     "conditions": [
       {
         "title": {
-          "en": "!{{Charging is allowed|Charging not allowed}}",
-          "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
+          "en": "Charging !{{is|isn't}} allowed",
+          "nl": "!{{Laden !{{is|is niet}} toegestaan"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "is_allowed"
       },
       {
         "title": {
-          "en": "!{{Charging|Not charging}}",
-          "nl": "!{{Bezig met laden|Niet bezig met laden}}"
+          "en": "!{{Is|Isn't}} charging",
+          "nl": "!{{Bezig|Niet bezig}} met laden}}"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "is_charging"
       },
       {
         "title": {
-          "en": "!{{Car is connected|Car is ot connected}}",
-          "nl": "!{{Auto verbonden|Geen auto verbonden}}"
+          "en": "Car !{{is|isn't}} connected",
+          "nl": "!{{Auto|Geen auto}} verbonden"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "is_connected"
@@ -163,7 +163,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
         "id": "allow_charging"
@@ -181,7 +181,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           },
           {
             "type": "range",
@@ -205,7 +205,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3||go-eCharger_V4"
           }
         ],
         "id": "stop_charging"

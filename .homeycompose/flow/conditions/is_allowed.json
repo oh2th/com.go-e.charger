@@ -1,9 +1,5 @@
 {
   "title": {
-    "en": "charging allowed",
-    "nl": "laden toegestaan"
-  },
-  "titleFormated": {
     "en": "Charging !{{is|isn't}} allowed",
     "nl": "!{{Laden !{{is|is niet}} toegestaan"
   },
