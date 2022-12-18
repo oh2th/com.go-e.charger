@@ -12,7 +12,7 @@
     {
       "id": "station_idle",
       "title": {
-        "en": "No Car Connected",
+        "en": "No car connected",
         "nl": "Geen auto verbonden"
       }
     },
@@ -26,14 +26,14 @@
     {
       "id": "car_waiting",
       "title": {
-        "en": "Waiting to Charge",
+        "en": "Waiting to charge",
         "nl": "Klaarmaken voor laden"
       }
     },
     {
       "id": "car_finished",
       "title": {
-        "en": "Charging Stopped",
+        "en": "Charging stopped",
         "nl": "Klaar met laden"
       }
     }

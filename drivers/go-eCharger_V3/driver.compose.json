@@ -4,11 +4,7 @@
   },
   "class": "other",
   "capabilities": [
-    "status",
     "onoff_charging_allowed",
-    "is_charging",
-    "is_device_error",
-    "is_connected",
     "meter_power",
     "measure_power",
     "measure_current",
@@ -17,6 +13,10 @@
     "measure_temperature.charge_port",
     "current_limit",
     "current_max",
+    "status",
+    "is_charging",
+    "is_device_error",
+    "is_connected",
     "energy_total"
   ],
   "capabilitiesOptions": {

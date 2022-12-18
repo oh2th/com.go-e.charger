@@ -174,8 +174,8 @@
           "nl": "Amperage veranderen naar..."
         },
         "titleformatted": {
-          "en": "Change current to [[amps]]",
-          "nl": "Amperage veranderen naar [[amps]]"
+          "en": "Change current to [[action_amps]]",
+          "nl": "Amperage veranderen naar [[action_amps]]"
         },
         "args": [
           {
@@ -184,14 +184,34 @@
             "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           },
           {
-            "type": "range",
-            "name": "amps",
-            "min": 6,
-            "max": 32,
-            "step": 1,
-            "label": "A",
-            "labelMultiplier": 1,
-            "labelDecimals": 0
+            "name": "action_amps",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "6",
+                "label": {
+                  "en": "6 A"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "10 A"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "16 A"
+                }
+              },
+              {
+                "id": "32",
+                "label": {
+                  "en": "32 A"
+                }
+              }
+            ]
           }
         ],
         "id": "change_current"
@@ -219,11 +239,7 @@
       },
       "class": "other",
       "capabilities": [
-        "status",
         "onoff_charging_allowed",
-        "is_charging",
-        "is_device_error",
-        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -231,6 +247,10 @@
         "measure_temperature",
         "current_limit",
         "current_max",
+        "status",
+        "is_charging",
+        "is_connected",
+        "is_device_error",
         "energy_total"
       ],
       "platforms": [
@@ -266,11 +286,7 @@
       },
       "class": "other",
       "capabilities": [
-        "status",
         "onoff_charging_allowed",
-        "is_charging",
-        "is_device_error",
-        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -278,6 +294,10 @@
         "measure_temperature",
         "current_limit",
         "current_max",
+        "status",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
         "energy_total"
       ],
       "platforms": [
@@ -313,11 +333,7 @@
       },
       "class": "other",
       "capabilities": [
-        "status",
         "onoff_charging_allowed",
-        "is_charging",
-        "is_device_error",
-        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -326,6 +342,10 @@
         "measure_temperature.charge_port",
         "current_limit",
         "current_max",
+        "status",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
         "energy_total"
       ],
       "capabilitiesOptions": {
@@ -393,11 +413,7 @@
       },
       "class": "other",
       "capabilities": [
-        "status",
         "onoff_charging_allowed",
-        "is_charging",
-        "is_device_error",
-        "is_connected",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -406,6 +422,10 @@
         "measure_temperature.charge_port",
         "current_limit",
         "current_max",
+        "status",
+        "is_charging",
+        "is_device_error",
+        "is_connected",
         "energy_total"
       ],
       "capabilitiesOptions": {
@@ -648,7 +668,7 @@
         {
           "id": "station_idle",
           "title": {
-            "en": "No Car Connected",
+            "en": "No car connected",
             "nl": "Geen auto verbonden"
           }
         },
@@ -662,14 +682,14 @@
         {
           "id": "car_waiting",
           "title": {
-            "en": "Waiting to Charge",
+            "en": "Waiting to charge",
             "nl": "Klaarmaken voor laden"
           }
         },
         {
           "id": "car_finished",
           "title": {
-            "en": "Charging Stopped",
+            "en": "Charging stopped",
             "nl": "Klaar met laden"
           }
         }
