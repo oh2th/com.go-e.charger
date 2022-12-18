@@ -1,6 +1,6 @@
 {
   "title": {
-    "en": "!{{Car plugged in|No car plugged in}}",
+    "en": "!{{Car is connected|Car is ot connected}}",
     "nl": "!{{Auto verbonden|Geen auto verbonden}}"
   },
   "args": [

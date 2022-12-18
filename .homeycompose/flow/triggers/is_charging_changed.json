@@ -1,6 +1,6 @@
 {
   "title": {
-    "en": "Charging started",
+    "en": "Charging state changed",
     "nl": "Laden gestart"
   },
   "args": [
