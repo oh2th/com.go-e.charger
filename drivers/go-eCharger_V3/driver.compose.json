@@ -1,0 +1,80 @@
+{
+  "name": {
+    "en": "go-e Charger CM-03"
+  },
+  "class": "other",
+  "capabilities": [
+    "is_finished",
+    "is_charging",
+    "onoff_charging_allowed",
+    "meter_power",
+    "measure_power",
+    "measure_current",
+    "measure_voltage",
+    "measure_temperature.internal",
+    "measure_temperature.charge_port",
+    "status",
+    "is_device_error",
+    "current_limit",
+    "current_max",
+    "energy_total",
+    "is_connected"
+  ],
+  "capabilitiesOptions": {
+    "measure_temperature.internal": {
+      "type": "number",
+      "title": {
+        "en": "Internal Temperature",
+        "nl": "Internaal Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true    
+    },
+    "measure_temperature.charge_port": {
+      "type": "number",
+      "title": {
+        "en": "Charge Port Temperature",
+        "nl": "Laad Poort Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true    
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "discovery": "mdns_http_go-e",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

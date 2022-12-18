@@ -1,0 +1,47 @@
+{
+  "name": {
+    "en": "go-e Charger CM-02"
+  },
+  "class": "other",
+  "capabilities": [
+    "is_finished",
+    "is_charging",
+    "onoff_charging_allowed",
+    "meter_power",
+    "measure_power",
+    "measure_current",
+    "measure_voltage",
+    "measure_temperature",
+    "status",
+    "is_device_error",
+    "current_limit",
+    "current_max",
+    "energy_total",
+    "is_connected"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "discovery": "mdns_http_go-e",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}
