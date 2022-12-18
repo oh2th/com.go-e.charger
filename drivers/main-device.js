@@ -2,6 +2,8 @@
 
 const { Device } = require('homey');
 const GoeChargerApi = require('../lib/go-echarger-api-v1');
+const { sleep, decrypt, encrypt } = require('../lib/helpers');
+
 
 const POLL_INTERVAL = 5000;
 
@@ -12,8 +14,13 @@ class mainDevice extends Device {
    */
   async onInit() {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} start init.`);
-    this._registerCapabilities();
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} init completed.`);
+    this.setUnavailable(`Initializing ${this.getName()}`);
+
+    await this.checkCapabilities();
+    await this.setCapabilityListeners();
+
+  } catch (error) {
+    this.homey.app.log(`[Device] ${this.getName()} - OnInit Error`, error);
   }
 
   /**
@@ -85,127 +92,116 @@ class mainDevice extends Device {
     // this.api.reconnect().catch(this.error);
   }
 
-  _registerCapabilities() {
-    const capabilitySetMap = new Map([
-      ['onoff_charging_allowed', this.setChargingAllowed],
-      ['current_limit', this.setCurrentLimit],
-      ['is_finished', null],
-      ['is_charging', null]]);
-    this.getCapabilities().forEach((capability) => this.registerCapabilityListener(capability, (value) => {
-      return capabilitySetMap.get(capability).call(this, value).catch((e) => {
-        return Promise.reject(e);
-      });
-    }));
+  async setCapabilityListeners() {
+    await this.registerCapabilityListener('onoff_charging_allowed', this.onCapability_ONOFF_CHARGING.bind(this));
+    await this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
-  async setChargingAllowed(_state) {
+  async onCapability_ONOFF_CHARGING(value) {
+    let alw=0;
+    if(value) { alw=1; }
     try {
-      if (_state) {
-        if (!this.getCapabilityValue('onoff_charging_allowed')) {
-          this.log(`[Device] ${this.getName()}:  ${this.getData().id} setChargingAllowed: 'TRUE'`);
-          return Promise.resolve(await this.api.setGoeCharger('alw', 1));
-        }
-      } else if (this.getCapabilityValue('onoff_charging_allowed')) {
-        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setChargingAllowed: 'FALSE'`);
-        return Promise.resolve(await this.api.setGoeCharger('alw', 0));
+      if (value !== this.getCapabilityValue('onoff_charging_allowed')) {
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} set OnOff Charging Allowed: '${value}'`);
+        return Promise.resolve(await this.api.setGoeCharger('alw', alw));
       }
     } catch (e) {
       return Promise.reject(e);
     }
   }
 
-  async setCurrentLimit(_limit) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${_limit}'`);
+  async onCapability_CURRENT_LIMIT(value) {
     try {
-      if (_limit) {
-        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${_limit}'`);
-        return Promise.resolve(await this.api.setGoeCharger('amp', _limit));
+      if (value) {
+        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${value}'`);
+        return Promise.resolve(await this.api.setGoeCharger('amp', value));
       }
     } catch (e) {
       return Promise.reject(e);
     }
   }
 
-  async setCapabilityValues() {
-    let device = this;
-    let tokens = {};
-    let state = {};
+  async setCapabilityValues(check = false) {
 
     try {
-      // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last status: '${this.getStoreValue('old_status')}'`);
-      // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - last chargingAllowed: '${this.getStoreValue('old_chargingAllowed')}'`);
-
       const infoJson = await this.api.getInfo();
+      const oldStatus = await this.getCapabilityValue('status');
+
       if (infoJson) {
-        this.setAvailable();
-        this.setCapabilityValue('onoff_charging_allowed', infoJson.onoff_charging_allowed);
-        this.setCapabilityValue('meter_power', infoJson.meter_power);
-        this.setCapabilityValue('measure_power', infoJson.measure_power);
-        this.setCapabilityValue('measure_current', infoJson.measure_current);
-        this.setCapabilityValue('measure_voltage', infoJson.measure_voltage);
-        this.setCapabilityValue('measure_temperature', infoJson.measure_temperature);
-        this.setCapabilityValue('status', infoJson.status);
-        this.setCapabilityValue('is_device_error', infoJson.is_device_error);
-        this.setCapabilityValue('current_limit', infoJson.current_limit);
-        this.setCapabilityValue('current_max', infoJson.current_max);
-        this.setCapabilityValue('energy_total', infoJson.energy_total);
-    
+        await this.setAvailable();
+
+        await this.setValue('onoff_charging_allowed', infoJson.onoff_charging_allowed, check);
+        await this.setValue('meter_power', infoJson.meter_power, check);
+        await this.setValue('measure_power', infoJson.measure_power, check);
+        await this.setValue('measure_current', infoJson.measure_current, check);
+        await this.setValue('measure_voltage', infoJson.measure_voltage, check);
+        await this.setValue('measure_temperature', infoJson.measure_temperature, check);
+        await this.setValue('measure_temperature.internal', infoJson.measure_temperature, check);
+        await this.setValue('measure_temperature.charge_port', infoJson.measure_temperature, check);
+        await this.setValue('status', infoJson.status, check);
+        await this.setValue('is_device_error', infoJson.is_device_error, check);
+        await this.setValue('current_limit', infoJson.current_limit, check);
+        await this.setValue('current_max', infoJson.current_max, check);
+        await this.setValue('energy_total', infoJson.energy_total, check);
+
         // Check for status change and trigger accordingly
-        if (infoJson.status !== this.getStoreValue('old_status')) {
-          // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new status: '${infoJson.status}'`);    
-          this.driver.triggerStatusChanged(device, tokens, state);
-
-          // Check the actual status and trigger flows
-
-          // Station became idle, so the car was also disconnected and the station is not charging
-          // Charge sessions ended
-          if(infoJson.status === 'station_idle' && (this.getStoreValue('old_status') === 'car_charging' || this.getStoreValue('old_status') === 'car_waiting') ) {
-            this.setCapabilityValue('is_plugged_in', false);
-            this.driver.triggerCarUnplugged(device, tokens, state);
-            this.setCapabilityValue('is_charging', false);
-            this.driver.triggerChargingEnded(device, tokens, state);
-            this.setCapabilityValue('is_finished', true);
-            this.driver.triggerChargingFinished(device, tokens, state);
+        if (infoJson.status !== oldStatus) {
+          if(infoJson.status === 'station_idle') {
+            await this.setValue('is_connected', false);
+            await this.setValue('is_charging', false);
+            await this.setValue('is_finished', true);
           }
-          // Started charging, car was already connected and waiting
-          if(infoJson.status === 'car_charging' && (this.getStoreValue('old_status') === 'station_idle' || this.getStoreValue('old_status') === 'car_waiting') ) {
-            this.setCapabilityValue('is_finished', false);
-            this.setCapabilityValue('is_charging', true);
-            this.driver.triggerChargingStarted(device, tokens, state);
+          if(infoJson.status === 'car_charging') {
+            await this.setValue('is_connected', true);
+            await this.setValue('is_charging', true);
+            await this.setValue('is_finished', false);
           }
-          // Stopped charging, car is connected and waiting and station was not idle
-          if(infoJson.status === 'car_waiting' && (this.getStoreValue('old_status') === 'car_charging' || this.getStoreValue('old_status') !== 'station_idle') ) {
-            this.setCapabilityValue('is_finished', false);
-            this.setCapabilityValue('is_charging', false);
-            this.driver.triggerChargingEnded(device, tokens, state);
+          if(infoJson.status === 'car_waiting') {
+            await this.setValue('is_connected', true);
+            await this.setValue('is_charging', false);
+            await this.setValue('is_finished', false);
+          }
+          if(infoJson.status === 'car_finished') {
+            await this.setValue('is_connected', true);
+            await this.setValue('is_charging', false);
+            await this.setValue('is_finished', true);
           }
         }
-
-        // Check for chargingAllowed status change and trigger accordingly
-        if (this.getStoreValue('old_chargingAllowed') != null) {
-          if (infoJson.onoff_charging_allowed !== this.getStoreValue('old_chargingAllowed')) {
-            // this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - new chargingAllowed: '${infoJson.onoff_charging_allowed}'`);
-            if (infoJson.onoff_charging_allowed === true) {
-              this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'TRUE'`);
-              this.driver.triggerChargingAllowed(device, tokens, state);
-            }
-            if (infoJson.onoff_charging_allowed === false) {
-              this.log(`[Device] ${this.getName()}:  ${this.getData().id} refresh - charging_allowed: 'FALSE'`);
-              this.driver.triggerChargingDisallowed(device, tokens, state);
-            }
-          }
-        }
-
-        // Store updated status and chargingAllowed to old states
-        this.setStoreValue('old_status', infoJson.status);
-        this.setStoreValue('old_chargingAllowed', infoJson.onoff_charging_allowed);
       }
     } catch (e) {
       this.setUnavailable(e);
       // console.log(e);
       return 'not connected';
     }
-  }    
+  }
+
+  async setValue(key, value, firstRun = false, delay = 10) {
+    if (this.hasCapability(key)) {
+        const oldVal = await this.getCapabilityValue(key);
+
+        this.homey.app.log(`[Device] ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
+
+        if (delay) {
+            await sleep(delay);
+        }
+
+        await this.setCapabilityValue(key, value);
+
+        if (typeof value === 'boolean' && oldVal !== value && !firstRun) {
+            const newKey = key.replace('.', '_');
+            const triggers = this.homey.manifest.flow.triggers;
+            const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
+
+            if (triggerExists) {
+                await this.homey.flow
+                    .getDeviceTriggerCard(`${newKey}_changed`)
+                    .trigger(this)
+                    .catch(this.error)
+                    .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
+            }
+        }
+    }
+  }
 
   async setCapabilityValuesInterval() {
     try {
@@ -221,6 +217,39 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} clearIntervals`);
 
     clearInterval(this.onPollInterval);
+  }
+
+  // ------------- Capabilities -------------
+  async checkCapabilities() {
+    const driverManifest = this.driver.manifest;
+    const driverCapabilities = driverManifest.capabilities;
+
+    const deviceCapabilities = this.getCapabilities();
+
+    this.homey.app.log(`[Device] ${this.getName()} - Found capabilities =>`, deviceCapabilities);
+    this.homey.app.log(`[Device] ${this.getName()} - Driver capabilities =>`, driverCapabilities);
+
+    if (deviceCapabilities.length !== driverCapabilities.length) {
+        await this.updateCapabilities(driverCapabilities, deviceCapabilities);
+    }
+
+    return deviceCapabilities;
+  }
+
+  async updateCapabilities(driverCapabilities, deviceCapabilities) {
+    this.homey.app.log(`[Device] ${this.getName()} - Add new capabilities =>`, driverCapabilities);
+    try {
+        deviceCapabilities.forEach((c) => {
+            this.removeCapability(c);
+        });
+        await sleep(2000);
+        driverCapabilities.forEach((c) => {
+          this.addCapability(c);
+        });
+        await sleep(2000);
+    } catch (error) {
+        this.homey.app.log(error);
+    }
   }
 
 }

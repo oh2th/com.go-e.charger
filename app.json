@@ -8,7 +8,7 @@
     "local"
   ],
   "name": {
-    "en": "go-e Charger"
+    "en": "go-e Charger Home+ and Gemini"
   },
   "description": {
     "en": "Smart EV Charging from go-e",
@@ -53,63 +53,6 @@
   "flow": {
     "triggers": [
       {
-        "id": "car_connected",
-        "title": {
-          "en": "Car connected",
-          "nl": "Auto verbonden"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "car_unplugged",
-        "title": {
-          "en": "Car unplugged",
-          "nl": "Auto ontkoppeld"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "charging_allowed",
-        "title": {
-          "en": "Charging allowed",
-          "nl": "Opladen toegestaan"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "charging_disallowed",
-        "title": {
-          "en": "Charging disallowed",
-          "nl": "Opladen niet meer toegestaan"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "charging_started",
         "title": {
           "en": "Charging started",
           "nl": "Laden gestart"
@@ -118,54 +61,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_charging_changed"
       },
       {
-        "id": "charging_ended",
-        "title": {
-          "en": "Charging ended",
-          "nl": "Laden beëindigd"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "charging_finished",
-        "title": {
-          "en": "Charging finished",
-          "nl": "Laden afgerond"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "status_changed",
-        "title": {
-          "en": "Status changed",
-          "nl": "Status gewijzigd"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "gemini_car_connected",
         "title": {
           "en": "Car connected",
           "nl": "Auto verbonden"
@@ -174,82 +75,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_connected_changed"
       },
       {
-        "id": "gemini_car_unplugged",
-        "title": {
-          "en": "Car unplugged",
-          "nl": "Auto ontkoppeld"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_charging_allowed",
-        "title": {
-          "en": "Charging allowed",
-          "nl": "Opladen toegestaan"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_charging_disallowed",
-        "title": {
-          "en": "Charging disallowed",
-          "nl": "Opladen niet meer toegestaan"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_charging_started",
-        "title": {
-          "en": "Charging started",
-          "nl": "Laden gestart"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_charging_ended",
-        "title": {
-          "en": "Charging ended",
-          "nl": "Laden beëindigd"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_charging_finished",
         "title": {
           "en": "Charging finished",
           "nl": "Laden afgerond"
@@ -258,12 +89,26 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_finished_changed"
       },
       {
-        "id": "gemini_status_changed",
+        "title": {
+          "en": "Charging allowed changed",
+          "nl": "Opladen toegestaan gewijzigd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
+          }
+        ],
+        "id": "onoff_charging_allowed_changed"
+      },
+      {
         "title": {
           "en": "Status changed",
           "nl": "Status gewijzigd"
@@ -272,14 +117,14 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "status_changed"
       }
     ],
     "conditions": [
       {
-        "id": "is_allowed",
         "title": {
           "en": "!{{Charging allowed|Charging not allowed}}",
           "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
@@ -288,12 +133,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_allowed"
       },
       {
-        "id": "is_charging",
         "title": {
           "en": "!{{Charging|Not charging}}",
           "nl": "!{{Bezig met laden|Niet bezig met laden}}"
@@ -302,12 +147,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_charging"
       },
       {
-        "id": "is_finished",
         "title": {
           "en": "!{{Charging complete|Charging not complete}}",
           "nl": "!{{Laden afgerond|Laden niet afgerond}}"
@@ -316,12 +161,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "is_finished"
       },
       {
-        "id": "is_plugged_in",
         "title": {
           "en": "!{{Car plugged in|No car plugged in}}",
           "nl": "!{{Auto verbonden|Geen auto verbonden}}"
@@ -330,70 +175,14 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
-      },
-      {
-        "id": "gemini_is_allowed",
-        "title": {
-          "en": "!{{Charging allowed|Charging not allowed}}",
-          "nl": "!{{Laden toegestaan|Laden niet toegestaan}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_is_charging",
-        "title": {
-          "en": "!{{Charging|Not charging}}",
-          "nl": "!{{Bezig met laden|Niet bezig met laden}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_is_finished",
-        "title": {
-          "en": "!{{Charging complete|Charging not complete}}",
-          "nl": "!{{Laden afgerond|Laden niet afgerond}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_is_plugged_in",
-        "title": {
-          "en": "!{{Car plugged in|No car plugged in}}",
-          "nl": "!{{Auto verbonden|Geen auto verbonden}}"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
+        ],
+        "id": "is_plugged_in"
       }
     ],
     "actions": [
       {
-        "id": "allow_charging",
         "title": {
           "en": "Allow charging",
           "nl": "Laden toestaan"
@@ -402,26 +191,12 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
+        ],
+        "id": "allow_charging"
       },
       {
-        "id": "stop_charging",
-        "title": {
-          "en": "Stop charging",
-          "nl": "Laden stoppen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
-          }
-        ]
-      },
-      {
-        "id": "change_current",
         "title": {
           "en": "Change current to...",
           "nl": "Amperage veranderen naar..."
@@ -434,7 +209,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1andV2"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           },
           {
             "type": "range",
@@ -446,24 +221,10 @@
             "labelMultiplier": 1,
             "labelDecimals": 0
           }
-        ]
+        ],
+        "id": "change_current"
       },
       {
-        "id": "gemini_allow_charging",
-        "title": {
-          "en": "Allow charging",
-          "nl": "Laden toestaan"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          }
-        ]
-      },
-      {
-        "id": "gemini_stop_charging",
         "title": {
           "en": "Stop charging",
           "nl": "Laden stoppen"
@@ -472,37 +233,10 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V1andV2|go-eCharger_V4"
           }
-        ]
-      },
-      {
-        "id": "gemini_change_current",
-        "title": {
-          "en": "Change current to...",
-          "nl": "Amperage veranderen naar..."
-        },
-        "titleformatted": {
-          "en": "Change current to [[amps]]",
-          "nl": "Amperage veranderen naar [[amps]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V4"
-          },
-          {
-            "type": "range",
-            "name": "amps",
-            "min": 6,
-            "max": 32,
-            "step": 1,
-            "label": "A",
-            "labelMultiplier": 1,
-            "labelDecimals": 0
-          }
-        ]
+        ],
+        "id": "stop_charging"
       }
     ]
   },
@@ -526,7 +260,7 @@
         "current_limit",
         "current_max",
         "energy_total",
-        "is_plugged_in"
+        "is_connected"
       ],
       "platforms": [
         "local"
@@ -539,7 +273,7 @@
         "large": "/drivers/go-eCharger_V1andV2/assets/images/large.png",
         "xlarge": "/drivers/go-eCharger_V1andV2/assets/images/xlarge.png"
       },
-      "discovery": "mdns_http_homeplus",
+      "discovery": "mdns_http_go-e",
       "pair": [
         {
           "id": "list_devices",
@@ -575,18 +309,38 @@
         "current_limit",
         "current_max",
         "energy_total",
-        "is_plugged_in"
+        "is_connected"
       ],
       "capabilitiesOptions": {
         "measure_temperature.internal": {
+          "type": "number",
           "title": {
-            "en": "Internal Temperature"
-          }
+            "en": "Internal Temperature",
+            "nl": "Internaal Temperatuur"
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "C"
+          },
+          "min": -50,
+          "max": 50,
+          "insights": true
         },
         "measure_temperature.charge_port": {
+          "type": "number",
           "title": {
-            "en": "Charge Port Temperature"
-          }
+            "en": "Charge Port Temperature",
+            "nl": "Laad Poort Temperatuur"
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "C"
+          },
+          "min": -50,
+          "max": 50,
+          "insights": true
         }
       },
       "platforms": [
@@ -600,7 +354,7 @@
         "large": "/drivers/go-eCharger_V4/assets/images/large.png",
         "xlarge": "/drivers/go-eCharger_V4/assets/images/xlarge.png"
       },
-      "discovery": "mdns_http_gemini",
+      "discovery": "mdns_http_go-e",
       "pair": [
         {
           "id": "list_devices",
@@ -669,8 +423,19 @@
     "is_charging": {
       "type": "boolean",
       "title": {
-        "en": "Charging",
+        "en": "Car is charging",
         "nl": "Laden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null,
+      "insights": false
+    },
+    "is_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Car is connected",
+        "nl": "Auto verbonden"
       },
       "getable": true,
       "setable": false,
@@ -691,19 +456,8 @@
     "is_finished": {
       "type": "boolean",
       "title": {
-        "en": "Charging Finished",
+        "en": "Charging is finished",
         "nl": "Laden afgerond"
-      },
-      "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "insights": false
-    },
-    "is_plugged_in": {
-      "type": "boolean",
-      "title": {
-        "en": "Car Plugged In",
-        "nl": "Auto verbonden"
       },
       "getable": true,
       "setable": false,
@@ -840,7 +594,7 @@
     }
   },
   "discovery": {
-    "mdns_http_gemini": {
+    "mdns_http_go-e": {
       "type": "mdns-sd",
       "mdns-sd": {
         "name": "http",
@@ -854,39 +608,6 @@
             "match": {
               "type": "string",
               "value": "go-e"
-            }
-          },
-          {
-            "field": "txt.devicetype",
-            "match": {
-              "type": "string",
-              "value": "go-eCharger_V4"
-            }
-          }
-        ]
-      ]
-    },
-    "mdns_http_homeplus": {
-      "type": "mdns-sd",
-      "mdns-sd": {
-        "name": "http",
-        "protocol": "tcp"
-      },
-      "id": "{{txt.serial}}",
-      "conditions": [
-        [
-          {
-            "field": "txt.manufacturer",
-            "match": {
-              "type": "string",
-              "value": "go-e"
-            }
-          },
-          {
-            "field": "txt.devicetype",
-            "match": {
-              "type": "string",
-              "value": "go-eCharger_homeplus"
             }
           }
         ]

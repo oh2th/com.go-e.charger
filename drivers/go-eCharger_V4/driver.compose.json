@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "go-e Charger Gemini"
+    "en": "go-e Charger GM-10"
   },
   "class": "other",
   "capabilities": [
@@ -18,18 +18,38 @@
     "current_limit",
     "current_max",
     "energy_total",
-    "is_plugged_in"
+    "is_connected"
   ],
   "capabilitiesOptions": {
     "measure_temperature.internal": {
+      "type": "number",
       "title": {
-        "en": "Internal Temperature"
-      }
+        "en": "Internal Temperature",
+        "nl": "Internaal Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true    
     },
     "measure_temperature.charge_port": {
+      "type": "number",
       "title": {
-        "en": "Charge Port Temperature"
-      }
+        "en": "Charge Port Temperature",
+        "nl": "Laad Poort Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true    
     }
   },
   "platforms": [

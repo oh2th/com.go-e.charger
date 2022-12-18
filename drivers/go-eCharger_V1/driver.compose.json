@@ -1,6 +1,6 @@
 {
   "name": {
-    "en": "go-e Charger Home+"
+    "en": "go-e Charger CC1"
   },
   "class": "other",
   "capabilities": [
@@ -17,7 +17,7 @@
     "current_limit",
     "current_max",
     "energy_total",
-    "is_plugged_in"
+    "is_connected"
   ],
   "platforms": [
     "local"

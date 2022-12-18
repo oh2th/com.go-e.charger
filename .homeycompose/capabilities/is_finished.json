@@ -1,7 +1,7 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Charging Finished",
+    "en": "Charging is finished",
     "nl": "Laden afgerond"
   },
   "getable": true,
