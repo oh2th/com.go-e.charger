@@ -68,13 +68,12 @@ class mainDevice extends Device {
   // This method will be executed once when the device has been found (onDiscoveryResult returned true)
   async onDiscoveryAvailable(discoveryResult) {
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} available - result: ${discoveryResult.address}.`);
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} api version: ${discoveryResult.txt.protocol}.`);
     this.log(`[Device] ${this.getName()}:  ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
     this.api = new GoeChargerApi();
     this.api.address = discoveryResult.address;
     await this.setCapabilityValues(true);
     await this.setAvailable();
-    await sleep(100);
+    await sleep(5000);
     await this.setCapabilityValuesInterval();
     // await this.api.connect(); // When this throws, the device will become unavailable.
   }
@@ -115,7 +114,7 @@ class mainDevice extends Device {
 
   async onCapability_CURRENT_LIMIT(value) {
     try {
-      if (value) {
+      if (value !== this.getCapabilityValue('current_limit')) {
         this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${value}'`);
         return Promise.resolve(await this.api.setGoeCharger('amp', value));
       }
@@ -133,11 +132,6 @@ class mainDevice extends Device {
       if (infoJson) {
         await this.setAvailable();
 
-        await this.setValue('current_limit', infoJson.current_limit, check);
-        await this.setValue('current_max', infoJson.current_max, check);
-        await this.setValue('energy_total', infoJson.energy_total, check);
-        await this.setValue('is_connected', infoJson.is_connected, check);
-        await this.setValue('is_device_error', infoJson.is_device_error, check);
         await this.setValue('measure_power', infoJson.measure_power, check);
         await this.setValue('measure_current', infoJson.measure_current, check);
         await this.setValue('measure_voltage', infoJson.measure_voltage, check);
@@ -146,6 +140,11 @@ class mainDevice extends Device {
         await this.setValue('measure_temperature.charge_port', infoJson.measure_temperature, check);
         await this.setValue('meter_power', infoJson.meter_power, check);
         await this.setValue('onoff_charging_allowed', infoJson.onoff_charging_allowed, check);
+        await this.setValue('current_limit', infoJson.current_limit, check);
+        await this.setValue('current_max', infoJson.current_max, check);
+        await this.setValue('is_connected', infoJson.is_connected, check);
+        await this.setValue('is_device_error', infoJson.is_device_error, check);
+        await this.setValue('energy_total', infoJson.energy_total, check);
 
         // Check for status change and trigger accordingly
         await this.setValue('status', infoJson.status, check);

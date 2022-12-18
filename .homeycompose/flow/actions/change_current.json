@@ -1,10 +1,10 @@
 {
   "title": {
-    "en": "Change current to...",
-    "nl": "Amperage veranderen naar..."
+    "en": "Change current limit to ",
+    "nl": "Amperage veranderen naar "
   },
-  "titleformatted": {
-    "en": "Change current to [[action_amps]]",
+  "titleFormatted": {
+    "en": "Change current limit to [[action_amps]]",
     "nl": "Amperage veranderen naar [[action_amps]]"
   },
   "args": [
@@ -14,14 +14,14 @@
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     },
     {
+      "type": "range",
       "name": "action_amps",
-      "type": "dropdown",
-      "values": [
-        { "id": "6", "label": { "en": "6 A" } },
-        { "id": "10", "label": { "en": "10 A" } },
-        { "id": "16", "label": { "en": "16 A" } },
-        { "id": "32", "label": { "en": "32 A" } }
-      ]
+      "title": { "en": "Charge current limit" },
+      "min": 6,
+      "max": 32,
+      "step": 2,
+      "label": "A",
+      "labelDecimals": 0
     }
   ]
 }
