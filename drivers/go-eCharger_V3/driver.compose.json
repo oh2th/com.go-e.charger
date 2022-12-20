@@ -49,6 +49,60 @@
       "min": -50,
       "max": 50,
       "insights": true    
+    },
+    "status": {
+      "type": "enum",
+      "title": {
+        "en": "Device Status",
+        "nl": "Status van het apparaat"
+      },
+      "values": [
+        {
+          "id": "station_idle",
+          "title": {
+            "en": "No car connected",
+            "nl": "Geen auto verbonden"
+          }
+        },
+        {
+          "id": "car_charging",
+          "title": {
+            "en": "Charging",
+            "nl": "Auto opladen"
+          }
+        },
+        {
+          "id": "car_waiting",
+          "title": {
+            "en": "Waiting to charge",
+            "nl": "Klaarmaken voor laden"
+          }
+        },
+        {
+          "id": "car_finished",
+          "title": {
+            "en": "Charging stopped",
+            "nl": "Klaar met laden"
+          }
+        },
+        {
+          "id": "station_error",
+          "title": {
+            "en": "Station in error",
+            "nl": "Station in error"
+          }
+        },
+        {
+          "id": "unknown",
+          "title": {
+            "en": "Unknown status",
+            "nl": "Unknown status"
+          }
+        }
+      ],
+      "setable": false,
+      "getable": true,
+      "insights": false
     }
   },
   "platforms": [

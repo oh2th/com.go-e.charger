@@ -18,7 +18,64 @@
     "is_connected",
     "energy_total"
   ],
-  "platforms": [
+  "capabilitiesOptions": {
+    "measure_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "C"
+      },
+      "min": -50,
+      "max": 50,
+      "insights": true    
+    },
+    "status": {
+      "type": "enum",
+      "title": {
+        "en": "Device Status",
+        "nl":"Status van het apparaat"
+      },
+      "values": [
+        {
+          "id": "station_idle",
+          "title": {
+            "en": "No car connected",
+            "nl": "Geen auto verbonden"
+          }
+        },
+        {
+          "id": "car_charging",
+          "title": {
+            "en": "Charging",
+            "nl": "Auto opladen"
+          }
+        },
+        {
+          "id": "car_waiting",
+          "title": {
+            "en": "Waiting to charge",
+            "nl": "Klaarmaken voor laden"
+          }
+        },
+        {
+          "id": "car_finished",
+          "title": {
+            "en": "Charging stopped",
+            "nl": "Klaar met laden"
+          }
+        }
+      ],
+      "setable": false,
+      "getable": true,
+      "insights": false
+    }
+  },
+   "platforms": [
     "local"
   ],
   "connectivity": [

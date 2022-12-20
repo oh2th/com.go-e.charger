@@ -1,7 +1,7 @@
 'use strict';
 
 const { Device } = require('homey');
-const GoeChargerApi = require('../lib/go-echarger-api').default;
+const GoeChargerApi = require('../lib/go-echarger-api');
 const { sleep, decrypt, encrypt } = require('../lib/helpers');
 
 
@@ -124,25 +124,20 @@ class mainDevice extends Device {
   }
 
   async setCapabilityValues(check = false) {
-    // Check for device driver and select API version based in it. go-eCharger 1st and 2nd generation support API1 only.
     try {
-      if ( this.api.driver === "go-eCharger_V1" || this.api.driver === "go-eCharger_V2") {
-        const deviceInfo = await this.api.getInfoAPIV1();
-      } else {
-        const deviceInfo = await this.api.getInfoAPIV2();
-      }
-
+      const deviceInfo = await this.api.getInfo();
       const oldStatus = await this.getCapabilityValue('status');
 
       if (deviceInfo) {
+        // console.log(JSON.stringify(deviceInfo));
         await this.setAvailable();
 
         await this.setValue('measure_power', deviceInfo.measure_power, check);
         await this.setValue('measure_current', deviceInfo.measure_current, check);
         await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
         await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
-        await this.setValue('measure_temperature.internal', deviceInfo.measure_temperature, check);
-        await this.setValue('measure_temperature.charge_port', deviceInfo.measure_temperature, check);
+        await this.setValue('measure_temperature.internal', deviceInfo["measure_temperature.internal"], check);
+        await this.setValue('measure_temperature.charge_port', deviceInfo["measure_temperature.charge_port"], check);
         await this.setValue('meter_power', deviceInfo.meter_power, check);
         await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
         await this.setValue('current_limit', deviceInfo.current_limit, check);
@@ -179,7 +174,7 @@ class mainDevice extends Device {
     if (this.hasCapability(key)) {
         const oldVal = await this.getCapabilityValue(key);
 
-        // this.homey.app.log(`[Device] ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
+        // this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
 
         if (delay) {
             await sleep(delay);

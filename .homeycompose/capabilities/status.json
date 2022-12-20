@@ -4,10 +4,6 @@
     "en": "Device Status",
     "nl":"Status van het apparaat"
   },
-  "desc": {
-    "en": "Device Status",
-    "nl": "Status van het apparaat"
-  },
   "values": [
     {
       "id": "station_idle",
