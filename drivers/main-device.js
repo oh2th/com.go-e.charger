@@ -1,7 +1,7 @@
 'use strict';
 
 const { Device } = require('homey');
-const GoeChargerApi = require('../lib/go-echarger-api-v1');
+const GoeChargerApi = require('../lib/go-echarger-api').default;
 const { sleep, decrypt, encrypt } = require('../lib/helpers');
 
 
@@ -13,7 +13,7 @@ class mainDevice extends Device {
    * onInit is called when the device is initialized.
    */
   async onInit() {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} start init.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} start init.`);
     this.setUnavailable(`Initializing ${this.getName()}`);
 
     await this.checkCapabilities();
@@ -27,7 +27,7 @@ class mainDevice extends Device {
    * onAdded is called when the user adds the device, called just after pairing.
    */
   async onAdded() {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} has been added.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} has been added.`);
   }
 
   /**
@@ -39,7 +39,7 @@ class mainDevice extends Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} settings where changed.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} settings where changed.`);
   }
 
   /**
@@ -48,47 +48,47 @@ class mainDevice extends Device {
    * @param {string} name The new name
    */
   async onRenamed(name) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} was renamed.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} was renamed.`);
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
   async onDeleted() {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} has been deleted.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} has been deleted.`);
     this.clearIntervals();
   }
 
   onDiscoveryResult(discoveryResult) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} discovered - result: ${discoveryResult.id}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} discovered - result: ${discoveryResult.id}.`);
     // Return a truthy value here if the discovery result matches your device.
     return discoveryResult.id === this.getData().id;
   }
 
   // This method will be executed once when the device has been found (onDiscoveryResult returned true)
   async onDiscoveryAvailable(discoveryResult) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} available - result: ${discoveryResult.address}.`);
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} available - result: ${discoveryResult.address}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
     this.api = new GoeChargerApi();
     this.api.address = discoveryResult.address;
+    this.api.driver = this.driver.id;
     await this.setCapabilityValues(true);
-    await this.setAvailable();
     await sleep(5000);
+    await this.setAvailable();
     await this.setCapabilityValuesInterval();
-    // await this.api.connect(); // When this throws, the device will become unavailable.
   }
 
   onDiscoveryAddressChanged(discoveryResult) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} changed - result: ${discoveryResult.address}.`);
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} changed - result: ${discoveryResult.name}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} changed - result: ${discoveryResult.address}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} changed - result: ${discoveryResult.name}.`);
     // Update your connection details here, reconnect when the device is offline
     this.api.address = discoveryResult.address;
     // this.api.reconnect().catch(this.error);
   }
 
   onDiscoveryLastSeenChanged(discoveryResult) {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} offline - result: ${discoveryResult.address}.`);
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} offline - result: ${discoveryResult.name}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.address}.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.name}.`);
     this.api.address = discoveryResult.address;
     // When the device is offline, try to reconnect here
     // this.api.reconnect().catch(this.error);
@@ -104,7 +104,7 @@ class mainDevice extends Device {
     if(value) { alw=1; }
     try {
       if (value !== this.getCapabilityValue('onoff_charging_allowed')) {
-        this.log(`[Device] ${this.getName()}:  ${this.getData().id} set OnOff Charging Allowed: '${value}'`);
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set OnOff Charging Allowed: '${value}'`);
         return Promise.resolve(await this.api.setGoeCharger('alw', alw));
       }
     } catch (e) {
@@ -115,7 +115,7 @@ class mainDevice extends Device {
   async onCapability_CURRENT_LIMIT(value) {
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
-        this.log(`[Device] ${this.getName()}:  ${this.getData().id} setCurrentLimit: '${value}'`);
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimit: '${value}'`);
         return Promise.resolve(await this.api.setGoeCharger('amp', value));
       }
     } catch (e) {
@@ -124,41 +124,46 @@ class mainDevice extends Device {
   }
 
   async setCapabilityValues(check = false) {
-
+    // Check for device driver and select API version based in it. go-eCharger 1st and 2nd generation support API1 only.
     try {
-      const infoJson = await this.api.getInfo();
+      if ( this.api.driver === "go-eCharger_V1" || this.api.driver === "go-eCharger_V2") {
+        const deviceInfo = await this.api.getInfoAPIV1();
+      } else {
+        const deviceInfo = await this.api.getInfoAPIV2();
+      }
+
       const oldStatus = await this.getCapabilityValue('status');
 
-      if (infoJson) {
+      if (deviceInfo) {
         await this.setAvailable();
 
-        await this.setValue('measure_power', infoJson.measure_power, check);
-        await this.setValue('measure_current', infoJson.measure_current, check);
-        await this.setValue('measure_voltage', infoJson.measure_voltage, check);
-        await this.setValue('measure_temperature', infoJson.measure_temperature, check);
-        await this.setValue('measure_temperature.internal', infoJson.measure_temperature, check);
-        await this.setValue('measure_temperature.charge_port', infoJson.measure_temperature, check);
-        await this.setValue('meter_power', infoJson.meter_power, check);
-        await this.setValue('onoff_charging_allowed', infoJson.onoff_charging_allowed, check);
-        await this.setValue('current_limit', infoJson.current_limit, check);
-        await this.setValue('current_max', infoJson.current_max, check);
-        await this.setValue('is_connected', infoJson.is_connected, check);
-        await this.setValue('is_device_error', infoJson.is_device_error, check);
-        await this.setValue('energy_total', infoJson.energy_total, check);
+        await this.setValue('measure_power', deviceInfo.measure_power, check);
+        await this.setValue('measure_current', deviceInfo.measure_current, check);
+        await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
+        await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
+        await this.setValue('measure_temperature.internal', deviceInfo.measure_temperature, check);
+        await this.setValue('measure_temperature.charge_port', deviceInfo.measure_temperature, check);
+        await this.setValue('meter_power', deviceInfo.meter_power, check);
+        await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
+        await this.setValue('current_limit', deviceInfo.current_limit, check);
+        await this.setValue('current_max', deviceInfo.current_max, check);
+        await this.setValue('is_connected', deviceInfo.is_connected, check);
+        await this.setValue('is_device_error', deviceInfo.is_device_error, check);
+        await this.setValue('energy_total', deviceInfo.energy_total, check);
 
         // Check for status change and trigger accordingly
-        await this.setValue('status', infoJson.status, check);
-        if (infoJson.status !== oldStatus) {
-          if(infoJson.status === 'station_idle') {
+        await this.setValue('status', deviceInfo.status, check);
+        if (deviceInfo.status !== oldStatus) {
+          if(deviceInfo.status === 'station_idle') {
             await this.setValue('is_charging', false);
           }
-          if(infoJson.status === 'car_charging') {
+          if(deviceInfo.status === 'car_charging') {
             await this.setValue('is_charging', true);
           }
-          if(infoJson.status === 'car_waiting') {
+          if(deviceInfo.status === 'car_waiting') {
             await this.setValue('is_charging', false);
           }
-          if(infoJson.status === 'car_finished') {
+          if(deviceInfo.status === 'car_finished') {
             await this.setValue('is_charging', false);
           }
         }
@@ -200,7 +205,7 @@ class mainDevice extends Device {
 
   async setCapabilityValuesInterval() {
     try {
-      this.log(`[Device] ${this.getName()}:  ${this.getData().id} onPollInterval =>`, POLL_INTERVAL);
+      this.log(`[Device] ${this.getName()}: ${this.getData().id} onPollInterval =>`, POLL_INTERVAL);
       this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
     } catch (error) {
       this.setUnavailable(error);
@@ -209,7 +214,7 @@ class mainDevice extends Device {
   }
 
   async clearIntervals() {
-    this.log(`[Device] ${this.getName()}:  ${this.getData().id} clearIntervals`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} clearIntervals`);
 
     clearInterval(this.onPollInterval);
   }

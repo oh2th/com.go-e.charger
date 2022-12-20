@@ -173,7 +173,7 @@
           "en": "Change current limit to ",
           "nl": "Amperage veranderen naar "
         },
-        "titleformatted": {
+        "titleFormatted": {
           "en": "Change current limit to [[action_amps]]",
           "nl": "Amperage veranderen naar [[action_amps]]"
         },
