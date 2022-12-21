@@ -3,6 +3,6 @@
 const mainDevice = require('../main-device');
 const mainDriver = require('../main-driver');
 
-module.exports = class goeChargerV1andV2Device extends mainDevice {
+module.exports = class goeChargerDevice extends mainDevice {
 
 };

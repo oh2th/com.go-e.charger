@@ -217,7 +217,7 @@
   "drivers": [
     {
       "name": {
-        "en": "go-e Charger CC1"
+        "en": "go-e Charger 1st gen CC1"
       },
       "class": "other",
       "capabilities": [
@@ -246,25 +246,37 @@
         "large": "/drivers/go-eCharger_V1/assets/images/large.png",
         "xlarge": "/drivers/go-eCharger_V1/assets/images/xlarge.png"
       },
-      "discovery": "mdns_http_go-e",
       "pair": [
         {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
+          "id": "manual_pairing"
         }
       ],
-      "id": "go-eCharger_V1"
+      "id": "go-eCharger_V1",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device configuration"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "label": {
+                "en": "IP address"
+              },
+              "value": "0.0.0.0",
+              "hint": {
+                "en": "Fixed IP address of the device."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
-        "en": "go-e Charger CM-02"
+        "en": "go-e Charger 2nd gen CM-02"
       },
       "class": "other",
       "capabilities": [
@@ -293,25 +305,37 @@
         "large": "/drivers/go-eCharger_V2/assets/images/large.png",
         "xlarge": "/drivers/go-eCharger_V2/assets/images/xlarge.png"
       },
-      "discovery": "mdns_http_go-e",
       "pair": [
         {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices"
+          "id": "manual_pairing"
         }
       ],
-      "id": "go-eCharger_V2"
+      "id": "go-eCharger_V2",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device configuration"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "label": {
+                "en": "IP address"
+              },
+              "value": "0.0.0.0",
+              "hint": {
+                "en": "Fixed IP address of the device."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
-        "en": "go-e Charger CM-03"
+        "en": "go-e Charger 3rd gen CM-03"
       },
       "class": "other",
       "capabilities": [
@@ -387,11 +411,32 @@
           "template": "add_devices"
         }
       ],
-      "id": "go-eCharger_V3"
+      "id": "go-eCharger_V3",
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device configuration"
+          },
+          "children": [
+            {
+              "id": "address",
+              "type": "text",
+              "label": {
+                "en": "IP address"
+              },
+              "value": "0.0.0.0",
+              "hint": {
+                "en": "Fixed IP address of the device."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "name": {
-        "en": "go-e Charger GM-10"
+        "en": "go-e Charger 4th gen Gemini"
       },
       "class": "other",
       "capabilities": [
@@ -639,10 +684,6 @@
     "status": {
       "type": "enum",
       "title": {
-        "en": "Device Status",
-        "nl": "Status van het apparaat"
-      },
-      "desc": {
         "en": "Device Status",
         "nl": "Status van het apparaat"
       },

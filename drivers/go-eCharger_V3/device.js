@@ -2,6 +2,6 @@
 
 const mainDevice = require('../main-device');
 
-module.exports = class goeChargerGeminiDevice extends mainDevice {
+module.exports = class goeChargerDevice extends mainDevice {
 
 };

@@ -1,1 +1,18 @@
-{}
+{
+  "pair": {
+    "manual_pairing": {
+      "title": "Manual configuration.",
+      "instructions": "Configure your go-eCharger with fixed IP address.",
+      "address": "IP address",
+      "testDevice": "Test Device",
+      "saveDevice": "Save Device",
+      "ipRequired": "IP address required"
+    },
+    "title": "Manual configuration.",
+    "instructions": "Configure your go-eCharger with fixed IP address.",
+    "address": "IP address",
+    "testDevice": "Test Device",
+    "saveDevice": "Save Device",
+    "ipRequired": "IP address required"
+  }
+}

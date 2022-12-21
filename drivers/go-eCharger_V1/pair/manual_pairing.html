@@ -1,13 +1,10 @@
-<script>
-  Homey.setTitle( __('pair.title') );
-  let data = null;
+<script type="application/javascript">
+  Homey.setTitle( __('pair.manual_pairing.title') );
+  let device = {};
   const saveButton = $('#saveDevice');
   const testIpButton = $('#testIp');
-  saveButton.prop('disabled', true);
-  testIpButton.prop('disabled', false);
 
   function testDevice() {
-    testIpButton.prop('disabled', true);
     $('#result').html(`
       <br>
       <div class="spinner-border" role="status">
@@ -16,68 +13,28 @@
     `);
     const address = $('#address').val();
     if (address !== '') {
-      Homey.emit('testConnection', address, (error, result) => {
-        if (error) {
-          $('#result').html(`
-            <p>Something went wrong. Please navigate using your browser to <a href="http://${address}/status">http://${address}/status</a>
-            and see if you get any results.`);
-          saveButton.prop('disabled', true);
-          testIpButton.prop('disabled', false);
-        } else {
-          data = result;
-          $('#result').html(`
-            <br>
-            <ul class="list-group list-group-flush">
-            <li class="list-group-item">A device with Serial Number <b>${data.id}</b> was found at IP address <i>${address}</i>.
-            <button class="btn btn-primary" type="button" id="saveDevice" data-i18n="pair.saveDevice" onclick="saveDevice()">Save</button>
-          `);
-          saveButton.prop('disabled', false);
-          testIpButton.prop('disabled', false);
-        }
+      Homey.emit('manual_pairing', { address: address }).then(function (result) {
+        console.log('Manual pairing returned:', result);
+
       });
     } else {
-      Homey.alert(__('pair.start.required'), 'error');
-      testIpButton.prop('disabled', false);
+      Homey.alert(__('pair.manual_pairing.ipRequired'), 'error');
     }
   }
 
-  function saveDevice() {
-    testIpButton.prop('disabled', true);
-    saveButton.prop('disabled', true);
-    Homey.addDevice({
-      name: data.name,
-      data: {
-        id: data.id,
-      },
-      settings: {
-        address: address,
-      },
-      store: {}
-    }, (err, result) => {
-      if (err) {
-        return Homey.alert(err);
-      }
-      Homey.done();
-    });
-  }
 </script>
 
 <header class="homey-header">
-  <h1 class="homey-title" data-i18n="pair.title"></h1>
-  <p class="homey-subtitle" data-i18n="pair.instructions"></p>
+  <p class="homey-subtitle" data-i18n="pair.manual_pairing.instructions"></p>
 </header>
 
 <form class="homey-form">
-  <fieldset class="homey-form-fieldset">
-    <legend class="homey-form-legend">Login data</legend>
-  </fieldset>
-      
   <div class="homey-form-group">
-    <label class="homey-form-label" for="address">IP address</label>
+    <label class="homey-form-label" data-i18n="pair.manual_pairing.address" for="address"></label>
     <input class="homey-form-input" id="address" type="text" value=""/>
   </div>
 
-  <button class="btn btn-primary" type="button" id="testIp" data-i18n="pair.testDevice" onclick="testDevice()">Test</button>
+  <button class="homey-button-primary" type="button" id="testIp" data-i18n="pair.manual_pairing.testDevice" onclick="testDevice()">Test</button>
   <div id="result"></div>
 
 </form>

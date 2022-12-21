@@ -1,6 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
+const GoeChargerApi = require('../lib/go-echarger-api');
 
 module.exports = class mainDriver extends Homey.Driver {
 
@@ -22,14 +23,45 @@ module.exports = class mainDriver extends Homey.Driver {
             data: {
               id: discoveryResult.id,
             },
+            settings: {
+              address: discoveryResult.address,
+            },
+            store: {}  
           };
         });
-        return results;
-      } catch (error) {
-        this.homey.app.log(error);
+        if (results.length > 0) {
+          return results;
+        }
+      } catch (e) {
+        this.homey.app.log(e);
         throw new Error(this.homey.__('pair.error'));
       }
     });
+
+    session.setHandler('manual_pairing', async function (data) {
+      try {
+        console.log('manual_pairing: ', data.address);
+        const api = new GoeChargerApi();
+        api.address = data.address;
+        const initialInfo = await api.getInitialInfo();
+        initialInfo.address = data.address;
+        console.log('manual_pairing result: ', initialInfo);
+        return {
+          name: initialInfo.name,
+          data: {
+            id: initialInfo.id,
+          },
+          settings: {
+            address: initialInfo.address,
+          },
+          store: {}
+        }
+      } catch (e) {
+        console.log(e);
+        throw new Error(this.homey.__('pair.error'));
+      }
+    });
+
   }
 
 };
