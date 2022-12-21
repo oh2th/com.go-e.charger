@@ -32,6 +32,9 @@
   "pair": [
     {
       "id": "manual_pairing"
+    },
+    {
+      "id": "add_device"
     }
   ]
 }

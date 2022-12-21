@@ -11,6 +11,8 @@ module.exports = class mainDriver extends Homey.Driver {
   }
 
   async onPair(session) {
+    let deviceArray = {};
+
     session.setHandler('list_devices', async () => {
       try {
         this.homey.app.log(`[Driver] ${this.id} - mDNS discovery`);
@@ -31,6 +33,9 @@ module.exports = class mainDriver extends Homey.Driver {
         });
         if (results.length > 0) {
           return results;
+        } else {
+          this.homey.app.log('Fallback to manual pairing not implemented.');
+          // session.showView('select_pairing');
         }
       } catch (e) {
         this.homey.app.log(e);
@@ -46,7 +51,7 @@ module.exports = class mainDriver extends Homey.Driver {
         const initialInfo = await api.getInitialInfo();
         initialInfo.address = data.address;
         console.log('manual_pairing result: ', initialInfo);
-        return {
+        deviceArray = {
           name: initialInfo.name,
           data: {
             id: initialInfo.id,
@@ -56,9 +61,18 @@ module.exports = class mainDriver extends Homey.Driver {
           },
           store: {}
         }
+        return Promise.resolve(deviceArray);
       } catch (e) {
         console.log(e);
         throw new Error(this.homey.__('pair.error'));
+      }
+    });
+
+    session.setHandler('add_device', async (data) => {
+      try {
+        return Promise.resolve(deviceArray);
+      } catch (error) {
+        this.error(error);
       }
     });
 
