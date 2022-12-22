@@ -19,6 +19,7 @@ class mainDevice extends Device {
     const settings = this.getSettings();
     this.api = new GoeChargerApi();
     this.api.address = settings.address;
+    this.api.driver = this.driver.id;
 
     await this.checkCapabilities();
     await this.setCapabilityListeners();
@@ -195,29 +196,29 @@ class mainDevice extends Device {
 
   async setValue(key, value, firstRun = false, delay = 10) {
     if (this.hasCapability(key)) {
-        const oldVal = await this.getCapabilityValue(key);
+      const oldVal = await this.getCapabilityValue(key);
 
-        // this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
+      // this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
 
-        if (delay) {
-            await sleep(delay);
+      if (delay) {
+        await sleep(delay);
+      }
+
+      await this.setCapabilityValue(key, value);
+
+      if (typeof value === 'boolean' && oldVal !== value && !firstRun) {
+        const newKey = key.replace('.', '_');
+        const triggers = this.homey.manifest.flow.triggers;
+        const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
+
+      if (triggerExists) {
+        await this.homey.flow
+          .getDeviceTriggerCard(`${newKey}_changed`)
+          .trigger(this)
+          .catch(this.error)
+          .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
         }
-
-        await this.setCapabilityValue(key, value);
-
-        if (typeof value === 'boolean' && oldVal !== value && !firstRun) {
-            const newKey = key.replace('.', '_');
-            const triggers = this.homey.manifest.flow.triggers;
-            const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
-
-            if (triggerExists) {
-                await this.homey.flow
-                    .getDeviceTriggerCard(`${newKey}_changed`)
-                    .trigger(this)
-                    .catch(this.error)
-                    .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
-            }
-        }
+      }
     }
   }
 
@@ -241,11 +242,10 @@ class mainDevice extends Device {
   async checkCapabilities() {
     const driverManifest = this.driver.manifest;
     const driverCapabilities = driverManifest.capabilities;
-
     const deviceCapabilities = this.getCapabilities();
 
-    this.homey.app.log(`[Device] ${this.getName()} - Found capabilities =>`, deviceCapabilities);
-    this.homey.app.log(`[Device] ${this.getName()} - Driver capabilities =>`, driverCapabilities);
+    // this.homey.app.log(`[Device] ${this.getName()} - Found capabilities =>`, deviceCapabilities);
+    // this.homey.app.log(`[Device] ${this.getName()} - Driver capabilities =>`, driverCapabilities);
 
     if (deviceCapabilities.length !== driverCapabilities.length) {
         await this.updateCapabilities(driverCapabilities, deviceCapabilities);

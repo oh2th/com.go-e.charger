@@ -2,7 +2,6 @@
 
 const Homey = require('homey');
 const GoeChargerApi = require('../lib/go-echarger-api');
-
 module.exports = class mainDriver extends Homey.Driver {
 
   onInit() {
@@ -45,10 +44,9 @@ module.exports = class mainDriver extends Homey.Driver {
 
     session.setHandler('manual_pairing', async function (data) {
       try {
-        console.log('manual_pairing: ', data.address);
         const api = new GoeChargerApi();
         api.address = data.address;
-        const initialInfo = await api.getInitialInfo();
+        const initialInfo = await getInitialInfo();
         initialInfo.address = data.address;
         console.log('manual_pairing result: ', initialInfo);
         deviceArray = {
@@ -76,6 +74,35 @@ module.exports = class mainDriver extends Homey.Driver {
       }
     });
 
+  }
+
+  // getInfo will decide which API to use based in driver
+  async getInfo() {
+    console.log(`[Device] getInfo with driver ${this.id}`);
+    try {
+      if ( this.id === "go-eCharger_V1" || this.id === "go-eCharger_V2") {
+        return Promise.resolve(await this.getInfoAPIV1());
+      } else {
+        return Promise.resolve(await this.getInfoAPIV2());
+      }
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  }
+
+  // First and Second generation devices support API V1 only
+  // Used during pairing to test the connection and get the serial number.
+  async getInitialInfo() {
+    console.log(`[Device] getInitialInfo with driver ${this.id}`);
+    try {
+      if ( this.id === "go-eCharger_V1" || this.id === "go-eCharger_V2") {
+        return Promise.resolve(await this.getInitialInfoAPIV1());
+      } else {
+        return Promise.resolve(await this.getInitialInfoAPIV2());
+      }
+    } catch (e) {
+      return Promise.reject(e);
+    }
   }
 
 };
