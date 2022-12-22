@@ -1,6 +1,6 @@
 {
   "id": "com.go-e.charger",
-  "version": "0.0.0",
+  "version": "0.9.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -46,7 +46,17 @@
     "developers": [
       {
         "name": "phatenl"
+      },
+      {
+        "name": "martijnpoppen"
+      },
+      {
+        "name": "robertklep"
       }
     ]
+  },
+  "source": "https://github.com/oh2th/com.go-e.charger",
+  "bugs": {
+    "url": "https://github.com/oh2th/com.go-e.charger/issues"
   }
 }

@@ -2,71 +2,54 @@
 
 Smart EV Charging from go-e
 
-Support for the go-e Home and Gemini family of EV chargers.
+Adds support for the go-e Home and Gemini family of EV chargers for the Athom Homey Pro.
+
+## Setup
+
+- 1st, 2nd and 3rd generation devices must have fixed IP address.
+- 4th generation devices are automatically detected with mDNS-DS in the same LAN.
+- API V1 must be enabled on the 1st and 2nd generation devices.
+- API V2 must be enabled on the 3rd and 4th generation devices.
+
+## Supported devices
+
+### go-e Charger Home+
+
+- 1st generation devices with serial numbers starting with CC1- (API V1)
+- 2nd generation devices with serial numbers starting with CM-02- (API V1)
+- 3rd generation devices with serial numbers starting with CM-03- (API V2)
+
+### go-e Charger Gemini
+
+- 4th generation devices with serial numbers starting with GM-10- (API V2)
 
 ## Supported flow cards
 
 ### When
 
-- Finished charging
-- Charging ended
-- Charging started
-- Car connected
-- Car unplugged
-- Charging allowed
-- Charging disallowed
 - Status changed
-- Turned on
-- Turned off
-- The electric power becomes greater/less than `number`W
-- The electric current becomes greater/less than `number`A
-- The electric voltage becomes greater/less than `number`V
-- The delivered total energy becomes `number`kWh
-- The delivered energy this session becomes `number`kWh
-- The internal temperature becomes greater/less than `number`°C
-- The charge port temperature becomes greater/less than `number`°C
+- Car connection changed
+- Charging allowed changed
+- Charging changed
+- Delivered Energy This Session becomes greater/less than `number`kWh
+- Supplied Power becomes greater/less than `number`W
+- Supplied Current becomes greater/less than `number`A
+- Supplied Voltage becomes greater/less than `number`V
+- Temperature becomes greater/less than `number`C
+- Charge Port Temperature becomes greater/less than `number`C
 
 ### And
 
-- Finished charging
-- Is charging
-- Charging is allowed
-- A car is plugged in
-- Is turned on
+- Car is/isn't connected
+- Charging is/isn't allowed
+- Is/Isn't charging
 
 ### Then
 
 - Allow charging
 - Stop charging
 - Change current limit to `amperage`A
-- Turn on
-- Turn off
-- Toggle on or off
 
-## Variables
+## Example flows
 
-## Enum
-
-- Device status `car` (Unknown/Error=0, Idle=1, Charging=2, WaitCar=3, Complete=4, Error=5)
-- Error status `err` (None = 0, FiAc = 1, FiDc = 2, Phase = 3, Overvolt = 4, Overamp = 5, Diode = 6, PpInvalid = 7, GndInvalid = 8, ContactorStuck = 9, ContactorMiss = 10, FiUnknown = 11, Unknown = 12, Overtemp = 13, NoComm = 14, StatusLockStuckOpen = 15, StatusLockStuckLocked = 16, Reserved20 = 20, Reserved21 = 21, Reserved22 = 22, Reserved23 = 23, Reserved24 = 24)
-
-### True/False, Yes/No
-
-- Car plugged in
-- Charging
-- Charging allowed
-- Charging finished
-- Errorstatus
-
-### Number
-
-- Current amperage supplied
-- Current power supplied
-- Current voltage supplied
-- Maximum power as set in the device's app
-- Maximum power from the source available for charging
-- Energy delivered in this session `wh`
-- Charge Port Temperature `tma`
-- Internal Temperature `tma`
-- Total Energy Delivered `eto`
-- Wifi signal RSSI `rssi`
+![Example flows](/assets/images/flow-examples.png)
