@@ -1,7 +1,7 @@
 {
   "type": "number",
   "title": {
-    "en": "Delivered Power This Session",
+    "en": "Delivered Energy This Session",
     "nl": "Vermogen in deze laadsessie geleverd"
   },
   "getable": true,

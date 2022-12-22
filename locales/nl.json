@@ -1,0 +1,15 @@
+{
+  "pair": {
+    "title": "Handmatige configuratie",
+    "subtitle": "Configuratie",
+    "intro": "Voer het IP-adres in voor uw go-eCharger-apparaat.",
+    "nosettings": "Vul alle verplichte velden in.",
+    "address": "IP-adres",
+    "name": "Apparaat naam:",
+    "serial": "Oplader serieel:",
+    "test": "Test verbinding",
+    "testing": "Verbindingstest geslaagd, u kunt nu verbinding maken met het apparaat.",
+    "connect": "Aansluiten",
+    "success": "go-eCharger succesvol toegevoegd."
+  }
+}

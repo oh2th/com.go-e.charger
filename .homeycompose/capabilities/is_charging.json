@@ -2,7 +2,7 @@
   "type": "boolean",
   "title": {
     "en": "Car is charging",
-    "nl": "Laden"
+    "nl": "Auto is aan het opladen"
   },
   "getable": true,
   "setable": false,
