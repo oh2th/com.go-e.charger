@@ -9,7 +9,7 @@
     "measure_power",
     "measure_current",
     "measure_voltage",
-    "measure_temperature.internal",
+    "measure_temperature",
     "measure_temperature.charge_port",
     "current_limit",
     "current_max",
@@ -20,21 +20,6 @@
     "energy_total"
   ],
   "capabilitiesOptions": {
-    "measure_temperature.internal": {
-      "type": "number",
-      "title": {
-        "en": "Internal Temperature",
-        "nl": "Internaal Temperatuur"
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "C"
-      },
-      "min": -50,
-      "max": 50,
-      "insights": true    
-    },
     "measure_temperature.charge_port": {
       "type": "number",
       "title": {
@@ -73,13 +58,20 @@
     },
     {
       "id": "add_devices",
-      "template": "add_devices"
+      "template": "add_devices",
+      "navigation": {
+        "next": "done"
+      }
     },
     {
       "id": "manual_pairing"
     },
     {
       "id": "add_device"
+    },
+    {
+      "id": "done",
+      "template": "done"
     }
   ]
 }

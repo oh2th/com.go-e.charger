@@ -16,8 +16,16 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} start init.`);
     this.setUnavailable(`Initializing ${this.getName()}`);
 
+    const settings = this.getSettings();
+    this.api = new GoeChargerApi();
+    this.api.address = settings.address;
+
     await this.checkCapabilities();
     await this.setCapabilityListeners();
+    await this.setCapabilityValues(true);
+    await sleep(5000);
+    await this.setAvailable();
+    await this.setCapabilityValuesInterval();
 
   } catch (error) {
     this.homey.app.log(`[Device] ${this.getName()} - OnInit Error`, error);
@@ -39,7 +47,17 @@ class mainDevice extends Device {
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log(`[Device] ${this.getName()}: ${this.getData().id} settings where changed.`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} settings where changed: ${changedKeys}`);
+    this.api.address = newSettings.address;
+    try {
+      const initialInfo = await this.api.getInitialInfo();
+      this.log(`[Device] ${this.getName()}: ${this.getData().id} new settings OK.`);
+      this.setAvailable();
+      return Promise.resolve(initialInfo);
+    } catch (e) {
+      this.setUnavailable(e);
+      return Promise.reject(e);
+    }
   }
 
   /**
@@ -69,13 +87,11 @@ class mainDevice extends Device {
   async onDiscoveryAvailable(discoveryResult) {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} available - result: ${discoveryResult.address}.`);
     this.log(`[Device] ${this.getName()}: ${this.getData().id} type: ${discoveryResult.txt.devicetype}.`);
-    this.api = new GoeChargerApi();
     this.api.address = discoveryResult.address;
-    this.api.driver = this.driver.id;
-    await this.setCapabilityValues(true);
-    await sleep(5000);
+    await this.setSettings({
+      address: this.api.address,
+    });
     await this.setAvailable();
-    await this.setCapabilityValuesInterval();
   }
 
   onDiscoveryAddressChanged(discoveryResult) {
@@ -83,6 +99,10 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} changed - result: ${discoveryResult.name}.`);
     // Update your connection details here, reconnect when the device is offline
     this.api.address = discoveryResult.address;
+    this.setSettings({
+      address: this.api.address,
+    });
+    this.setAvailable();
     // this.api.reconnect().catch(this.error);
   }
 
@@ -90,13 +110,17 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.address}.`);
     this.log(`[Device] ${this.getName()}: ${this.getData().id} offline - result: ${discoveryResult.name}.`);
     this.api.address = discoveryResult.address;
+    this.setSettings({
+      address: this.api.address,
+    });
+    this.setUnavailable("Disovery device offline.");
     // When the device is offline, try to reconnect here
     // this.api.reconnect().catch(this.error);
   }
 
   async setCapabilityListeners() {
-    await this.registerCapabilityListener('onoff_charging_allowed', this.onCapability_ONOFF_CHARGING.bind(this));
-    await this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
+    this.registerCapabilityListener('onoff_charging_allowed', this.onCapability_ONOFF_CHARGING.bind(this));
+    this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
   async onCapability_ONOFF_CHARGING(value) {
@@ -136,7 +160,6 @@ class mainDevice extends Device {
         await this.setValue('measure_current', deviceInfo.measure_current, check);
         await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
         await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
-        await this.setValue('measure_temperature.internal', deviceInfo["measure_temperature.internal"], check);
         await this.setValue('measure_temperature.charge_port', deviceInfo["measure_temperature.charge_port"], check);
         await this.setValue('meter_power', deviceInfo.meter_power, check);
         await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
