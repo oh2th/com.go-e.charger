@@ -71,6 +71,9 @@
     "donate": {
       "paypal": {
         "username": "oh2th"
+      },
+      "githubSponsors": {
+        "username": "oh2th"
       }
     }
   },
@@ -79,5 +82,5 @@
     "url": "https://github.com/oh2th/com.go-e.charger/issues"
   },
   "homeyCommunityTopicId": 14162,
-  "support": ""
+  "support": "https://github.com/oh2th/com.go-e.charger/discussions/categories/general"
 }
