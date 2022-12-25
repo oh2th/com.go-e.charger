@@ -19,6 +19,4 @@ Thumbs.db
 /.homeybuild/
 package-lock.json
 package.json
-app.json
 tsconfig.json
-app.json
