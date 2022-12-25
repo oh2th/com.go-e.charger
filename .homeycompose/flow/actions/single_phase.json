@@ -15,7 +15,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "go-eCharger_V3||go-eCharger_V4"
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
     }
   ]
 }

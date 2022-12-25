@@ -130,6 +130,20 @@
       },
       {
         "title": {
+          "en": "Single phase charging changed",
+          "nl": "Eenfasig laden gewijzigd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "single_phase_charging_changed"
+      },
+      {
+        "title": {
           "en": "Status changed",
           "nl": "Status gewijzigd"
         },
@@ -193,7 +207,15 @@
           "en": "Allow charging",
           "nl": "Laden toestaan"
         },
+        "titleFormatted": {
+          "en": "Set allow charging to [[enabled]]",
+          "nl": "Stel opladen toestaan ​​in op [[enabled]]"
+        },
         "args": [
+          {
+            "type": "checkbox",
+            "name": "enabled"
+          },
           {
             "type": "device",
             "name": "device",
@@ -234,17 +256,25 @@
       },
       {
         "title": {
-          "en": "Stop charging",
-          "nl": "Laden stoppen"
+          "en": "Single phase charging",
+          "nl": "Enkelfasig opladen"
+        },
+        "titleFormatted": {
+          "en": "Set single phase charging to [[enabled]]",
+          "nl": "Stel enkelfasig laden in op [[enabled]]"
         },
         "args": [
           {
+            "type": "checkbox",
+            "name": "enabled"
+          },
+          {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3||go-eCharger_V4"
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
           }
         ],
-        "id": "stop_charging"
+        "id": "single_phase"
       }
     ]
   },
