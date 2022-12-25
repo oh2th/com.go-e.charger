@@ -1,5 +1,8 @@
 {
   "0.9.1": {
     "en": "Initial test version"
+  },
+  "0.10.0": {
+    "en": "Gen 3 and 4 devices now use API v2 to set device parameters, no more deps to API v1 for them"
   }
 }

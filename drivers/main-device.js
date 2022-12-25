@@ -166,17 +166,23 @@ class mainDevice extends Device {
         await this.setValue('measure_temperature.charge_port', deviceInfo["measure_temperature.charge_port"], check);
         await this.setValue('meter_power', deviceInfo.meter_power, check);
         await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
+        await this.setValue('cable_limit', deviceInfo.cable_limit, check);
         await this.setValue('current_limit', deviceInfo.current_limit, check);
         await this.setValue('current_max', deviceInfo.current_max, check);
         await this.setValue('is_connected', deviceInfo.is_connected, check);
         await this.setValue('alarm_device', deviceInfo.alarm_device, check);
         await this.setValue('energy_total', deviceInfo.energy_total, check);
 
-        // Check for device's maximum current configuration and adjust device current_limit capability maximum setting value.
-        // Only update if different.
+        // Check for device's maximum current configuration and connected Type-2 cables ampere coding
+        // and adjust device current_limit capability maximum setting value for the lesser.
         if(currentLimitOpts.max !== deviceInfo.current_max) {
-          this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.current_max}'`);
-          await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max })
+          if(deviceInfo.cable_limit < deviceInfo.current_max) {
+            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.cable_limit}'`);
+            await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit })
+          } else {
+            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.current_max}'`);
+            await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max })
+          }
         }
 
         // Check for status change and trigger accordingly

@@ -1,0 +1,18 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Type-2 Cable Amperes",
+    "nl": "Type-2 kabelampère"
+  },
+  "getable": false,
+  "setable": false,
+  "min": 0,
+  "max": 32,
+  "step": 1,
+  "units": {
+    "en": "A"
+  },
+  "icon": "/assets/icon.svg",
+  "insights": false,
+  "uiComponent": null
+}
