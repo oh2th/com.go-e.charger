@@ -122,16 +122,36 @@ class mainDevice extends Device {
 
   async setCapabilityListeners() {
     this.registerCapabilityListener('onoff_charging_allowed', this.onCapability_ONOFF_CHARGING.bind(this));
+    this.registerCapabilityListener('single_phase_charging', this.onCapability_SINGLE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
   async onCapability_ONOFF_CHARGING(value) {
-    let alw=0;
-    if(value) { alw=1; }
+    let val = 0;
     try {
       if (value !== this.getCapabilityValue('onoff_charging_allowed')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set OnOff Charging Allowed: '${value}'`);
-        return Promise.resolve(await this.api.setGoeChargerValue('alw', alw));
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set onoff_charging_allowed: '${val}'`);
+        if ( this.api.driver === "go-eCharger_V1" || this.api.driver === "go-eCharger_V2") {
+          if (value) val = 1; // Enable charging
+          return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
+        } else {
+          if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
+          return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
+        }
+      }
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  }
+
+  async onCapability_SINGLE_PHASE(value) {
+    let val = 2; // Force three phase
+    if (value) val = 1; // Force single phase
+    try {
+      if (value !== this.getCapabilityValue('single_phase_charging')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set single_phase_charging: '${val}'`);
+        await this.setValue('single_phase_charging', value, false);
+        return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
       }
     } catch (e) {
       return Promise.reject(e);
@@ -141,7 +161,7 @@ class mainDevice extends Device {
   async onCapability_CURRENT_LIMIT(value) {
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimit: '${value}'`);
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set current_limit: '${value}'`);
         return Promise.resolve(await this.api.setGoeChargerValue('amp', value));
       }
     } catch (e) {
@@ -166,6 +186,7 @@ class mainDevice extends Device {
         await this.setValue('measure_temperature.charge_port', deviceInfo["measure_temperature.charge_port"], check);
         await this.setValue('meter_power', deviceInfo.meter_power, check);
         await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
+        await this.setValue('single_phase_charging', deviceInfo.single_phase_charging, check);
         await this.setValue('cable_limit', deviceInfo.cable_limit, check);
         await this.setValue('current_limit', deviceInfo.current_limit, check);
         await this.setValue('current_max', deviceInfo.current_max, check);

@@ -404,6 +404,7 @@
       "class": "other",
       "capabilities": [
         "onoff_charging_allowed",
+        "single_phase_charging",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -515,6 +516,7 @@
       "class": "other",
       "capabilities": [
         "onoff_charging_allowed",
+        "single_phase_charging",
         "meter_power",
         "measure_power",
         "measure_current",
@@ -629,7 +631,7 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "assets/icon.svg",
+      "icon": "/assets/icon.svg",
       "insights": false
     },
     "cable_limit": {
@@ -646,7 +648,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/icon.svg",
+      "icon": "/assets/type2-phases.svg",
       "insights": false,
       "uiComponent": null
     },
@@ -802,6 +804,18 @@
       "getable": true,
       "setable": true,
       "uiQuickAction": true,
+      "insights": false
+    },
+    "single_phase_charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase Charging",
+        "nl": "Eenfase opladen"
+      },
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/type2-phases.svg",
+      "uiComponent": "toggle",
       "insights": false
     },
     "status": {
