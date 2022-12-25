@@ -3,7 +3,15 @@
     "en": "Allow charging",
     "nl": "Laden toestaan"
   },
+  "titleFormatted": {
+    "en": "Set allow charging to [[enabled]]",
+    "nl": "Stel opladen toestaan ​​in op [[enabled]]"
+  },
   "args": [
+    {
+      "type": "checkbox",
+      "name": "enabled"
+    },
     {
       "type": "device",
       "name": "device",

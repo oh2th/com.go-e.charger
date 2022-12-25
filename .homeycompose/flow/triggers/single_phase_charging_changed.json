@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Single phase charging changed",
+    "nl": "Eenfasig laden gewijzigd"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "go-eCharger_V3|go-eCharger_V4"
+    }
+  ]
+}

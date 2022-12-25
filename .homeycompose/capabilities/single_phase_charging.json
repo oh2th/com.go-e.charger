@@ -7,6 +7,5 @@
   "getable": true,
   "setable": true,
   "icon": "/assets/type2-phases.svg",
-  "uiComponent": "toggle",
   "insights": false
 }
