@@ -9,6 +9,13 @@
         "label": { "en": "IP address" },
         "value": "0.0.0.0",
         "hint": { "en": "Fixed IP address of the device." }
+      },
+      {
+        "id": "driver",
+        "type": "label",
+        "label": { "en": "Driver" },
+        "value": "",
+        "hint": { "en": "Driver used to configure." }
       }
     ]
   }

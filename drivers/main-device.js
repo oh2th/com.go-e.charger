@@ -28,6 +28,10 @@ class mainDevice extends Device {
     await this.setAvailable();
     await this.setCapabilityValuesInterval();
 
+    this.setSettings({
+      driver: this.api.driver,
+    });
+
   } catch (error) {
     this.homey.app.log(`[Device] ${this.getName()} - OnInit Error`, error);
   }
@@ -51,7 +55,7 @@ class mainDevice extends Device {
     this.log(`[Device] ${this.getName()}: ${this.getData().id} settings where changed: ${changedKeys}`);
     this.api.address = newSettings.address;
     try {
-      const initialInfo = await this.api.getInitialInfo();
+      const initialInfo = await this.api.getInfo();
       this.log(`[Device] ${this.getName()}: ${this.getData().id} new settings OK.`);
       this.setAvailable();
       return Promise.resolve(initialInfo);
@@ -104,7 +108,6 @@ class mainDevice extends Device {
       address: this.api.address,
     });
     this.setAvailable();
-    // this.api.reconnect().catch(this.error);
   }
 
   onDiscoveryLastSeenChanged(discoveryResult) {
@@ -115,8 +118,6 @@ class mainDevice extends Device {
       address: this.api.address,
     });
     this.setUnavailable("Disovery device offline.");
-    // When the device is offline, try to reconnect here
-    // this.api.reconnect().catch(this.error);
   }
 
   async setCapabilityListeners() {
@@ -130,7 +131,7 @@ class mainDevice extends Device {
     try {
       if (value !== this.getCapabilityValue('onoff_charging_allowed')) {
         this.log(`[Device] ${this.getName()}: ${this.getData().id} set OnOff Charging Allowed: '${value}'`);
-        return Promise.resolve(await this.api.setGoeCharger('alw', alw));
+        return Promise.resolve(await this.api.setGoeChargerValue('alw', alw));
       }
     } catch (e) {
       return Promise.reject(e);
@@ -141,7 +142,7 @@ class mainDevice extends Device {
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
         this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimit: '${value}'`);
-        return Promise.resolve(await this.api.setGoeCharger('amp', value));
+        return Promise.resolve(await this.api.setGoeChargerValue('amp', value));
       }
     } catch (e) {
       return Promise.reject(e);
@@ -152,6 +153,7 @@ class mainDevice extends Device {
     try {
       const deviceInfo = await this.api.getInfo();
       const oldStatus = await this.getCapabilityValue('status');
+      const currentLimitOpts = await this.getCapabilityOptions('current_limit');
 
       if (deviceInfo) {
         // console.log(JSON.stringify(deviceInfo));
@@ -169,6 +171,13 @@ class mainDevice extends Device {
         await this.setValue('is_connected', deviceInfo.is_connected, check);
         await this.setValue('alarm_device', deviceInfo.alarm_device, check);
         await this.setValue('energy_total', deviceInfo.energy_total, check);
+
+        // Check for device's maximum current configuration and adjust device current_limit capability maximum setting value.
+        // Only update if different.
+        if(currentLimitOpts.max !== deviceInfo.current_max) {
+          this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.current_max}'`);
+          await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max })
+        }
 
         // Check for status change and trigger accordingly
         await this.setValue('status', deviceInfo.status, check);

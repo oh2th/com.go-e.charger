@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Maximum Available Current",
-    "nl": "Maximaal beschikbare stroom"
+    "en": "Maximum Current",
+    "nl": "Maximaal stroom"
   },
   "getable": true,
   "setable": false,

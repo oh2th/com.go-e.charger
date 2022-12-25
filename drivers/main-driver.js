@@ -10,11 +10,12 @@ module.exports = class mainDriver extends Homey.Driver {
   }
 
   async onPair(session) {
+    let deviceDriver = this.id;
     let deviceArray = {};
 
     session.setHandler('list_devices', async () => {
       try {
-        this.homey.app.log(`[Driver] ${this.id} - mDNS discovery`);
+        this.homey.app.log(`[Driver] ${deviceDriver} - mDNS discovery`);
 
         const discoveryStrategy = this.getDiscoveryStrategy();
         const discoveryResults = discoveryStrategy.getDiscoveryResults();
@@ -26,6 +27,7 @@ module.exports = class mainDriver extends Homey.Driver {
             },
             settings: {
               address: discoveryResult.address,
+              driver: deviceDriver,
             },
             store: {}  
           };
@@ -46,7 +48,8 @@ module.exports = class mainDriver extends Homey.Driver {
       try {
         const api = new GoeChargerApi();
         api.address = data.address;
-        const initialInfo = await getInitialInfo();
+        api.driver = deviceDriver;
+        const initialInfo = await api.getInfo();
         initialInfo.address = data.address;
         console.log('manual_pairing result: ', initialInfo);
         deviceArray = {
@@ -56,6 +59,7 @@ module.exports = class mainDriver extends Homey.Driver {
           },
           settings: {
             address: initialInfo.address,
+            driver: deviceDriver,
           },
           store: {}
         }
@@ -74,35 +78,6 @@ module.exports = class mainDriver extends Homey.Driver {
       }
     });
 
-  }
-
-  // getInfo will decide which API to use based in driver
-  async getInfo() {
-    console.log(`[Device] getInfo with driver ${this.id}`);
-    try {
-      if ( this.id === "go-eCharger_V1" || this.id === "go-eCharger_V2") {
-        return Promise.resolve(await this.getInfoAPIV1());
-      } else {
-        return Promise.resolve(await this.getInfoAPIV2());
-      }
-    } catch (e) {
-      return Promise.reject(e);
-    }
-  }
-
-  // First and Second generation devices support API V1 only
-  // Used during pairing to test the connection and get the serial number.
-  async getInitialInfo() {
-    console.log(`[Device] getInitialInfo with driver ${this.id}`);
-    try {
-      if ( this.id === "go-eCharger_V1" || this.id === "go-eCharger_V2") {
-        return Promise.resolve(await this.getInitialInfoAPIV1());
-      } else {
-        return Promise.resolve(await this.getInitialInfoAPIV2());
-      }
-    } catch (e) {
-      return Promise.reject(e);
-    }
   }
 
 };

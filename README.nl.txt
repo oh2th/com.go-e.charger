@@ -7,3 +7,5 @@ go-e Charger Home+
 
 go-e Charger Gemini
 - 4e generatie met serienummers die beginnen met GM-10- (API V2)
+
+Op APIv2-apparaten moet firmware 051.4 of hoger zijn geïnstalleerd.
