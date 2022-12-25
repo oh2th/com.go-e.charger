@@ -5,6 +5,7 @@
   "class": "other",
   "capabilities": [
     "onoff_charging_allowed",
+    "single_phase_charging",
     "meter_power",
     "measure_power",
     "measure_current",
