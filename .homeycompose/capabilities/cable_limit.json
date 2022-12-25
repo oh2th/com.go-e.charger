@@ -4,7 +4,7 @@
     "en": "Type-2 Cable Amperes",
     "nl": "Type-2 kabelampère"
   },
-  "getable": false,
+  "getable": true,
   "setable": false,
   "min": 0,
   "max": 32,

@@ -213,7 +213,7 @@ class mainDevice extends Device {
     if (this.hasCapability(key)) {
       const oldVal = await this.getCapabilityValue(key);
 
-      // this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
+      this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
 
       if (delay) {
         await sleep(delay);

@@ -11,6 +11,7 @@
     "measure_voltage",
     "measure_temperature",
     "measure_temperature.charge_port",
+    "cable_limit",
     "current_limit",
     "current_max",
     "status",

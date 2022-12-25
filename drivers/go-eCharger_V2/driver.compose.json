@@ -10,6 +10,7 @@
     "measure_current",
     "measure_voltage",
     "measure_temperature",
+    "cable_limit",
     "current_limit",
     "current_max",
     "status",
