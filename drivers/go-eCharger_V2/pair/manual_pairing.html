@@ -19,7 +19,11 @@
   
         Homey.emit('manual_pairing', data)
           .then(result => {
-            var goeChargerinfo = "<div class='info-row'><span class='info-label' data-i18n='pair.serial'>Charger Serial:</span><span class='info-value'> "+ result.data.id +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.name'>Device name:</span><span class='info-value'> "+ result.name +"</span></div><div class='info-row'><span class='info-label' data-i18n='pair.address'>IP address:</span><span class='info-value'> "+ result.settings.address +"</span></div>";
+            var goeChargerinfo =
+              "<div class='info-row'><span class='info-label' data-i18n='pair.serial'>Device Serial:</span><span class='info-value'> "+ result.data.id +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.name'>Device Name:</span><span class='info-value'> "+ result.name +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.address'>IP Address:</span><span class='info-value'> "+ result.settings.address +"</span></div>"+
+              "<div class='info-row'><span class='info-label' data-i18n='pair.driver'>Device Driver:</span><span class='info-value'> "+ result.settings.driver +"</span></div>";
             $('.goeCharger-info').show();
             $('.goeCharger-info').html(goeChargerinfo);
             $('.goeCharger-test').show();

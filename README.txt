@@ -7,3 +7,5 @@ go-e Charger Home+
 
 go-e Charger Gemini
 - 4th generation devices with serial numbers starting with GM-10- (API V2)
+
+APIv2 devices must have firmware 051.4 or above installed.

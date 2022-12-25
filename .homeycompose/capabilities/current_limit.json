@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Applied Current Limit",
-    "nl": "Toegepast huidige limiet"
+    "en": "Current Limit",
+    "nl": "Stroom limiet"
   },
   "getable": true,
   "setable": false,

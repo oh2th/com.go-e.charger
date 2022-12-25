@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Delivered Energy This Session",
-    "nl": "Vermogen in deze laadsessie geleverd"
+    "en": "Energy Delivered This Session",
+    "nl": "Energie geleverd deze sessie"
   },
   "getable": true,
   "setable": false,

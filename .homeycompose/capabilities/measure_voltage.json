@@ -2,7 +2,7 @@
   "type": "number",
   "title": {
     "en": "Supplied Voltage",
-    "nl": "Actueel voltage"
+    "nl": "Lever spanning"
   },
   "getable": true,
   "setable": false,

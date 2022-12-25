@@ -9,7 +9,7 @@ Adds support for the go-e Home and Gemini family of EV chargers for the Athom Ho
 - 1st, 2nd and 3rd generation devices must have fixed IP address.
 - 4th generation devices are automatically detected with mDNS-DS in the same LAN.
 - API V1 must be enabled on the 1st and 2nd generation devices.
-- API V2 must be enabled on the 3rd and 4th generation devices.
+- API V2 must be enabled on the 3rd and 4th generation devices with firware 051.4 or above installed.
 
 ## Supported devices
 

@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Supplied Power",
-    "nl": "Actueel wattage"
+    "en": "Delivered Power",
+    "nl": "Geleverde stroom"
   },
   "getable": true,
   "setable": false,
@@ -10,6 +10,6 @@
     "en": "W"
   },
   "min": 0,
-  "max": 22000,
+  "max": 30000,
   "insights": true
 }

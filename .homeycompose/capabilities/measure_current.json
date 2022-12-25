@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Supplied Current",
-    "nl": "Actueel amperage"
+    "en": "Supply Current",
+    "nl": "Lever ampère"
   },
   "getable": true,
   "setable": false,
