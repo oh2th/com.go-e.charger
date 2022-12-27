@@ -19,8 +19,7 @@
     "is_allowed",
     "is_charging",
     "is_connected",
-    "alarm_device",
-    "energy_total"
+    "alarm_device"
   ],
   "capabilitiesOptions": {
     "measure_temperature.charge_port": {

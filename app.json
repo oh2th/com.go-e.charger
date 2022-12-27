@@ -298,8 +298,7 @@
         "is_allowed",
         "is_charging",
         "is_connected",
-        "alarm_device",
-        "energy_total"
+        "alarm_device"
       ],
       "capabilitiesOptions": {
         "meter_power.session": {
@@ -392,8 +391,7 @@
         "is_allowed",
         "is_charging",
         "is_connected",
-        "alarm_device",
-        "energy_total"
+        "alarm_device"
       ],
       "capabilitiesOptions": {
         "meter_power.session": {
@@ -488,8 +486,7 @@
         "is_allowed",
         "is_charging",
         "is_connected",
-        "alarm_device",
-        "energy_total"
+        "alarm_device"
       ],
       "capabilitiesOptions": {
         "measure_temperature.charge_port": {
@@ -622,8 +619,7 @@
         "is_allowed",
         "is_charging",
         "is_connected",
-        "alarm_device",
-        "energy_total"
+        "alarm_device"
       ],
       "capabilitiesOptions": {
         "measure_temperature.charge_port": {
