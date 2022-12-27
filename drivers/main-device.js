@@ -195,7 +195,6 @@ class mainDevice extends Device {
         await this.setValue('current_max', deviceInfo['current_max'], check);
         await this.setValue('is_connected', deviceInfo['is_connected'], check);
         await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
-        await this.setValue('energy_total', deviceInfo['energy_total'], check);
 
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
         // and adjust device current_limit capability maximum setting value for the lesser.
