@@ -88,6 +88,20 @@
     "triggers": [
       {
         "title": {
+          "en": "Charging allowed changed",
+          "nl": "Opladen toegestaan gewijzigd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_allowed_changed"
+      },
+      {
+        "title": {
           "en": "Charging changed",
           "nl": "Opladen veranderd"
         },
@@ -113,20 +127,6 @@
           }
         ],
         "id": "is_connected_changed"
-      },
-      {
-        "title": {
-          "en": "Charging allowed changed",
-          "nl": "Opladen toegestaan gewijzigd"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
-          }
-        ],
-        "id": "onoff_charging_allowed_changed"
       },
       {
         "title": {
@@ -285,8 +285,8 @@
       },
       "class": "other",
       "capabilities": [
-        "onoff_charging_allowed",
         "meter_power",
+        "meter_power.session",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -295,11 +295,31 @@
         "current_limit",
         "current_max",
         "status",
+        "is_allowed",
         "is_charging",
         "is_connected",
         "alarm_device",
         "energy_total"
       ],
+      "capabilitiesOptions": {
+        "meter_power.session": {
+          "type": "number",
+          "title": {
+            "en": "Energy Delivered This Session",
+            "nl": "Energie geleverd deze sessie"
+          },
+          "hint:": {
+            "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+            "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "kWh"
+          },
+          "insights": true
+        }
+      },
       "platforms": [
         "local"
       ],
@@ -359,8 +379,8 @@
       },
       "class": "other",
       "capabilities": [
-        "onoff_charging_allowed",
         "meter_power",
+        "meter_power.session",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -369,11 +389,31 @@
         "current_limit",
         "current_max",
         "status",
+        "is_allowed",
         "is_charging",
         "is_connected",
         "alarm_device",
         "energy_total"
       ],
+      "capabilitiesOptions": {
+        "meter_power.session": {
+          "type": "number",
+          "title": {
+            "en": "Energy Delivered This Session",
+            "nl": "Energie geleverd deze sessie"
+          },
+          "hint:": {
+            "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+            "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "kWh"
+          },
+          "insights": true
+        }
+      },
       "platforms": [
         "local"
       ],
@@ -433,9 +473,9 @@
       },
       "class": "other",
       "capabilities": [
-        "onoff_charging_allowed",
         "single_phase_charging",
         "meter_power",
+        "meter_power.session",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -445,6 +485,7 @@
         "current_limit",
         "current_max",
         "status",
+        "is_allowed",
         "is_charging",
         "is_connected",
         "alarm_device",
@@ -457,6 +498,10 @@
             "en": "Charge Port Temperature",
             "nl": "Laad Poort Temperatuur"
           },
+          "hint:": {
+            "en": "The temperature of the charge port.",
+            "nl": "De temperatuur van de oplaadpoort."
+          },
           "getable": true,
           "setable": false,
           "units": {
@@ -464,6 +509,23 @@
           },
           "min": -50,
           "max": 50,
+          "insights": true
+        },
+        "meter_power.session": {
+          "type": "number",
+          "title": {
+            "en": "Energy Delivered This Session",
+            "nl": "Energie geleverd deze sessie"
+          },
+          "hint:": {
+            "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+            "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "kWh"
+          },
           "insights": true
         }
       },
@@ -545,9 +607,9 @@
       },
       "class": "other",
       "capabilities": [
-        "onoff_charging_allowed",
         "single_phase_charging",
         "meter_power",
+        "meter_power.session",
         "measure_power",
         "measure_current",
         "measure_voltage",
@@ -557,6 +619,7 @@
         "current_limit",
         "current_max",
         "status",
+        "is_allowed",
         "is_charging",
         "is_connected",
         "alarm_device",
@@ -569,6 +632,10 @@
             "en": "Charge Port Temperature",
             "nl": "Laad Poort Temperatuur"
           },
+          "hint:": {
+            "en": "The temperature of the charge port.",
+            "nl": "De temperatuur van de oplaadpoort."
+          },
           "getable": true,
           "setable": false,
           "units": {
@@ -576,6 +643,23 @@
           },
           "min": -50,
           "max": 50,
+          "insights": true
+        },
+        "meter_power.session": {
+          "type": "number",
+          "title": {
+            "en": "Energy This Session",
+            "nl": "Energie deze sessie"
+          },
+          "hint:": {
+            "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+            "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+          },
+          "getable": true,
+          "setable": false,
+          "units": {
+            "en": "kWh"
+          },
           "insights": true
         }
       },
@@ -659,6 +743,10 @@
         "en": "Device Error",
         "nl": "Apparaat fout"
       },
+      "hint": {
+        "en": "Device has reported an error, check the device.",
+        "nl": "Apparaat heeft een fout gemeld, controleer het apparaat."
+      },
       "getable": true,
       "setable": false,
       "icon": "/assets/icon.svg",
@@ -669,6 +757,10 @@
       "title": {
         "en": "Type-2 Cable Amperes",
         "nl": "Type-2 kabelampère"
+      },
+      "hint": {
+        "en": "Amperage coding from the connected Type-2 cable.",
+        "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel."
       },
       "getable": true,
       "setable": false,
@@ -688,6 +780,10 @@
         "en": "Current Limit",
         "nl": "Stroom limiet"
       },
+      "hint": {
+        "en": "Current limit in amperes as set by the user.",
+        "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker."
+      },
       "getable": true,
       "setable": false,
       "min": 6,
@@ -705,6 +801,10 @@
         "en": "Maximum Current",
         "nl": "Maximaal stroom"
       },
+      "hint": {
+        "en": "Maximum current deliverable by the device.",
+        "nl": "Maximale stroom die door het apparaat kan worden geleverd."
+      },
       "getable": true,
       "setable": false,
       "min": 6,
@@ -716,25 +816,29 @@
       "icon": "/assets/icon.svg",
       "insights": true
     },
-    "energy_total": {
-      "type": "number",
+    "is_allowed": {
+      "type": "boolean",
       "title": {
-        "en": "Total Energy Supplied",
-        "nl": "Totaal geleverde energie"
+        "en": "Charging Allowed",
+        "nl": "Laden toegestaan"
+      },
+      "hint": {
+        "en": "Charging has been allowed from the device or by the app.",
+        "nl": "Opladen is toegestaan ​​vanaf het apparaat of via de app."
       },
       "getable": true,
-      "setable": false,
-      "uiComponent": null,
-      "units": {
-        "en": "kWh"
-      },
-      "insights": true
+      "setable": true,
+      "insights": false
     },
     "is_charging": {
       "type": "boolean",
       "title": {
-        "en": "Car is charging",
-        "nl": "Auto is aan het opladen"
+        "en": "Is car charging",
+        "nl": "Is auto opladen"
+      },
+      "hint": {
+        "en": "Is there a car charging?",
+        "nl": "Is er een auto aan het opladen?"
       },
       "getable": true,
       "setable": false,
@@ -744,8 +848,12 @@
     "is_connected": {
       "type": "boolean",
       "title": {
-        "en": "Car is connected",
-        "nl": "Auto verbonden"
+        "en": "Is car connected",
+        "nl": "Is auto verbonden"
+      },
+      "hint": {
+        "en": "Is there a car connected?",
+        "nl": "Is er een auto aangesloten?"
       },
       "getable": true,
       "setable": false,
@@ -755,8 +863,12 @@
     "measure_current": {
       "type": "number",
       "title": {
-        "en": "Supply Current",
-        "nl": "Lever ampère"
+        "en": "Delivered Current",
+        "nl": "Geleverde ampère"
+      },
+      "hint": {
+        "en": "Currently delivered current in amperes.",
+        "nl": "Momenteel geleverde stroom in ampère."
       },
       "getable": true,
       "setable": false,
@@ -771,7 +883,11 @@
       "type": "number",
       "title": {
         "en": "Delivered Power",
-        "nl": "Geleverde stroom"
+        "nl": "Geleverde vermogen"
+      },
+      "hint": {
+        "en": "Currently delivered power in watts.",
+        "nl": "Momenteel geleverd vermogen in watt."
       },
       "getable": true,
       "setable": false,
@@ -788,6 +904,10 @@
         "en": "Temperature",
         "nl": "Temperatuur"
       },
+      "hint": {
+        "en": "The internal temperature of the device.",
+        "nl": "De interne temperatuur van het apparaat."
+      },
       "getable": true,
       "setable": false,
       "units": {
@@ -803,6 +923,10 @@
         "en": "Supplied Voltage",
         "nl": "Lever spanning"
       },
+      "hint": {
+        "en": "Currently delivered voltage in volts.",
+        "nl": "Momenteel geleverde spanning in volt."
+      },
       "getable": true,
       "setable": false,
       "units": {
@@ -815,8 +939,12 @@
     "meter_power": {
       "type": "number",
       "title": {
-        "en": "Energy Delivered This Session",
-        "nl": "Energie geleverd deze sessie"
+        "en": "Total Energy",
+        "nl": "Totaal Energie"
+      },
+      "hint": {
+        "en": "Total energy since counter was reset on the device.",
+        "nl": "Totale energie sinds de teller op het apparaat is gereset."
       },
       "getable": true,
       "setable": false,
@@ -825,22 +953,15 @@
       },
       "insights": true
     },
-    "onoff_charging_allowed": {
-      "type": "boolean",
-      "title": {
-        "en": "Charging Allowed",
-        "nl": "Laden toegestaan"
-      },
-      "getable": true,
-      "setable": true,
-      "uiQuickAction": true,
-      "insights": false
-    },
     "single_phase_charging": {
       "type": "boolean",
       "title": {
         "en": "Single Phase Charging",
         "nl": "Eenfase opladen"
+      },
+      "hint": {
+        "en": "Force single phase charging.",
+        "nl": "Forceer enkelfasig opladen."
       },
       "getable": true,
       "setable": true,
@@ -851,7 +972,11 @@
       "type": "enum",
       "title": {
         "en": "Device Status",
-        "nl": "Status van het apparaat"
+        "nl": "Apparaat status van het apparaat"
+      },
+      "hint": {
+        "en": "Status as reported by the device.",
+        "nl": "Status van het apparaat."
       },
       "values": [
         {

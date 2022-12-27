@@ -4,6 +4,10 @@
     "en": "Device Error",
     "nl": "Apparaat fout"
   },
+  "hint": {
+    "en": "Device has reported an error, check the device.",
+    "nl": "Apparaat heeft een fout gemeld, controleer het apparaat."
+  },
   "getable": true,
   "setable": false,
   "icon": "/assets/icon.svg",

@@ -1,8 +1,12 @@
 {
   "type": "number",
   "title": {
-    "en": "Energy Delivered This Session",
-    "nl": "Energie geleverd deze sessie"
+    "en": "Total Energy",
+    "nl": "Totaal Energie"
+  },
+  "hint": {
+    "en": "Total energy since counter was reset on the device.",
+    "nl": "Totale energie sinds de teller op het apparaat is gereset."
   },
   "getable": true,
   "setable": false,

@@ -1,0 +1,14 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Charging Allowed",
+    "nl": "Laden toegestaan"
+  },
+  "hint": {
+    "en": "Charging has been allowed from the device or by the app.",
+    "nl": "Opladen is toegestaan ​​vanaf het apparaat of via de app."
+  },
+  "getable": true,
+  "setable": true,
+  "insights": false
+}

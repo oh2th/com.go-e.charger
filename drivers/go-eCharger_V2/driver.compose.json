@@ -4,8 +4,8 @@
   },
   "class": "other",
   "capabilities": [
-    "onoff_charging_allowed",
     "meter_power",
+    "meter_power.session",
     "measure_power",
     "measure_current",
     "measure_voltage",
@@ -14,11 +14,31 @@
     "current_limit",
     "current_max",
     "status",
+    "is_allowed",
     "is_charging",
     "is_connected",
     "alarm_device",
     "energy_total"
   ],
+  "capabilitiesOptions": {
+    "meter_power.session": {
+      "type": "number",
+      "title": {
+        "en": "Energy Delivered This Session",
+        "nl": "Energie geleverd deze sessie"
+      },
+      "hint:": {
+        "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+        "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true
+    }
+  },
   "platforms": [
     "local"
   ],

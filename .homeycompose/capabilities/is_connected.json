@@ -1,8 +1,12 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Car is connected",
-    "nl": "Auto verbonden"
+    "en": "Is car connected",
+    "nl": "Is auto verbonden"
+  },
+  "hint": {
+    "en": "Is there a car connected?",
+    "nl": "Is er een auto aangesloten?"
   },
   "getable": true,
   "setable": false,

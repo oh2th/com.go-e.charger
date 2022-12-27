@@ -4,6 +4,10 @@
     "en": "Current Limit",
     "nl": "Stroom limiet"
   },
+  "hint": {
+    "en": "Current limit in amperes as set by the user.",
+    "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker."
+  },
   "getable": true,
   "setable": false,
   "min": 6,

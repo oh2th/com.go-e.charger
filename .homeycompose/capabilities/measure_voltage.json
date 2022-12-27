@@ -4,6 +4,10 @@
     "en": "Supplied Voltage",
     "nl": "Lever spanning"
   },
+  "hint": {
+    "en": "Currently delivered voltage in volts.",
+    "nl": "Momenteel geleverde spanning in volt."
+  },
   "getable": true,
   "setable": false,
   "units": {

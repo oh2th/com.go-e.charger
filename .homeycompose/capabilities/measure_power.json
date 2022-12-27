@@ -2,7 +2,11 @@
   "type": "number",
   "title": {
     "en": "Delivered Power",
-    "nl": "Geleverde stroom"
+    "nl": "Geleverde vermogen"
+  },
+  "hint": {
+    "en": "Currently delivered power in watts.",
+    "nl": "Momenteel geleverd vermogen in watt."
   },
   "getable": true,
   "setable": false,

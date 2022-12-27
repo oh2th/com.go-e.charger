@@ -2,7 +2,11 @@
   "type": "enum",
   "title": {
     "en": "Device Status",
-    "nl":"Status van het apparaat"
+    "nl": "Apparaat status van het apparaat"
+  },
+  "hint": {
+    "en": "Status as reported by the device.",
+    "nl": "Status van het apparaat."
   },
   "values": [
     {

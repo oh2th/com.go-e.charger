@@ -4,9 +4,9 @@
   },
   "class": "other",
   "capabilities": [
-    "onoff_charging_allowed",
     "single_phase_charging",
     "meter_power",
+    "meter_power.session",
     "measure_power",
     "measure_current",
     "measure_voltage",
@@ -16,6 +16,7 @@
     "current_limit",
     "current_max",
     "status",
+    "is_allowed",
     "is_charging",
     "is_connected",
     "alarm_device",
@@ -28,6 +29,10 @@
         "en": "Charge Port Temperature",
         "nl": "Laad Poort Temperatuur"
       },
+      "hint:": {
+        "en": "The temperature of the charge port.",
+        "nl": "De temperatuur van de oplaadpoort."
+      },
       "getable": true,
       "setable": false,
       "units": {
@@ -36,6 +41,23 @@
       "min": -50,
       "max": 50,
       "insights": true    
+    },
+    "meter_power.session": {
+      "type": "number",
+      "title": {
+        "en": "Energy This Session",
+        "nl": "Energie deze sessie"
+      },
+      "hint:": {
+        "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
+        "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "kWh"
+      },
+      "insights": true
     }
   },
   "platforms": [

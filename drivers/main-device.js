@@ -1,9 +1,11 @@
+/* eslint-disable camelcase */
+/* eslint-disable consistent-return */
+
 'use strict';
 
 const { Device } = require('homey');
 const GoeChargerApi = require('../lib/go-echarger-api');
-const { sleep, decrypt, encrypt } = require('../lib/helpers');
-
+const { sleep } = require('../lib/helpers');
 
 const POLL_INTERVAL = 5000;
 
@@ -31,8 +33,9 @@ class mainDevice extends Device {
     this.setSettings({
       driver: this.api.driver,
     });
+  }
 
-  } catch (error) {
+  catch(error) {
     this.homey.app.log(`[Device] ${this.getName()} - OnInit Error`, error);
   }
 
@@ -117,27 +120,26 @@ class mainDevice extends Device {
     this.setSettings({
       address: this.api.address,
     });
-    this.setUnavailable("Disovery device offline.");
+    this.setUnavailable('Disovery device offline.');
   }
 
   async setCapabilityListeners() {
-    this.registerCapabilityListener('onoff_charging_allowed', this.onCapability_ONOFF_CHARGING.bind(this));
+    this.registerCapabilityListener('is_charging_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
     this.registerCapabilityListener('single_phase_charging', this.onCapability_SINGLE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
-  async onCapability_ONOFF_CHARGING(value) {
+  async onCapability_CHARGING_ALLOWED(value) {
     let val = 0;
     try {
-      if (value !== this.getCapabilityValue('onoff_charging_allowed')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set onoff_charging_allowed: '${val}'`);
-        if ( this.api.driver === "go-eCharger_V1" || this.api.driver === "go-eCharger_V2") {
+      if (value !== this.getCapabilityValue('is_charging_allowed')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_charging_allowed: '${val}'`);
+        if (this.api.driver === 'go-eCharger_V1' || this.api.driver === 'go-eCharger_V2') {
           if (value) val = 1; // Enable charging
           return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
-        } else {
-          if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
-          return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
         }
+        if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
+        return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
       }
     } catch (e) {
       return Promise.reject(e);
@@ -183,9 +185,9 @@ class mainDevice extends Device {
         await this.setValue('measure_current', deviceInfo.measure_current, check);
         await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
         await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
-        await this.setValue('measure_temperature.charge_port', deviceInfo["measure_temperature.charge_port"], check);
+        await this.setValue('measure_temperature.charge_port', deviceInfo['measure_temperature.charge_port'], check);
         await this.setValue('meter_power', deviceInfo.meter_power, check);
-        await this.setValue('onoff_charging_allowed', deviceInfo.onoff_charging_allowed, check);
+        await this.setValue('is_charging_allowed', deviceInfo.is_charging_allowed, check);
         await this.setValue('single_phase_charging', deviceInfo.single_phase_charging, check);
         await this.setValue('cable_limit', deviceInfo.cable_limit, check);
         await this.setValue('current_limit', deviceInfo.current_limit, check);
@@ -196,29 +198,29 @@ class mainDevice extends Device {
 
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
         // and adjust device current_limit capability maximum setting value for the lesser.
-        if(currentLimitOpts.max !== deviceInfo.current_max) {
-          if(deviceInfo.cable_limit < deviceInfo.current_max) {
+        if (currentLimitOpts.max !== deviceInfo.current_max) {
+          if (deviceInfo.cable_limit < deviceInfo.current_max) {
             this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.cable_limit}'`);
-            await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit })
+            await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit });
           } else {
             this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.current_max}'`);
-            await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max })
+            await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max });
           }
         }
 
         // Check for status change and trigger accordingly
         await this.setValue('status', deviceInfo.status, check);
         if (deviceInfo.status !== oldStatus) {
-          if(deviceInfo.status === 'station_idle') {
+          if (deviceInfo.status === 'station_idle') {
             await this.setValue('is_charging', false);
           }
-          if(deviceInfo.status === 'car_charging') {
+          if (deviceInfo.status === 'car_charging') {
             await this.setValue('is_charging', true);
           }
-          if(deviceInfo.status === 'car_waiting') {
+          if (deviceInfo.status === 'car_waiting') {
             await this.setValue('is_charging', false);
           }
-          if(deviceInfo.status === 'car_finished') {
+          if (deviceInfo.status === 'car_finished') {
             await this.setValue('is_charging', false);
           }
         }
@@ -244,15 +246,15 @@ class mainDevice extends Device {
 
       if (typeof value === 'boolean' && oldVal !== value && !firstRun) {
         const newKey = key.replace('.', '_');
-        const triggers = this.homey.manifest.flow.triggers;
+        const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
 
-      if (triggerExists) {
-        await this.homey.flow
-          .getDeviceTriggerCard(`${newKey}_changed`)
-          .trigger(this)
-          .catch(this.error)
-          .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
+        if (triggerExists) {
+          await this.homey.flow
+            .getDeviceTriggerCard(`${newKey}_changed`)
+            .trigger(this)
+            .catch(this.error)
+            .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
         }
       }
     }
@@ -307,7 +309,7 @@ class mainDevice extends Device {
       });
       await sleep(2000);
     } catch (error) {
-        this.homey.app.log(error);
+      this.homey.app.log(error);
     }
   }
 

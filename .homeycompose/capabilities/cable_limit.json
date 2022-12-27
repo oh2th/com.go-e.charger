@@ -4,6 +4,10 @@
     "en": "Type-2 Cable Amperes",
     "nl": "Type-2 kabelampère"
   },
+  "hint": {
+    "en": "Amperage coding from the connected Type-2 cable.",
+    "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel."
+  },
   "getable": true,
   "setable": false,
   "min": 0,

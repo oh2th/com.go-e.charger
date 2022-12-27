@@ -1,8 +1,12 @@
 {
   "type": "boolean",
   "title": {
-    "en": "Car is charging",
-    "nl": "Auto is aan het opladen"
+    "en": "Is car charging",
+    "nl": "Is auto opladen"
+  },
+  "hint": {
+    "en": "Is there a car charging?",
+    "nl": "Is er een auto aan het opladen?"
   },
   "getable": true,
   "setable": false,

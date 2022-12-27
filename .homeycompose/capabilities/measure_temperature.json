@@ -4,6 +4,10 @@
     "en": "Temperature",
     "nl": "Temperatuur"
   },
+  "hint": {
+    "en": "The internal temperature of the device.",
+    "nl": "De interne temperatuur van het apparaat."
+  },
   "getable": true,
   "setable": false,
   "units": {
