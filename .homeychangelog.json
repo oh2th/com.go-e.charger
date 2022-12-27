@@ -7,5 +7,8 @@
   },
   "2.2.0": {
     "en": "ADD: FlowCard tokens to several flow cards."
+  },
+  "2.2.1": {
+    "en": "FIX: When... Flow Card token handling."
   }
 }
