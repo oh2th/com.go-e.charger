@@ -199,12 +199,12 @@ class mainDevice extends Device {
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
         // and adjust device current_limit capability maximum setting value for the lesser.
         if (currentLimitOpts.max !== deviceInfo.current_max) {
-          if (deviceInfo.cable_limit < deviceInfo.current_max) {
-            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.cable_limit}'`);
-            await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit });
-          } else {
-            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts Max: '${deviceInfo.current_max}'`);
+          if (deviceInfo.cable_limit > deviceInfo.current_max || (deviceInfo.cable_limit === 0 || deviceInfo.cable_limit === null)) {
+            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts device Max: '${deviceInfo.current_max}'`);
             await this.setCapabilityOptions('current_limit', { max: deviceInfo.current_max });
+          } else {
+            this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts cable Max: '${deviceInfo.cable_limit}'`);
+            await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit });
           }
         }
 
@@ -250,7 +250,6 @@ class mainDevice extends Device {
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
 
         if (triggerExists) {
-          this.tokens = { enabled: value };
           await this.homey.flow
             .getDeviceTriggerCard(`${newKey}_changed`)
             .trigger(this)
