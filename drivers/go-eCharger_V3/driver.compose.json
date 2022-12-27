@@ -25,8 +25,8 @@
     "measure_temperature.charge_port": {
       "type": "number",
       "title": {
-        "en": "Charge Port Temperature",
-        "nl": "Laad Poort Temperatuur"
+        "en": "Port Temperature",
+        "nl": "Poort Temperatuur"
       },
       "hint:": {
         "en": "The temperature of the charge port.",
@@ -44,12 +44,12 @@
     "meter_power.session": {
       "type": "number",
       "title": {
-        "en": "Energy Delivered This Session",
-        "nl": "Energie geleverd deze sessie"
+        "en": "Energy Last Session",
+        "nl": "Energie laatste sessie"
       },
       "hint:": {
-        "en": "Energy (kWh) delivered during this session. Reset automatically when a car is connected.",
-        "nl": "Energie (kWh) geleverd tijdens deze sessie. Reset automatisch wanneer een auto is aangesloten."
+        "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
+        "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
       },
       "getable": true,
       "setable": false,
