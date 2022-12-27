@@ -3,11 +3,25 @@
     "en": "Car connection changed",
     "nl": "Autoverbinding gewijzigd"
   },
+  "hint": {
+    "en": "Connection with a car has changed.",
+    "nl": "Verbinding met een auto is gewijzigd."
+  },
   "args": [
     {
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Car connected",
+        "nl": "Auto aangesloten"
+      }
     }
   ]
 }

@@ -3,6 +3,10 @@
     "en": "Charging !{{is|isn't}} allowed",
     "nl": "!{{Laden !{{is|is niet}} toegestaan"
   },
+  "hint": {
+    "en": "Charging is/isn't allowed.",
+    "nl": "Opladen is wel/niet toegestaan."
+  },
   "args": [
     {
       "type": "device",

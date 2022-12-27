@@ -3,11 +3,25 @@
     "en": "Charging changed",
     "nl": "Opladen veranderd"
   },
+  "hint": {
+    "en": "A car has started/stopped charging.",
+    "nl": "Een auto is begonnen/gestopt met opladen."
+  },
   "args": [
     {
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "nl": "Opladen"
+      }
     }
   ]
 }

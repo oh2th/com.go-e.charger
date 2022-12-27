@@ -3,11 +3,29 @@
     "en": "Status changed",
     "nl": "Status gewijzigd"
   },
+  "hint": {
+    "en": "Device state has changed.",
+    "nl": "Apparaatstatus is gewijzigd."
+  },
   "args": [
     {
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "status",
+      "type": "string",
+      "title": {
+        "en": "Charger Status",
+        "nl": "Laderstatus"
+      },
+      "example": {
+        "en": "Waiting to charge",
+        "nl": "Klaarmaken voor laden"
+      }
     }
   ]
 }

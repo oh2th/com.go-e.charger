@@ -250,6 +250,7 @@ class mainDevice extends Device {
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
 
         if (triggerExists) {
+          this.tokens = { enabled: value };
           await this.homey.flow
             .getDeviceTriggerCard(`${newKey}_changed`)
             .trigger(this)

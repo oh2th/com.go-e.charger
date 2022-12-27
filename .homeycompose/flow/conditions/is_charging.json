@@ -3,6 +3,10 @@
     "en": "!{{Is|Isn't}} charging",
     "nl": "!{{Bezig|Niet bezig}} met laden}}"
   },
+  "hint": {
+    "en": "Charging is/isn't ongoing.",
+    "nl": "Het opladen is/is niet aan de gang."
+  },
   "args": [
     {
       "type": "device",

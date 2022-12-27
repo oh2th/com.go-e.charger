@@ -3,11 +3,25 @@
     "en": "Charging allowed changed",
     "nl": "Opladen toegestaan gewijzigd"
   },
+  "hint": {
+    "en": "Charging has been allowed or disabled from the charger.",
+    "nl": "Opladen is toegestaan ​​of uitgeschakeld vanaf de oplader."
+  },
   "args": [
     {
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Charging allowed",
+        "nl": "Laden toegestaan"
+      }
     }
   ]
 }

@@ -3,6 +3,10 @@
     "en": "Car !{{is|isn't}} connected",
     "nl": "!{{Auto|Geen auto}} verbonden"
   },
+  "hint": {
+    "en": "A car is/isn't plugged in.",
+    "nl": "Een auto is wel/niet aangesloten."
+  },
   "args": [
     {
       "type": "device",

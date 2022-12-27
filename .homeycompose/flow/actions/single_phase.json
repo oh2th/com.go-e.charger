@@ -7,6 +7,10 @@
     "en": "Set single phase charging to [[enabled]]",
     "nl": "Stel enkelfasig laden in op [[enabled]]"
   },
+  "hint": {
+    "en": "Force charger to use single phase for charging.",
+    "nl": "Forceer de lader om een ​​enkele fase te gebruiken voor het opladen."
+  },
   "args": [
     {
       "type": "checkbox",
@@ -16,6 +20,16 @@
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase Charging",
+        "nl": "Enkelfasig opladen"
+      }
     }
   ]
 }

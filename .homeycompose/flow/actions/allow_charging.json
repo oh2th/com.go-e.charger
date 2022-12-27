@@ -7,6 +7,10 @@
     "en": "Set allow charging to [[enabled]]",
     "nl": "Stel opladen toestaan ​​in op [[enabled]]"
   },
+  "hint": {
+    "en": "Enable or disable charging on the device.",
+    "nl": "Schakel opladen op het apparaat in of uit."
+  },
   "args": [
     {
       "type": "checkbox",
@@ -16,6 +20,16 @@
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Charging allowed",
+        "nl": "Laden toegestaan"
+      }
     }
   ]
 }

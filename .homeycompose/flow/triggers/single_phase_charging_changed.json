@@ -3,11 +3,25 @@
     "en": "Single phase charging changed",
     "nl": "Eenfasig laden gewijzigd"
   },
+  "hint": {
+    "en": "Device has changed between 1-phase or 3-phase charging.",
+    "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen."
+  },
   "args": [
     {
       "type": "device",
       "name": "device",
       "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "title": {
+        "en": "Charging changed",
+        "nl": "Opladen veranderd"
+      }
     }
   ]
 }

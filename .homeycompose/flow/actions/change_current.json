@@ -7,6 +7,10 @@
     "en": "Change current limit to [[action_amps]]",
     "nl": "Amperage veranderen naar [[action_amps]]"
   },
+  "hint": {
+    "en": "Change the current limit in ampers for charging.",
+    "nl": "Wijzig de stroomlimiet in ampère voor opladen."
+  },
   "args": [
     {
       "type": "device",
@@ -16,12 +20,26 @@
     {
       "type": "range",
       "name": "action_amps",
-      "title": { "en": "Charge current limit" },
+      "title": {
+        "en": "Current limit in ampers",
+        "nl": "Stroomlimiet in ampère"
+      },
       "min": 6,
       "max": 32,
       "step": 2,
       "label": "A",
       "labelDecimals": 0
     }
+  ],
+  "tokens": [
+    {
+      "name": "amps",
+      "type": "number",
+      "title": {
+        "en": "Amperage (A)",
+        "nl": "Stroomsterkte (A)"
+      }
+    }
   ]
+
 }
