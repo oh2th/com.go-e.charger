@@ -1,5 +1,8 @@
 {
   "2.0.0": {
     "en": "Rewritten app for go-e EV Chargers support Homey SDK3 and go-e APIs V1 for older devices and V2 for 3rd and 4th generation latest devices. Supports now multiple configured devices and introduces some new features onöy available in API V2, such as Force Single Phase mode."
+  },
+  "2.1.0": {
+    "en": "BREAK: unused energy_total removed, meter_power is now total energy and meter_power.session has last session"
   }
 }
