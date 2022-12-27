@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Delivered Current",
-    "nl": "Geleverde ampère"
+    "en": "Supply Current",
+    "nl": "Voedingsstroom"
   },
   "hint": {
     "en": "Currently delivered current in amperes.",

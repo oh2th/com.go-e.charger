@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Delivered Power",
-    "nl": "Geleverde vermogen"
+    "en": "Supply Power",
+    "nl": "Stroomtoevoer"
   },
   "hint": {
     "en": "Currently delivered power in watts.",

@@ -471,7 +471,6 @@
       },
       "class": "other",
       "capabilities": [
-        "single_phase_charging",
         "meter_power",
         "meter_power.session",
         "measure_power",
@@ -483,6 +482,7 @@
         "current_limit",
         "current_max",
         "status",
+        "single_phase_charging",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -604,7 +604,6 @@
       },
       "class": "other",
       "capabilities": [
-        "single_phase_charging",
         "meter_power",
         "meter_power.session",
         "measure_power",
@@ -616,6 +615,7 @@
         "current_limit",
         "current_max",
         "status",
+        "single_phase_charging",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -859,8 +859,8 @@
     "measure_current": {
       "type": "number",
       "title": {
-        "en": "Delivered Current",
-        "nl": "Geleverde ampère"
+        "en": "Supply Current",
+        "nl": "Voedingsstroom"
       },
       "hint": {
         "en": "Currently delivered current in amperes.",
@@ -878,8 +878,8 @@
     "measure_power": {
       "type": "number",
       "title": {
-        "en": "Delivered Power",
-        "nl": "Geleverde vermogen"
+        "en": "Supply Power",
+        "nl": "Stroomtoevoer"
       },
       "hint": {
         "en": "Currently delivered power in watts.",
@@ -916,8 +916,8 @@
     "measure_voltage": {
       "type": "number",
       "title": {
-        "en": "Supplied Voltage",
-        "nl": "Lever spanning"
+        "en": "Supply Voltage",
+        "nl": "Voedingsspanning"
       },
       "hint": {
         "en": "Currently delivered voltage in volts.",

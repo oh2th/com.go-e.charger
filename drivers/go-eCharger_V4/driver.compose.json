@@ -4,7 +4,6 @@
   },
   "class": "other",
   "capabilities": [
-    "single_phase_charging",
     "meter_power",
     "meter_power.session",
     "measure_power",
@@ -16,6 +15,7 @@
     "current_limit",
     "current_max",
     "status",
+    "single_phase_charging",
     "is_allowed",
     "is_charging",
     "is_connected",

@@ -124,7 +124,7 @@ class mainDevice extends Device {
   }
 
   async setCapabilityListeners() {
-    this.registerCapabilityListener('is_charging_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
+    this.registerCapabilityListener('is_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
     this.registerCapabilityListener('single_phase_charging', this.onCapability_SINGLE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
@@ -132,8 +132,8 @@ class mainDevice extends Device {
   async onCapability_CHARGING_ALLOWED(value) {
     let val = 0;
     try {
-      if (value !== this.getCapabilityValue('is_charging_allowed')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_charging_allowed: '${val}'`);
+      if (value !== this.getCapabilityValue('is_allowed')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: '${val}'`);
         if (this.api.driver === 'go-eCharger_V1' || this.api.driver === 'go-eCharger_V2') {
           if (value) val = 1; // Enable charging
           return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
@@ -181,20 +181,21 @@ class mainDevice extends Device {
         // console.log(JSON.stringify(deviceInfo));
         await this.setAvailable();
 
-        await this.setValue('measure_power', deviceInfo.measure_power, check);
-        await this.setValue('measure_current', deviceInfo.measure_current, check);
-        await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
-        await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
+        await this.setValue('measure_power', deviceInfo['measure_power'], check);
+        await this.setValue('measure_current', deviceInfo['measure_current'], check);
+        await this.setValue('measure_voltage', deviceInfo['measure_voltage'], check);
+        await this.setValue('measure_temperature', deviceInfo['measure_temperature'], check);
         await this.setValue('measure_temperature.charge_port', deviceInfo['measure_temperature.charge_port'], check);
-        await this.setValue('meter_power', deviceInfo.meter_power, check);
-        await this.setValue('is_charging_allowed', deviceInfo.is_charging_allowed, check);
-        await this.setValue('single_phase_charging', deviceInfo.single_phase_charging, check);
-        await this.setValue('cable_limit', deviceInfo.cable_limit, check);
-        await this.setValue('current_limit', deviceInfo.current_limit, check);
-        await this.setValue('current_max', deviceInfo.current_max, check);
-        await this.setValue('is_connected', deviceInfo.is_connected, check);
-        await this.setValue('alarm_device', deviceInfo.alarm_device, check);
-        await this.setValue('energy_total', deviceInfo.energy_total, check);
+        await this.setValue('meter_power', deviceInfo['meter_power'], check);
+        await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
+        await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
+        await this.setValue('single_phase_charging', deviceInfo['single_phase_charging'], check);
+        await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
+        await this.setValue('current_limit', deviceInfo['current_limit'], check);
+        await this.setValue('current_max', deviceInfo['current_max'], check);
+        await this.setValue('is_connected', deviceInfo['is_connected'], check);
+        await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
+        await this.setValue('energy_total', deviceInfo['energy_total'], check);
 
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
         // and adjust device current_limit capability maximum setting value for the lesser.

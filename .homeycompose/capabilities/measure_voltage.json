@@ -1,8 +1,8 @@
 {
   "type": "number",
   "title": {
-    "en": "Supplied Voltage",
-    "nl": "Lever spanning"
+    "en": "Supply Voltage",
+    "nl": "Voedingsspanning"
   },
   "hint": {
     "en": "Currently delivered voltage in volts.",
