@@ -4,5 +4,8 @@
   },
   "2.1.0": {
     "en": "BREAK: unused energy_total removed, meter_power is now total energy and meter_power.session has last session"
+  },
+  "2.2.0": {
+    "en": "ADD: FlowCard tokens to several flow cards."
   }
 }
