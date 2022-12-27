@@ -16,7 +16,7 @@
   ],
   "tokens": [
     {
-      "name": "enabled",
+      "name": "is_connected",
       "type": "boolean",
       "title": {
         "en": "Car connected",

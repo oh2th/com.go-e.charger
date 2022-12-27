@@ -36,7 +36,7 @@ class mainDevice extends Device {
   }
 
   catch(error) {
-    this.homey.app.log(`[Device] ${this.getName()} - OnInit Error`, error);
+    this.log(`[Device] ${this.getName()} - OnInit Error`, error);
   }
 
   /**
@@ -62,9 +62,9 @@ class mainDevice extends Device {
       this.log(`[Device] ${this.getName()}: ${this.getData().id} new settings OK.`);
       this.setAvailable();
       return Promise.resolve(initialInfo);
-    } catch (e) {
-      this.setUnavailable(e);
-      return Promise.reject(e);
+    } catch (error) {
+      this.setUnavailable(error);
+      return Promise.reject(error);
     }
   }
 
@@ -141,8 +141,8 @@ class mainDevice extends Device {
         if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
         return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
       }
-    } catch (e) {
-      return Promise.reject(e);
+    } catch (error) {
+      return Promise.reject(error);
     }
   }
 
@@ -155,8 +155,8 @@ class mainDevice extends Device {
         await this.setValue('single_phase_charging', value, false);
         return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
       }
-    } catch (e) {
-      return Promise.reject(e);
+    } catch (error) {
+      return Promise.reject(error);
     }
   }
 
@@ -166,8 +166,8 @@ class mainDevice extends Device {
         this.log(`[Device] ${this.getName()}: ${this.getData().id} set current_limit: '${value}'`);
         return Promise.resolve(await this.api.setGoeChargerValue('amp', value));
       }
-    } catch (e) {
-      return Promise.reject(e);
+    } catch (error) {
+      return Promise.reject(error);
     }
   }
 
@@ -225,10 +225,9 @@ class mainDevice extends Device {
           }
         }
       }
-    } catch (e) {
-      this.setUnavailable(e);
-      // console.log(e);
-      return 'not connected';
+    } catch (error) {
+      this.setUnavailable(error);
+      this.log(error);
     }
   }
 
@@ -236,15 +235,19 @@ class mainDevice extends Device {
     if (this.hasCapability(key)) {
       const oldVal = await this.getCapabilityValue(key);
 
-      this.homey.app.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
-
-      if (delay) {
-        await sleep(delay);
+      if (oldVal !== value) {
+        this.log(`[Device] ${this.api.driver} ${this.getName()} - setValue - oldValue => ${key} => `, oldVal, value);
       }
+
+      if (delay) await sleep(delay);
 
       await this.setCapabilityValue(key, value);
 
-      if (typeof value === 'boolean' && oldVal !== value && !firstRun) {
+      //
+      // Capability triggers
+      //
+
+      if (typeof value === 'boolean' && key.startsWith('is_') && oldVal !== value && !firstRun) {
         const newKey = key.replace('.', '_');
         const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
@@ -252,9 +255,9 @@ class mainDevice extends Device {
         if (triggerExists) {
           await this.homey.flow
             .getDeviceTriggerCard(`${newKey}_changed`)
-            .trigger(this)
+            .trigger(this, { [`${key}`]: value })
             .catch(this.error)
-            .then(this.homey.app.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
+            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
         }
       }
     }
@@ -271,23 +274,30 @@ class mainDevice extends Device {
   }
 
   async clearIntervals() {
-    this.log(`[Device] ${this.getName()}: ${this.getData().id} clearIntervals`);
-
-    clearInterval(this.onPollInterval);
+    try {
+      this.log(`[Device] ${this.getName()}: ${this.getData().id} clearIntervals`);
+      clearInterval(this.onPollInterval);
+    } catch (error) {
+      this.log(error);
+    }
   }
 
   // ------------- Check if Capabilities has changed and update them -------------
   async checkCapabilities() {
-    const driverManifest = this.driver.manifest;
-    const driverCapabilities = driverManifest.capabilities;
-    const deviceCapabilities = this.getCapabilities();
+    try {
+      const driverManifest = this.driver.manifest;
+      const driverCapabilities = driverManifest.capabilities;
+      const deviceCapabilities = this.getCapabilities();
 
-    this.homey.app.log(`[Device] ${this.getName()} - checkCapabilities for`, driverManifest.id);
-    this.homey.app.log(`[Device] ${this.getName()} - Found capabilities =>`, deviceCapabilities);
+      this.log(`[Device] ${this.getName()} - checkCapabilities for`, driverManifest.id);
+      this.log(`[Device] ${this.getName()} - Found capabilities =>`, deviceCapabilities);
 
-    await this.updateCapabilities(driverCapabilities, deviceCapabilities);
+      await this.updateCapabilities(driverCapabilities, deviceCapabilities);
 
-    return deviceCapabilities;
+      return deviceCapabilities;
+    } catch (error) {
+      this.log(error);
+    }
   }
 
   async updateCapabilities(driverCapabilities, deviceCapabilities) {
@@ -295,21 +305,21 @@ class mainDevice extends Device {
       const newC = driverCapabilities.filter((d) => !deviceCapabilities.includes(d));
       const oldC = deviceCapabilities.filter((d) => !driverCapabilities.includes(d));
 
-      this.homey.app.log(`[Device] ${this.getName()} - Got old capabilities =>`, oldC);
-      this.homey.app.log(`[Device] ${this.getName()} - Got new capabilities =>`, newC);
+      this.log(`[Device] ${this.getName()} - Got old capabilities =>`, oldC);
+      this.log(`[Device] ${this.getName()} - Got new capabilities =>`, newC);
 
       oldC.forEach((c) => {
-        this.homey.app.log(`[Device] ${this.getName()} - updateCapabilities => Remove `, c);
+        this.log(`[Device] ${this.getName()} - updateCapabilities => Remove `, c);
         this.removeCapability(c);
       });
       await sleep(2000);
       newC.forEach((c) => {
-        this.homey.app.log(`[Device] ${this.getName()} - updateCapabilities => Add `, c);
+        this.log(`[Device] ${this.getName()} - updateCapabilities => Add `, c);
         this.addCapability(c);
       });
       await sleep(2000);
     } catch (error) {
-      this.homey.app.log(error);
+      this.log(error);
     }
   }
 

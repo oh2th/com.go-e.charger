@@ -1,7 +1,12 @@
+/* eslint-disable func-names */
+/* eslint-disable camelcase */
+/* eslint-disable consistent-return */
+
 'use strict';
 
 const Homey = require('homey');
 const GoeChargerApi = require('../lib/go-echarger-api');
+
 module.exports = class mainDriver extends Homey.Driver {
 
   onInit() {
@@ -10,7 +15,7 @@ module.exports = class mainDriver extends Homey.Driver {
   }
 
   async onPair(session) {
-    let deviceDriver = this.id;
+    const deviceDriver = this.id;
     let deviceArray = {};
 
     session.setHandler('list_devices', async () => {
@@ -29,29 +34,28 @@ module.exports = class mainDriver extends Homey.Driver {
               address: discoveryResult.address,
               driver: deviceDriver,
             },
-            store: {}  
+            store: {},
           };
         });
-        if (results.length > 0) {
-          return results;
-        } else {
-          this.homey.app.log('Fallback to manual pairing not implemented.');
-          // session.showView('select_pairing');
-        }
+
+        if (results.length > 0) return results;
+
+        this.homey.app.log('Fallback to manual pairing not implemented.');
+        // session.showView('select_pairing');
+        return {};
       } catch (e) {
         this.homey.app.log(e);
         throw new Error(this.homey.__('pair.error'));
       }
     });
 
-    session.setHandler('manual_pairing', async function (data) {
+    session.setHandler('manual_pairing', async function(data) {
       try {
         const api = new GoeChargerApi();
         api.address = data.address;
         api.driver = deviceDriver;
         const initialInfo = await api.getInfo();
         initialInfo.address = data.address;
-        console.log('manual_pairing result: ', initialInfo);
         deviceArray = {
           name: initialInfo.name,
           data: {
@@ -61,11 +65,10 @@ module.exports = class mainDriver extends Homey.Driver {
             address: initialInfo.address,
             driver: deviceDriver,
           },
-          store: {}
-        }
+          store: {},
+        };
         return Promise.resolve(deviceArray);
       } catch (e) {
-        console.log(e);
         throw new Error(this.homey.__('pair.error'));
       }
     });
@@ -77,7 +80,6 @@ module.exports = class mainDriver extends Homey.Driver {
         this.error(error);
       }
     });
-
   }
 
 };

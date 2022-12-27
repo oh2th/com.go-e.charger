@@ -104,7 +104,7 @@
         ],
         "tokens": [
           {
-            "name": "enabled",
+            "name": "is_allowed",
             "type": "boolean",
             "title": {
               "en": "Charging allowed",
@@ -132,7 +132,7 @@
         ],
         "tokens": [
           {
-            "name": "enabled",
+            "name": "is_charging",
             "type": "boolean",
             "title": {
               "en": "Charging",
@@ -160,7 +160,7 @@
         ],
         "tokens": [
           {
-            "name": "enabled",
+            "name": "is_connected",
             "type": "boolean",
             "title": {
               "en": "Car connected",
@@ -188,11 +188,11 @@
         ],
         "tokens": [
           {
-            "name": "enabled",
+            "name": "single_phase_cahrging",
             "type": "boolean",
             "title": {
-              "en": "Charging changed",
-              "nl": "Opladen veranderd"
+              "en": "Single Phase",
+              "nl": "Eenfasig"
             }
           }
         ],

@@ -16,7 +16,7 @@
   ],
   "tokens": [
     {
-      "name": "enabled",
+      "name": "is_allowed",
       "type": "boolean",
       "title": {
         "en": "Charging allowed",

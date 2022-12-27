@@ -16,11 +16,11 @@
   ],
   "tokens": [
     {
-      "name": "enabled",
+      "name": "single_phase_cahrging",
       "type": "boolean",
       "title": {
-        "en": "Charging changed",
-        "nl": "Opladen veranderd"
+        "en": "Single Phase",
+        "nl": "Eenfasig"
       }
     }
   ]
