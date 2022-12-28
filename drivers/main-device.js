@@ -1,11 +1,8 @@
-/* eslint-disable camelcase */
-/* eslint-disable consistent-return */
-
 'use strict';
 
 const { Device } = require('homey');
-const GoeChargerApi = require('../lib/go-echarger-api');
 const { sleep } = require('../lib/helpers');
+const GoeChargerApi = require('../lib/go-echarger-api');
 
 const POLL_INTERVAL = 5000;
 

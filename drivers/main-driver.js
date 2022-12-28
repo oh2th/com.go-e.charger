@@ -1,7 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable camelcase */
-/* eslint-disable consistent-return */
-
 'use strict';
 
 const Homey = require('homey');
@@ -10,8 +6,8 @@ const GoeChargerApi = require('../lib/go-echarger-api');
 module.exports = class mainDriver extends Homey.Driver {
 
   onInit() {
-    this.homey.app.log('[Driver] - init', this.id);
-    this.homey.app.log('[Driver] - version', Homey.manifest.version);
+    this.log('[Driver] - init', this.id);
+    this.log('[Driver] - version', Homey.manifest.version);
   }
 
   async onPair(session) {
@@ -20,7 +16,7 @@ module.exports = class mainDriver extends Homey.Driver {
 
     session.setHandler('list_devices', async () => {
       try {
-        this.homey.app.log(`[Driver] ${deviceDriver} - mDNS discovery`);
+        this.log(`[Driver] ${deviceDriver} - mDNS discovery`);
 
         const discoveryStrategy = this.getDiscoveryStrategy();
         const discoveryResults = discoveryStrategy.getDiscoveryResults();
@@ -40,11 +36,11 @@ module.exports = class mainDriver extends Homey.Driver {
 
         if (results.length > 0) return results;
 
-        this.homey.app.log('Fallback to manual pairing not implemented.');
+        this.log('Fallback to manual pairing not implemented.');
         // session.showView('select_pairing');
         return {};
       } catch (e) {
-        this.homey.app.log(e);
+        this.log(e);
         throw new Error(this.homey.__('pair.error'));
       }
     });
