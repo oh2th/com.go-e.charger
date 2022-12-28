@@ -23,6 +23,7 @@
         "no-throw-literal": "off",
         "no-void": "off",
         "no-irregular-whitespace": "off",
+        "node/no-unsupported-features/es-syntax": "off",
         "camelcase": "off",
         "consistent-return":"off",
         "func-names":"off"

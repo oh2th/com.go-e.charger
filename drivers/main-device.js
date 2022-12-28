@@ -245,7 +245,7 @@ class mainDevice extends Device {
       //
 
       if (typeof value === 'boolean' && key.startsWith('is_') && oldVal !== value && !firstRun) {
-        const newKey = key.replace('.', '_');
+        const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
 

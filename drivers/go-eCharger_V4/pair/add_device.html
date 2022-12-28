@@ -1,11 +1,6 @@
 <script type="text/javascript">
-  try {
-    Homey.emit('add_device', {}).then(result => {
-      Homey.createDevice(result);
-      Homey.done();
-    })
-  } catch (error) {
-    Homey.alert(error);
+  Homey.emit('add_device', {}).catch(error => {Homey.alert(error); Homey.done();}).then(result => {
+    Homey.createDevice(result);
     Homey.done();
-  }
+  })
 </script>

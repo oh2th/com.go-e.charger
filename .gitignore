@@ -13,10 +13,12 @@ Thumbs.db
 # VScode
 .vscode/
 
+# snyk
+.dccache
+
 # Homey exclude
 /env.json
 /node_modules/
 /.homeybuild/
 package-lock.json
-package.json
 tsconfig.json
