@@ -2,7 +2,7 @@
   "name": {
     "en": "go-e Charger 4th gen Gemini"
   },
-  "class": "other",
+  "class": "socket",
   "capabilities": [
     "meter_power",
     "meter_power.session",

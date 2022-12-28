@@ -2,7 +2,7 @@
   "name": {
     "en": "go-e Charger 3rd gen CM-03"
   },
-  "class": "other",
+  "class": "socket",
   "capabilities": [
     "meter_power",
     "meter_power.session",

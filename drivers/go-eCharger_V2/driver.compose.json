@@ -2,7 +2,7 @@
   "name": {
     "en": "go-e Charger 2nd gen CM-02"
   },
-  "class": "other",
+  "class": "socket",
   "capabilities": [
     "meter_power",
     "meter_power.session",

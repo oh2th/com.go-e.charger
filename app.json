@@ -412,7 +412,7 @@
       "name": {
         "en": "go-e Charger 1st gen CC1"
       },
-      "class": "other",
+      "class": "socket",
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -505,7 +505,7 @@
       "name": {
         "en": "go-e Charger 2nd gen CM-02"
       },
-      "class": "other",
+      "class": "socket",
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -598,7 +598,7 @@
       "name": {
         "en": "go-e Charger 3rd gen CM-03"
       },
-      "class": "other",
+      "class": "socket",
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -731,7 +731,7 @@
       "name": {
         "en": "go-e Charger 4th gen Gemini"
       },
-      "class": "other",
+      "class": "socket",
       "capabilities": [
         "meter_power",
         "meter_power.session",
