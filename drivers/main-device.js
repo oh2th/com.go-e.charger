@@ -190,7 +190,6 @@ class mainDevice extends Device {
         await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
         await this.setValue('current_max', deviceInfo['current_max'], check);
-        await this.setValue('is_connected', deviceInfo['is_connected'], check);
         await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
 
         // Check for device's maximum current configuration and connected Type-2 cables ampere coding
@@ -209,15 +208,19 @@ class mainDevice extends Device {
         await this.setValue('status', deviceInfo.status, check);
         if (deviceInfo.status !== oldStatus) {
           if (deviceInfo.status === 'station_idle') {
+            await this.setValue('is_connected', false);
             await this.setValue('is_charging', false);
           }
           if (deviceInfo.status === 'car_charging') {
+            await this.setValue('is_connected', true);
             await this.setValue('is_charging', true);
           }
-          if (deviceInfo.status === 'car_waiting') {
+          if (deviceInfo.status === 'station_waiting') {
+            await this.setValue('is_connected', true);
             await this.setValue('is_charging', false);
           }
           if (deviceInfo.status === 'car_finished') {
+            await this.setValue('is_connected', true);
             await this.setValue('is_charging', false);
           }
         }

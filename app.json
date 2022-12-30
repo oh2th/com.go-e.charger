@@ -1119,10 +1119,10 @@
           }
         },
         {
-          "id": "car_waiting",
+          "id": "station_waiting",
           "title": {
-            "en": "Waiting to charge",
-            "nl": "Klaarmaken voor laden"
+            "en": "Waiting for authentication",
+            "nl": "Wachten op authenticatie"
           }
         },
         {
