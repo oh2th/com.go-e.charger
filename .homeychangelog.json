@@ -13,5 +13,8 @@
   },
   "2.2.2": {
     "en": "FIX: Flow cards token handling."
+  },
+  "2.3.0": {
+    "en": "Retitle capabilites, translations and status labels. BREAK: Single phase charging capability id unified to is_xxx format."
   }
 }
