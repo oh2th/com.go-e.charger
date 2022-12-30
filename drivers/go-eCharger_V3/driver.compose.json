@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "go-e Charger 3rd gen CM-03"
+    "en": "Home, 3rd gen (CM-03)",
+    "nl": "Home, 3e gen (CM-03)"
   },
   "class": "socket",
   "capabilities": [

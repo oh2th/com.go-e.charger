@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "go-e Charger 1st gen CC1"
+    "en": "Home, 1st gen (CC1)",
+    "nl": "Home, 1e gen (CC1)"
   },
   "class": "socket",
   "capabilities": [

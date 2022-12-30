@@ -1,6 +1,7 @@
 {
   "name": {
-    "en": "go-e Charger 4th gen Gemini"
+    "en": "Gemini, 4th gen (GM-10)",
+    "nl": "Gemini, 4e gen (GM-10)"
   },
   "class": "socket",
   "capabilities": [
