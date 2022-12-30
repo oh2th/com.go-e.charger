@@ -173,7 +173,7 @@
       {
         "title": {
           "en": "Single phase charging changed",
-          "nl": "Eenfasig laden gewijzigd"
+          "nl": "Enkelfasig opladen gewijzigd"
         },
         "hint": {
           "en": "Device has changed between 1-phase or 3-phase charging.",
@@ -188,15 +188,15 @@
         ],
         "tokens": [
           {
-            "name": "single_phase_cahrging",
+            "name": "single_phase_charging",
             "type": "boolean",
             "title": {
               "en": "Single Phase",
-              "nl": "Eenfasig"
+              "nl": "Enkelfasig"
             }
           }
         ],
-        "id": "single_phase_charging_changed"
+        "id": "is_single_phase_changed"
       },
       {
         "title": {
@@ -235,7 +235,7 @@
       {
         "title": {
           "en": "Charging !{{is|isn't}} allowed",
-          "nl": "!{{Laden !{{is|is niet}} toegestaan"
+          "nl": "Laden !{{is|is niet}} toegestaan"
         },
         "hint": {
           "en": "Charging is/isn't allowed.",
@@ -253,7 +253,7 @@
       {
         "title": {
           "en": "!{{Is|Isn't}} charging",
-          "nl": "!{{Bezig|Niet bezig}} met laden}}"
+          "nl": "!{{Bezig|Niet bezig}} met laden"
         },
         "hint": {
           "en": "Charging is/isn't ongoing.",
@@ -285,6 +285,24 @@
           }
         ],
         "id": "is_connected"
+      },
+      {
+        "title": {
+          "en": "Single phase !{{is|isn't}} active",
+          "nl": "Enkelfasig !{{is|is niet}} actief"
+        },
+        "hint": {
+          "en": "Single phase charging is/isn't active.",
+          "nl": "Enkelfasig opladen is/is niet actief."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_single_phase"
       }
     ],
     "actions": [
@@ -327,15 +345,15 @@
       {
         "title": {
           "en": "Change current limit to ",
-          "nl": "Amperage veranderen naar "
+          "nl": "Ampèrelimiet veranderen naar "
         },
         "titleFormatted": {
           "en": "Change current limit to [[action_amps]]",
-          "nl": "Amperage veranderen naar [[action_amps]]"
+          "nl": "Wijzig de ampèrelimiet in [[action_amps]]"
         },
         "hint": {
-          "en": "Change the current limit in ampers for charging.",
-          "nl": "Wijzig de stroomlimiet in ampère voor opladen."
+          "en": "Change the current limit in amperes for charging.",
+          "nl": "Wijzig de ampèrelimiet in ampère voor opladen."
         },
         "args": [
           {
@@ -347,8 +365,8 @@
             "type": "range",
             "name": "action_amps",
             "title": {
-              "en": "Current limit in ampers",
-              "nl": "Stroomlimiet in ampère"
+              "en": "Current limit in amperes",
+              "nl": "Ampèrelimiet in ampère"
             },
             "min": 6,
             "max": 32,
@@ -362,8 +380,8 @@
             "name": "amps",
             "type": "number",
             "title": {
-              "en": "Amperage (A)",
-              "nl": "Stroomsterkte (A)"
+              "en": "Amperes (A)",
+              "nl": "Ampère (A)"
             }
           }
         ],
@@ -611,7 +629,7 @@
         "current_limit",
         "current_max",
         "status",
-        "single_phase_charging",
+        "is_single_phase",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -744,7 +762,7 @@
         "current_limit",
         "current_max",
         "status",
-        "single_phase_charging",
+        "is_single_phase",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -880,11 +898,11 @@
     "cable_limit": {
       "type": "number",
       "title": {
-        "en": "Type-2 Cable Amperes",
+        "en": "Type-2 Cable Ampere",
         "nl": "Type-2 kabelampère"
       },
       "hint": {
-        "en": "Amperage coding from the connected Type-2 cable.",
+        "en": "Ampere coding from the connected Type-2 cable.",
         "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel."
       },
       "getable": true,
@@ -985,6 +1003,21 @@
       "uiComponent": null,
       "insights": false
     },
+    "is_single_phase": {
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase Charging",
+        "nl": "Enkelfasig opladen"
+      },
+      "hint": {
+        "en": "Single phase charging active.",
+        "nl": "Enkelfasig opladen actief."
+      },
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/type2-phases.svg",
+      "insights": false
+    },
     "measure_current": {
       "type": "number",
       "title": {
@@ -1077,21 +1110,6 @@
         "en": "kWh"
       },
       "insights": true
-    },
-    "single_phase_charging": {
-      "type": "boolean",
-      "title": {
-        "en": "Single Phase Charging",
-        "nl": "Eenfase opladen"
-      },
-      "hint": {
-        "en": "Force single phase charging.",
-        "nl": "Forceer enkelfasig opladen."
-      },
-      "getable": true,
-      "setable": true,
-      "icon": "/assets/type2-phases.svg",
-      "insights": false
     },
     "status": {
       "type": "enum",
