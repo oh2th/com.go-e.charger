@@ -1,0 +1,17 @@
+{
+  "title": {
+    "en": "Single phase !{{is|isn't}} active",
+    "nl": "Enkelfasig !{{is|is niet}} actief"
+  },
+  "hint": {
+    "en": "Single phase charging is/isn't active.",
+    "nl": "Enkelfasig opladen is/is niet actief."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ]
+}

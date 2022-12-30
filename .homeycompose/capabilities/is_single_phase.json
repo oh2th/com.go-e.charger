@@ -2,11 +2,11 @@
   "type": "boolean",
   "title": {
     "en": "Single Phase Charging",
-    "nl": "Eenfase opladen"
+    "nl": "Enkelfasig opladen"
   },
   "hint": {
-    "en": "Force single phase charging.",
-    "nl": "Forceer enkelfasig opladen."
+    "en": "Single phase charging active.",
+    "nl": "Enkelfasig opladen actief."
   },
   "getable": true,
   "setable": true,

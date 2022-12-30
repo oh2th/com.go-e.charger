@@ -1,7 +1,7 @@
 {
   "title": {
     "en": "Single phase charging changed",
-    "nl": "Eenfasig laden gewijzigd"
+    "nl": "Enkelfasig opladen gewijzigd"
   },
   "hint": {
     "en": "Device has changed between 1-phase or 3-phase charging.",
@@ -16,11 +16,11 @@
   ],
   "tokens": [
     {
-      "name": "single_phase_cahrging",
+      "name": "single_phase_charging",
       "type": "boolean",
       "title": {
         "en": "Single Phase",
-        "nl": "Eenfasig"
+        "nl": "Enkelfasig"
       }
     }
   ]
