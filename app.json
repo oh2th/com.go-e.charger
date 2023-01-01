@@ -428,7 +428,8 @@
   "drivers": [
     {
       "name": {
-        "en": "go-e Charger 1st gen CC1"
+        "en": "Home, 1st gen (CC1)",
+        "nl": "Home, 1e gen (CC1)"
       },
       "class": "socket",
       "capabilities": [
@@ -521,7 +522,8 @@
     },
     {
       "name": {
-        "en": "go-e Charger 2nd gen CM-02"
+        "en": "Home, 2nd gen (CM-02)",
+        "nl": "Home, 2e gen (CM-02)"
       },
       "class": "socket",
       "capabilities": [
@@ -614,7 +616,8 @@
     },
     {
       "name": {
-        "en": "go-e Charger 3rd gen CM-03"
+        "en": "Home, 3rd gen (CM-03)",
+        "nl": "Home, 3e gen (CM-03)"
       },
       "class": "socket",
       "capabilities": [
@@ -747,7 +750,8 @@
     },
     {
       "name": {
-        "en": "go-e Charger 4th gen Gemini"
+        "en": "Gemini, 4th gen (GM-10)",
+        "nl": "Gemini, 4e gen (GM-10)"
       },
       "class": "socket",
       "capabilities": [
