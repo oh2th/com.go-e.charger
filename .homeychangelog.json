@@ -8,16 +8,14 @@
   "2.2.0": {
     "en": "ADD: FlowCard tokens to several flow cards."
   },
-  "2.2.1": {
-    "en": "FIX: When... Flow Card token handling."
-  },
   "2.2.2": {
     "en": "FIX: Flow cards token handling."
   },
   "2.3.0": {
-    "en": "Retitle capabilites, translations and status labels. BREAK: Single phase charging capability id unified to is_xxx format."
+    "en": "Retitle capabilites, translations and status labels.
+    BREAK: Single phase charging capability id unified to is_xxx format."
   },
   "2.3.1": {
-    "en": "V4 icon update and some spelling corections"
+    "en": "V4 icon update and some spelling corrections"
   }
 }

@@ -11,8 +11,8 @@
     "nl": "go-e Charger Home+ en Gemini"
   },
   "description": {
-    "en": "Smart EV Charging from go-e",
-    "nl": "Slim EV-opladen van go-e"
+    "en": "Convenient EV Charging Solutions",
+    "nl": "Handige oplossingen voor het opladen van EV's"
   },
   "category": [
     "energy"
@@ -46,7 +46,7 @@
   "contributors": {
     "developers": [
       {
-        "name": "Tim Willemsen - original app"
+        "name": "Tim Willemsen - original V1 app"
       },
       {
         "name": "Martijn Poppen - code examples"
@@ -58,9 +58,6 @@
     "translators": [
       {
         "name": "🇬🇧 Tapio Heiskanen"
-      },
-      {
-        "name": "🇳🇱 Tim Willemsen"
       },
       {
         "name": "🇳🇱 Tapio Heiskanen"
