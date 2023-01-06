@@ -19,5 +19,8 @@
   },
   "2.4.1": {
     "en": "Fix: Then cards should have been without tokens, not When."
+  },
+  "2.4.2": {
+    "en": "FIX: Single Phase Charging toggle in App did not work."
   }
 }

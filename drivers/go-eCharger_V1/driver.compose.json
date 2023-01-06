@@ -1,9 +1,9 @@
 {
   "name": {
-    "en": "Home+, 1st gen (CC1)",
-    "nl": "Home+, 1e gen (CC1)",
-    "de": "Home+, 1. Gen (CC1)",
-    "fr": "Home+, 1ère gen (CC1)"
+    "en": "Home, 1st gen (CC1)",
+    "nl": "Home, 1e gen (CC1)",
+    "de": "Home, 1. Gen (CC1)",
+    "fr": "Home, 1ère gen (CC1)"
   },
   "class": "socket",
   "capabilities": [
