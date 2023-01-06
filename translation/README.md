@@ -1,8 +1,10 @@
 # Howto translate
 
-These files are for translation of the application only and are not actively used.
+These files are for translation purposes only and are not actively used.
+
+If you edit the files directly here in github, it should automatically create a pull request for submition.
+
 When I receive a pull request I'll review them and then update the translation to the main files.
-After editing the files just make a pull request for review and merging to the main repository.
 
 ## Application main information
 

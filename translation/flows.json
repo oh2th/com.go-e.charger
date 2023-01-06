@@ -218,18 +218,6 @@
         "de": "Laden am Gerät aktivieren oder deaktivieren.",
         "fr": "Activer ou désactiver le chargement sur l'appareil."
       },
-      "tokens": [
-        {
-          "name": "enabled",
-          "type": "boolean",
-          "title": {
-            "en": "Charging allowed",
-            "nl": "Laden toegestaan",
-            "de": "Laden erlaubt",
-            "fr": "Chargement autorisé"
-          }
-        }
-      ],
       "id": "allow_charging"
     },
     {
@@ -251,18 +239,6 @@
         "de": "Ändere die Strombegrenzung in Ampere für das Laden.",
         "fr": "Changer la limite de courant en ampères pour le chargement."
       },
-      "tokens": [
-        {
-          "name": "amps",
-          "type": "number",
-          "title": {
-            "en": "Amperes (A)",
-            "nl": "Ampère (A)",
-            "de": "Ampere (A)",
-            "fr": "Ampères (A)"
-          }
-        }
-      ],
       "id": "change_current"
     },
     {
@@ -284,18 +260,6 @@
         "de": "Lader zwingen, einphasiges Laden zu verwenden.",
         "fr": "Forcer le chargeur à utiliser une seule phase pour la charge."
       },
-      "tokens": [
-        {
-          "name": "enabled",
-          "type": "boolean",
-          "title": {
-            "en": "Single Phase Charging",
-            "nl": "Enkelfasig opladen",
-            "de": "Einphasiges Laden",
-            "fr": "Charge monophasée"
-          }
-        }
-      ],
       "id": "single_phase"
     }
   ]
