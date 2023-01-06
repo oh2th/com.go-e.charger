@@ -64,6 +64,6 @@ There are also language specific locale files XX.json for some translated object
 
 ### Status - locale
 
-- nl.json - Dutch place holder, all in english now
+- nl.json - auto translated, needs verification
 - de.json - German place holder, all in english now
 - fr.json - French place holder, all in english now
