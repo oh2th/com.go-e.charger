@@ -2,7 +2,7 @@
 
 These files are for translation of the application only and are not actively used.
 When I receive a pull request I'll review them and then update the translation to the main files.
-To edit the files fork this repository for your self and once you are done make a pull request for review and merging to the main repository.
+After editing the files just make a pull request for review and merging to the main repository.
 
 ## Application main information
 
