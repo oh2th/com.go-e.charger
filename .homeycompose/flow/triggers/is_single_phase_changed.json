@@ -20,7 +20,7 @@
   ],
   "tokens": [
     {
-      "name": "single_phase_charging",
+      "name": "is_single_phase",
       "type": "boolean",
       "title": {
         "en": "Single Phase",
