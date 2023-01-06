@@ -122,7 +122,7 @@ class mainDevice extends Device {
 
   async setCapabilityListeners() {
     this.registerCapabilityListener('is_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
-    this.registerCapabilityListener('single_phase_charging', this.onCapability_SINGLE_PHASE.bind(this));
+    this.registerCapabilityListener('is_single_phase', this.onCapability_SINGLE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
@@ -147,9 +147,9 @@ class mainDevice extends Device {
     let val = 2; // Force three phase
     if (value) val = 1; // Force single phase
     try {
-      if (value !== this.getCapabilityValue('single_phase_charging')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set single_phase_charging: '${val}'`);
-        await this.setValue('single_phase_charging', value, false);
+      if (value !== this.getCapabilityValue('is_single_phase')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_single_phase: '${val}'`);
+        await this.setValue('is_single_phase', value, false);
         return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
       }
     } catch (error) {
@@ -186,7 +186,7 @@ class mainDevice extends Device {
         await this.setValue('meter_power', deviceInfo['meter_power'], check);
         await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
         await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
-        await this.setValue('single_phase_charging', deviceInfo['single_phase_charging'], check);
+        await this.setValue('is_single_phase', deviceInfo['is_single_phase'], check);
         await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
         await this.setValue('current_max', deviceInfo['current_max'], check);
