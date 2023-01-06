@@ -17,5 +17,17 @@
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     }
+  ],
+  "tokens": [
+    {
+      "name": "is_connected",
+      "type": "boolean",
+      "title": {
+        "en": "Car connected",
+        "nl": "Auto aangesloten",
+        "de": "Auto verbunden",
+        "fr": "Voiture connectée"
+      }
+    }
   ]
 }

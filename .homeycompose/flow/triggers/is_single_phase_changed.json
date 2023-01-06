@@ -17,5 +17,17 @@
       "name": "device",
       "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
     }
+  ],
+  "tokens": [
+    {
+      "name": "single_phase_charging",
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase",
+        "nl": "Enkelfasig",
+        "de": "Einphasig",
+        "fr": "Monophasé"
+      }
+    }
   ]
 }

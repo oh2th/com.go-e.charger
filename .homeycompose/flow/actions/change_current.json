@@ -38,18 +38,5 @@
       "label": "A",
       "labelDecimals": 0
     }
-  ],
-  "tokens": [
-    {
-      "name": "amps",
-      "type": "number",
-      "title": {
-        "en": "Amperes (A)",
-        "nl": "Ampère (A)",
-        "de": "Ampere (A)",
-        "fr": "Ampères (A)"
-      }
-    }
   ]
-
 }

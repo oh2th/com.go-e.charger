@@ -17,5 +17,17 @@
       "name": "device",
       "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
     }
+  ],
+  "tokens": [
+    {
+      "name": "status",
+      "type": "string",
+      "title": {
+        "en": "Charger Status",
+        "nl": "Laderstatus",
+        "de": "Ladestatus",
+        "fr": "Statut du chargeur"
+      }
+    }
   ]
 }
