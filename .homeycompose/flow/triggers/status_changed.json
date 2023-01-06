@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Status changed",
-    "nl": "Status gewijzigd"
+    "nl": "Status gewijzigd",
+    "de": "Status geändert",
+    "fr": "Statut changé"
   },
   "hint": {
     "en": "Device state has changed.",
-    "nl": "Apparaatstatus is gewijzigd."
+    "nl": "Apparaatstatus is gewijzigd.",
+    "de": "Gerätestatus hat sich geändert.",
+    "fr": "L'état de l'appareil a changé."
   },
   "args": [
     {
@@ -20,11 +24,9 @@
       "type": "string",
       "title": {
         "en": "Charger Status",
-        "nl": "Laderstatus"
-      },
-      "example": {
-        "en": "Waiting to charge",
-        "nl": "Klaarmaken voor laden"
+        "nl": "Laderstatus",
+        "de": "Ladestatus",
+        "fr": "Statut du chargeur"
       }
     }
   ]

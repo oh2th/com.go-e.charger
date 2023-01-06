@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Car !{{is|isn't}} connected",
-    "nl": "!{{Auto|Geen auto}} verbonden"
+    "nl": "!{{Auto|Geen auto}} verbonden",
+    "de": "!{{Auto|Keine Auto}} verbunden",
+    "fr": "!{{Voiture|Pas de voiture}} connectée"
   },
   "hint": {
     "en": "A car is/isn't plugged in.",
-    "nl": "Een auto is wel/niet aangesloten."
+    "nl": "Een auto is wel/niet aangesloten.",
+    "de": "Ein Auto ist/wird nicht angeschlossen.",
+    "fr": "Une voiture est/n'est pas branchée."
   },
   "args": [
     {

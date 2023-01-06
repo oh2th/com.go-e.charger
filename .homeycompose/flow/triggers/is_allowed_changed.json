@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Charging allowed changed",
-    "nl": "Opladen toegestaan gewijzigd"
-  },
+    "nl": "Opladen toegestaan gewijzigd",
+    "de": "Laden erlaubt geändert",
+    "fr": "Chargement autorisé modifié"
+    },
   "hint": {
     "en": "Charging has been allowed or disabled from the charger.",
-    "nl": "Opladen is toegestaan ​​of uitgeschakeld vanaf de oplader."
+    "nl": "Opladen is toegestaan of uitgeschakeld vanaf de oplader.",
+    "de": "Laden wurde vom Ladegerät erlaubt oder verboten.",
+    "fr": "Le chargement a été autorisé ou désactivé depuis le chargeur."
   },
   "args": [
     {
@@ -20,7 +24,9 @@
       "type": "boolean",
       "title": {
         "en": "Charging allowed",
-        "nl": "Laden toegestaan"
+        "nl": "Laden toegestaan",
+        "de": "Laden erlaubt",
+        "fr": "Chargement autorisé"
       }
     }
   ]

@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Maximum Current",
-    "nl": "Maximaal stroom"
+    "nl": "Maximaal stroom",
+    "de": "Maximale Stromstärke",
+    "fr": "Courant maximale"
   },
   "hint": {
     "en": "Maximum current deliverable by the device.",
-    "nl": "Maximale stroom die door het apparaat kan worden geleverd."
+    "nl": "Maximale stroom die door het apparaat kan worden geleverd.",
+    "de": "Maximale Stromstärke, die vom Gerät geliefert werden kann.",
+    "fr": "Courant maximal fourni par le dispositif."
   },
   "getable": true,
   "setable": false,

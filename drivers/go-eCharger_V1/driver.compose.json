@@ -1,7 +1,9 @@
 {
   "name": {
     "en": "Home+, 1st gen (CC1)",
-    "nl": "Home+, 1e gen (CC1)"
+    "nl": "Home+, 1e gen (CC1)",
+    "de": "Home+, 1. Gen (CC1)",
+    "fr": "Home+, 1ère gen (CC1)"
   },
   "class": "socket",
   "capabilities": [
@@ -25,11 +27,15 @@
       "type": "number",
       "title": {
         "en": "Energy Last Session",
-        "nl": "Energie laatste sessie"
+        "nl": "Energie laatste sessie",
+        "de": "Energie letzte Sitzung",
+        "fr": "Énergie dernière session"
       },
       "hint:": {
         "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-        "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+        "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+        "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+        "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
       },
       "getable": true,
       "setable": false,

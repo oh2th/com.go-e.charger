@@ -2,43 +2,52 @@
   "type": "enum",
   "title": {
     "en": "Device Status",
-    "nl": "Apparaat status van het apparaat"
+    "nl": "Apparaat status van het apparaat",
+    "de": "Gerätestatus",
+    "fr": "Statut de l'appareil"
   },
   "hint": {
     "en": "Status as reported by the device.",
-    "nl": "Status van het apparaat."
+    "nl": "Status van het apparaat.",
+    "de": "Status gemeld door das Gerät.",
+    "fr": "Statut tel que rapporté par l'appareil."
   },
   "values": [
     {
       "id": "station_idle",
       "title": {
         "en": "No car connected",
-        "nl": "Geen auto verbonden"
+        "nl": "Geen auto verbonden",
+        "de": "Kein Auto verbunden",
+        "fr": "Aucune voiture connectée"
       }
     },
     {
       "id": "car_charging",
       "title": {
         "en": "Charging",
-        "nl": "Auto opladen"
+        "nl": "Auto opladen",
+        "de": "Laden",
+        "fr": "Charge"
       }
     },
     {
       "id": "station_waiting",
       "title": {
         "en": "Waiting for authentication",
-        "nl": "Wachten op authenticatie"
+        "nl": "Wachten op authenticatie",
+        "de": "Warten auf Authentifizierung",
+        "fr": "En attente d'authentification"
       }
     },
     {
       "id": "car_finished",
       "title": {
         "en": "Charging stopped",
-        "nl": "Klaar met laden"
+        "nl": "Klaar met laden",
+        "de": "Laden beendet",
+        "fr": "Charge terminée"
       }
     }
-  ],
-  "setable": false,
-  "getable": true,
-  "insights": false
+  ]
 }

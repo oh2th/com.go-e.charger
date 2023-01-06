@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Current",
-    "nl": "Stroom"
+    "nl": "Stroom",
+    "de": "Strom",
+    "fr": "Courant"
   },
   "hint": {
     "en": "Currently delivered current in amperes.",
-    "nl": "Momenteel geleverde stroom in ampère."
+    "nl": "Momenteel geleverde stroom in ampère.",
+    "de": "Momentan gelieferte Stromstärke in Ampere.",
+    "fr": "Courant actuellement délivré en ampères."
   },
   "getable": true,
   "setable": false,

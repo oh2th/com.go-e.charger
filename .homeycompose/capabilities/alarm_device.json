@@ -2,11 +2,15 @@
   "type": "boolean",
   "title": {
     "en": "Device Error",
-    "nl": "Apparaat fout"
+    "nl": "Apparaat fout",
+    "de": "Gerät Fehler",
+    "fr": "Erreur d'appareil"
   },
   "hint": {
     "en": "Device has reported an error, check the device.",
-    "nl": "Apparaat heeft een fout gemeld, controleer het apparaat."
+    "nl": "Apparaat heeft een fout gemeld, controleer het apparaat.",
+    "de": "Gerät hat einen Fehler gemeldet, überprüfen Sie das Gerät.",
+    "fr": "L'appareil a signalé une erreur, vérifiez l'appareil."
   },
   "getable": true,
   "setable": false,

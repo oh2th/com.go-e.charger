@@ -1,7 +1,9 @@
 {
   "name": {
     "en": "Home+, 3rd gen (CM-03)",
-    "nl": "Home+, 3e gen (CM-03)"
+    "nl": "Home+, 3e gen (CM-03)",
+    "de": "Home+, 3. Gen (CM-03)",
+    "fr": "Home+, 3e gen (CM-03)"
   },
   "class": "socket",
   "capabilities": [
@@ -27,11 +29,15 @@
       "type": "number",
       "title": {
         "en": "Port Temperature",
-        "nl": "Poort Temperatuur"
+        "nl": "Poort Temperatuur",
+        "de": "Port Temperatur",
+        "fr": "Température du port"
       },
       "hint:": {
         "en": "The temperature of the charge port.",
-        "nl": "De temperatuur van de oplaadpoort."
+        "nl": "De temperatuur van de oplaadpoort.",
+        "de": "Die Temperatur des Ladeports.",
+        "fr": "La température du port de charge."
       },
       "getable": true,
       "setable": false,
@@ -46,11 +52,15 @@
       "type": "number",
       "title": {
         "en": "Energy Last Session",
-        "nl": "Energie laatste sessie"
+        "nl": "Energie laatste sessie",
+        "de": "Energie letzte Sitzung",
+        "fr": "Énergie dernière session"
       },
       "hint:": {
         "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-        "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+        "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+        "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+        "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
       },
       "getable": true,
       "setable": false,

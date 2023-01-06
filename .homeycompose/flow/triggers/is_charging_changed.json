@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Charging changed",
-    "nl": "Opladen veranderd"
+    "nl": "Opladen veranderd",
+    "de": "Ladestatus geändert",
+    "fr": "Chargement modifié"
   },
   "hint": {
     "en": "A car has started/stopped charging.",
-    "nl": "Een auto is begonnen/gestopt met opladen."
+    "nl": "Een auto is begonnen/gestopt met opladen.",
+    "de": "Ein Auto hat mit dem Laden begonnen/angehalten.",
+    "fr": "Une voiture a commencé/arrêté de charger."
   },
   "args": [
     {
@@ -20,7 +24,9 @@
       "type": "boolean",
       "title": {
         "en": "Charging",
-        "nl": "Opladen"
+        "nl": "Opladen",
+        "de": "Laden",
+        "fr": "Chargement"
       }
     }
   ]

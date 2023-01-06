@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Temperature",
-    "nl": "Temperatuur"
+    "nl": "Temperatuur",
+    "de": "Temperatur",
+    "fr": "Température"
   },
   "hint": {
     "en": "The internal temperature of the device.",
-    "nl": "De interne temperatuur van het apparaat."
+    "nl": "De interne temperatuur van het apparaat.",
+    "de": "Die interne Temperatur des Geräts.",
+    "fr": "La température interne de l'appareil."
   },
   "getable": true,
   "setable": false,

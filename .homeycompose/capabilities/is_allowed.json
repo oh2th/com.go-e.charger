@@ -2,11 +2,15 @@
   "type": "boolean",
   "title": {
     "en": "Charging Allowed",
-    "nl": "Laden toegestaan"
+    "nl": "Laden toegestaan",
+    "de": "Laden erlaubt",
+    "fr": "Charge autorisée"
   },
   "hint": {
     "en": "Charging has been allowed from the device or by the app.",
-    "nl": "Opladen is toegestaan ​​vanaf het apparaat of via de app."
+    "nl": "Opladen is toegestaan vanaf het apparaat of via de app.",
+    "de": "Laden ist vom Gerät oder von der App erlaubt.",
+    "fr": "La charge est autorisée depuis l'appareil ou depuis l'application."
   },
   "getable": true,
   "setable": true,

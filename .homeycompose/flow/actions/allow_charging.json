@@ -1,15 +1,21 @@
 {
   "title": {
     "en": "Allow charging",
-    "nl": "Laden toestaan"
+    "nl": "Laden toestaan",
+    "de": "Laden erlauben",
+    "fr": "Autoriser le chargement"
   },
   "titleFormatted": {
     "en": "Set allow charging to [[enabled]]",
-    "nl": "Stel opladen toestaan ​​in op [[enabled]]"
+    "nl": "Stel opladen toestaan in op [[enabled]]",
+    "de": "Laden erlauben auf [[enabled]] setzen",
+    "fr": "Autoriser le chargement à [[enabled]]"
   },
   "hint": {
     "en": "Enable or disable charging on the device.",
-    "nl": "Schakel opladen op het apparaat in of uit."
+    "nl": "Schakel opladen op het apparaat in of uit.",
+    "de": "Laden am Gerät aktivieren oder deaktivieren.",
+    "fr": "Activer ou désactiver le chargement sur l'appareil."
   },
   "args": [
     {
@@ -28,7 +34,9 @@
       "type": "boolean",
       "title": {
         "en": "Charging allowed",
-        "nl": "Laden toegestaan"
+        "nl": "Laden toegestaan",
+        "de": "Laden erlaubt",
+        "fr": "Chargement autorisé"
       }
     }
   ]

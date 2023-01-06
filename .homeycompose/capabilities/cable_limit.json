@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Type-2 Cable Ampere",
-    "nl": "Type-2 kabelampère"
+    "nl": "Type-2 kabelampère",
+    "de": "Typ-2 Kabel Ampere",
+    "fr": "Ampère de câble Type-2"
   },
   "hint": {
     "en": "Ampere coding from the connected Type-2 cable.",
-    "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel."
+    "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel.",
+    "de": "Ampere Codierung vom angeschlossenen Typ-2 Kabel.",
+    "fr": "Codage d'ampère du câble Type-2 connecté."
   },
   "getable": true,
   "setable": false,

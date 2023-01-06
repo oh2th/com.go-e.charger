@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Power",
-    "nl": "Vermogen"
+    "nl": "Vermogen",
+    "de": "Leistung",
+    "fr": "Puissance"
   },
   "hint": {
     "en": "Currently delivered power in watts.",
-    "nl": "Momenteel geleverd vermogen in watt."
+    "nl": "Momenteel geleverd vermogen in watt.",
+    "de": "Momentan gelieferte Leistung in Watt.",
+    "fr": "Puissance actuelle en watts."
   },
   "getable": true,
   "setable": false,

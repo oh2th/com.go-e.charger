@@ -1,15 +1,21 @@
 {
   "title": {
     "en": "Single phase charging",
-    "nl": "Enkelfasig opladen"
+    "nl": "Enkelfasig opladen",
+    "de": "Einphasiges Laden",
+    "fr": "Charge monophasée"
   },
   "titleFormatted": {
     "en": "Set single phase charging to [[enabled]]",
-    "nl": "Stel enkelfasig laden in op [[enabled]]"
+    "nl": "Stel enkelfasig laden in op [[enabled]]",
+    "de": "Einphasiges Laden auf [[enabled]] setzen",
+    "fr": "Définir la charge monophasée sur [[enabled]]"
   },
   "hint": {
     "en": "Force charger to use single phase for charging.",
-    "nl": "Forceer de lader om een ​​enkele fase te gebruiken voor het opladen."
+    "nl": "Forceer de lader om een enkele fase te gebruiken voor het opladen.",
+    "de": "Lader zwingen, einphasiges Laden zu verwenden.",
+    "fr": "Forcer le chargeur à utiliser une seule phase pour la charge."
   },
   "args": [
     {
@@ -28,7 +34,9 @@
       "type": "boolean",
       "title": {
         "en": "Single Phase Charging",
-        "nl": "Enkelfasig opladen"
+        "nl": "Enkelfasig opladen",
+        "de": "Einphasiges Laden",
+        "fr": "Charge monophasée"
       }
     }
   ]

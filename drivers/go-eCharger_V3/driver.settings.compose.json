@@ -1,21 +1,46 @@
 [
   {
     "type": "group",
-    "label": { "en": "Device configuration" },
+    "label": { 
+      "en": "Device configuration",
+      "nl": "Apparaat configuratie",
+      "de": "Gerätekonfiguration",
+      "fr": "Configuration de l'appareil"
+     },
     "children": [
       {
         "id": "address",
         "type": "text",
-        "label": { "en": "IP address" },
+        "label": {
+          "en": "IP address",
+          "nl": "IP adres",
+          "de": "IP-Adresse",
+          "fr": "Adresse IP"
+        },
         "value": "0.0.0.0",
-        "hint": { "en": "Fixed IP address of the device." }
+        "hint": {
+          "en": "Fixed IP address of the device.",
+          "nl": "Vast IP adres van het apparaat.",
+          "de": "Feste IP-Adresse des Geräts.",
+          "fr": "Adresse IP fixe de l'appareil."
+         }
       },
       {
         "id": "driver",
         "type": "label",
-        "label": { "en": "Driver" },
+        "label": {
+          "en": "Driver",
+          "nl": "Driver",
+          "de": "Treiber",
+          "fr": "Pilote"
+         },
         "value": "",
-        "hint": { "en": "Driver used to configure." }
+        "hint": {
+          "en": "Driver used to configure.",
+          "nl": "Driver gebruikt om te configureren.",
+          "de": "Treiber, der zum Konfigurieren verwendet wird.",
+          "fr": "Pilote utilisé pour configurer."
+         }
       }
     ]
   }

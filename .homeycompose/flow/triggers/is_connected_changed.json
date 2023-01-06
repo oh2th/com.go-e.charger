@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Car connection changed",
-    "nl": "Autoverbinding gewijzigd"
+    "nl": "Autoverbinding gewijzigd",
+    "de": "Autoverbindung geändert",
+    "fr": "Connexion de la voiture modifiée"
   },
   "hint": {
     "en": "Connection with a car has changed.",
-    "nl": "Verbinding met een auto is gewijzigd."
+    "nl": "Verbinding met een auto is gewijzigd.",
+    "de": "Verbindung mit einem Auto hat sich geändert.",
+    "fr": "La connexion avec une voiture a changé."
   },
   "args": [
     {
@@ -20,7 +24,9 @@
       "type": "boolean",
       "title": {
         "en": "Car connected",
-        "nl": "Auto aangesloten"
+        "nl": "Auto aangesloten",
+        "de": "Auto verbunden",
+        "fr": "Voiture connectée"
       }
     }
   ]

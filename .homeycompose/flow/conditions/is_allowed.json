@@ -1,11 +1,15 @@
 {
   "title": {
     "en": "Charging !{{is|isn't}} allowed",
-    "nl": "Laden !{{is|is niet}} toegestaan"
+    "nl": "Laden !{{is|is niet}} toegestaan",
+    "de": "Laden !{{ist|ist nicht}} erlaubt",
+    "fr": "Chargement !{{est|n'est pas}} autorisé"
   },
   "hint": {
     "en": "Charging is/isn't allowed.",
-    "nl": "Opladen is wel/niet toegestaan."
+    "nl": "Opladen is wel/niet toegestaan.",
+    "de": "Laden ist/ist nicht erlaubt.",
+    "fr": "Le chargement est/n'est pas autorisé."
   },
   "args": [
     {

@@ -2,11 +2,15 @@
   "type": "number",
   "title": {
     "en": "Current Limit",
-    "nl": "Stroom limiet"
+    "nl": "Stroom limiet",
+    "de": "Stromgrenze",
+    "fr": "Limite de courant"
   },
   "hint": {
     "en": "Current limit in amperes as set by the user.",
-    "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker."
+    "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker.",
+    "de": "Stromgrenze in Ampere, wie vom Benutzer eingestellt.",
+    "fr": "Limite de courant en ampères comme défini par l'utilisateur."
   },
   "getable": true,
   "setable": false,

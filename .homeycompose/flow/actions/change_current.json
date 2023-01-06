@@ -1,15 +1,21 @@
 {
   "title": {
     "en": "Change current limit to ",
-    "nl": "Ampèrelimiet veranderen naar "
+    "nl": "Ampèrelimiet veranderen naar ",
+    "de": "Strombegrenzung ändern auf ",
+    "fr": "Changer la limite de courant à "
   },
   "titleFormatted": {
     "en": "Change current limit to [[action_amps]]",
-    "nl": "Wijzig de ampèrelimiet in [[action_amps]]"
+    "nl": "Wijzig de ampèrelimiet in [[action_amps]]",
+    "de": "Strombegrenzung ändern auf [[action_amps]]",
+    "fr": "Changer la limite de courant à [[action_amps]]"
   },
   "hint": {
     "en": "Change the current limit in amperes for charging.",
-    "nl": "Wijzig de ampèrelimiet in ampère voor opladen."
+    "nl": "Wijzig de ampèrelimiet in ampère voor opladen.",
+    "de": "Ändere die Strombegrenzung in Ampere für das Laden.",
+    "fr": "Changer la limite de courant en ampères pour le chargement."
   },
   "args": [
     {
@@ -22,7 +28,9 @@
       "name": "action_amps",
       "title": {
         "en": "Current limit in amperes",
-        "nl": "Ampèrelimiet in ampère"
+        "nl": "Ampèrelimiet in ampère",
+        "de": "Strombegrenzung in Ampere",
+        "fr": "Limite de courant en ampères"
       },
       "min": 6,
       "max": 32,
@@ -37,7 +45,9 @@
       "type": "number",
       "title": {
         "en": "Amperes (A)",
-        "nl": "Ampère (A)"
+        "nl": "Ampère (A)",
+        "de": "Ampere (A)",
+        "fr": "Ampères (A)"
       }
     }
   ]
