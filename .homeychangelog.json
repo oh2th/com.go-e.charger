@@ -9,6 +9,9 @@
     "en": "ADD: FlowCard tokens to several flow cards."
   },
   "2.3.0": {
-    "en": "Fix: Branding updates. BREAK: Single phase charging capability internal id changed."
+    "en": "BREAK: Single phase charging capability internal id changed."
+  },
+  "2.3.1": {
+    "en": "Fix: Branding updates. "
   }
 }
