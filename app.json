@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.3.1",
+  "version": "2.4.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -116,18 +116,6 @@
             "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
-        "tokens": [
-          {
-            "name": "is_allowed",
-            "type": "boolean",
-            "title": {
-              "en": "Charging allowed",
-              "nl": "Laden toegestaan",
-              "de": "Laden erlaubt",
-              "fr": "Chargement autorisé"
-            }
-          }
-        ],
         "id": "is_allowed_changed"
       },
       {
@@ -148,18 +136,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "is_charging",
-            "type": "boolean",
-            "title": {
-              "en": "Charging",
-              "nl": "Opladen",
-              "de": "Laden",
-              "fr": "Chargement"
-            }
           }
         ],
         "id": "is_charging_changed"
@@ -184,18 +160,6 @@
             "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
           }
         ],
-        "tokens": [
-          {
-            "name": "is_connected",
-            "type": "boolean",
-            "title": {
-              "en": "Car connected",
-              "nl": "Auto aangesloten",
-              "de": "Auto verbunden",
-              "fr": "Voiture connectée"
-            }
-          }
-        ],
         "id": "is_connected_changed"
       },
       {
@@ -218,18 +182,6 @@
             "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
           }
         ],
-        "tokens": [
-          {
-            "name": "single_phase_charging",
-            "type": "boolean",
-            "title": {
-              "en": "Single Phase",
-              "nl": "Enkelfasig",
-              "de": "Einphasig",
-              "fr": "Monophasé"
-            }
-          }
-        ],
         "id": "is_single_phase_changed"
       },
       {
@@ -250,18 +202,6 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
-          }
-        ],
-        "tokens": [
-          {
-            "name": "status",
-            "type": "string",
-            "title": {
-              "en": "Charger Status",
-              "nl": "Laderstatus",
-              "de": "Ladestatus",
-              "fr": "Statut du chargeur"
-            }
           }
         ],
         "id": "status_changed"

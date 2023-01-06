@@ -13,5 +13,8 @@
   },
   "2.3.1": {
     "en": "Fix: Branding updates. "
+  },
+  "2.4.0": {
+    "en": "BREAK: Removed tokens from Then... flow cards, they would limit the cards to advanced flows only."
   }
 }
