@@ -1,0 +1,16 @@
+{
+  "pair": {
+    "title": "Manual configuration",
+    "subtitle": "Configuration",
+    "intro": "Enter the IP address for your go-eCharger device.",
+    "nosettings": "Please fill in all the required fields.",
+    "address": "IP Address",
+    "name": "Device Name:",
+    "serial": "Device Serial:",
+    "driver": "Device Driver:",
+    "test": "Test Connection",
+    "testing": "Connection test succesfull, you can now connect the device.",
+    "connect": "Connect",
+    "success": "go-eCharger added succesfully."
+  }
+}

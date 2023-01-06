@@ -1,0 +1,276 @@
+{
+  "capabilities": {
+    "alarm_device": {
+      "type": "boolean",
+      "title": {
+        "en": "Device Error",
+        "nl": "Apparaat fout",
+        "de": "Gerätefehler",
+        "fr": "Erreur d'appareil"
+      },
+      "hint": {
+        "en": "Device has reported an error, check the device.",
+        "nl": "Apparaat heeft een fout gemeld, controleer het apparaat.",
+        "de": "Das Gerät hat einen Fehler gemeldet, überprüfen Sie das Gerät.",
+        "fr": "L'appareil a signalé une erreur, vérifiez l'appareil."
+      }
+    },
+    "cable_limit": {
+      "type": "number",
+      "title": {
+        "en": "Type-2 Cable Ampere",
+        "nl": "Type-2 kabelampère",
+        "de": "Type-2 Kabelampere",
+        "fr": "Ampère de câble Type-2"
+      },
+      "hint": {
+        "en": "Ampere coding from the connected Type-2 cable.",
+        "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel.",
+        "de": "Ampere-Codierung vom angeschlossenen Typ-2-Kabel.",
+        "fr": "Codage d'ampère du câble Type-2 connecté."
+      },
+      "units": {
+        "en": "A"
+      }
+    },
+    "current_limit": {
+      "type": "number",
+      "title": {
+        "en": "Current Limit",
+        "nl": "Stroom limiet",
+        "de": "Strombegrenzung",
+        "fr": "Limite de courant"
+      },
+      "hint": {
+        "en": "Current limit in amperes as set by the user.",
+        "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker.",
+        "de": "Strombegrenzung in Ampere, wie vom Benutzer festgelegt.",
+        "fr": "Limite de courant en ampères définie par l'utilisateur."
+      },
+      "units": {
+        "en": "A"
+      }
+    },
+    "current_max": {
+      "type": "number",
+      "title": {
+        "en": "Maximum Current",
+        "nl": "Maximaal stroom",
+        "de": "Maximale Stromstärke",
+        "fr": "Courant maximum"
+      },
+      "hint": {
+        "en": "Maximum current deliverable by the device.",
+        "nl": "Maximale stroom die door het apparaat kan worden geleverd.",
+        "de": "Maximaler Strom, der vom Gerät geliefert werden kann.",
+        "fr": "Courant maximal fourni par l'appareil."
+      },
+      "units": {
+        "en": "A"
+      }
+    },
+    "is_allowed": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging Allowed",
+        "nl": "Laden toegestaan",
+        "de": "Laden erlaubt",
+        "fr": "Charge autorisée"
+      },
+      "hint": {
+        "en": "Charging has been allowed from the device or by the app.",
+        "nl": "Opladen is toegestaan ​​vanaf het apparaat of via de app.",
+        "de": "Das Laden wurde vom Gerät oder von der App erlaubt.",
+        "fr": "La charge a été autorisée depuis l'appareil ou depuis l'application."
+      }
+    },
+    "is_charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Car charging",
+        "nl": "Auto opladen",
+        "de": "Auto laden",
+        "fr": "Voiture en charge"
+      },
+      "hint": {
+        "en": "Is there a car charging?",
+        "nl": "Is er een auto aan het opladen?",
+        "de": "Lädt ein Auto?",
+        "fr": "Y a-t-il une voiture en charge?"
+      }
+    },
+    "is_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Car connected",
+        "nl": "Auto verbonden",
+        "de": "Auto verbunden",
+        "fr": "Voiture connectée"
+      },
+      "hint": {
+        "en": "Is there a car connected?",
+        "nl": "Is er een auto aangesloten?",
+        "de": "Ist ein Auto verbunden?",
+        "fr": "Y a-t-il une voiture connectée?"
+      }
+    },
+    "is_single_phase": {
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase Charging",
+        "nl": "Enkelfasig opladen",
+        "de": "Einphasiges Laden",
+        "fr": "Charge à phase unique"
+      },
+      "hint": {
+        "en": "Single phase charging active.",
+        "nl": "Enkelfasig opladen actief.",
+        "de": "Einphasiges Laden aktiv.",
+        "fr": "Charge à phase unique active."
+      }
+    },
+    "measure_current": {
+      "type": "number",
+      "title": {
+        "en": "Current",
+        "nl": "Stroom",
+        "de": "Strom",
+        "fr": "Courant"
+      },
+      "hint": {
+        "en": "Currently delivered current in amperes.",
+        "nl": "Momenteel geleverde stroom in ampère.",
+        "de": "Momentan gelieferte Stromstärke in Ampere.",
+        "fr": "Courant actuellement fourni en ampères."
+      },
+      "units": {
+        "en": "A"
+      }
+    },
+    "measure_power": {
+      "type": "number",
+      "title": {
+        "en": "Power",
+        "nl": "Vermogen",
+        "de": "Leistung",
+        "fr": "Puissance"
+      },
+      "hint": {
+        "en": "Currently delivered power in watts.",
+        "nl": "Momenteel geleverd vermogen in watt.",
+        "de": "Momentan gelieferte Leistung in Watt.",
+        "fr": "Puissance actuellement fournie en watts."
+      },
+      "units": {
+        "en": "W"
+      }
+    },
+    "measure_temperature": {
+      "type": "number",
+      "title": {
+        "en": "Temperature",
+        "nl": "Temperatuur",
+        "de": "Temperatur",
+        "fr": "Température"
+      },
+      "hint": {
+        "en": "The internal temperature of the device.",
+        "nl": "De interne temperatuur van het apparaat.",
+        "de": "Die interne Temperatur des Geräts.",
+        "fr": "La température interne de l'appareil."
+      },
+      "units": {
+        "en": "C"
+      }
+    },
+    "measure_voltage": {
+      "type": "number",
+      "title": {
+        "en": "Voltage",
+        "nl": "Spanning",
+        "de": "Spannung",
+        "fr": "Tension"
+      },
+      "hint": {
+        "en": "Currently delivered voltage in volts.",
+        "nl": "Momenteel geleverde spanning in volt.",
+        "de": "Momentan gelieferte Spannung in Volt.",
+        "fr": "Tension actuellement fournie en volts."
+      },
+      "units": {
+        "en": "V"
+      }
+    },
+    "meter_power": {
+      "type": "number",
+      "title": {
+        "en": "Total Energy",
+        "nl": "Totaal Energie",
+        "de": "Gesamtenergie",
+        "fr": "Énergie totale"
+      },
+      "hint": {
+        "en": "Total energy since counter was reset on the device.",
+        "nl": "Totale energie sinds de teller op het apparaat is gereset.",
+        "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
+        "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
+      },
+      "units": {
+        "en": "kWh"
+      }
+    },
+    "status": {
+      "type": "enum",
+      "title": {
+        "en": "Device Status",
+        "nl": "Apparaat status van het apparaat",
+        "de": "Gerätestatus",
+        "fr": "Statut de l'appareil"
+      },
+      "hint": {
+        "en": "Status as reported by the device.",
+        "nl": "Status van het apparaat.",
+        "de": "Status gemeld door das Gerät.",
+        "fr": "Statut tel que rapporté par l'appareil."
+      },
+      "values": [
+        {
+          "id": "station_idle",
+          "title": {
+            "en": "No car connected",
+            "nl": "Geen auto verbonden",
+            "de": "Kein Auto verbunden",
+            "fr": "Aucune voiture connectée"
+          }
+        },
+        {
+          "id": "car_charging",
+          "title": {
+            "en": "Charging",
+            "nl": "Auto opladen",
+            "de": "Laden",
+            "fr": "Charge"
+          }
+        },
+        {
+          "id": "station_waiting",
+          "title": {
+            "en": "Waiting for authentication",
+            "nl": "Wachten op authenticatie",
+            "de": "Warten auf Authentifizierung",
+            "fr": "En attente d'authentification"
+          }
+        },
+        {
+          "id": "car_finished",
+          "title": {
+            "en": "Charging stopped",
+            "nl": "Klaar met laden",
+            "de": "Laden beendet",
+            "fr": "Charge terminée"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Charging allowed changed",
+          "nl": "Opladen toegestaan gewijzigd",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Charging has been allowed or disabled from the charger.",
+          "nl": "Opladen is toegestaan ​​of uitgeschakeld vanaf de oplader.",
+          "de": "",
+          "fr": ""
+        },
+        "tokens": [
+          {
+            "name": "is_allowed",
+            "type": "boolean",
+            "title": {
+              "en": "Charging allowed",
+              "nl": "Laden toegestaan",
+              "de": "",
+              "fr": ""
+            }
+          }
+        ],
+        "id": "is_allowed_changed"
+      },
+      {
+        "title": {
+          "en": "Charging changed",
+          "nl": "Opladen veranderd",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "A car has started/stopped charging.",
+          "nl": "Een auto is begonnen/gestopt met opladen.",
+          "de": "",
+          "fr": ""
+        },
+        "tokens": [
+          {
+            "name": "is_charging",
+            "type": "boolean",
+            "title": {
+              "en": "Charging",
+              "nl": "Opladen",
+              "de": "",
+              "fr": ""
+            }
+          }
+        ],
+        "id": "is_charging_changed"
+      },
+      {
+        "title": {
+          "en": "Car connection changed",
+          "nl": "Autoverbinding gewijzigd",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Connection with a car has changed.",
+          "nl": "Verbinding met een auto is gewijzigd.",
+          "de": "",
+          "fr": ""
+        },
+        "tokens": [
+          {
+            "name": "is_connected",
+            "type": "boolean",
+            "title": {
+              "en": "Car connected",
+              "nl": "Auto aangesloten",
+              "de": "",
+              "fr": ""
+            }
+          }
+        ],
+        "id": "is_connected_changed"
+      },
+      {
+        "title": {
+          "en": "Single phase charging changed",
+          "nl": "Enkelfasig opladen gewijzigd",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Device has changed between 1-phase or 3-phase charging.",
+          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "single_phase_charging",
+            "type": "boolean",
+            "title": {
+              "en": "Single Phase",
+              "nl": "Enkelfasig",
+              "de": "",
+              "fr": ""
+            }
+          }
+        ],
+        "id": "is_single_phase_changed"
+      },
+      {
+        "title": {
+          "en": "Status changed",
+          "nl": "Status gewijzigd",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Device state has changed.",
+          "nl": "Apparaatstatus is gewijzigd.",
+          "de": "",
+          "fr": ""
+        },
+        "tokens": [
+          {
+            "name": "status",
+            "type": "string",
+            "title": {
+              "en": "Charger Status",
+              "nl": "Laderstatus",
+          "de": "",
+          "fr": ""
+            },
+            "example": {
+              "en": "Waiting to charge",
+              "nl": "Klaarmaken voor laden",
+          "de": "",
+          "fr": ""
+            }
+          }
+        ],
+        "id": "status_changed"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "Charging !{{is|isn't}} allowed",
+          "nl": "Laden !{{is|is niet}} toegestaan",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Charging is/isn't allowed.",
+          "nl": "Opladen is wel/niet toegestaan.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_allowed"
+      },
+      {
+        "title": {
+          "en": "!{{Is|Isn't}} charging",
+          "nl": "!{{Bezig|Niet bezig}} met laden"
+        },
+        "hint": {
+          "en": "Charging is/isn't ongoing.",
+          "nl": "Het opladen is/is niet aan de gang.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_charging"
+      },
+      {
+        "title": {
+          "en": "Car !{{is|isn't}} connected",
+          "nl": "!{{Auto|Geen auto}} verbonden",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "A car is/isn't plugged in.",
+          "nl": "Een auto is wel/niet aangesloten.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_connected"
+      },
+      {
+        "title": {
+          "en": "Single phase !{{is|isn't}} active",
+          "nl": "Enkelfasig !{{is|is niet}} actief",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Single phase charging is/isn't active.",
+          "nl": "Enkelfasig opladen is/is niet actief.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "is_single_phase"
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Allow charging",
+          "nl": "Laden toestaan",
+          "de": "",
+          "fr": ""
+        },
+        "titleFormatted": {
+          "en": "Set allow charging to [[enabled]]",
+          "nl": "Stel opladen toestaan ​​in op [[enabled]]",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Enable or disable charging on the device.",
+          "nl": "Schakel opladen op het apparaat in of uit.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "checkbox",
+            "name": "enabled"
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "title": {
+              "en": "Charging allowed",
+              "nl": "Laden toegestaan",
+          "de": "",
+          "fr": ""
+            }
+          }
+        ],
+        "id": "allow_charging"
+      },
+      {
+        "title": {
+          "en": "Change current limit to ",
+          "nl": "Ampèrelimiet veranderen naar ",
+          "de": "",
+          "fr": ""
+        },
+        "titleFormatted": {
+          "en": "Change current limit to [[action_amps]]",
+          "nl": "Wijzig de ampèrelimiet in [[action_amps]]",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Change the current limit in amperes for charging.",
+          "nl": "Wijzig de ampèrelimiet in ampère voor opladen.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V1|go-eCharger_V2|go-eCharger_V3|go-eCharger_V4"
+          },
+          {
+            "type": "range",
+            "name": "action_amps",
+            "title": {
+              "en": "Current limit in amperes",
+              "nl": "Ampèrelimiet in ampère",
+          "de": "",
+          "fr": ""
+            },
+            "min": 6,
+            "max": 32,
+            "step": 2,
+            "label": "A",
+            "labelDecimals": 0
+          }
+        ],
+        "tokens": [
+          {
+            "name": "amps",
+            "type": "number",
+            "title": {
+              "en": "Amperes (A)",
+              "nl": "Ampère (A)",
+          "de": "",
+          "fr": ""
+            }
+          }
+        ],
+        "id": "change_current"
+      },
+      {
+        "title": {
+          "en": "Single phase charging",
+          "nl": "Enkelfasig opladen",
+          "de": "",
+          "fr": ""
+        },
+        "titleFormatted": {
+          "en": "Set single phase charging to [[enabled]]",
+          "nl": "Stel enkelfasig laden in op [[enabled]]",
+          "de": "",
+          "fr": ""
+        },
+        "hint": {
+          "en": "Force charger to use single phase for charging.",
+          "nl": "Forceer de lader om een ​​enkele fase te gebruiken voor het opladen.",
+          "de": "",
+          "fr": ""
+        },
+        "args": [
+          {
+            "type": "checkbox",
+            "name": "enabled"
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "enabled",
+            "type": "boolean",
+            "title": {
+              "en": "Single Phase Charging",
+              "nl": "Enkelfasig opladen",
+          "de": "",
+          "fr": ""
+            }
+          }
+        ],
+        "id": "single_phase"
+      }
+    ]
+  }
+}
