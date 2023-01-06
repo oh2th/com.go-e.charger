@@ -8,11 +8,16 @@
     "local"
   ],
   "name": {
-    "en": "go-e Charger"
+    "en": "go-e Charger",
+    "nl": "go-e Charger",
+    "de": "go-e Charger",
+    "fr": "go-e Charger"
   },
   "description": {
     "en": "Simply Charge Smart",
-    "nl": "Laad gewoon slim op"
+    "nl": "Laad gewoon slim op",
+    "de": "Einfach Smart Laden",
+    "fr": "Rechargez simplement et intelligemment"
   },
   "category": [
     "energy"
@@ -41,6 +46,18 @@
       "elektrisch voertuig",
       "opladen",
       "auto"
+    ],
+    "de": [
+      "ev",
+      "elektrisches fahrzeug",
+      "laden",
+      "auto"
+    ],
+    "fr": [
+      "ev",
+      "véhicule électrique",
+      "charger",
+      "voiture"
     ]
   },
   "contributors": {
@@ -58,9 +75,6 @@
     "translators": [
       {
         "name": "🇬🇧 Tapio Heiskanen"
-      },
-      {
-        "name": "🇳🇱 Tapio Heiskanen"
       }
     ]
   },
@@ -85,11 +99,15 @@
       {
         "title": {
           "en": "Charging allowed changed",
-          "nl": "Opladen toegestaan gewijzigd"
+          "nl": "Opladen toegestaan gewijzigd",
+          "de": "Laden erlaubt geändert",
+          "fr": "Chargement autorisé modifié"
         },
         "hint": {
           "en": "Charging has been allowed or disabled from the charger.",
-          "nl": "Opladen is toegestaan ​​of uitgeschakeld vanaf de oplader."
+          "nl": "Opladen is toegestaan of uitgeschakeld vanaf de oplader.",
+          "de": "Laden wurde vom Ladegerät erlaubt oder verboten.",
+          "fr": "Le chargement a été autorisé ou désactivé depuis le chargeur."
         },
         "args": [
           {
@@ -104,7 +122,9 @@
             "type": "boolean",
             "title": {
               "en": "Charging allowed",
-              "nl": "Laden toegestaan"
+              "nl": "Laden toegestaan",
+              "de": "Laden erlaubt",
+              "fr": "Chargement autorisé"
             }
           }
         ],
@@ -113,11 +133,15 @@
       {
         "title": {
           "en": "Charging changed",
-          "nl": "Opladen veranderd"
+          "nl": "Opladen veranderd",
+          "de": "Ladestatus geändert",
+          "fr": "Chargement modifié"
         },
         "hint": {
           "en": "A car has started/stopped charging.",
-          "nl": "Een auto is begonnen/gestopt met opladen."
+          "nl": "Een auto is begonnen/gestopt met opladen.",
+          "de": "Ein Auto hat mit dem Laden begonnen/angehalten.",
+          "fr": "Une voiture a commencé/arrêté de charger."
         },
         "args": [
           {
@@ -132,7 +156,9 @@
             "type": "boolean",
             "title": {
               "en": "Charging",
-              "nl": "Opladen"
+              "nl": "Opladen",
+              "de": "Laden",
+              "fr": "Chargement"
             }
           }
         ],
@@ -141,11 +167,15 @@
       {
         "title": {
           "en": "Car connection changed",
-          "nl": "Autoverbinding gewijzigd"
+          "nl": "Autoverbinding gewijzigd",
+          "de": "Autoverbindung geändert",
+          "fr": "Connexion de la voiture modifiée"
         },
         "hint": {
           "en": "Connection with a car has changed.",
-          "nl": "Verbinding met een auto is gewijzigd."
+          "nl": "Verbinding met een auto is gewijzigd.",
+          "de": "Verbindung mit einem Auto hat sich geändert.",
+          "fr": "La connexion avec une voiture a changé."
         },
         "args": [
           {
@@ -160,7 +190,9 @@
             "type": "boolean",
             "title": {
               "en": "Car connected",
-              "nl": "Auto aangesloten"
+              "nl": "Auto aangesloten",
+              "de": "Auto verbunden",
+              "fr": "Voiture connectée"
             }
           }
         ],
@@ -169,11 +201,15 @@
       {
         "title": {
           "en": "Single phase charging changed",
-          "nl": "Enkelfasig opladen gewijzigd"
+          "nl": "Enkelfasig opladen gewijzigd",
+          "de": "Einphasiges Laden geändert",
+          "fr": "Chargement monophasé modifié"
         },
         "hint": {
           "en": "Device has changed between 1-phase or 3-phase charging.",
-          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen."
+          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen.",
+          "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
+          "fr": "Le périphérique a changé entre le chargement monophasé ou triphasé."
         },
         "args": [
           {
@@ -188,7 +224,9 @@
             "type": "boolean",
             "title": {
               "en": "Single Phase",
-              "nl": "Enkelfasig"
+              "nl": "Enkelfasig",
+              "de": "Einphasig",
+              "fr": "Monophasé"
             }
           }
         ],
@@ -197,11 +235,15 @@
       {
         "title": {
           "en": "Status changed",
-          "nl": "Status gewijzigd"
+          "nl": "Status gewijzigd",
+          "de": "Status geändert",
+          "fr": "Statut changé"
         },
         "hint": {
           "en": "Device state has changed.",
-          "nl": "Apparaatstatus is gewijzigd."
+          "nl": "Apparaatstatus is gewijzigd.",
+          "de": "Gerätestatus hat sich geändert.",
+          "fr": "L'état de l'appareil a changé."
         },
         "args": [
           {
@@ -216,11 +258,9 @@
             "type": "string",
             "title": {
               "en": "Charger Status",
-              "nl": "Laderstatus"
-            },
-            "example": {
-              "en": "Waiting to charge",
-              "nl": "Klaarmaken voor laden"
+              "nl": "Laderstatus",
+              "de": "Ladestatus",
+              "fr": "Statut du chargeur"
             }
           }
         ],
@@ -231,11 +271,15 @@
       {
         "title": {
           "en": "Charging !{{is|isn't}} allowed",
-          "nl": "Laden !{{is|is niet}} toegestaan"
+          "nl": "Laden !{{is|is niet}} toegestaan",
+          "de": "Laden !{{ist|ist nicht}} erlaubt",
+          "fr": "Chargement !{{est|n'est pas}} autorisé"
         },
         "hint": {
           "en": "Charging is/isn't allowed.",
-          "nl": "Opladen is wel/niet toegestaan."
+          "nl": "Opladen is wel/niet toegestaan.",
+          "de": "Laden ist/ist nicht erlaubt.",
+          "fr": "Le chargement est/n'est pas autorisé."
         },
         "args": [
           {
@@ -249,11 +293,15 @@
       {
         "title": {
           "en": "!{{Is|Isn't}} charging",
-          "nl": "!{{Bezig|Niet bezig}} met laden"
+          "nl": "!{{Bezig|Niet bezig}} met laden",
+          "de": "!{{Lädt|Lädt nicht}}",
+          "fr": "!{{Charge|Ne charge pas}}"
         },
         "hint": {
           "en": "Charging is/isn't ongoing.",
-          "nl": "Het opladen is/is niet aan de gang."
+          "nl": "Het opladen is/is niet aan de gang.",
+          "de": "Laden ist/lädt nicht.",
+          "fr": "La charge est/n'est pas en cours."
         },
         "args": [
           {
@@ -267,11 +315,15 @@
       {
         "title": {
           "en": "Car !{{is|isn't}} connected",
-          "nl": "!{{Auto|Geen auto}} verbonden"
+          "nl": "!{{Auto|Geen auto}} verbonden",
+          "de": "!{{Auto|Keine Auto}} verbunden",
+          "fr": "!{{Voiture|Pas de voiture}} connectée"
         },
         "hint": {
           "en": "A car is/isn't plugged in.",
-          "nl": "Een auto is wel/niet aangesloten."
+          "nl": "Een auto is wel/niet aangesloten.",
+          "de": "Ein Auto ist/wird nicht angeschlossen.",
+          "fr": "Une voiture est/n'est pas branchée."
         },
         "args": [
           {
@@ -285,11 +337,15 @@
       {
         "title": {
           "en": "Single phase !{{is|isn't}} active",
-          "nl": "Enkelfasig !{{is|is niet}} actief"
+          "nl": "Enkelfasig !{{is|is niet}} actief",
+          "de": "Einphasig !{{ist|ist nicht}} aktiv",
+          "fr": "Phase unique !{{est|n'est pas}} active"
         },
         "hint": {
           "en": "Single phase charging is/isn't active.",
-          "nl": "Enkelfasig opladen is/is niet actief."
+          "nl": "Enkelfasig opladen is/is niet actief.",
+          "de": "Einphasiges Laden ist/ist nicht aktiv.",
+          "fr": "La charge en phase unique est/n'est pas active."
         },
         "args": [
           {
@@ -305,15 +361,21 @@
       {
         "title": {
           "en": "Allow charging",
-          "nl": "Laden toestaan"
+          "nl": "Laden toestaan",
+          "de": "Laden erlauben",
+          "fr": "Autoriser le chargement"
         },
         "titleFormatted": {
           "en": "Set allow charging to [[enabled]]",
-          "nl": "Stel opladen toestaan ​​in op [[enabled]]"
+          "nl": "Stel opladen toestaan in op [[enabled]]",
+          "de": "Laden erlauben auf [[enabled]] setzen",
+          "fr": "Autoriser le chargement à [[enabled]]"
         },
         "hint": {
           "en": "Enable or disable charging on the device.",
-          "nl": "Schakel opladen op het apparaat in of uit."
+          "nl": "Schakel opladen op het apparaat in of uit.",
+          "de": "Laden am Gerät aktivieren oder deaktivieren.",
+          "fr": "Activer ou désactiver le chargement sur l'appareil."
         },
         "args": [
           {
@@ -332,7 +394,9 @@
             "type": "boolean",
             "title": {
               "en": "Charging allowed",
-              "nl": "Laden toegestaan"
+              "nl": "Laden toegestaan",
+              "de": "Laden erlaubt",
+              "fr": "Chargement autorisé"
             }
           }
         ],
@@ -341,15 +405,21 @@
       {
         "title": {
           "en": "Change current limit to ",
-          "nl": "Ampèrelimiet veranderen naar "
+          "nl": "Ampèrelimiet veranderen naar ",
+          "de": "Strombegrenzung ändern auf ",
+          "fr": "Changer la limite de courant à "
         },
         "titleFormatted": {
           "en": "Change current limit to [[action_amps]]",
-          "nl": "Wijzig de ampèrelimiet in [[action_amps]]"
+          "nl": "Wijzig de ampèrelimiet in [[action_amps]]",
+          "de": "Strombegrenzung ändern auf [[action_amps]]",
+          "fr": "Changer la limite de courant à [[action_amps]]"
         },
         "hint": {
           "en": "Change the current limit in amperes for charging.",
-          "nl": "Wijzig de ampèrelimiet in ampère voor opladen."
+          "nl": "Wijzig de ampèrelimiet in ampère voor opladen.",
+          "de": "Ändere die Strombegrenzung in Ampere für das Laden.",
+          "fr": "Changer la limite de courant en ampères pour le chargement."
         },
         "args": [
           {
@@ -362,7 +432,9 @@
             "name": "action_amps",
             "title": {
               "en": "Current limit in amperes",
-              "nl": "Ampèrelimiet in ampère"
+              "nl": "Ampèrelimiet in ampère",
+              "de": "Strombegrenzung in Ampere",
+              "fr": "Limite de courant en ampères"
             },
             "min": 6,
             "max": 32,
@@ -377,7 +449,9 @@
             "type": "number",
             "title": {
               "en": "Amperes (A)",
-              "nl": "Ampère (A)"
+              "nl": "Ampère (A)",
+              "de": "Ampere (A)",
+              "fr": "Ampères (A)"
             }
           }
         ],
@@ -386,15 +460,21 @@
       {
         "title": {
           "en": "Single phase charging",
-          "nl": "Enkelfasig opladen"
+          "nl": "Enkelfasig opladen",
+          "de": "Einphasiges Laden",
+          "fr": "Charge monophasée"
         },
         "titleFormatted": {
           "en": "Set single phase charging to [[enabled]]",
-          "nl": "Stel enkelfasig laden in op [[enabled]]"
+          "nl": "Stel enkelfasig laden in op [[enabled]]",
+          "de": "Einphasiges Laden auf [[enabled]] setzen",
+          "fr": "Définir la charge monophasée sur [[enabled]]"
         },
         "hint": {
           "en": "Force charger to use single phase for charging.",
-          "nl": "Forceer de lader om een ​​enkele fase te gebruiken voor het opladen."
+          "nl": "Forceer de lader om een enkele fase te gebruiken voor het opladen.",
+          "de": "Lader zwingen, einphasiges Laden zu verwenden.",
+          "fr": "Forcer le chargeur à utiliser une seule phase pour la charge."
         },
         "args": [
           {
@@ -413,7 +493,9 @@
             "type": "boolean",
             "title": {
               "en": "Single Phase Charging",
-              "nl": "Enkelfasig opladen"
+              "nl": "Enkelfasig opladen",
+              "de": "Einphasiges Laden",
+              "fr": "Charge monophasée"
             }
           }
         ],
@@ -425,7 +507,9 @@
     {
       "name": {
         "en": "Home+, 1st gen (CC1)",
-        "nl": "Home+, 1e gen (CC1)"
+        "nl": "Home+, 1e gen (CC1)",
+        "de": "Home+, 1. Gen (CC1)",
+        "fr": "Home+, 1ère gen (CC1)"
       },
       "class": "socket",
       "capabilities": [
@@ -449,11 +533,15 @@
           "type": "number",
           "title": {
             "en": "Energy Last Session",
-            "nl": "Energie laatste sessie"
+            "nl": "Energie laatste sessie",
+            "de": "Energie letzte Sitzung",
+            "fr": "Énergie dernière session"
           },
           "hint:": {
             "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+            "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+            "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
           },
           "getable": true,
           "setable": false,
@@ -487,29 +575,44 @@
         {
           "type": "group",
           "label": {
-            "en": "Device configuration"
+            "en": "Device configuration",
+            "nl": "Apparaat configuratie",
+            "de": "Gerätekonfiguration",
+            "fr": "Configuration de l'appareil"
           },
           "children": [
             {
               "id": "address",
               "type": "text",
               "label": {
-                "en": "IP address"
+                "en": "IP address",
+                "nl": "IP adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP"
               },
               "value": "0.0.0.0",
               "hint": {
-                "en": "Fixed IP address of the device."
+                "en": "Fixed IP address of the device.",
+                "nl": "Vast IP adres van het apparaat.",
+                "de": "Feste IP-Adresse des Geräts.",
+                "fr": "Adresse IP fixe de l'appareil."
               }
             },
             {
               "id": "driver",
               "type": "label",
               "label": {
-                "en": "Driver"
+                "en": "Driver",
+                "nl": "Driver",
+                "de": "Treiber",
+                "fr": "Pilote"
               },
               "value": "",
               "hint": {
-                "en": "Driver used to configure."
+                "en": "Driver used to configure.",
+                "nl": "Driver gebruikt om te configureren.",
+                "de": "Treiber, der zum Konfigurieren verwendet wird.",
+                "fr": "Pilote utilisé pour configurer."
               }
             }
           ]
@@ -519,7 +622,9 @@
     {
       "name": {
         "en": "Home+, 2nd gen (CM-02)",
-        "nl": "Home+, 2e gen (CM-02)"
+        "nl": "Home+, 2e gen (CM-02)",
+        "de": "Home+, 2. Gen (CM-02)",
+        "fr": "Home+, 2e gen (CM-02)"
       },
       "class": "socket",
       "capabilities": [
@@ -543,11 +648,15 @@
           "type": "number",
           "title": {
             "en": "Energy Last Session",
-            "nl": "Energie laatste sessie"
+            "nl": "Energie laatste sessie",
+            "de": "Energie letzte Sitzung",
+            "fr": "Énergie dernière session"
           },
           "hint:": {
             "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+            "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+            "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
           },
           "getable": true,
           "setable": false,
@@ -581,29 +690,44 @@
         {
           "type": "group",
           "label": {
-            "en": "Device configuration"
+            "en": "Device configuration",
+            "nl": "Apparaat configuratie",
+            "de": "Gerätekonfiguration",
+            "fr": "Configuration de l'appareil"
           },
           "children": [
             {
               "id": "address",
               "type": "text",
               "label": {
-                "en": "IP address"
+                "en": "IP address",
+                "nl": "IP adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP"
               },
               "value": "0.0.0.0",
               "hint": {
-                "en": "Fixed IP address of the device."
+                "en": "Fixed IP address of the device.",
+                "nl": "Vast IP adres van het apparaat.",
+                "de": "Feste IP-Adresse des Geräts.",
+                "fr": "Adresse IP fixe de l'appareil."
               }
             },
             {
               "id": "driver",
               "type": "label",
               "label": {
-                "en": "Driver"
+                "en": "Driver",
+                "nl": "Driver",
+                "de": "Treiber",
+                "fr": "Pilote"
               },
               "value": "",
               "hint": {
-                "en": "Driver used to configure."
+                "en": "Driver used to configure.",
+                "nl": "Driver gebruikt om te configureren.",
+                "de": "Treiber, der zum Konfigurieren verwendet wird.",
+                "fr": "Pilote utilisé pour configurer."
               }
             }
           ]
@@ -613,7 +737,9 @@
     {
       "name": {
         "en": "Home+, 3rd gen (CM-03)",
-        "nl": "Home+, 3e gen (CM-03)"
+        "nl": "Home+, 3e gen (CM-03)",
+        "de": "Home+, 3. Gen (CM-03)",
+        "fr": "Home+, 3e gen (CM-03)"
       },
       "class": "socket",
       "capabilities": [
@@ -639,11 +765,15 @@
           "type": "number",
           "title": {
             "en": "Port Temperature",
-            "nl": "Poort Temperatuur"
+            "nl": "Poort Temperatuur",
+            "de": "Port Temperatur",
+            "fr": "Température du port"
           },
           "hint:": {
             "en": "The temperature of the charge port.",
-            "nl": "De temperatuur van de oplaadpoort."
+            "nl": "De temperatuur van de oplaadpoort.",
+            "de": "Die Temperatur des Ladeports.",
+            "fr": "La température du port de charge."
           },
           "getable": true,
           "setable": false,
@@ -658,11 +788,15 @@
           "type": "number",
           "title": {
             "en": "Energy Last Session",
-            "nl": "Energie laatste sessie"
+            "nl": "Energie laatste sessie",
+            "de": "Energie letzte Sitzung",
+            "fr": "Énergie dernière session"
           },
           "hint:": {
             "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+            "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+            "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
           },
           "getable": true,
           "setable": false,
@@ -715,29 +849,44 @@
         {
           "type": "group",
           "label": {
-            "en": "Device configuration"
+            "en": "Device configuration",
+            "nl": "Apparaat configuratie",
+            "de": "Gerätekonfiguration",
+            "fr": "Configuration de l'appareil"
           },
           "children": [
             {
               "id": "address",
               "type": "text",
               "label": {
-                "en": "IP address"
+                "en": "IP address",
+                "nl": "IP adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP"
               },
               "value": "0.0.0.0",
               "hint": {
-                "en": "Fixed IP address of the device."
+                "en": "Fixed IP address of the device.",
+                "nl": "Vast IP adres van het apparaat.",
+                "de": "Feste IP-Adresse des Geräts.",
+                "fr": "Adresse IP fixe de l'appareil."
               }
             },
             {
               "id": "driver",
               "type": "label",
               "label": {
-                "en": "Driver"
+                "en": "Driver",
+                "nl": "Driver",
+                "de": "Treiber",
+                "fr": "Pilote"
               },
               "value": "",
               "hint": {
-                "en": "Driver used to configure."
+                "en": "Driver used to configure.",
+                "nl": "Driver gebruikt om te configureren.",
+                "de": "Treiber, der zum Konfigurieren verwendet wird.",
+                "fr": "Pilote utilisé pour configurer."
               }
             }
           ]
@@ -773,11 +922,15 @@
           "type": "number",
           "title": {
             "en": "Port Temperature",
-            "nl": "Poort Temperatuur"
+            "nl": "Poort Temperatuur",
+            "de": "Port Temperatur",
+            "fr": "Température du port"
           },
           "hint:": {
             "en": "The temperature of the charge port.",
-            "nl": "De temperatuur van de oplaadpoort."
+            "nl": "De temperatuur van de oplaadpoort.",
+            "de": "Die Temperatur des Ladeports.",
+            "fr": "La température du port de charge."
           },
           "getable": true,
           "setable": false,
@@ -792,11 +945,15 @@
           "type": "number",
           "title": {
             "en": "Energy Last Session",
-            "nl": "Energie laatste sessie"
+            "nl": "Energie laatste sessie",
+            "de": "Energie letzte Sitzung",
+            "fr": "Énergie dernière session"
           },
           "hint:": {
             "en": "Energy (kWh) delivered during last session. Reset automatically when a car is connected.",
-            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten."
+            "nl": "Energie (kWh) geleverd tijdens laatste sessie. Reset automatisch wanneer een auto is aangesloten.",
+            "de": "Energie (kWh) während der letzten Sitzung geliefert. Wird automatisch zurückgesetzt, wenn ein Auto angeschlossen ist.",
+            "fr": "Énergie (kWh) livrée pendant la dernière session. Réinitialisé automatiquement lorsqu'une voiture est connectée."
           },
           "getable": true,
           "setable": false,
@@ -849,29 +1006,44 @@
         {
           "type": "group",
           "label": {
-            "en": "Device configuration"
+            "en": "Device configuration",
+            "nl": "Apparaat configuratie",
+            "de": "Gerätekonfiguration",
+            "fr": "Configuration de l'appareil"
           },
           "children": [
             {
               "id": "address",
               "type": "text",
               "label": {
-                "en": "IP address"
+                "en": "IP address",
+                "nl": "IP adres",
+                "de": "IP-Adresse",
+                "fr": "Adresse IP"
               },
               "value": "0.0.0.0",
               "hint": {
-                "en": "Fixed IP address of the device."
+                "en": "Fixed IP address of the device.",
+                "nl": "Vast IP adres van het apparaat.",
+                "de": "Feste IP-Adresse des Geräts.",
+                "fr": "Adresse IP fixe de l'appareil."
               }
             },
             {
               "id": "driver",
               "type": "label",
               "label": {
-                "en": "Driver"
+                "en": "Driver",
+                "nl": "Driver",
+                "de": "Treiber",
+                "fr": "Pilote"
               },
               "value": "",
               "hint": {
-                "en": "Driver used to configure."
+                "en": "Driver used to configure.",
+                "nl": "Driver gebruikt om te configureren.",
+                "de": "Treiber, der zum Konfigurieren verwendet wird.",
+                "fr": "Pilote utilisé pour configurer."
               }
             }
           ]
@@ -884,11 +1056,15 @@
       "type": "boolean",
       "title": {
         "en": "Device Error",
-        "nl": "Apparaat fout"
+        "nl": "Apparaat fout",
+        "de": "Gerät Fehler",
+        "fr": "Erreur d'appareil"
       },
       "hint": {
         "en": "Device has reported an error, check the device.",
-        "nl": "Apparaat heeft een fout gemeld, controleer het apparaat."
+        "nl": "Apparaat heeft een fout gemeld, controleer het apparaat.",
+        "de": "Gerät hat einen Fehler gemeldet, überprüfen Sie das Gerät.",
+        "fr": "L'appareil a signalé une erreur, vérifiez l'appareil."
       },
       "getable": true,
       "setable": false,
@@ -899,11 +1075,15 @@
       "type": "number",
       "title": {
         "en": "Type-2 Cable Ampere",
-        "nl": "Type-2 kabelampère"
+        "nl": "Type-2 kabelampère",
+        "de": "Typ-2 Kabel Ampere",
+        "fr": "Ampère de câble Type-2"
       },
       "hint": {
         "en": "Ampere coding from the connected Type-2 cable.",
-        "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel."
+        "nl": "Stroomsterkte codering van de aangesloten Type-2 kabel.",
+        "de": "Ampere Codierung vom angeschlossenen Typ-2 Kabel.",
+        "fr": "Codage d'ampère du câble Type-2 connecté."
       },
       "getable": true,
       "setable": false,
@@ -921,11 +1101,15 @@
       "type": "number",
       "title": {
         "en": "Current Limit",
-        "nl": "Stroom limiet"
+        "nl": "Stroom limiet",
+        "de": "Stromgrenze",
+        "fr": "Limite de courant"
       },
       "hint": {
         "en": "Current limit in amperes as set by the user.",
-        "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker."
+        "nl": "Stroomlimiet in ampère zoals ingesteld door de gebruiker.",
+        "de": "Stromgrenze in Ampere, wie vom Benutzer eingestellt.",
+        "fr": "Limite de courant en ampères comme défini par l'utilisateur."
       },
       "getable": true,
       "setable": false,
@@ -942,11 +1126,15 @@
       "type": "number",
       "title": {
         "en": "Maximum Current",
-        "nl": "Maximaal stroom"
+        "nl": "Maximaal stroom",
+        "de": "Maximale Stromstärke",
+        "fr": "Courant maximale"
       },
       "hint": {
         "en": "Maximum current deliverable by the device.",
-        "nl": "Maximale stroom die door het apparaat kan worden geleverd."
+        "nl": "Maximale stroom die door het apparaat kan worden geleverd.",
+        "de": "Maximale Stromstärke, die vom Gerät geliefert werden kann.",
+        "fr": "Courant maximal fourni par le dispositif."
       },
       "getable": true,
       "setable": false,
@@ -963,11 +1151,15 @@
       "type": "boolean",
       "title": {
         "en": "Charging Allowed",
-        "nl": "Laden toegestaan"
+        "nl": "Laden toegestaan",
+        "de": "Laden erlaubt",
+        "fr": "Charge autorisée"
       },
       "hint": {
         "en": "Charging has been allowed from the device or by the app.",
-        "nl": "Opladen is toegestaan ​​vanaf het apparaat of via de app."
+        "nl": "Opladen is toegestaan vanaf het apparaat of via de app.",
+        "de": "Laden ist vom Gerät oder von der App erlaubt.",
+        "fr": "La charge est autorisée depuis l'appareil ou depuis l'application."
       },
       "getable": true,
       "setable": true,
@@ -977,11 +1169,15 @@
       "type": "boolean",
       "title": {
         "en": "Car charging",
-        "nl": "Auto opladen"
+        "nl": "Auto opladen",
+        "de": "Auto laden",
+        "fr": "Voiture en charge"
       },
       "hint": {
         "en": "Is there a car charging?",
-        "nl": "Is er een auto aan het opladen?"
+        "nl": "Is er een auto aan het opladen?",
+        "de": "Wird ein Auto geladen?",
+        "fr": "Y a-t-il une voiture en charge?"
       },
       "getable": true,
       "setable": false,
@@ -992,11 +1188,15 @@
       "type": "boolean",
       "title": {
         "en": "Car connected",
-        "nl": "Auto verbonden"
+        "nl": "Auto verbonden",
+        "de": "Auto verbunden",
+        "fr": "Voiture connectée"
       },
       "hint": {
         "en": "Is there a car connected?",
-        "nl": "Is er een auto aangesloten?"
+        "nl": "Is er een auto aangesloten?",
+        "de": "Ist ein Auto verbunden?",
+        "fr": "Y a-t-il une voiture connectée?"
       },
       "getable": true,
       "setable": false,
@@ -1007,11 +1207,15 @@
       "type": "boolean",
       "title": {
         "en": "Single Phase Charging",
-        "nl": "Enkelfasig opladen"
+        "nl": "Enkelfasig opladen",
+        "de": "Einphasiges Laden",
+        "fr": "Charge monophasée"
       },
       "hint": {
         "en": "Single phase charging active.",
-        "nl": "Enkelfasig opladen actief."
+        "nl": "Enkelfasig opladen actief.",
+        "de": "Einphasiges Laden aktiv.",
+        "fr": "Charge monophasée active."
       },
       "getable": true,
       "setable": true,
@@ -1022,11 +1226,15 @@
       "type": "number",
       "title": {
         "en": "Current",
-        "nl": "Stroom"
+        "nl": "Stroom",
+        "de": "Strom",
+        "fr": "Courant"
       },
       "hint": {
         "en": "Currently delivered current in amperes.",
-        "nl": "Momenteel geleverde stroom in ampère."
+        "nl": "Momenteel geleverde stroom in ampère.",
+        "de": "Momentan gelieferte Stromstärke in Ampere.",
+        "fr": "Courant actuellement délivré en ampères."
       },
       "getable": true,
       "setable": false,
@@ -1041,11 +1249,15 @@
       "type": "number",
       "title": {
         "en": "Power",
-        "nl": "Vermogen"
+        "nl": "Vermogen",
+        "de": "Leistung",
+        "fr": "Puissance"
       },
       "hint": {
         "en": "Currently delivered power in watts.",
-        "nl": "Momenteel geleverd vermogen in watt."
+        "nl": "Momenteel geleverd vermogen in watt.",
+        "de": "Momentan gelieferte Leistung in Watt.",
+        "fr": "Puissance actuelle en watts."
       },
       "getable": true,
       "setable": false,
@@ -1060,11 +1272,15 @@
       "type": "number",
       "title": {
         "en": "Temperature",
-        "nl": "Temperatuur"
+        "nl": "Temperatuur",
+        "de": "Temperatur",
+        "fr": "Température"
       },
       "hint": {
         "en": "The internal temperature of the device.",
-        "nl": "De interne temperatuur van het apparaat."
+        "nl": "De interne temperatuur van het apparaat.",
+        "de": "Die interne Temperatur des Geräts.",
+        "fr": "La température interne de l'appareil."
       },
       "getable": true,
       "setable": false,
@@ -1079,11 +1295,15 @@
       "type": "number",
       "title": {
         "en": "Voltage",
-        "nl": "Spanning"
+        "nl": "Spanning",
+        "de": "Spannung",
+        "fr": "Tension"
       },
       "hint": {
         "en": "Currently delivered voltage in volts.",
-        "nl": "Momenteel geleverde spanning in volt."
+        "nl": "Momenteel geleverde spanning in volt.",
+        "de": "Momentan gelieferte Spannung in Volt.",
+        "fr": "Tension actuellement fournie en volts."
       },
       "getable": true,
       "setable": false,
@@ -1098,11 +1318,15 @@
       "type": "number",
       "title": {
         "en": "Total Energy",
-        "nl": "Totaal Energie"
+        "nl": "Totaal Energie",
+        "de": "Gesamtenergie",
+        "fr": "Énergie totale"
       },
       "hint": {
         "en": "Total energy since counter was reset on the device.",
-        "nl": "Totale energie sinds de teller op het apparaat is gereset."
+        "nl": "Totale energie sinds de teller op het apparaat is gereset.",
+        "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
+        "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
       },
       "getable": true,
       "setable": false,
@@ -1115,39 +1339,51 @@
       "type": "enum",
       "title": {
         "en": "Device Status",
-        "nl": "Apparaat status van het apparaat"
+        "nl": "Apparaat status van het apparaat",
+        "de": "Gerätestatus",
+        "fr": "Statut de l'appareil"
       },
       "hint": {
         "en": "Status as reported by the device.",
-        "nl": "Status van het apparaat."
+        "nl": "Status van het apparaat.",
+        "de": "Status gemeld door das Gerät.",
+        "fr": "Statut tel que rapporté par l'appareil."
       },
       "values": [
         {
           "id": "station_idle",
           "title": {
             "en": "No car connected",
-            "nl": "Geen auto verbonden"
+            "nl": "Geen auto verbonden",
+            "de": "Kein Auto verbunden",
+            "fr": "Aucune voiture connectée"
           }
         },
         {
           "id": "car_charging",
           "title": {
             "en": "Charging",
-            "nl": "Auto opladen"
+            "nl": "Auto opladen",
+            "de": "Laden",
+            "fr": "Charge"
           }
         },
         {
           "id": "station_waiting",
           "title": {
             "en": "Waiting for authentication",
-            "nl": "Wachten op authenticatie"
+            "nl": "Wachten op authenticatie",
+            "de": "Warten auf Authentifizierung",
+            "fr": "En attente d'authentification"
           }
         },
         {
           "id": "car_finished",
           "title": {
             "en": "Charging stopped",
-            "nl": "Klaar met laden"
+            "nl": "Klaar met laden",
+            "de": "Laden beendet",
+            "fr": "Charge terminée"
           }
         }
       ],

@@ -7,11 +7,16 @@
     "local"
   ],
   "name": {
-    "en": "go-e Charger"
+    "en": "go-e Charger",
+    "nl": "go-e Charger",
+    "de": "go-e Charger",
+    "fr": "go-e Charger"
   },
   "description": {
     "en": "Simply Charge Smart",
-    "nl": "Laad gewoon slim op"
+    "nl": "Laad gewoon slim op",
+    "de": "Einfach Smart Laden",
+    "fr": "Rechargez simplement et intelligemment"
   },
   "category": [
     "energy"
@@ -40,6 +45,18 @@
       "elektrisch voertuig",
       "opladen",
       "auto"
+    ],
+    "de": [
+      "ev",
+      "elektrisches fahrzeug",
+      "laden",
+      "auto"
+    ],
+    "fr": [
+      "ev",
+      "véhicule électrique",
+      "charger",
+      "voiture"
     ]
   },
   "contributors": {
@@ -57,9 +74,6 @@
     "translators": [
       {
         "name": "🇬🇧 Tapio Heiskanen"
-      },
-      {
-        "name": "🇳🇱 Tapio Heiskanen"
       }
     ]
   },

@@ -1,4 +1,5 @@
-// Use this file to generate the translation files for the app
+
+all: app.json drivers.json flows.json capabilities.json
 
 drivers.json: ../app.json
 	@echo "Generating drivers.json"

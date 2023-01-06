@@ -49,5 +49,8 @@
         "fr": "Charge terminée"
       }
     }
-  ]
+  ],
+  "setable": false,
+  "getable": true,
+  "insights": false
 }

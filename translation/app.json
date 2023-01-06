@@ -1,13 +1,19 @@
 {
   "id": "com.go-e.charger",
+  "version": "2.3.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
   "name": {
-    "en": "go-e Charger"
+    "en": "go-e Charger",
+    "nl": "go-e Charger",
+    "de": "go-e Charger",
+    "fr": "go-e Charger"
   },
   "description": {
     "en": "Simply Charge Smart",
     "nl": "Laad gewoon slim op",
-    "de": "Lade einfach smart",
-    "fr": "Chargez simplement intelligemment"
+    "de": "Einfach Smart Laden",
+    "fr": "Rechargez simplement et intelligemment"
   },
   "tags": {
     "en": [
@@ -32,35 +38,8 @@
     "fr": [
       "ev",
       "véhicule électrique",
-      "charge",
+      "charger",
       "voiture"
-    ]
-  },
-  "contributors": {
-    "developers": [
-      {
-        "name": "Tim Willemsen - original V1.0 app"
-      },
-      {
-        "name": "Martijn Poppen - code examples"
-      },
-      {
-        "name": "Robert Klep - pointers to right dev tools"
-      }
-    ],
-    "translators": [
-      {
-        "name": "🇬🇧 Tapio Heiskanen"
-      },
-      {
-        "name": "🇳🇱 Tapio Heiskanen"
-      },
-      {
-        "name": "🇩🇪 Translated by"
-      },
-      {
-        "name": "🇫🇷 Translated by"
-      }
     ]
   }
 }
