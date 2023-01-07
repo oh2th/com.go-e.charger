@@ -7,8 +7,7 @@ When I receive a pull request I'll review them and then update the translation t
 Easiest is:
 
 - Just create an account for yourself in Github
-- Go to the translations folder
-- Select a file and you can edit it directly from there
+- Select a file and you can edit it directly from here
 - It will create a push request from there when you save it and I will be notified.
 
 ## Application main information
