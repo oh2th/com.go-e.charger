@@ -103,7 +103,7 @@
       "fr": "Charge autorisée"
     },
     "hint": {
-      "en": "Charging has been allowed from the device or by the app.",
+      "en": "Charging has been allowed from the device or by the app. Authorize first by Mobile App or RFID token.",
       "nl": "Opladen is toegestaan vanaf het apparaat of via de app.",
       "de": "Laden ist vom Gerät oder von der App erlaubt.",
       "fr": "La charge est autorisée depuis l'appareil ou depuis l'application."

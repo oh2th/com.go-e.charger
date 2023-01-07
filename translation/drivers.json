@@ -1,10 +1,10 @@
 [
   {
     "name": {
-      "en": "Home+, 1st gen (CC1)",
-      "nl": "Home+, 1e gen (CC1)",
-      "de": "Home+, 1. Gen (CC1)",
-      "fr": "Home+, 1ère gen (CC1)"
+      "en": "Home, 1st gen (CC1)",
+      "nl": "Home, 1e gen (CC1)",
+      "de": "Home, 1. Gen (CC1)",
+      "fr": "Home, 1ère gen (CC1)"
     },
     "capabilitiesOptions": {
       "meter_power.session": {
@@ -33,10 +33,10 @@
   },
   {
     "name": {
-      "en": "Home+, 2nd gen (CM-02)",
-      "nl": "Home+, 2e gen (CM-02)",
-      "de": "Home+, 2. Gen (CM-02)",
-      "fr": "Home+, 2e gen (CM-02)"
+      "en": "Home, 2nd gen (CM-02)",
+      "nl": "Home, 2e gen (CM-02)",
+      "de": "Home, 2. Gen (CM-02)",
+      "fr": "Home, 2e gen (CM-02)"
     },
     "capabilitiesOptions": {
       "meter_power.session": {
@@ -65,10 +65,10 @@
   },
   {
     "name": {
-      "en": "Home+, 3rd gen (CM-03)",
-      "nl": "Home+, 3e gen (CM-03)",
-      "de": "Home+, 3. Gen (CM-03)",
-      "fr": "Home+, 3e gen (CM-03)"
+      "en": "Home, 3rd gen (CM-03)",
+      "nl": "Home, 3e gen (CM-03)",
+      "de": "Home, 3. Gen (CM-03)",
+      "fr": "Home, 3e gen (CM-03)"
     },
     "capabilitiesOptions": {
       "measure_temperature.charge_port": {

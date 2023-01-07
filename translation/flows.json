@@ -96,7 +96,7 @@
       },
       "tokens": [
         {
-          "name": "single_phase_charging",
+          "name": "is_single_phase",
           "type": "boolean",
           "title": {
             "en": "Single Phase",
@@ -213,7 +213,7 @@
         "fr": "Autoriser le chargement à [[enabled]]"
       },
       "hint": {
-        "en": "Enable or disable charging on the device.",
+        "en": "Enable or disable charging on the device. Authorization may be required first from Mobile App or RFID token.",
         "nl": "Schakel opladen op het apparaat in of uit.",
         "de": "Laden am Gerät aktivieren oder deaktivieren.",
         "fr": "Activer ou désactiver le chargement sur l'appareil."
