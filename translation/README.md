@@ -1,10 +1,15 @@
 # Howto translate
 
 These files are for translation purposes only and are not actively used.
-
 If you edit the files directly here in github, it should automatically create a pull request for submition.
-
 When I receive a pull request I'll review them and then update the translation to the main files.
+
+Easiest is:
+
+- Just create an account for yourself in Github
+- Go to the translations folder
+- Select a file and you can edit it directly from there
+- It will create a push request from there when you save it and I will be notified.
 
 ## Application main information
 
