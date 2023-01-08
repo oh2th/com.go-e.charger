@@ -469,12 +469,6 @@
   },
   "drivers": [
     {
-      "name": {
-        "en": "Home, 1st gen (CC1)",
-        "nl": "Home, 1e gen (CC1)",
-        "de": "Home, 1. Gen (CC1)",
-        "fr": "Home, 1ère gen (CC1)"
-      },
       "class": "socket",
       "capabilities": [
         "meter_power",
@@ -534,7 +528,6 @@
           "id": "add_device"
         }
       ],
-      "id": "go-eCharger_V1",
       "settings": [
         {
           "type": "group",
@@ -581,15 +574,16 @@
             }
           ]
         }
-      ]
+      ],
+      "name": {
+        "en": "Home, 1st gen (CC1)",
+        "nl": "Home, 1e gen (CC1)",
+        "de": "Home, 1. Gen (CC1)",
+        "fr": "Home, 1ère gen (CC1)"
+      },
+      "id": "go-eCharger_V1"
     },
     {
-      "name": {
-        "en": "Home, 2nd gen (CM-02)",
-        "nl": "Home, 2e gen (CM-02)",
-        "de": "Home, 2. Gen (CM-02)",
-        "fr": "Home, 2e gen (CM-02)"
-      },
       "class": "socket",
       "capabilities": [
         "meter_power",
@@ -649,7 +643,6 @@
           "id": "add_device"
         }
       ],
-      "id": "go-eCharger_V2",
       "settings": [
         {
           "type": "group",
@@ -696,15 +689,16 @@
             }
           ]
         }
-      ]
+      ],
+      "name": {
+        "en": "Home, 2nd gen (CM-02)",
+        "nl": "Home, 2e gen (CM-02)",
+        "de": "Home, 2. Gen (CM-02)",
+        "fr": "Home, 2e gen (CM-02)"
+      },
+      "id": "go-eCharger_V2"
     },
     {
-      "name": {
-        "en": "Home, 3rd gen (CM-03)",
-        "nl": "Home, 3e gen (CM-03)",
-        "de": "Home, 3. Gen (CM-03)",
-        "fr": "Home, 3e gen (CM-03)"
-      },
       "class": "socket",
       "capabilities": [
         "meter_power",
@@ -808,7 +802,6 @@
           "template": "done"
         }
       ],
-      "id": "go-eCharger_V3",
       "settings": [
         {
           "type": "group",
@@ -855,13 +848,16 @@
             }
           ]
         }
-      ]
+      ],
+      "name": {
+        "en": "Home, 3rd gen (CM-03)",
+        "nl": "Home, 3e gen (CM-03)",
+        "de": "Home, 3. Gen (CM-03)",
+        "fr": "Home, 3e gen (CM-03)"
+      },
+      "id": "go-eCharger_V3"
     },
     {
-      "name": {
-        "en": "Gemini, 4th gen (GM-10)",
-        "nl": "Gemini, 4e gen (GM-10)"
-      },
       "class": "socket",
       "capabilities": [
         "meter_power",
@@ -965,7 +961,6 @@
           "template": "done"
         }
       ],
-      "id": "go-eCharger_V4",
       "settings": [
         {
           "type": "group",
@@ -1012,7 +1007,14 @@
             }
           ]
         }
-      ]
+      ],
+      "name": {
+        "en": "Gemini, 4th gen (GM-10)",
+        "nl": "Gemini, 4e gen (GM-10)",
+        "de": "Gemini, 4. Gen (GM-10)",
+        "fr": "Gemini, 4e gen (GM-10)"
+      },
+      "id": "go-eCharger_V4"
     }
   ],
   "capabilities": {
