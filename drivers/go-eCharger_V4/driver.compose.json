@@ -5,5 +5,5 @@
     "de": "Gemini, 4. Gen (GM-10)",
     "fr": "Gemini, 4e gen (GM-10)"
   },
-  "$extends": ["goe-v3-defaults"]
+  "$extends": ["go-e-APIv2-defaults"]
 }

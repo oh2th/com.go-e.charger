@@ -5,5 +5,5 @@
     "de": "Home, 1. Gen (CC1)",
     "fr": "Home, 1ère gen (CC1)"
   },
-  "$extends": ["goe-v1-defaults"]
+  "$extends": ["go-e-APIv1-defaults"]
 }

@@ -5,5 +5,5 @@
     "de": "Home, 2. Gen (CM-02)",
     "fr": "Home, 2e gen (CM-02)"
   },
-  "$extends": ["goe-v1-defaults"]
+  "$extends": ["go-e-APIv1-defaults"]
 }
