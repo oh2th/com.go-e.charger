@@ -5,7 +5,7 @@
       "en": "Device Error",
       "nl": "Apparaat fout",
       "de": "Gerät Fehler",
-      "fr": "Erreur d'appareil"
+      "fr": "Erreur appareil"
     },
     "hint": {
       "en": "Device has reported an error, check the device.",
@@ -75,7 +75,7 @@
       "en": "Maximum Current",
       "nl": "Maximale stroom",
       "de": "Maximale Stromstärke",
-      "fr": "Courant maximale"
+      "fr": "Courant maximal"
     },
     "hint": {
       "en": "Maximum current deliverable by the device.",
@@ -106,7 +106,7 @@
       "en": "Charging has been allowed from the device or by the app. Authorize first by Mobile App or RFID token.",
       "nl": "Opladen is toegestaan vanaf het apparaat of via de app.",
       "de": "Laden ist vom Gerät oder von der App erlaubt.",
-      "fr": "La charge est autorisée depuis l'appareil ou depuis l'application."
+      "fr": "La charge a été autorisée depuis l'appareil ou par l'app."
     },
     "getable": true,
     "setable": true,
@@ -204,7 +204,7 @@
       "en": "Currently delivered power in watts.",
       "nl": "Momenteel geleverd vermogen in watt.",
       "de": "Momentan gelieferte Leistung in Watt.",
-      "fr": "Puissance actuelle en watts."
+      "fr": "Puissance actuellement délivrée en watts."
     },
     "getable": true,
     "setable": false,
@@ -250,7 +250,7 @@
       "en": "Currently delivered voltage in volts.",
       "nl": "Momenteel geleverde spanning in volt.",
       "de": "Momentan gelieferte Spannung in Volt.",
-      "fr": "Tension actuellement fournie en volts."
+      "fr": "Tension actuellement délivrée en volts."
     },
     "getable": true,
     "setable": false,
