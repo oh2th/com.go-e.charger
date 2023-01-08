@@ -12,7 +12,6 @@ Thumbs.db
 
 # VScode
 .vscode/
-Makefile
 
 # snyk
 .dccache
