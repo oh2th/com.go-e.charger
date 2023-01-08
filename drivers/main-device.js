@@ -117,7 +117,7 @@ class mainDevice extends Device {
     this.setSettings({
       address: this.api.address,
     });
-    this.setUnavailable('Disovery device offline.');
+    this.setUnavailable('Discovery device offline.');
   }
 
   async setCapabilityListeners() {
