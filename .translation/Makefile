@@ -3,7 +3,7 @@ translations: app.json drivers.json flows.json capabilities.json locales READMEs
 
 drivers.json: ../app.json
 	@echo "Generating drivers.json"
-	@cat $< | jq '.drivers' | jq 'del(.[].class, .[].capabilities, .[].platforms, .[].connectivity, .[].images, .[].pair, .[].settings, .[].discovery)' > $@
+	@cat $< | jq '.drivers' | jq 'del(.[].class, .[].capabilities, .[].platforms, .[].connectivity, .[].images, .[].pair, .[].discovery)' > $@
 
 flows.json: ../app.json
 	@echo "Generating flows.json"
