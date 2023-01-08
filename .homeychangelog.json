@@ -25,5 +25,8 @@
   },
   "2.4.3": {
     "en": "FIX: is_allowed action cards listener was incorrect."
+  },
+  "2.4.4": {
+    "en": "First French and German translations"
   }
 }
