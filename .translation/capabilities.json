@@ -22,7 +22,7 @@
     "type": "number",
     "title": {
       "en": "Type-2 Cable Ampere",
-      "nl": "Type-2 kabelampère",
+      "nl": "Type-2 kabel ampère",
       "de": "Typ-2 Kabel Ampere",
       "fr": "Ampère de câble Type-2"
     },
@@ -73,7 +73,7 @@
     "type": "number",
     "title": {
       "en": "Maximum Current",
-      "nl": "Maximaal stroom",
+      "nl": "Maximale stroom",
       "de": "Maximale Stromstärke",
       "fr": "Courant maximale"
     },
@@ -116,13 +116,13 @@
     "type": "boolean",
     "title": {
       "en": "Car charging",
-      "nl": "Auto opladen",
+      "nl": "Auto laden",
       "de": "Auto laden",
       "fr": "Voiture en charge"
     },
     "hint": {
       "en": "Is there a car charging?",
-      "nl": "Is er een auto aan het opladen?",
+      "nl": "Is er een auto aan het laden?",
       "de": "Wird ein Auto geladen?",
       "fr": "Y a-t-il une voiture en charge?"
     },
@@ -154,13 +154,13 @@
     "type": "boolean",
     "title": {
       "en": "Single Phase Charging",
-      "nl": "Enkelfasig opladen",
+      "nl": "Eenfase laden",
       "de": "Einphasiges Laden",
       "fr": "Charge monophasée"
     },
     "hint": {
       "en": "Single phase charging active.",
-      "nl": "Enkelfasig opladen actief.",
+      "nl": "Eenfase laden actief.",
       "de": "Einphasiges Laden aktiv.",
       "fr": "Charge monophasée active."
     },
@@ -271,7 +271,7 @@
     },
     "hint": {
       "en": "Total energy since counter was reset on the device.",
-      "nl": "Totale energie sinds de teller op het apparaat is gereset.",
+      "nl": "Totaal geleverde energie sinds de teller op het apparaat is gereset.",
       "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
       "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
     },
@@ -286,7 +286,7 @@
     "type": "enum",
     "title": {
       "en": "Device Status",
-      "nl": "Apparaat status van het apparaat",
+      "nl": "Apparaat status",
       "de": "Gerätestatus",
       "fr": "Statut de l'appareil"
     },
@@ -310,7 +310,7 @@
         "id": "car_charging",
         "title": {
           "en": "Charging",
-          "nl": "Auto opladen",
+          "nl": "Laden",
           "de": "Laden",
           "fr": "Charge"
         }

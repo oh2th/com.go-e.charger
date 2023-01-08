@@ -99,13 +99,13 @@
       {
         "title": {
           "en": "Charging allowed changed",
-          "nl": "Opladen toegestaan gewijzigd",
+          "nl": "Laden toegestaan gewijzigd",
           "de": "Laden erlaubt geändert",
           "fr": "Chargement autorisé modifié"
         },
         "hint": {
           "en": "Charging has been allowed or disabled from the charger.",
-          "nl": "Opladen is toegestaan of uitgeschakeld vanaf de oplader.",
+          "nl": "Laden is toegestaan of uitgeschakeld vanaf de oplader.",
           "de": "Laden wurde vom Ladegerät erlaubt oder verboten.",
           "fr": "Le chargement a été autorisé ou désactivé depuis le chargeur."
         },
@@ -133,13 +133,13 @@
       {
         "title": {
           "en": "Charging changed",
-          "nl": "Opladen veranderd",
+          "nl": "Laden gewijzigd",
           "de": "Ladestatus geändert",
           "fr": "Chargement modifié"
         },
         "hint": {
           "en": "A car has started/stopped charging.",
-          "nl": "Een auto is begonnen/gestopt met opladen.",
+          "nl": "Een auto is begonnen/gestopt met laden.",
           "de": "Ein Auto hat mit dem Laden begonnen/angehalten.",
           "fr": "Une voiture a commencé/arrêté de charger."
         },
@@ -156,7 +156,7 @@
             "type": "boolean",
             "title": {
               "en": "Charging",
-              "nl": "Opladen",
+              "nl": "Laden",
               "de": "Laden",
               "fr": "Chargement"
             }
@@ -201,13 +201,13 @@
       {
         "title": {
           "en": "Single phase charging changed",
-          "nl": "Enkelfasig opladen gewijzigd",
+          "nl": "Eenfasig laden gewijzigd",
           "de": "Einphasiges Laden geändert",
           "fr": "Chargement monophasé modifié"
         },
         "hint": {
           "en": "Device has changed between 1-phase or 3-phase charging.",
-          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen.",
+          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
           "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
           "fr": "Le périphérique a changé entre le chargement monophasé ou triphasé."
         },
@@ -299,7 +299,7 @@
         },
         "hint": {
           "en": "Charging is/isn't ongoing.",
-          "nl": "Het opladen is/is niet aan de gang.",
+          "nl": "Het laden is/is niet aan de gang.",
           "de": "Laden ist/lädt nicht.",
           "fr": "La charge est/n'est pas en cours."
         },
@@ -337,13 +337,13 @@
       {
         "title": {
           "en": "Single phase !{{is|isn't}} active",
-          "nl": "Enkelfasig !{{is|is niet}} actief",
+          "nl": "Eenfasig !{{is|is niet}} actief",
           "de": "Einphasig !{{ist|ist nicht}} aktiv",
           "fr": "Phase unique !{{est|n'est pas}} active"
         },
         "hint": {
           "en": "Single phase charging is/isn't active.",
-          "nl": "Enkelfasig opladen is/is niet actief.",
+          "nl": "Eenfasig laden is/is niet actief.",
           "de": "Einphasiges Laden ist/ist nicht aktiv.",
           "fr": "La charge en phase unique est/n'est pas active."
         },
@@ -373,9 +373,9 @@
         },
         "hint": {
           "en": "Enable or disable charging on the device. Authorization may be required first from Mobile App or RFID token.",
-          "nl": "Schakel opladen op het apparaat in of uit.",
-          "de": "Laden am Gerät aktivieren oder deaktivieren.",
-          "fr": "Activer ou désactiver le chargement sur l'appareil."
+          "nl": "Schakel opladen op het apparaat in of uit. Mogelijk is eerst autorisatie vereist via de mobiele app of een RFID-token.",
+          "de": "Laden am Gerät aktivieren oder deaktivieren. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
+          "fr": "Activer ou désactiver le chargement sur l'appareil. L'autorisation peut être requise d'abord à partir de l'application mobile ou du jeton RFID."
         },
         "args": [
           {
@@ -393,19 +393,19 @@
       {
         "title": {
           "en": "Change current limit to ",
-          "nl": "Ampèrelimiet veranderen naar ",
+          "nl": "Amperage veranderen naar ",
           "de": "Strombegrenzung ändern auf ",
           "fr": "Changer la limite de courant à "
         },
         "titleFormatted": {
           "en": "Change current limit to [[action_amps]]",
-          "nl": "Wijzig de ampèrelimiet in [[action_amps]]",
+          "nl": "Amperage limiet veranderen naar [[action_amps]]",
           "de": "Strombegrenzung ändern auf [[action_amps]]",
           "fr": "Changer la limite de courant à [[action_amps]]"
         },
         "hint": {
           "en": "Change the current limit in amperes for charging.",
-          "nl": "Wijzig de ampèrelimiet in ampère voor opladen.",
+          "nl": "Wijzig de stroomlimiet in ampère voor opladen.",
           "de": "Ändere die Strombegrenzung in Ampere für das Laden.",
           "fr": "Changer la limite de courant en ampères pour le chargement."
         },
@@ -420,7 +420,7 @@
             "name": "action_amps",
             "title": {
               "en": "Current limit in amperes",
-              "nl": "Ampèrelimiet in ampère",
+              "nl": "Stroomlimiet in ampère",
               "de": "Strombegrenzung in Ampere",
               "fr": "Limite de courant en ampères"
             },
@@ -1041,7 +1041,7 @@
       "type": "number",
       "title": {
         "en": "Type-2 Cable Ampere",
-        "nl": "Type-2 kabelampère",
+        "nl": "Type-2 kabel ampère",
         "de": "Typ-2 Kabel Ampere",
         "fr": "Ampère de câble Type-2"
       },
@@ -1092,7 +1092,7 @@
       "type": "number",
       "title": {
         "en": "Maximum Current",
-        "nl": "Maximaal stroom",
+        "nl": "Maximale stroom",
         "de": "Maximale Stromstärke",
         "fr": "Courant maximale"
       },
@@ -1135,13 +1135,13 @@
       "type": "boolean",
       "title": {
         "en": "Car charging",
-        "nl": "Auto opladen",
+        "nl": "Auto laden",
         "de": "Auto laden",
         "fr": "Voiture en charge"
       },
       "hint": {
         "en": "Is there a car charging?",
-        "nl": "Is er een auto aan het opladen?",
+        "nl": "Is er een auto aan het laden?",
         "de": "Wird ein Auto geladen?",
         "fr": "Y a-t-il une voiture en charge?"
       },
@@ -1173,13 +1173,13 @@
       "type": "boolean",
       "title": {
         "en": "Single Phase Charging",
-        "nl": "Enkelfasig opladen",
+        "nl": "Eenfase laden",
         "de": "Einphasiges Laden",
         "fr": "Charge monophasée"
       },
       "hint": {
         "en": "Single phase charging active.",
-        "nl": "Enkelfasig opladen actief.",
+        "nl": "Eenfase laden actief.",
         "de": "Einphasiges Laden aktiv.",
         "fr": "Charge monophasée active."
       },
@@ -1290,7 +1290,7 @@
       },
       "hint": {
         "en": "Total energy since counter was reset on the device.",
-        "nl": "Totale energie sinds de teller op het apparaat is gereset.",
+        "nl": "Totaal geleverde energie sinds de teller op het apparaat is gereset.",
         "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
         "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
       },
@@ -1305,7 +1305,7 @@
       "type": "enum",
       "title": {
         "en": "Device Status",
-        "nl": "Apparaat status van het apparaat",
+        "nl": "Apparaat status",
         "de": "Gerätestatus",
         "fr": "Statut de l'appareil"
       },
@@ -1329,7 +1329,7 @@
           "id": "car_charging",
           "title": {
             "en": "Charging",
-            "nl": "Auto opladen",
+            "nl": "Laden",
             "de": "Laden",
             "fr": "Charge"
           }
