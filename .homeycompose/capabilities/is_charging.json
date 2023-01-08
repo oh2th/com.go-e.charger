@@ -2,13 +2,13 @@
   "type": "boolean",
   "title": {
     "en": "Car charging",
-    "nl": "Auto opladen",
+    "nl": "Auto laden",
     "de": "Auto laden",
     "fr": "Voiture en charge"
   },
   "hint": {
     "en": "Is there a car charging?",
-    "nl": "Is er een auto aan het opladen?",
+    "nl": "Is er een auto aan het laden?",
     "de": "Wird ein Auto geladen?",
     "fr": "Y a-t-il une voiture en charge?"
   },

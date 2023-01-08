@@ -1,13 +1,13 @@
 {
   "title": {
     "en": "Single phase charging changed",
-    "nl": "Enkelfasig opladen gewijzigd",
+    "nl": "Eenfasig laden gewijzigd",
     "de": "Einphasiges Laden geändert",
     "fr": "Chargement monophasé modifié"
   },
   "hint": {
     "en": "Device has changed between 1-phase or 3-phase charging.",
-    "nl": "Toestel is gewisseld tussen 1-fase of 3-fase opladen.",
+    "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
     "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
     "fr": "Le périphérique a changé entre le chargement monophasé ou triphasé."
   },

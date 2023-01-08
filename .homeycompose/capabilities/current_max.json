@@ -2,7 +2,7 @@
   "type": "number",
   "title": {
     "en": "Maximum Current",
-    "nl": "Maximaal stroom",
+    "nl": "Maximale stroom",
     "de": "Maximale Stromstärke",
     "fr": "Courant maximale"
   },

@@ -1,13 +1,13 @@
 {
   "title": {
     "en": "Single phase !{{is|isn't}} active",
-    "nl": "Enkelfasig !{{is|is niet}} actief",
+    "nl": "Eenfasig !{{is|is niet}} actief",
     "de": "Einphasig !{{ist|ist nicht}} aktiv",
     "fr": "Phase unique !{{est|n'est pas}} active"
   },
   "hint": {
     "en": "Single phase charging is/isn't active.",
-    "nl": "Enkelfasig opladen is/is niet actief.",
+    "nl": "Eenfasig laden is/is niet actief.",
     "de": "Einphasiges Laden ist/ist nicht aktiv.",
     "fr": "La charge en phase unique est/n'est pas active."
   },

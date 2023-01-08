@@ -2,7 +2,7 @@
   "type": "enum",
   "title": {
     "en": "Device Status",
-    "nl": "Apparaat status van het apparaat",
+    "nl": "Apparaat status",
     "de": "Gerätestatus",
     "fr": "Statut de l'appareil"
   },
@@ -26,7 +26,7 @@
       "id": "car_charging",
       "title": {
         "en": "Charging",
-        "nl": "Auto opladen",
+        "nl": "Laden",
         "de": "Laden",
         "fr": "Charge"
       }

@@ -2,13 +2,13 @@
   "type": "boolean",
   "title": {
     "en": "Single Phase Charging",
-    "nl": "Enkelfasig opladen",
+    "nl": "Eenfase laden",
     "de": "Einphasiges Laden",
     "fr": "Charge monophasée"  
   },
   "hint": {
     "en": "Single phase charging active.",
-    "nl": "Enkelfasig opladen actief.",
+    "nl": "Eenfase laden actief.",
     "de": "Einphasiges Laden aktiv.",
     "fr": "Charge monophasée active."
   },

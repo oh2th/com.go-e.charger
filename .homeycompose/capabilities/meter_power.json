@@ -8,7 +8,7 @@
   },
   "hint": {
     "en": "Total energy since counter was reset on the device.",
-    "nl": "Totale energie sinds de teller op het apparaat is gereset.",
+    "nl": "Totaal geleverde energie sinds de teller op het apparaat is gereset.",
     "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
     "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
   },
