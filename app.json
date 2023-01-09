@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -113,7 +113,7 @@
           "en": "Charging has been allowed or disabled from the charger.",
           "nl": "Laden is toegestaan of uitgeschakeld vanaf de oplader.",
           "de": "Laden wurde vom Ladegerät erlaubt oder verboten.",
-          "fr": "Le chargement a été autorisé ou désactivé depuis le chargeur."
+          "fr": "La charge a été autorisée ou désactivée depuis le chargeur."
         },
         "args": [
           {
@@ -141,7 +141,7 @@
           "en": "Charging changed",
           "nl": "Laden gewijzigd",
           "de": "Ladestatus geändert",
-          "fr": "Chargement modifié"
+          "fr": "Charge modifiée"
         },
         "hint": {
           "en": "A car has started/stopped charging.",
@@ -164,7 +164,7 @@
               "en": "Charging",
               "nl": "Laden",
               "de": "Laden",
-              "fr": "Chargement"
+              "fr": "Charge"
             }
           }
         ],
@@ -209,13 +209,13 @@
           "en": "Single phase charging changed",
           "nl": "Eenfasig laden gewijzigd",
           "de": "Einphasiges Laden geändert",
-          "fr": "Chargement monophasé modifié"
+          "fr": "Charge monophasée modifié"
         },
         "hint": {
           "en": "Device has changed between 1-phase or 3-phase charging.",
           "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
           "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
-          "fr": "Le périphérique a changé entre le chargement monophasé ou triphasé."
+          "fr": "Le périphérique a changé entre la charge monophasée ou triphasée."
         },
         "args": [
           {
@@ -230,7 +230,7 @@
             "type": "boolean",
             "title": {
               "en": "Single Phase",
-              "nl": "Enkelfasig",
+              "nl": "Eenfasig",
               "de": "Einphasig",
               "fr": "Monophasé"
             }
@@ -243,7 +243,7 @@
           "en": "Status changed",
           "nl": "Status gewijzigd",
           "de": "Status geändert",
-          "fr": "Statut changé"
+          "fr": "Statut modifié"
         },
         "hint": {
           "en": "Device state has changed.",
@@ -279,13 +279,13 @@
           "en": "Charging !{{is|isn't}} allowed",
           "nl": "Laden !{{is|is niet}} toegestaan",
           "de": "Laden !{{ist|ist nicht}} erlaubt",
-          "fr": "Chargement !{{est|n'est pas}} autorisé"
+          "fr": "Charge !{{est|n'est pas}} autorisée"
         },
         "hint": {
           "en": "Charging is/isn't allowed.",
           "nl": "Opladen is wel/niet toegestaan.",
           "de": "Laden ist/ist nicht erlaubt.",
-          "fr": "Le chargement est/n'est pas autorisé."
+          "fr": "Le charge est/n'est pas autorisée."
         },
         "args": [
           {
@@ -345,13 +345,13 @@
           "en": "Single phase !{{is|isn't}} active",
           "nl": "Eenfasig !{{is|is niet}} actief",
           "de": "Einphasig !{{ist|ist nicht}} aktiv",
-          "fr": "Phase unique !{{est|n'est pas}} active"
+          "fr": "Monophasé !{{est|n'est pas}} actif"
         },
         "hint": {
           "en": "Single phase charging is/isn't active.",
           "nl": "Eenfasig laden is/is niet actief.",
           "de": "Einphasiges Laden ist/ist nicht aktiv.",
-          "fr": "La charge en phase unique est/n'est pas active."
+          "fr": "La charge monophasée est/n'est pas active."
         },
         "args": [
           {
@@ -369,19 +369,19 @@
           "en": "Allow charging",
           "nl": "Laden toestaan",
           "de": "Laden erlauben",
-          "fr": "Autoriser le chargement"
+          "fr": "Autoriser le charge"
         },
         "titleFormatted": {
           "en": "Set allow charging to [[enabled]]",
           "nl": "Stel opladen toestaan in op [[enabled]]",
           "de": "Laden erlauben auf [[enabled]] setzen",
-          "fr": "Autoriser le chargement à [[enabled]]"
+          "fr": "Autoriser le charge à [[enabled]]"
         },
         "hint": {
           "en": "Enable or disable charging on the device. Authorization may be required first from Mobile App or RFID token.",
           "nl": "Schakel opladen op het apparaat in of uit. Mogelijk is eerst autorisatie vereist via de mobiele app of een RFID-token.",
           "de": "Laden am Gerät aktivieren oder deaktivieren. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
-          "fr": "Activer ou désactiver le chargement sur l'appareil. L'autorisation peut être requise d'abord à partir de l'application mobile ou du jeton RFID."
+          "fr": "Activer ou désactiver la charge sur l'appareil. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
         },
         "args": [
           {
@@ -413,7 +413,7 @@
           "en": "Change the current limit in amperes for charging.",
           "nl": "Wijzig de stroomlimiet in ampère voor opladen.",
           "de": "Ändere die Strombegrenzung in Ampere für das Laden.",
-          "fr": "Changer la limite de courant en ampères pour le chargement."
+          "fr": "Changer la limite de courant en ampères pour la charge."
         },
         "args": [
           {
@@ -1030,7 +1030,7 @@
         "en": "Device Error",
         "nl": "Apparaat fout",
         "de": "Gerät Fehler",
-        "fr": "Erreur d'appareil"
+        "fr": "Erreur appareil"
       },
       "hint": {
         "en": "Device has reported an error, check the device.",
@@ -1100,7 +1100,7 @@
         "en": "Maximum Current",
         "nl": "Maximale stroom",
         "de": "Maximale Stromstärke",
-        "fr": "Courant maximale"
+        "fr": "Courant maximal"
       },
       "hint": {
         "en": "Maximum current deliverable by the device.",
@@ -1128,10 +1128,10 @@
         "fr": "Charge autorisée"
       },
       "hint": {
-        "en": "Charging has been allowed from the device or by the app. Authorize first by Mobile App or RFID token.",
-        "nl": "Opladen is toegestaan vanaf het apparaat of via de app.",
-        "de": "Laden ist vom Gerät oder von der App erlaubt.",
-        "fr": "La charge est autorisée depuis l'appareil ou depuis l'application."
+        "en": "Charging has been allowed from the device or by the app. Authorization may be required first from Mobile App or RFID token.",
+        "nl": "Opladen is toegestaan vanaf het apparaat of via de app. Mogelijk is eerst autorisatie vereist via de mobiele app of een RFID-token.",
+        "de": "Laden ist vom Gerät oder von der App erlaubt. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
+        "fr": "La charge est autorisée depuis l'appareil ou depuis l'application. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
       },
       "getable": true,
       "setable": true,
@@ -1229,7 +1229,7 @@
         "en": "Currently delivered power in watts.",
         "nl": "Momenteel geleverd vermogen in watt.",
         "de": "Momentan gelieferte Leistung in Watt.",
-        "fr": "Puissance actuelle en watts."
+        "fr": "Puissance actuellement délivrée en watts."
       },
       "getable": true,
       "setable": false,
@@ -1275,7 +1275,7 @@
         "en": "Currently delivered voltage in volts.",
         "nl": "Momenteel geleverde spanning in volt.",
         "de": "Momentan gelieferte Spannung in Volt.",
-        "fr": "Tension actuellement fournie en volts."
+        "fr": "Tension actuellement délivrée en volts."
       },
       "getable": true,
       "setable": false,
