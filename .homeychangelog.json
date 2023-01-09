@@ -34,5 +34,8 @@
   },
   "2.4.6": {
     "en": "French translations check and corrected"
+  },
+  "2.4.7": {
+    "en": "FIX: Possible fix to APIv2 devices for temperature null handling."
   }
 }
