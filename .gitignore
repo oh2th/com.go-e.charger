@@ -17,6 +17,7 @@ Thumbs.db
 .dccache
 
 # Homey exclude
+/app.json
 /env.json
 /node_modules/
 /.homeybuild/

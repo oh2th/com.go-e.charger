@@ -2,7 +2,7 @@
   "pair": {
     "title": "Manuelle Konfiguration",
     "subtitle": "Konfiguration",
-    "intro": "Geben Sie die IP-Adresse für Ihr go-eCharger-Gerät ein.",
+    "intro": "Geben Sie die IP-Adresse für Ihr go-e Charger Gerät ein.",
     "nosettings": "Bitte füllen Sie alle erforderlichen Felder aus.",
     "address": "IP-Adresse",
     "name": "Gerätename:",
@@ -11,6 +11,6 @@
     "test": "Verbindung testen",
     "testing": "Verbindungstest erfolgreich, Sie können das Gerät jetzt verbinden.",
     "connect": "Verbinden",
-    "success": "go-eCharger erfolgreich hinzugefügt."
+    "success": "go-e Charger erfolgreich hinzugefügt."
   }
 }

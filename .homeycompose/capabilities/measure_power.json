@@ -10,7 +10,7 @@
     "en": "Currently delivered power in watts.",
     "nl": "Momenteel geleverd vermogen in watt.",
     "de": "Momentan gelieferte Leistung in Watt.",
-    "fr": "Puissance actuelle en watts."
+    "fr": "Puissance actuellement délivrée en watts."
   },
   "getable": true,
   "setable": false,

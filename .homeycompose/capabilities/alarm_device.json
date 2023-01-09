@@ -4,7 +4,7 @@
     "en": "Device Error",
     "nl": "Apparaat fout",
     "de": "Gerät Fehler",
-    "fr": "Erreur d'appareil"
+    "fr": "Erreur appareil"
   },
   "hint": {
     "en": "Device has reported an error, check the device.",

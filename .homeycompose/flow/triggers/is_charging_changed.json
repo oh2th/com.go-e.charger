@@ -3,7 +3,7 @@
     "en": "Charging changed",
     "nl": "Laden gewijzigd",
     "de": "Ladestatus geändert",
-    "fr": "Chargement modifié"
+    "fr": "Charge modifiée"
   },
   "hint": {
     "en": "A car has started/stopped charging.",
@@ -26,7 +26,7 @@
         "en": "Charging",
         "nl": "Laden",
         "de": "Laden",
-        "fr": "Chargement"
+        "fr": "Charge"
       }
     }
   ]

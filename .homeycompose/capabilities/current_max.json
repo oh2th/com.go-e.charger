@@ -4,7 +4,7 @@
     "en": "Maximum Current",
     "nl": "Maximale stroom",
     "de": "Maximale Stromstärke",
-    "fr": "Courant maximale"
+    "fr": "Courant maximal"
   },
   "hint": {
     "en": "Maximum current deliverable by the device.",

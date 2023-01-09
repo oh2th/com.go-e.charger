@@ -3,19 +3,19 @@
     "en": "Allow charging",
     "nl": "Laden toestaan",
     "de": "Laden erlauben",
-    "fr": "Autoriser le chargement"
+    "fr": "Autoriser le charge"
   },
   "titleFormatted": {
     "en": "Set allow charging to [[enabled]]",
     "nl": "Stel opladen toestaan in op [[enabled]]",
     "de": "Laden erlauben auf [[enabled]] setzen",
-    "fr": "Autoriser le chargement à [[enabled]]"
+    "fr": "Autoriser le charge à [[enabled]]"
   },
   "hint": {
     "en": "Enable or disable charging on the device. Authorization may be required first from Mobile App or RFID token.",
     "nl": "Schakel opladen op het apparaat in of uit. Mogelijk is eerst autorisatie vereist via de mobiele app of een RFID-token.",
     "de": "Laden am Gerät aktivieren oder deaktivieren. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
-    "fr": "Activer ou désactiver le chargement sur l'appareil. L'autorisation peut être requise d'abord à partir de l'application mobile ou du jeton RFID."
+    "fr": "Activer ou désactiver la charge sur l'appareil. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
   },
   "args": [
     {

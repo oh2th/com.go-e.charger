@@ -10,7 +10,7 @@
     "en": "Currently delivered voltage in volts.",
     "nl": "Momenteel geleverde spanning in volt.",
     "de": "Momentan gelieferte Spannung in Volt.",
-    "fr": "Tension actuellement fournie en volts."
+    "fr": "Tension actuellement délivrée en volts."
   },
   "getable": true,
   "setable": false,
