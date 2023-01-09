@@ -37,5 +37,8 @@
   },
   "2.4.7": {
     "en": "FIX: Possible fix to APIv2 devices for temperature null handling."
+  },
+  "2.4.8": {
+    "en": "ADD: Quick action to toggle charging allowed from the tile."
   }
 }
