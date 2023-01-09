@@ -1040,7 +1040,7 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "/assets/icon.svg",
+      "icon": "/assets/alert.svg",
       "insights": false
     },
     "cable_limit": {
@@ -1091,7 +1091,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/icon.svg",
+      "icon": "/assets/ammeter.svg",
       "insights": true
     },
     "current_max": {
@@ -1116,7 +1116,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/icon.svg",
+      "icon": "/assets/ammeter.svg",
       "insights": true
     },
     "is_allowed": {

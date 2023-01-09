@@ -20,6 +20,6 @@
   "units": {
     "en": "A"
   },
-  "icon": "/assets/icon.svg",
+  "icon": "/assets/ammeter.svg",
   "insights": true
 }
