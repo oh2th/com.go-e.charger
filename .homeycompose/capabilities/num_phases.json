@@ -15,7 +15,7 @@
   "values": [
     {
      "id": "1",
-     "label": {
+     "title": {
         "en": "1 phase",
         "nl": "1 fase",
         "de": "1 Phase",
@@ -24,7 +24,7 @@
     },
     {
      "id": "3",
-     "label": {
+     "title": {
         "en": "3 phases",
         "nl": "3 fasen",
         "de": "3 Phasen",
