@@ -187,7 +187,7 @@ class mainDevice extends Device {
         await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
         await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
         await this.setValue('is_single_phase', deviceInfo['is_single_phase'], check);
-        await this.setValue('is_three_phase', deviceInfo['is_three_phase'], check);
+        await this.setValue('num_phases', deviceInfo['num_phases'], check);
         await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
         await this.setValue('current_max', deviceInfo['current_max'], check);
@@ -249,6 +249,20 @@ class mainDevice extends Device {
       //
 
       if (typeof value === 'boolean' && key.startsWith('is_') && oldVal !== value && !firstRun) {
+        const newKey = key.replace(/\./g, '_');
+        const { triggers } = this.homey.manifest.flow;
+        const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
+
+        if (triggerExists) {
+          await this.homey.flow
+            .getDeviceTriggerCard(`${newKey}_changed`)
+            .trigger(this, { [`${key}`]: value })
+            .catch(this.error)
+            .then(this.log(`[Device] ${this.getName()} - setValue ${newKey}_changed - Triggered: "${newKey} | ${value}"`));
+        }
+      }
+
+      if (typeof value === 'number' && key.startsWith('num_') && oldVal !== value && !firstRun) {
         const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
         const triggerExists = triggers.find((trigger) => trigger.id === `${newKey}_changed`);
