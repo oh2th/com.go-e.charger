@@ -123,6 +123,7 @@ class mainDevice extends Device {
   async setCapabilityListeners() {
     this.registerCapabilityListener('is_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
     this.registerCapabilityListener('is_single_phase', this.onCapability_SINGLE_PHASE.bind(this));
+    this.registerCapabilityListener('is_three_phase', this.onCapability_THREE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
@@ -150,6 +151,20 @@ class mainDevice extends Device {
       if (value !== this.getCapabilityValue('is_single_phase')) {
         this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_single_phase: '${val}'`);
         await this.setValue('is_single_phase', value, false);
+        return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  async onCapability_THREE_PHASE(value) {
+    let val = 1; // Force single phase
+    if (value) val = 2; // Force three phase
+    try {
+      if (value !== this.getCapabilityValue('is_three_phase')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_three_phase: '${val}'`);
+        await this.setValue('is_three_phase', value, false);
         return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
       }
     } catch (error) {
@@ -187,6 +202,7 @@ class mainDevice extends Device {
         await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
         await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
         await this.setValue('is_single_phase', deviceInfo['is_single_phase'], check);
+        await this.setValue('is_three_phase', deviceInfo['is_three_phase'], check);
         await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
         await this.setValue('current_max', deviceInfo['current_max'], check);

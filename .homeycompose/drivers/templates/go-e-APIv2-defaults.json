@@ -13,6 +13,7 @@
     "current_max",
     "status",
     "is_single_phase",
+    "is_three_phase",
     "is_allowed",
     "is_charging",
     "is_connected",
