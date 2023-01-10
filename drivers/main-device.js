@@ -123,7 +123,6 @@ class mainDevice extends Device {
   async setCapabilityListeners() {
     this.registerCapabilityListener('is_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
     this.registerCapabilityListener('is_single_phase', this.onCapability_SINGLE_PHASE.bind(this));
-    this.registerCapabilityListener('is_three_phase', this.onCapability_THREE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
