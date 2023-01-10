@@ -158,20 +158,6 @@ class mainDevice extends Device {
     }
   }
 
-  async onCapability_THREE_PHASE(value) {
-    let val = 1; // Force single phase
-    if (value) val = 2; // Force three phase
-    try {
-      if (value !== this.getCapabilityValue('is_three_phase')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_three_phase: '${val}'`);
-        await this.setValue('is_three_phase', value, false);
-        return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
-      }
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  }
-
   async onCapability_CURRENT_LIMIT(value) {
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
