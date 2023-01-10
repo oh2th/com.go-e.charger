@@ -1,0 +1,39 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Charging phases",
+    "nl": "Laadfasen",
+    "de": "Ladephasen",
+    "fr": "Phases de charge"
+  },
+  "hint": {
+    "en": "Number of phases for charging.",
+    "nl": "Aantal fasen voor laden.",
+    "de": "Anzahl der Ladephasen.",
+    "fr": "Nombre de phases de charge."
+  },
+  "values": [
+    {
+     "id": "1",
+     "label": {
+        "en": "1 phase",
+        "nl": "1 fase",
+        "de": "1 Phase",
+        "fr": "1 phase"
+      }
+    },
+    {
+     "id": "3",
+     "label": {
+        "en": "3 phases",
+        "nl": "3 fasen",
+        "de": "3 Phasen",
+        "fr": "3 phases"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/type2-phases.svg",
+  "insights": false
+}
