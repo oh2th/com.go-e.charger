@@ -1,0 +1,33 @@
+{
+  "title": {
+    "en": "Three phase charging changed",
+    "nl": "Driefasig laden gewijzigd",
+    "de": "Dreiphasig Laden geändert",
+    "fr": "Charge triphasée modifié"
+  },
+  "hint": {
+    "en": "Device has changed between 1-phase or 3-phase charging.",
+    "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
+    "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
+    "fr": "Le périphérique a changé entre la charge monophasée ou triphasée."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ],
+  "tokens": [
+    {
+      "name": "is_three_phase",
+      "type": "boolean",
+      "title": {
+        "en": "Three Phase",
+        "nl": "Driefasig",
+        "de": "Dreiphasig",
+        "fr": "Triphasée"
+      }
+    }
+  ]
+}

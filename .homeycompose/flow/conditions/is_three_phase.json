@@ -1,0 +1,21 @@
+{
+  "title": {
+    "en": "Three phase !{{is|isn't}} active",
+    "nl": "Driefasig !{{is|is niet}} actief",
+    "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+    "fr": "Triphasée !{{est|n'est pas}} active"
+  },
+  "hint": {
+    "en": "Three phase charging is/isn't active.",
+    "nl": "Driefasig laden is/is niet actief.",
+    "de": "Dreiphasig Laden ist/ist nicht aktiv.",
+    "fr": "La charge triphasée est/n'est pas active."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+    }
+  ]
+}
