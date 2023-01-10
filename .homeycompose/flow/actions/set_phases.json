@@ -3,19 +3,19 @@
     "en": "Charging phases",
     "nl": "Laadfasen",
     "de": "Ladephasen",
-    "fr": "Phasée de charge"
+    "fr": "Nombre de phases de charge"
   },
   "titleFormatted": {
     "en": "Set charging phases to [[num_phases]]",
     "nl": "Stel laadfasen in op [[num_phases]]",
     "de": "Ladephasen auf [[num_phases]] setzen",
-    "fr": "Définir les phasée de charge sur [[num_phases]]"
+    "fr": "Définir le nombre de phases de charge sur [[num_phases]]"
   },
   "hint": {
     "en": "Sets number of phases for charging to 1 or 3.",
     "nl": "Stelt het aantal fasen voor opladen in op 1 of 3.",
     "de": "Stellt die Anzahl der Ladephasen auf 1 oder 3 ein.",
-    "fr": "Définit le nombre de phasée de charge sur 1 ou 3."
+    "fr": "Définir le nombre de phases de charge sur 1 ou 3."
   },
   "args": [
     {
@@ -25,7 +25,7 @@
         "en": "Number of phases",
         "nl": "Aantal fasen",
         "de": "Anzahl der Phasen",
-        "fr": "Nombre de phasée"
+        "fr": "Nombre de phases"
        },
        "values": [
          {
@@ -34,7 +34,7 @@
              "en": "1 phase",
              "nl": "1 fase",
              "de": "1 Phase",
-             "fr": "1 phasée"
+             "fr": "1 phase"
            }
          },
          {
@@ -43,7 +43,7 @@
              "en": "3 phases",
              "nl": "3 fasen",
              "de": "3 Phasen",
-             "fr": "3 phasée"
+             "fr": "3 phases"
            }
          }
        ]
