@@ -1,13 +1,13 @@
 {
   "title": {
     "en": "Single phase charging",
-    "nl": "Enkelfasig opladen",
+    "nl": "Eenfasig laden",
     "de": "Einphasig Laden",
     "fr": "Charge monophasée"
   },
   "titleFormatted": {
     "en": "Set single phase charging to [[enabled]]",
-    "nl": "Stel enkelfasig laden in op [[enabled]]",
+    "nl": "Stel eenfasig laden in op [[enabled]]",
     "de": "Einphasig Laden auf [[enabled]] setzen",
     "fr": "Définir la charge monophasée sur [[enabled]]"
   },
@@ -27,5 +27,6 @@
       "name": "device",
       "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
     }
-  ]
+  ],
+  "deprecated": true
 }
