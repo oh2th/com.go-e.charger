@@ -29,5 +29,6 @@
         "fr": "Monophasée"
       }
     }
-  ]
+  ],
+  "deprecated": true
 }

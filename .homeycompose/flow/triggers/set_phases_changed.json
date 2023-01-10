@@ -1,9 +1,9 @@
 {
   "title": {
-    "en": "Three phase charging changed",
-    "nl": "Driefasig laden gewijzigd",
-    "de": "Dreiphasig Laden geändert",
-    "fr": "Charge triphasée modifié"
+    "en": "Charging phases changed",
+    "nl": "Laadfasen gewijzigd",
+    "de": "Ladephasen geändert",
+    "fr": "Charge phasée modifié"
   },
   "hint": {
     "en": "Device has changed between 1-phase or 3-phase charging.",
@@ -20,14 +20,15 @@
   ],
   "tokens": [
     {
-      "name": "is_three_phase",
-      "type": "boolean",
+      "name": "num_phases",
+      "type": "number",
       "title": {
-        "en": "Three Phase",
-        "nl": "Driefasig",
-        "de": "Dreiphasig",
-        "fr": "Triphasée"
-      }
+        "en": "Number of phases",
+        "nl": "Aantal fasen",
+        "de": "Anzahl der Phasen",
+        "fr": "Nombre de phasée"
+      },
+      "example": 3
     }
   ]
 }
