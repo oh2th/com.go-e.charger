@@ -40,5 +40,8 @@
   },
   "2.4.8": {
     "en": "ADD: Quick action to toggle charging allowed from the tile."
+  },
+  "2.5.0": {
+    "en": "BREAK: Simplifying V3/V4 devices phase control flow cards -> \"Set charging phases...\" / \"Number of phases\""
   }
 }
