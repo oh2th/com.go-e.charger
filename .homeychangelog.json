@@ -43,5 +43,8 @@
   },
   "2.5.0": {
     "en": "BREAK: Removed V3/V4 device Single Phase Charging and replaced with simplified phase control flow cards."
+  },
+  "2.5.1": {
+    "en": "FIX: Missing Car connection changed trigger card."
   }
 }
