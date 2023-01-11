@@ -79,13 +79,14 @@
           }
         }
       ],
+      "deprecated": true,
       "id": "is_connected_changed"
     },
     {
       "title": {
         "en": "Single phase charging changed",
         "nl": "Eenfasig laden gewijzigd",
-        "de": "Einphasiges Laden geändert",
+        "de": "Einphasig Laden geändert",
         "fr": "Charge monophasée modifié"
       },
       "hint": {
@@ -102,11 +103,40 @@
             "en": "Single Phase",
             "nl": "Eenfasig",
             "de": "Einphasig",
-            "fr": "Monophasé"
+            "fr": "Monophasée"
           }
         }
       ],
+      "deprecated": true,
       "id": "is_single_phase_changed"
+    },
+    {
+      "title": {
+        "en": "Charging phases changed",
+        "nl": "Laadfasen gewijzigd",
+        "de": "Ladephasen geändert",
+        "fr": "Charge phasée modifié"
+      },
+      "hint": {
+        "en": "Device has changed between 1-phase or 3-phase charging.",
+        "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
+        "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
+        "fr": "Le périphérique a changé entre la charge monophasée ou triphasée."
+      },
+      "tokens": [
+        {
+          "name": "num_phases",
+          "type": "number",
+          "title": {
+            "en": "Number of phases",
+            "nl": "Aantal fasen",
+            "de": "Anzahl der Phasen",
+            "fr": "Nombre de phasée"
+          },
+          "example": 3
+        }
+      ],
+      "id": "num_phases_changed"
     },
     {
       "title": {
@@ -137,6 +167,36 @@
     }
   ],
   "conditions": [
+    {
+      "title": {
+        "en": "Three phase !{{is|isn't}} active",
+        "nl": "Driefasig !{{is|is niet}} actief",
+        "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+        "fr": "Triphasée !{{est|n'est pas}} active"
+      },
+      "hint": {
+        "en": "Three phase charging is/isn't active.",
+        "nl": "Driefasig laden is/is niet actief.",
+        "de": "Dreiphasig Laden ist/ist nicht aktiv.",
+        "fr": "La charge triphasée est/n'est pas active."
+      },
+      "id": "button_single_phase"
+    },
+    {
+      "title": {
+        "en": "Single phase !{{is|isn't}} active",
+        "nl": "Eenfasig !{{is|is niet}} actief",
+        "de": "Einphasig !{{ist|ist nicht}} aktiv",
+        "fr": "Monophasé !{{est|n'est pas}} actif"
+      },
+      "hint": {
+        "en": "Single phase charging is/isn't active.",
+        "nl": "Eenfasig laden is/is niet actief.",
+        "de": "Einphasig Laden ist/ist nicht aktiv.",
+        "fr": "La charge monophasée est/n'est pas active."
+      },
+      "id": "button_three_phase"
+    },
     {
       "title": {
         "en": "Charging !{{is|isn't}} allowed",
@@ -192,9 +252,10 @@
       "hint": {
         "en": "Single phase charging is/isn't active.",
         "nl": "Eenfasig laden is/is niet actief.",
-        "de": "Einphasiges Laden ist/ist nicht aktiv.",
+        "de": "Einphasig Laden ist/ist nicht aktiv.",
         "fr": "La charge monophasée est/n'est pas active."
       },
+      "deprecated": true,
       "id": "is_single_phase"
     }
   ],
@@ -243,23 +304,45 @@
     },
     {
       "title": {
+        "en": "Charging phases",
+        "nl": "Laadfasen",
+        "de": "Ladephasen",
+        "fr": "Nombre de phases de charge"
+      },
+      "titleFormatted": {
+        "en": "Set charging phases to [[num_phases]]",
+        "nl": "Stel laadfasen in op [[num_phases]]",
+        "de": "Ladephasen auf [[num_phases]] setzen",
+        "fr": "Définir le nombre de phases de charge sur [[num_phases]]"
+      },
+      "hint": {
+        "en": "Sets number of phases for charging to 1 or 3.",
+        "nl": "Stelt het aantal fasen voor opladen in op 1 of 3.",
+        "de": "Stellt die Anzahl der Ladephasen auf 1 oder 3 ein.",
+        "fr": "Définir le nombre de phases de charge sur 1 ou 3."
+      },
+      "id": "set_phases"
+    },
+    {
+      "title": {
         "en": "Single phase charging",
-        "nl": "Enkelfasig opladen",
-        "de": "Einphasiges Laden",
+        "nl": "Eenfasig laden",
+        "de": "Einphasig Laden",
         "fr": "Charge monophasée"
       },
       "titleFormatted": {
         "en": "Set single phase charging to [[enabled]]",
-        "nl": "Stel enkelfasig laden in op [[enabled]]",
-        "de": "Einphasiges Laden auf [[enabled]] setzen",
+        "nl": "Stel eenfasig laden in op [[enabled]]",
+        "de": "Einphasig Laden auf [[enabled]] setzen",
         "fr": "Définir la charge monophasée sur [[enabled]]"
       },
       "hint": {
         "en": "Force charger to use single phase for charging.",
         "nl": "Forceer de lader om een enkele fase te gebruiken voor het opladen.",
-        "de": "Lader zwingen, einphasiges Laden zu verwenden.",
+        "de": "Lader zwingen, einphasig Laden zu verwenden.",
         "fr": "Forcer le chargeur à utiliser une seule phase pour la charge."
       },
+      "deprecated": true,
       "id": "single_phase"
     }
   ]

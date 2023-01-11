@@ -15,7 +15,45 @@
     },
     "getable": true,
     "setable": false,
-    "icon": "/assets/icon.svg",
+    "icon": "/assets/alert.svg",
+    "insights": false
+  },
+  "button_single_phase": {
+    "type": "boolean",
+    "title": {
+      "en": "Single Phase Charging",
+      "nl": "Eenfase laden",
+      "de": "Einphasig Laden",
+      "fr": "Charge monophasée"
+    },
+    "hint": {
+      "en": "Single phase charging active.",
+      "nl": "Eenfase laden actief.",
+      "de": "Einphasig Laden aktiv.",
+      "fr": "Charge monophasée active."
+    },
+    "getable": true,
+    "setable": true,
+    "icon": "/assets/type2-phases.svg",
+    "insights": false
+  },
+  "button_three_phase": {
+    "type": "boolean",
+    "title": {
+      "en": "Three Phase Charging",
+      "nl": "Driefasig laden",
+      "de": "Dreiphasig Laden",
+      "fr": "Charge triphasée"
+    },
+    "hint": {
+      "en": "Three phase charging active.",
+      "nl": "Driefasig  laden actief.",
+      "de": "Dreiphasig Laden aktiv.",
+      "fr": "Charge triphasée active."
+    },
+    "getable": true,
+    "setable": true,
+    "icon": "/assets/type2-phases.svg",
     "insights": false
   },
   "cable_limit": {
@@ -66,7 +104,7 @@
     "units": {
       "en": "A"
     },
-    "icon": "/assets/icon.svg",
+    "icon": "/assets/ammeter.svg",
     "insights": true
   },
   "current_max": {
@@ -91,7 +129,7 @@
     "units": {
       "en": "A"
     },
-    "icon": "/assets/icon.svg",
+    "icon": "/assets/ammeter.svg",
     "insights": true
   },
   "is_allowed": {
@@ -108,6 +146,7 @@
       "de": "Laden ist vom Gerät oder von der App erlaubt. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
       "fr": "La charge est autorisée depuis l'appareil ou depuis l'application. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
     },
+    "uiQuickAction": true,
     "getable": true,
     "setable": true,
     "insights": false
@@ -148,25 +187,6 @@
     "getable": true,
     "setable": false,
     "uiComponent": null,
-    "insights": false
-  },
-  "is_single_phase": {
-    "type": "boolean",
-    "title": {
-      "en": "Single Phase Charging",
-      "nl": "Eenfase laden",
-      "de": "Einphasiges Laden",
-      "fr": "Charge monophasée"
-    },
-    "hint": {
-      "en": "Single phase charging active.",
-      "nl": "Eenfase laden actief.",
-      "de": "Einphasiges Laden aktiv.",
-      "fr": "Charge monophasée active."
-    },
-    "getable": true,
-    "setable": true,
-    "icon": "/assets/type2-phases.svg",
     "insights": false
   },
   "measure_current": {
@@ -281,6 +301,46 @@
       "en": "kWh"
     },
     "insights": true
+  },
+  "num_phases": {
+    "type": "enum",
+    "title": {
+      "en": "Charging phases",
+      "nl": "Laadfasen",
+      "de": "Ladephasen",
+      "fr": "Phases de charge"
+    },
+    "hint": {
+      "en": "Number of phases for charging.",
+      "nl": "Aantal fasen voor laden.",
+      "de": "Anzahl der Ladephasen.",
+      "fr": "Nombre de phases de charge."
+    },
+    "values": [
+      {
+        "id": "1",
+        "title": {
+          "en": "1 phase",
+          "nl": "1 fase",
+          "de": "1 Phase",
+          "fr": "1 phase"
+        }
+      },
+      {
+        "id": "3",
+        "title": {
+          "en": "3 phases",
+          "nl": "3 fasen",
+          "de": "3 Phasen",
+          "fr": "3 phases"
+        }
+      }
+    ],
+    "getable": true,
+    "setable": true,
+    "icon": "/assets/type2-phases.svg",
+    "insights": false,
+    "uiComponent": null
   },
   "status": {
     "type": "enum",
