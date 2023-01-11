@@ -1,15 +1,15 @@
 {
   "title": {
-    "en": "Single phase !{{is|isn't}} active",
-    "nl": "Eenfasig !{{is|is niet}} actief",
-    "de": "Einphasig !{{ist|ist nicht}} aktiv",
-    "fr": "Monophasé !{{est|n'est pas}} actif"
+    "en": "Three phase !{{is|isn't}} active",
+    "nl": "Driefasig !{{is|is niet}} actief",
+    "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+    "fr": "Triphasée !{{est|n'est pas}} active"
   },
   "hint": {
-    "en": "Single phase charging is/isn't active.",
-    "nl": "Eenfasig laden is/is niet actief.",
-    "de": "Einphasig Laden ist/ist nicht aktiv.",
-    "fr": "La charge monophasée est/n'est pas active."
+    "en": "Three phase charging is/isn't active.",
+    "nl": "Driefasig laden is/is niet actief.",
+    "de": "Dreiphasig Laden ist/ist nicht aktiv.",
+    "fr": "La charge triphasée est/n'est pas active."
   },
   "args": [
     {
