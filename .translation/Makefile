@@ -15,7 +15,7 @@ capabilities.json: ../app.json
 
 app.json: ../app.json
 	@echo "Generating app.json"
-	@cat $< | jq 'del(._comment, .platforms, .category, .permissions, .images, .author, .brandColor, .contributors, .contributing, .source, .bugs, .support, .homeyCommunityTopicId, .flow, .drivers, .capabilities, .discovery)' > $@
+	@cat $< | jq 'del(._comment, .platforms, .category, .permissions, .images, .author, .brandColor, .contributors.developers, .contributing, .source, .bugs, .support, .homeyCommunityTopicId, .flow, .drivers, .capabilities, .discovery)' > $@
 
 locales: en.json nl.json de.json fr.json
 
