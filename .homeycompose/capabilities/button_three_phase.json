@@ -1,0 +1,19 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Three Phase Charging",
+    "nl": "Driefasig laden",
+    "de": "Dreiphasig Laden",
+    "fr": "Charge triphasée"  
+  },
+  "hint": {
+    "en": "Three phase charging active.",
+    "nl": "Driefasig  laden actief.",
+    "de": "Dreiphasig Laden aktiv.",
+    "fr": "Charge triphasée active."
+  },
+  "getable": true,
+  "setable": true,
+  "icon": "/assets/type2-phases.svg",
+  "insights": false
+}

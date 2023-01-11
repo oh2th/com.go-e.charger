@@ -202,13 +202,14 @@
             }
           }
         ],
+        "deprecated": true,
         "id": "is_connected_changed"
       },
       {
         "title": {
           "en": "Single phase charging changed",
           "nl": "Eenfasig laden gewijzigd",
-          "de": "Einphasiges Laden geändert",
+          "de": "Einphasig Laden geändert",
           "fr": "Charge monophasée modifié"
         },
         "hint": {
@@ -232,11 +233,47 @@
               "en": "Single Phase",
               "nl": "Eenfasig",
               "de": "Einphasig",
-              "fr": "Monophasé"
+              "fr": "Monophasée"
             }
           }
         ],
+        "deprecated": true,
         "id": "is_single_phase_changed"
+      },
+      {
+        "title": {
+          "en": "Charging phases changed",
+          "nl": "Laadfasen gewijzigd",
+          "de": "Ladephasen geändert",
+          "fr": "Charge phasée modifié"
+        },
+        "hint": {
+          "en": "Device has changed between 1-phase or 3-phase charging.",
+          "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",
+          "de": "Gerät hat zwischen 1-Phasen oder 3-Phasen Laden gewechselt.",
+          "fr": "Le périphérique a changé entre la charge monophasée ou triphasée."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "num_phases",
+            "type": "number",
+            "title": {
+              "en": "Number of phases",
+              "nl": "Aantal fasen",
+              "de": "Anzahl der Phasen",
+              "fr": "Nombre de phasée"
+            },
+            "example": 3
+          }
+        ],
+        "id": "num_phases_changed"
       },
       {
         "title": {
@@ -274,6 +311,50 @@
       }
     ],
     "conditions": [
+      {
+        "title": {
+          "en": "Three phase !{{is|isn't}} active",
+          "nl": "Driefasig !{{is|is niet}} actief",
+          "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+          "fr": "Triphasée !{{est|n'est pas}} active"
+        },
+        "hint": {
+          "en": "Three phase charging is/isn't active.",
+          "nl": "Driefasig laden is/is niet actief.",
+          "de": "Dreiphasig Laden ist/ist nicht aktiv.",
+          "fr": "La charge triphasée est/n'est pas active."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "button_single_phase"
+      },
+      {
+        "title": {
+          "en": "Single phase !{{is|isn't}} active",
+          "nl": "Eenfasig !{{is|is niet}} actief",
+          "de": "Einphasig !{{ist|ist nicht}} aktiv",
+          "fr": "Monophasé !{{est|n'est pas}} actif"
+        },
+        "hint": {
+          "en": "Single phase charging is/isn't active.",
+          "nl": "Eenfasig laden is/is niet actief.",
+          "de": "Einphasig Laden ist/ist nicht aktiv.",
+          "fr": "La charge monophasée est/n'est pas active."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "button_three_phase"
+      },
       {
         "title": {
           "en": "Charging !{{is|isn't}} allowed",
@@ -350,7 +431,7 @@
         "hint": {
           "en": "Single phase charging is/isn't active.",
           "nl": "Eenfasig laden is/is niet actief.",
-          "de": "Einphasiges Laden ist/ist nicht aktiv.",
+          "de": "Einphasig Laden ist/ist nicht aktiv.",
           "fr": "La charge monophasée est/n'est pas active."
         },
         "args": [
@@ -360,6 +441,7 @@
             "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
           }
         ],
+        "deprecated": true,
         "id": "is_single_phase"
       }
     ],
@@ -432,7 +514,7 @@
             },
             "min": 6,
             "max": 32,
-            "step": 2,
+            "step": 1,
             "label": "A",
             "labelDecimals": 0
           }
@@ -441,21 +523,79 @@
       },
       {
         "title": {
+          "en": "Charging phases",
+          "nl": "Laadfasen",
+          "de": "Ladephasen",
+          "fr": "Nombre de phases de charge"
+        },
+        "titleFormatted": {
+          "en": "Set charging phases to [[num_phases]]",
+          "nl": "Stel laadfasen in op [[num_phases]]",
+          "de": "Ladephasen auf [[num_phases]] setzen",
+          "fr": "Définir le nombre de phases de charge sur [[num_phases]]"
+        },
+        "hint": {
+          "en": "Sets number of phases for charging to 1 or 3.",
+          "nl": "Stelt het aantal fasen voor opladen in op 1 of 3.",
+          "de": "Stellt die Anzahl der Ladephasen auf 1 oder 3 ein.",
+          "fr": "Définir le nombre de phases de charge sur 1 ou 3."
+        },
+        "args": [
+          {
+            "type": "dropdown",
+            "name": "num_phases",
+            "title": {
+              "en": "Number of phases",
+              "nl": "Aantal fasen",
+              "de": "Anzahl der Phasen",
+              "fr": "Nombre de phases"
+            },
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "1 phase",
+                  "nl": "1 fase",
+                  "de": "1 Phase",
+                  "fr": "1 phase"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "3 phases",
+                  "nl": "3 fasen",
+                  "de": "3 Phasen",
+                  "fr": "3 phases"
+                }
+              }
+            ]
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
+          }
+        ],
+        "id": "set_phases"
+      },
+      {
+        "title": {
           "en": "Single phase charging",
-          "nl": "Enkelfasig opladen",
-          "de": "Einphasiges Laden",
+          "nl": "Eenfasig laden",
+          "de": "Einphasig Laden",
           "fr": "Charge monophasée"
         },
         "titleFormatted": {
           "en": "Set single phase charging to [[enabled]]",
-          "nl": "Stel enkelfasig laden in op [[enabled]]",
-          "de": "Einphasiges Laden auf [[enabled]] setzen",
+          "nl": "Stel eenfasig laden in op [[enabled]]",
+          "de": "Einphasig Laden auf [[enabled]] setzen",
           "fr": "Définir la charge monophasée sur [[enabled]]"
         },
         "hint": {
           "en": "Force charger to use single phase for charging.",
           "nl": "Forceer de lader om een enkele fase te gebruiken voor het opladen.",
-          "de": "Lader zwingen, einphasiges Laden zu verwenden.",
+          "de": "Lader zwingen, einphasig Laden zu verwenden.",
           "fr": "Forcer le chargeur à utiliser une seule phase pour la charge."
         },
         "args": [
@@ -469,6 +609,7 @@
             "filter": "driver_id=go-eCharger_V3|go-eCharger_V4"
           }
         ],
+        "deprecated": true,
         "id": "single_phase"
       }
     ]
@@ -718,7 +859,9 @@
         "current_limit",
         "current_max",
         "status",
-        "is_single_phase",
+        "button_single_phase",
+        "button_three_phase",
+        "num_phases",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -877,7 +1020,9 @@
         "current_limit",
         "current_max",
         "status",
-        "is_single_phase",
+        "button_single_phase",
+        "button_three_phase",
+        "num_phases",
         "is_allowed",
         "is_charging",
         "is_connected",
@@ -1043,6 +1188,44 @@
       "icon": "/assets/alert.svg",
       "insights": false
     },
+    "button_single_phase": {
+      "type": "boolean",
+      "title": {
+        "en": "Single Phase Charging",
+        "nl": "Eenfase laden",
+        "de": "Einphasig Laden",
+        "fr": "Charge monophasée"
+      },
+      "hint": {
+        "en": "Single phase charging active.",
+        "nl": "Eenfase laden actief.",
+        "de": "Einphasig Laden aktiv.",
+        "fr": "Charge monophasée active."
+      },
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/type2-phases.svg",
+      "insights": false
+    },
+    "button_three_phase": {
+      "type": "boolean",
+      "title": {
+        "en": "Three Phase Charging",
+        "nl": "Driefasig laden",
+        "de": "Dreiphasig Laden",
+        "fr": "Charge triphasée"
+      },
+      "hint": {
+        "en": "Three phase charging active.",
+        "nl": "Driefasig  laden actief.",
+        "de": "Dreiphasig Laden aktiv.",
+        "fr": "Charge triphasée active."
+      },
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/type2-phases.svg",
+      "insights": false
+    },
     "cable_limit": {
       "type": "number",
       "title": {
@@ -1176,25 +1359,6 @@
       "uiComponent": null,
       "insights": false
     },
-    "is_single_phase": {
-      "type": "boolean",
-      "title": {
-        "en": "Single Phase Charging",
-        "nl": "Eenfase laden",
-        "de": "Einphasiges Laden",
-        "fr": "Charge monophasée"
-      },
-      "hint": {
-        "en": "Single phase charging active.",
-        "nl": "Eenfase laden actief.",
-        "de": "Einphasiges Laden aktiv.",
-        "fr": "Charge monophasée active."
-      },
-      "getable": true,
-      "setable": true,
-      "icon": "/assets/type2-phases.svg",
-      "insights": false
-    },
     "measure_current": {
       "type": "number",
       "title": {
@@ -1307,6 +1471,46 @@
         "en": "kWh"
       },
       "insights": true
+    },
+    "num_phases": {
+      "type": "enum",
+      "title": {
+        "en": "Charging phases",
+        "nl": "Laadfasen",
+        "de": "Ladephasen",
+        "fr": "Phases de charge"
+      },
+      "hint": {
+        "en": "Number of phases for charging.",
+        "nl": "Aantal fasen voor laden.",
+        "de": "Anzahl der Ladephasen.",
+        "fr": "Nombre de phases de charge."
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "1 phase",
+            "nl": "1 fase",
+            "de": "1 Phase",
+            "fr": "1 phase"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "3 phases",
+            "nl": "3 fasen",
+            "de": "3 Phasen",
+            "fr": "3 phases"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "icon": "/assets/type2-phases.svg",
+      "insights": false,
+      "uiComponent": null
     },
     "status": {
       "type": "enum",

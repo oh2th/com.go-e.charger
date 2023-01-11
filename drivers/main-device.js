@@ -122,7 +122,8 @@ class mainDevice extends Device {
 
   async setCapabilityListeners() {
     this.registerCapabilityListener('is_allowed', this.onCapability_CHARGING_ALLOWED.bind(this));
-    this.registerCapabilityListener('is_single_phase', this.onCapability_SINGLE_PHASE.bind(this));
+    this.registerCapabilityListener('button_single_phase', this.onCapability_SINGLE_PHASE.bind(this));
+    this.registerCapabilityListener('button_three_phase', this.onCapability_THREE_PHASE.bind(this));
     this.registerCapabilityListener('current_limit', this.onCapability_CURRENT_LIMIT.bind(this));
   }
 
@@ -147,9 +148,36 @@ class mainDevice extends Device {
     let val = 2; // Force three phase
     if (value) val = 1; // Force single phase
     try {
-      if (value !== this.getCapabilityValue('is_single_phase')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_single_phase: '${val}'`);
-        await this.setValue('is_single_phase', value, false);
+      if (value !== this.getCapabilityValue('button_single_phase')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set button_single_phase: '${val}'`);
+        await this.setValue('button_single_phase', value, false);
+        return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  async onCapability_THREE_PHASE(value) {
+    let val = 1; // Force single phase
+    if (value) val = 2; // Force three phase
+    try {
+      if (value !== this.getCapabilityValue('button_three_phase')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set button_three_phase: '${val}'`);
+        await this.setValue('button_three_phase', value, false);
+        return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
+
+  async onCapability_SET_PHASES(value) {
+    let val = 1; // Force single phase
+    if (value === '3') val = 2; // Force three phase
+    try {
+      if (value !== this.getCapabilityValue('num_phases')) {
+        this.log(`[Device] ${this.getName()}: ${this.getData().id} set num_phases: '${value}'`);
         return Promise.resolve(await this.api.setGoeChargerValue('psm', val));
       }
     } catch (error) {
@@ -186,7 +214,8 @@ class mainDevice extends Device {
         await this.setValue('meter_power', deviceInfo['meter_power'], check);
         await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
         await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
-        await this.setValue('is_single_phase', deviceInfo['is_single_phase'], check);
+        await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
+        await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
         await this.setValue('num_phases', deviceInfo['num_phases'], check);
         await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
         await this.setValue('current_limit', deviceInfo['current_limit'], check);
@@ -248,6 +277,7 @@ class mainDevice extends Device {
       // Capability triggers
       //
 
+      // Boolean capabilities where id starts with 'is_'.
       if (typeof value === 'boolean' && key.startsWith('is_') && oldVal !== value && !firstRun) {
         const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
@@ -262,6 +292,7 @@ class mainDevice extends Device {
         }
       }
 
+      // Number capabilities where id starts with 'num_'.
       if (typeof value === 'number' && key.startsWith('num_') && oldVal !== value && !firstRun) {
         const newKey = key.replace(/\./g, '_');
         const { triggers } = this.homey.manifest.flow;
