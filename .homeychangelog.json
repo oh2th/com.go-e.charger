@@ -49,5 +49,8 @@
   },
   "2.5.2": {
     "en": "FIX Reversed Single/Threee phase condiftion cards"
+  },
+  "2.5.3": {
+    "en": "UI changes: Allow charging now as it's own toggle for on/off."
   }
 }
