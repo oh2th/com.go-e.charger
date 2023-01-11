@@ -5,5 +5,5 @@
     "de": "Home, 3. Gen (CM-03)",
     "fr": "Home, 3e gen (CM-03)"
   },
-  "$extends": ["go-e-APIv2-defaults"]
+  "$extends": ["device", "go-e-APIv2", "pair-APIv1", "settings"]
 }

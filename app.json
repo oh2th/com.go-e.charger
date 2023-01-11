@@ -616,6 +616,17 @@
   "drivers": [
     {
       "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V1/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V1/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V1/assets/images/xlarge.png"
+      },
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -654,17 +665,6 @@
           },
           "insights": true
         }
-      },
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/go-eCharger_V1/assets/images/small.png",
-        "large": "/drivers/go-eCharger_V1/assets/images/large.png",
-        "xlarge": "/drivers/go-eCharger_V1/assets/images/xlarge.png"
       },
       "pair": [
         {
@@ -731,6 +731,17 @@
     },
     {
       "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V2/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V2/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V2/assets/images/xlarge.png"
+      },
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -769,17 +780,6 @@
           },
           "insights": true
         }
-      },
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/go-eCharger_V2/assets/images/small.png",
-        "large": "/drivers/go-eCharger_V2/assets/images/large.png",
-        "xlarge": "/drivers/go-eCharger_V2/assets/images/xlarge.png"
       },
       "pair": [
         {
@@ -846,6 +846,17 @@
     },
     {
       "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V3/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V3/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V3/assets/images/xlarge.png"
+      },
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -912,42 +923,12 @@
           "insights": true
         }
       },
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/go-eCharger_V3/assets/images/small.png",
-        "large": "/drivers/go-eCharger_V3/assets/images/large.png",
-        "xlarge": "/drivers/go-eCharger_V3/assets/images/xlarge.png"
-      },
-      "discovery": "mdns_http_go-e",
       "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices",
-          "navigation": {
-            "next": "done"
-          }
-        },
         {
           "id": "manual_pairing"
         },
         {
           "id": "add_device"
-        },
-        {
-          "id": "done",
-          "template": "done"
         }
       ],
       "settings": [
@@ -1007,6 +988,17 @@
     },
     {
       "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/go-eCharger_V4/assets/images/small.png",
+        "large": "/drivers/go-eCharger_V4/assets/images/large.png",
+        "xlarge": "/drivers/go-eCharger_V4/assets/images/xlarge.png"
+      },
       "capabilities": [
         "meter_power",
         "meter_power.session",
@@ -1073,42 +1065,12 @@
           "insights": true
         }
       },
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "lan"
-      ],
-      "images": {
-        "small": "/drivers/go-eCharger_V4/assets/images/small.png",
-        "large": "/drivers/go-eCharger_V4/assets/images/large.png",
-        "xlarge": "/drivers/go-eCharger_V4/assets/images/xlarge.png"
-      },
-      "discovery": "mdns_http_go-e",
       "pair": [
-        {
-          "id": "list_devices",
-          "template": "list_devices",
-          "navigation": {
-            "next": "add_devices"
-          }
-        },
-        {
-          "id": "add_devices",
-          "template": "add_devices",
-          "navigation": {
-            "next": "done"
-          }
-        },
         {
           "id": "manual_pairing"
         },
         {
           "id": "add_device"
-        },
-        {
-          "id": "done",
-          "template": "done"
         }
       ],
       "settings": [
@@ -1315,6 +1277,8 @@
         "de": "Laden ist vom Gerät oder von der App erlaubt. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
         "fr": "La charge est autorisée depuis l'appareil ou depuis l'application. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
       },
+      "icon": "/assets/ev-charge.svg",
+      "uiComponent": "toggle",
       "uiQuickAction": true,
       "getable": true,
       "setable": true,

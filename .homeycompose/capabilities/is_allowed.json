@@ -12,6 +12,8 @@
     "de": "Laden ist vom Gerät oder von der App erlaubt. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
     "fr": "La charge est autorisée depuis l'appareil ou depuis l'application. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
   },
+  "icon": "/assets/ev-charge.svg",
+  "uiComponent": "toggle",
   "uiQuickAction": true,
   "getable": true,
   "setable": true,
