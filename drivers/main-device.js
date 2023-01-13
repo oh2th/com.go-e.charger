@@ -186,6 +186,11 @@ class mainDevice extends Device {
   }
 
   async onCapability_CURRENT_LIMIT(value) {
+    // If requested value is higher than cable limit, set to cable limit
+    if (this.getCapabilityValue('cable_limit') < this.getCapabilityValue('current_max') && value > this.getCapabilityValue('cable_limit')) value = this.getCapabilityValue('cable_limit');
+    // If requested value is higher than current max, set to current max
+    if (this.getCapabilityValue('current_max') < this.getCapabilityValue('cable_limit') && value > this.getCapabilityValue('current_max')) value = this.getCapabilityValue('current_max');
+
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
         this.log(`[Device] ${this.getName()}: ${this.getData().id} set current_limit: '${value}'`);
