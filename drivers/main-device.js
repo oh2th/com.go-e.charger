@@ -1,7 +1,7 @@
 'use strict';
 
 const { Device } = require('homey');
-const { sleep } = require('../lib/helpers');
+const { sleep, sendNotification } = require('../lib/helpers');
 const GoeChargerApi = require('../lib/go-echarger-api');
 
 const POLL_INTERVAL = 5000;
@@ -186,14 +186,25 @@ class mainDevice extends Device {
   }
 
   async onCapability_CURRENT_LIMIT(value) {
+    const current_max = this.getCapabilityValue('current_max');
+    const cable_limit = this.getCapabilityValue('cable_limit');
+    this.log(`[Device] ${this.getName()}: ${this.getData().id} requested current_limit: '${value}'`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id}           current_max:   '${current_max}'`);
+    this.log(`[Device] ${this.getName()}: ${this.getData().id}           cable_limit:   '${cable_limit}'`);
     // If requested value is higher than cable limit, set to cable limit
-    if (this.getCapabilityValue('cable_limit') < this.getCapabilityValue('current_max') && value > this.getCapabilityValue('cable_limit')) value = this.getCapabilityValue('cable_limit');
+    if (cable_limit < current_max && value > cable_limit) {
+      value = cable_limit;
+      this.homey.app.sendNotification(`Change current limit flow card value is higher than cable limit. Limiting to cable limit **${value}** A.`);
+    }
     // If requested value is higher than current max, set to current max
-    if (this.getCapabilityValue('current_max') < this.getCapabilityValue('cable_limit') && value > this.getCapabilityValue('current_max')) value = this.getCapabilityValue('current_max');
+    if (current_max < cable_limit && value > current_max) {
+      value = current_max;
+      this.homey.app.sendNotification(`Change current limit flow card value is higher than device limit. Limiting to device limit **${value}** A.`);
+    }
+    this.log(`[Device] ${this.getName()}: ${this.getData().id}     final current_limit: '${value}'`);
 
     try {
       if (value !== this.getCapabilityValue('current_limit')) {
-        this.log(`[Device] ${this.getName()}: ${this.getData().id} set current_limit: '${value}'`);
         return Promise.resolve(await this.api.setGoeChargerValue('amp', value));
       }
     } catch (error) {

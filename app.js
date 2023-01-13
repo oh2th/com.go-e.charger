@@ -18,6 +18,14 @@ class GoeCharger extends Homey.App {
     this.log('go-eCharger app has been initialized');
   }
 
+  async sendNotification(message) {
+    await this.homey.notifications.createNotification({
+      excerpt: message,
+    }).catch((error) => {
+      this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} sendNotification - error: ${error}`);
+    });
+  }
+
 }
 
 module.exports = GoeCharger;
