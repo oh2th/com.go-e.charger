@@ -194,12 +194,12 @@ class mainDevice extends Device {
     // If requested value is higher than cable limit, set to cable limit
     if (cable_limit < current_max && value > cable_limit) {
       value = cable_limit;
-      this.homey.app.sendNotification(`Change current limit flow card value is higher than cable limit. Limiting to cable limit **${value}** A.`);
+      this.homey.app.sendNotification(this.homey.__('device.set_current_limit.cable_limit', { value }));
     }
     // If requested value is higher than current max, set to current max
     if (current_max < cable_limit && value > current_max) {
       value = current_max;
-      this.homey.app.sendNotification(`Change current limit flow card value is higher than device limit. Limiting to device limit **${value}** A.`);
+      this.homey.app.sendNotification(this.homey.__('device.set_current_limit.device_limit', { value }));
     }
     this.log(`[Device] ${this.getName()}: ${this.getData().id}     final current_limit: '${value}'`);
 
