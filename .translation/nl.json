@@ -12,5 +12,11 @@
     "testing": "Verbindingstest geslaagd, u kunt nu verbinding maken met het apparaat.",
     "connect": "Aansluiten",
     "success": "go-e Charger succesvol toegevoegd."
+  },
+  "device": {
+    "set_current_limit": {
+      "device_limit": "**Amperage veranderen** kaart waarde is hoger dan apparaatlimiet. Beperking tot apparaatlimiet **__value__** A.",
+      "cable_limit": "**Amperage veranderen** kaart waarde is hoger dan kabellimiet. Beperking tot kabel limiet **__value__** A."
+    }
   }
 }

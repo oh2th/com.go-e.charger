@@ -79,7 +79,6 @@
           }
         }
       ],
-      "deprecated": true,
       "id": "is_connected_changed"
     },
     {
@@ -169,21 +168,6 @@
   "conditions": [
     {
       "title": {
-        "en": "Three phase !{{is|isn't}} active",
-        "nl": "Driefasig !{{is|is niet}} actief",
-        "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
-        "fr": "Triphasée !{{est|n'est pas}} active"
-      },
-      "hint": {
-        "en": "Three phase charging is/isn't active.",
-        "nl": "Driefasig laden is/is niet actief.",
-        "de": "Dreiphasig Laden ist/ist nicht aktiv.",
-        "fr": "La charge triphasée est/n'est pas active."
-      },
-      "id": "button_single_phase"
-    },
-    {
-      "title": {
         "en": "Single phase !{{is|isn't}} active",
         "nl": "Eenfasig !{{is|is niet}} actief",
         "de": "Einphasig !{{ist|ist nicht}} aktiv",
@@ -194,6 +178,21 @@
         "nl": "Eenfasig laden is/is niet actief.",
         "de": "Einphasig Laden ist/ist nicht aktiv.",
         "fr": "La charge monophasée est/n'est pas active."
+      },
+      "id": "button_single_phase"
+    },
+    {
+      "title": {
+        "en": "Three phase !{{is|isn't}} active",
+        "nl": "Driefasig !{{is|is niet}} actief",
+        "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+        "fr": "Triphasée !{{est|n'est pas}} active"
+      },
+      "hint": {
+        "en": "Three phase charging is/isn't active.",
+        "nl": "Driefasig laden is/is niet actief.",
+        "de": "Dreiphasig Laden ist/ist nicht aktiv.",
+        "fr": "La charge triphasée est/n'est pas active."
       },
       "id": "button_three_phase"
     },
