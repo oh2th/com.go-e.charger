@@ -20,6 +20,9 @@
     "alarm_device"
   ],
   "capabilitiesOptions": {
+    "current_limit": {
+      "max": 32
+    },
     "measure_temperature.charge_port": {
       "type": "number",
       "title": {
@@ -41,7 +44,7 @@
       },
       "min": -50,
       "max": 50,
-      "insights": true    
+      "insights": true
     },
     "meter_power.session": {
       "type": "number",

@@ -16,6 +16,9 @@
     "alarm_device"
   ],
   "capabilitiesOptions": {
+    "current_limit": {
+      "max": 32
+    },
     "meter_power.session": {
       "type": "number",
       "title": {
