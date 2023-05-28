@@ -58,5 +58,8 @@
   },
   "2.5.5": {
     "en": "Workaround for \"Invalid capability\" error on HP2023 installs."
+  },
+  "2.5.6": {
+    "en": "FIX: Increase measure_temperature to max 70C."
   }
 }
