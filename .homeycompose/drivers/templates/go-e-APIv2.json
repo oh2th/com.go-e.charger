@@ -43,7 +43,7 @@
         "en": "C"
       },
       "min": -50,
-      "max": 50,
+      "max": 70,
       "insights": true
     },
     "meter_power.session": {
