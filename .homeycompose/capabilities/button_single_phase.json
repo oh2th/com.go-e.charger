@@ -14,6 +14,6 @@
   },
   "getable": true,
   "setable": true,
-  "icon": "/assets/type2-phases.svg",
+  "icon": "./assets/type2-phases.svg",
   "insights": false
 }

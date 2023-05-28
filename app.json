@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -100,6 +100,7 @@
   },
   "homeyCommunityTopicId": 74195,
   "support": "https://github.com/oh2th/com.go-e.charger/discussions/categories/general",
+  "homepage": "https://oh2th.fi/tapio/homey/",
   "flow": {
     "triggers": [
       {
@@ -107,7 +108,7 @@
           "en": "Charging allowed changed",
           "nl": "Laden toegestaan gewijzigd",
           "de": "Laden erlaubt geändert",
-          "fr": "Chargement autorisé modifié"
+          "fr": "Charge autorisé modifié"
         },
         "hint": {
           "en": "Charging has been allowed or disabled from the charger.",
@@ -130,7 +131,7 @@
               "en": "Charging allowed",
               "nl": "Laden toegestaan",
               "de": "Laden erlaubt",
-              "fr": "Chargement autorisé"
+              "fr": "Charge autorisée"
             }
           }
         ],
@@ -644,6 +645,9 @@
         "alarm_device"
       ],
       "capabilitiesOptions": {
+        "current_limit": {
+          "max": 32
+        },
         "meter_power.session": {
           "type": "number",
           "title": {
@@ -759,6 +763,9 @@
         "alarm_device"
       ],
       "capabilitiesOptions": {
+        "current_limit": {
+          "max": 32
+        },
         "meter_power.session": {
           "type": "number",
           "title": {
@@ -878,6 +885,9 @@
         "alarm_device"
       ],
       "capabilitiesOptions": {
+        "current_limit": {
+          "max": 32
+        },
         "measure_temperature.charge_port": {
           "type": "number",
           "title": {
@@ -1039,6 +1049,9 @@
         "alarm_device"
       ],
       "capabilitiesOptions": {
+        "current_limit": {
+          "max": 32
+        },
         "measure_temperature.charge_port": {
           "type": "number",
           "title": {
@@ -1184,7 +1197,7 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "/assets/alert.svg",
+      "icon": "./assets/alert.svg",
       "insights": false
     },
     "button_single_phase": {
@@ -1203,7 +1216,7 @@
       },
       "getable": true,
       "setable": true,
-      "icon": "/assets/type2-phases.svg",
+      "icon": "./assets/type2-phases.svg",
       "insights": false
     },
     "button_three_phase": {
@@ -1222,7 +1235,7 @@
       },
       "getable": true,
       "setable": true,
-      "icon": "/assets/type2-phases.svg",
+      "icon": "./assets/type2-phases.svg",
       "insights": false
     },
     "cable_limit": {
@@ -1247,7 +1260,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/type2-phases.svg",
+      "icon": "./assets/type2-phases.svg",
       "insights": false,
       "uiComponent": null
     },
@@ -1273,7 +1286,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/ammeter.svg",
+      "icon": "./assets/ammeter.svg",
       "insights": true
     },
     "current_max": {
@@ -1298,7 +1311,7 @@
       "units": {
         "en": "A"
       },
-      "icon": "/assets/ammeter.svg",
+      "icon": "./assets/ammeter.svg",
       "insights": true
     },
     "is_allowed": {
@@ -1313,9 +1326,9 @@
         "en": "Charging has been allowed from the device or by the app. Authorization may be required first from Mobile App or RFID token.",
         "nl": "Opladen is toegestaan vanaf het apparaat of via de app. Mogelijk is eerst autorisatie vereist via de mobiele app of een RFID-token.",
         "de": "Laden ist vom Gerät oder von der App erlaubt. Möglicherweise ist zuerst eine Autorisierung von der Mobile App oder dem RFID-Token erforderlich.",
-        "fr": "La charge est autorisée depuis l'appareil ou depuis l'application. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
+        "fr": "La charge a été autorisée depuis l'appareil ou par l'app. L'autorisation peut être préalablement requise à partir de l'app mobile ou du jeton RFID."
       },
-      "icon": "/assets/ev-charge.svg",
+      "icon": "./assets/ev-charge.svg",
       "uiComponent": "toggle",
       "uiQuickAction": true,
       "getable": true,
@@ -1509,7 +1522,7 @@
       ],
       "getable": true,
       "setable": true,
-      "icon": "/assets/type2-phases.svg",
+      "icon": "./assets/type2-phases.svg",
       "insights": false,
       "uiComponent": null
     },

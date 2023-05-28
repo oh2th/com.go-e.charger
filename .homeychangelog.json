@@ -55,5 +55,8 @@
   },
   "2.5.4": {
     "en": "FIX: Current limit maximum is now either device limit or cable limit."
+  },
+  "2.5.5": {
+    "en": "Workaround for \"Invalid capability\" error on HP2023 installs."
   }
 }

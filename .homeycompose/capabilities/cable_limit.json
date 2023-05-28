@@ -20,7 +20,7 @@
   "units": {
     "en": "A"
   },
-  "icon": "/assets/type2-phases.svg",
+  "icon": "./assets/type2-phases.svg",
   "insights": false,
   "uiComponent": null
 }
