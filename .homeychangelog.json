@@ -61,5 +61,8 @@
   },
   "2.5.6": {
     "en": "FIX: Increase measure_temperature to max 70C."
+  },
+  "2.5.7": {
+    "en": "ADD: Sentry logging for uncaughtRejections."
   }
 }
