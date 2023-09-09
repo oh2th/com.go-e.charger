@@ -230,6 +230,7 @@ class mainDevice extends Device {
 				await this.setValue('meter_power', deviceInfo['meter_power'], check);
 				await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
 				await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
+				await this.setValue('authentication', deviceInfo['authentication'], check);
 				await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
 				await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
 				await this.setValue('num_phases', deviceInfo['num_phases'], check);

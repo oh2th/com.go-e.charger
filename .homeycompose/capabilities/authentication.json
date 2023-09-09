@@ -1,0 +1,20 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Wait for Authentication",
+    "nl": "Wacht op authenticatie",
+    "de": "Warte auf Authentifizierung",
+    "fr": "Attente d'authentification"
+  },
+  "hint": {
+    "en": "Device is configured to wait for authentication.",
+    "nl": "Apparaat is geconfigureerd om te wachten op authenticatie.",
+    "de": "Gerät ist so konfiguriert, dass es auf die Authentifizierung wartet.",
+    "fr": "L'appareil est configuré pour attendre l'authentification."
+  },
+  "getable": true,
+  "setable": false,
+  "icon": "./assets/authentication.svg",
+  "uiComponent": "sensor",
+  "insights": false
+}

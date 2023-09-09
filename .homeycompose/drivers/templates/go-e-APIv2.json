@@ -11,6 +11,7 @@
     "current_limit",
     "current_max",
     "status",
+    "authentication",
     "button_single_phase",
     "button_three_phase",
     "num_phases",
