@@ -222,21 +222,21 @@ class mainDevice extends Device {
 				// console.log(JSON.stringify(deviceInfo));
 				await this.setAvailable();
 
-				await this.setValue('measure_power', deviceInfo.measure_power, check);
-				await this.setValue('measure_current', deviceInfo.measure_current, check);
-				await this.setValue('measure_voltage', deviceInfo.measure_voltage, check);
-				await this.setValue('measure_temperature', deviceInfo.measure_temperature, check);
+				await this.setValue('measure_power', deviceInfo['measure_power'], check);
+				await this.setValue('measure_current', deviceInfo['measure_current'], check);
+				await this.setValue('measure_voltage', deviceInfo['measure_voltage'], check);
+				await this.setValue('measure_temperature', deviceInfo['measure_temperature'], check);
 				await this.setValue('measure_temperature.charge_port', deviceInfo['measure_temperature.charge_port'], check);
-				await this.setValue('meter_power', deviceInfo.meter_power, check);
+				await this.setValue('meter_power', deviceInfo['meter_power'], check);
 				await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
-				await this.setValue('is_allowed', deviceInfo.is_allowed, check);
-				await this.setValue('button_single_phase', deviceInfo.button_single_phase, check);
-				await this.setValue('button_three_phase', deviceInfo.button_three_phase, check);
-				await this.setValue('num_phases', deviceInfo.num_phases, check);
-				await this.setValue('cable_limit', deviceInfo.cable_limit, check);
-				await this.setValue('current_limit', deviceInfo.current_limit, check);
-				await this.setValue('current_max', deviceInfo.current_max, check);
-				await this.setValue('alarm_device', deviceInfo.alarm_device, check);
+				await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
+				await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
+				await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
+				await this.setValue('num_phases', deviceInfo['num_phases'], check);
+				await this.setValue('cable_limit', deviceInfo['cable_limit'], check);
+				await this.setValue('current_limit', deviceInfo['current_limit'], check);
+				await this.setValue('current_max', deviceInfo['current_max'], check);
+				await this.setValue('alarm_device', deviceInfo['alarm_device'], check);
 
 				// Check for device's maximum current configuration and connected Type-2 cables ampere coding
 				// and adjust device current_limit capability maximum setting value for the lesser.
