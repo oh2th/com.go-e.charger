@@ -12,6 +12,7 @@
     "current_max",
     "status",
     "authentication",
+    "transaction",
     "button_single_phase",
     "button_three_phase",
     "num_phases",

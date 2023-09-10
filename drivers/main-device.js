@@ -129,12 +129,20 @@ class mainDevice extends Device {
 
 	async onCapability_CHARGING_ALLOWED(value) {
 		let val = 0;
+
+
 		try {
 			if (value !== this.getCapabilityValue('is_allowed')) {
 				this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: '${val}'`);
 				if (this.api.driver === 'go-eCharger_V1' || this.api.driver === 'go-eCharger_V2') {
 					if (value) val = 1; // Enable charging
 					return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
+				}
+				// API v2 transaction (trx) of authentication (acs) is enabled
+				if (this.hasCapability('authentication')) {
+					if (this.getCapabilityValue('authentication')) {
+						await this.api.setGoeChargerValue('trx', 0);
+					}
 				}
 				if (!value) val = 1; // Enable charging - API v2 (frc) forceState (Neutral=0, Off=1, On=2)
 				return Promise.resolve(await this.api.setGoeChargerValue('frc', val));
@@ -231,6 +239,7 @@ class mainDevice extends Device {
 				await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
 				await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
 				await this.setValue('authentication', deviceInfo['authentication'], check);
+				await this.setValue('transaction', deviceInfo['trasnaction'], check);
 				await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
 				await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
 				await this.setValue('num_phases', deviceInfo['num_phases'], check);
