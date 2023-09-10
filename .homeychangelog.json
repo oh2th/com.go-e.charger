@@ -64,5 +64,8 @@
   },
   "2.5.7": {
     "en": "ADD: Sentry logging for uncaughtRejections."
+  },
+  "2.6.0": {
+    "en": "ADD: Limited support for RFID access controls. Allow charging action now works when authentication is required and now transaction was activated by RFID-tags."
   }
 }
