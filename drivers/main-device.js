@@ -129,8 +129,6 @@ class mainDevice extends Device {
 
 	async onCapability_CHARGING_ALLOWED(value) {
 		let val = 0;
-
-
 		try {
 			if (value !== this.getCapabilityValue('is_allowed')) {
 				this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: '${val}'`);
@@ -138,9 +136,15 @@ class mainDevice extends Device {
 					if (value) val = 1; // Enable charging
 					return Promise.resolve(await this.api.setGoeChargerValue('alw', val));
 				}
-				// API v2 transaction (trx) of authentication (acs) is enabled
-				if (this.hasCapability('authentication')) {
-					if (this.getCapabilityValue('authentication')) {
+				// API v2 transaction (trx) if authentication (acs) is enabled
+				// For now we only support anonymous (auth_0) and no cards, should be easy to allow any card 1 - 10 also
+				// Transaction resets automatically after a charging session.
+				if (this.hasCapability('authentication') && this.hasCapability('transaction')) {
+					const acs = this.getCapabilityValue('authentication');
+					const trx = this.getCapabilityValue('transaction');
+					this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: acs='${acs}' trx='${trx}'`);
+					if (acs === true && trx === 'auth_none') {
+						this.log(`[Device] ${this.getName()}: ${this.getData().id} set is_allowed: authentication expected and transaction not set.`);
 						await this.api.setGoeChargerValue('trx', 0);
 					}
 				}
@@ -239,7 +243,7 @@ class mainDevice extends Device {
 				await this.setValue('meter_power.session', deviceInfo['meter_power.session'], check);
 				await this.setValue('is_allowed', deviceInfo['is_allowed'], check);
 				await this.setValue('authentication', deviceInfo['authentication'], check);
-				await this.setValue('transaction', deviceInfo['trasnaction'], check);
+				await this.setValue('transaction', deviceInfo['transaction'], check);
 				await this.setValue('button_single_phase', deviceInfo['button_single_phase'], check);
 				await this.setValue('button_three_phase', deviceInfo['button_three_phase'], check);
 				await this.setValue('num_phases', deviceInfo['num_phases'], check);
