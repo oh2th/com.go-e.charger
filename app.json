@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.5.7",
+  "version": "2.6.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -876,6 +876,8 @@
         "current_limit",
         "current_max",
         "status",
+        "authentication",
+        "transaction",
         "button_single_phase",
         "button_three_phase",
         "num_phases",
@@ -1040,6 +1042,8 @@
         "current_limit",
         "current_max",
         "status",
+        "authentication",
+        "transaction",
         "button_single_phase",
         "button_three_phase",
         "num_phases",
@@ -1198,6 +1202,26 @@
       "getable": true,
       "setable": false,
       "icon": "./assets/alert.svg",
+      "insights": false
+    },
+    "authentication": {
+      "type": "boolean",
+      "title": {
+        "en": "Wait for Authentication",
+        "nl": "Wacht op authenticatie",
+        "de": "Warte auf Authentifizierung",
+        "fr": "Attente d'authentification"
+      },
+      "hint": {
+        "en": "Device is configured to wait for authentication.",
+        "nl": "Apparaat is geconfigureerd om te wachten op authenticatie.",
+        "de": "Gerät ist so konfiguriert, dass es auf die Authentifizierung wartet.",
+        "fr": "L'appareil est configuré pour attendre l'authentification."
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "./assets/authentication.svg",
+      "uiComponent": "sensor",
       "insights": false
     },
     "button_single_phase": {
@@ -1575,6 +1599,92 @@
             "nl": "Klaar met laden",
             "de": "Laden beendet",
             "fr": "Charge terminée"
+          }
+        }
+      ],
+      "setable": false,
+      "getable": true,
+      "insights": false
+    },
+    "transaction": {
+      "type": "enum",
+      "title": {
+        "en": "User Card"
+      },
+      "hint": {
+        "en": "Registered RFID token ID."
+      },
+      "values": [
+        {
+          "id": "auth_none",
+          "title": {
+            "en": "No authentication"
+          }
+        },
+        {
+          "id": "auth_0",
+          "title": {
+            "en": "Anonymous"
+          }
+        },
+        {
+          "id": "auth_1",
+          "title": {
+            "en": "1st Card"
+          }
+        },
+        {
+          "id": "auth_2",
+          "title": {
+            "en": "2nd Card"
+          }
+        },
+        {
+          "id": "auth_3",
+          "title": {
+            "en": "3rd Card"
+          }
+        },
+        {
+          "id": "auth_4",
+          "title": {
+            "en": "4th Card"
+          }
+        },
+        {
+          "id": "auth_5",
+          "title": {
+            "en": "5th Card"
+          }
+        },
+        {
+          "id": "auth_6",
+          "title": {
+            "en": "6th Card"
+          }
+        },
+        {
+          "id": "auth_7",
+          "title": {
+            "en": "7th Card"
+          }
+        },
+        {
+          "id": "auth_8",
+          "title": {
+            "en": "8th Card"
+          }
+        },
+        {
+          "id": "auth_9",
+          "title": {
+            "en": "9th Card"
+          }
+        },
+        {
+          "id": "auth_10",
+          "title": {
+            "en": "10th Card"
           }
         }
       ],

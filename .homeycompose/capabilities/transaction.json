@@ -1,0 +1,86 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "User Card"
+  },
+  "hint": {
+    "en": "Registered RFID token ID."
+  },
+  "values": [
+    {
+      "id": "auth_none",
+      "title": {
+        "en": "No authentication"
+      }
+    },
+    {
+      "id": "auth_0",
+      "title": {
+        "en": "Anonymous"
+      }
+    },
+    {
+      "id": "auth_1",
+      "title": {
+        "en": "1st Card"
+      }
+    },
+    {
+      "id": "auth_2",
+      "title": {
+        "en": "2nd Card"
+      }
+    },
+    {
+      "id": "auth_3",
+      "title": {
+        "en": "3rd Card"
+      }
+    },
+    {
+      "id": "auth_4",
+      "title": {
+        "en": "4th Card"
+      }
+    },
+    {
+      "id": "auth_5",
+      "title": {
+        "en": "5th Card"
+      }
+    },
+    {
+      "id": "auth_6",
+      "title": {
+        "en": "6th Card"
+      }
+    },
+    {
+      "id": "auth_7",
+      "title": {
+        "en": "7th Card"
+      }
+    },
+    {
+      "id": "auth_8",
+      "title": {
+        "en": "8th Card"
+      }
+    },
+    {
+      "id": "auth_9",
+      "title": {
+        "en": "9th Card"
+      }
+    },
+    {
+      "id": "auth_10",
+      "title": {
+        "en": "10th Card"
+      }
+    }
+  ],
+  "setable": false,
+  "getable": true,
+  "insights": false
+}
