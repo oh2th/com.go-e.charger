@@ -67,5 +67,8 @@
   },
   "2.6.0": {
     "en": "ADD: Limited support for RFID access controls. Allow charging action now works when authentication is required and now transaction was activated by RFID-tags."
+  },
+  "2.6.1": {
+    "en": "group together status related capbility updates"
   }
 }
