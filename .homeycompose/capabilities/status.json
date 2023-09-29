@@ -34,10 +34,10 @@
     {
       "id": "station_waiting",
       "title": {
-        "en": "Waiting for authentication",
-        "nl": "Wachten op authenticatie",
-        "de": "Warten auf Authentifizierung",
-        "fr": "En attente d'authentification"
+        "en": "Waiting for car",
+        "nl": "Wachten op auto",
+        "de": "Warten auf Auto",
+        "fr": "En attente de la voiture"
       }
     },
     {
