@@ -70,5 +70,8 @@
   },
   "2.6.1": {
     "en": "group together status related capbility updates"
+  },
+  "2.6.2": {
+    "en": "FIX: Status label when waiting for car."
   }
 }

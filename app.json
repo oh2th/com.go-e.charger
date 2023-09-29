@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -1586,10 +1586,10 @@
         {
           "id": "station_waiting",
           "title": {
-            "en": "Waiting for authentication",
-            "nl": "Wachten op authenticatie",
-            "de": "Warten auf Authentifizierung",
-            "fr": "En attente d'authentification"
+            "en": "Waiting for car",
+            "nl": "Wachten op auto",
+            "de": "Warten auf Auto",
+            "fr": "En attente de la voiture"
           }
         },
         {
