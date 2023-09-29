@@ -32,10 +32,6 @@ class mainDevice extends Device {
 		});
 	}
 
-	catch(error) {
-		this.log(`[Device] ${this.getName()} - OnInit Error`, error);
-	}
-
 	/**
    * onAdded is called when the user adds the device, called just after pairing.
    */
@@ -227,13 +223,33 @@ class mainDevice extends Device {
 	async setCapabilityValues(check = false) {
 		try {
 			const deviceInfo = await this.api.getInfo();
-			const oldStatus = await this.getCapabilityValue('status');
-			const currentLimitOpts = await this.getCapabilityOptions('current_limit');
 
 			if (deviceInfo) {
 				// console.log(JSON.stringify(deviceInfo));
 				await this.setAvailable();
 
+				// Check for status change and trigger accordingly
+				if (deviceInfo.status !== await this.getCapabilityValue('status')) {
+					await this.setValue('status', deviceInfo.status, check);
+					if (deviceInfo.status === 'station_idle') {
+						await this.setValue('is_connected', false);
+						await this.setValue('is_charging', false);
+					}
+					if (deviceInfo.status === 'car_charging') {
+						await this.setValue('is_connected', true);
+						await this.setValue('is_charging', true);
+					}
+					if (deviceInfo.status === 'station_waiting') {
+						await this.setValue('is_connected', true);
+						await this.setValue('is_charging', false);
+					}
+					if (deviceInfo.status === 'car_finished') {
+						await this.setValue('is_connected', true);
+						await this.setValue('is_charging', false);
+					}
+				}
+
+				// Update all other capabilities
 				await this.setValue('measure_power', deviceInfo['measure_power'], check);
 				await this.setValue('measure_current', deviceInfo['measure_current'], check);
 				await this.setValue('measure_voltage', deviceInfo['measure_voltage'], check);
@@ -254,6 +270,7 @@ class mainDevice extends Device {
 
 				// Check for device's maximum current configuration and connected Type-2 cables ampere coding
 				// and adjust device current_limit capability maximum setting value for the lesser.
+				const currentLimitOpts = await this.getCapabilityOptions('current_limit');
 				if (currentLimitOpts.max !== deviceInfo.current_max) {
 					if (deviceInfo.cable_limit > deviceInfo.current_max || (deviceInfo.cable_limit === 0 || deviceInfo.cable_limit === null)) {
 						this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts device Max: '${deviceInfo.current_max}'`);
@@ -261,27 +278,6 @@ class mainDevice extends Device {
 					} else {
 						this.log(`[Device] ${this.getName()}: ${this.getData().id} setCurrentLimitOpts cable Max: '${deviceInfo.cable_limit}'`);
 						await this.setCapabilityOptions('current_limit', { max: deviceInfo.cable_limit });
-					}
-				}
-
-				// Check for status change and trigger accordingly
-				await this.setValue('status', deviceInfo.status, check);
-				if (deviceInfo.status !== oldStatus) {
-					if (deviceInfo.status === 'station_idle') {
-						await this.setValue('is_connected', false);
-						await this.setValue('is_charging', false);
-					}
-					if (deviceInfo.status === 'car_charging') {
-						await this.setValue('is_connected', true);
-						await this.setValue('is_charging', true);
-					}
-					if (deviceInfo.status === 'station_waiting') {
-						await this.setValue('is_connected', true);
-						await this.setValue('is_charging', false);
-					}
-					if (deviceInfo.status === 'car_finished') {
-						await this.setValue('is_connected', true);
-						await this.setValue('is_charging', false);
 					}
 				}
 			}
