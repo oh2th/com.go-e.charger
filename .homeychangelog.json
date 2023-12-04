@@ -73,5 +73,8 @@
   },
   "2.6.2": {
     "en": "FIX: Status label when waiting for car."
+  },
+  "2.6.3": {
+    "en": "FIX: Change the way active charging phases are counted (current != 0)."
   }
 }
