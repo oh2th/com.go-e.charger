@@ -76,5 +76,8 @@
   },
   "2.6.3": {
     "en": "FIX: Change the way active charging phases are counted (current != 0)."
+  },
+  "2.7.0": {
+    "en": "FIX: 1-phase vs 3-phase voltage calculation"
   }
 }
