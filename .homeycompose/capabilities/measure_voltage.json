@@ -1,16 +1,16 @@
 {
   "type": "number",
   "title": {
-    "en": "Voltage",
-    "nl": "Spanning",
-    "de": "Spannung",
-    "fr": "Tension"
+    "en": "Input Voltage",
+    "nl": "Ingangsspanning",
+    "de": "Eingangsspannung",
+    "fr": "Tension d'entrée"
   },
   "hint": {
-    "en": "Currently delivered voltage in volts.",
-    "nl": "Momenteel geleverde spanning in volt.",
-    "de": "Momentan gelieferte Spannung in Volt.",
-    "fr": "Tension actuellement délivrée en volts."
+    "en": "Input voltage in volts.",
+    "nl": "Ingangsspanning in Volt.",
+    "de": "Eingangsspannung in Volt.",
+    "fr": "Tension d'entrée en volts."
   },
   "getable": true,
   "setable": false,
@@ -18,6 +18,6 @@
     "en": "V"
   },
   "min": 0,
-  "max": 750,
+  "max": 500,
   "insights": true
 }

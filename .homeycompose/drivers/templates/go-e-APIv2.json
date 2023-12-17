@@ -5,6 +5,7 @@
     "measure_power",
     "measure_current",
     "measure_voltage",
+    "measure_voltage.output",
     "measure_temperature",
     "measure_temperature.charge_port",
     "cable_limit",
@@ -67,6 +68,29 @@
       "units": {
         "en": "kWh"
       },
+      "insights": true
+    },
+    "measure_voltage.output": {
+      "type": "number",
+      "title": {
+        "en": "Output Voltage",
+        "nl": "Uitgangsspanning",
+        "de": "Ausgangsspannung",
+        "fr": "Tension de sortie"
+      },
+      "hint": {
+        "en": "Currently delivered voltage in volts.",
+        "nl": "Momenteel geleverde spanning in volt.",
+        "de": "Momentan gelieferte Spannung in Volt.",
+        "fr": "Tension actuellement délivrée en volts."
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "V"
+      },
+      "min": 0,
+      "max": 500,
       "insights": true
     }
   }

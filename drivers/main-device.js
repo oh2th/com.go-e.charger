@@ -253,6 +253,7 @@ class mainDevice extends Device {
 				await this.setValue('measure_power', deviceInfo['measure_power'], check);
 				await this.setValue('measure_current', deviceInfo['measure_current'], check);
 				await this.setValue('measure_voltage', deviceInfo['measure_voltage'], check);
+				await this.setValue('measure_voltage.output', deviceInfo['measure_voltage.output'], check);
 				await this.setValue('measure_temperature', deviceInfo['measure_temperature'], check);
 				await this.setValue('measure_temperature.charge_port', deviceInfo['measure_temperature.charge_port'], check);
 				await this.setValue('meter_power', deviceInfo['meter_power'], check);
