@@ -79,5 +79,8 @@
   },
   "2.7.0": {
     "en": "FIX: 1-phase vs 3-phase voltage calculation"
+  },
+  "2.7.1": {
+    "en": "FIX: 1-phase (~235V) vs 3-phase (~400V) voltage calculation"
   }
 }
