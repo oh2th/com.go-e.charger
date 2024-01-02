@@ -82,5 +82,8 @@
   },
   "2.7.1": {
     "en": "FIX: 1-phase (~235V) vs 3-phase (~400V) voltage calculation"
+  },
+  "2.7.2": {
+    "en": "FIX: Output voltage out of range"
   }
 }
