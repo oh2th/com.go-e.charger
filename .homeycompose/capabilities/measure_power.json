@@ -17,7 +17,5 @@
   "units": {
     "en": "W"
   },
-  "min": 0,
-  "max": 30000,
   "insights": true
 }

@@ -1512,8 +1512,6 @@
       "units": {
         "en": "A"
       },
-      "min": 0,
-      "max": 32,
       "insights": true
     },
     "measure_power": {
@@ -1535,8 +1533,6 @@
       "units": {
         "en": "W"
       },
-      "min": 0,
-      "max": 30000,
       "insights": true
     },
     "measure_temperature": {
@@ -1558,8 +1554,6 @@
       "units": {
         "en": "C"
       },
-      "min": -50,
-      "max": 70,
       "insights": true
     },
     "measure_voltage": {
@@ -1581,8 +1575,6 @@
       "units": {
         "en": "V"
       },
-      "min": 0,
-      "max": 500,
       "insights": true
     },
     "meter_power": {

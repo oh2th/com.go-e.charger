@@ -17,7 +17,5 @@
   "units": {
     "en": "V"
   },
-  "min": 0,
-  "max": 500,
   "insights": true
 }
