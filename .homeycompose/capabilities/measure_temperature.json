@@ -17,7 +17,5 @@
   "units": {
     "en": "C"
   },
-  "min": -50,
-  "max": 70,
   "insights": true
 }
