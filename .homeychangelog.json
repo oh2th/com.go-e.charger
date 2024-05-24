@@ -85,5 +85,8 @@
   },
   "2.7.2": {
     "en": "FIX: Output voltage out of range"
+  },
+  "2.7.3": {
+    "en": "FIX: Output phase/voltage calculation."
   }
 }
