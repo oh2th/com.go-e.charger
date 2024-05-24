@@ -88,5 +88,8 @@
   },
   "2.7.3": {
     "en": "FIX: Output phase/voltage calculation."
+  },
+  "2.7.4": {
+    "en": "Add setup information to the store pages."
   }
 }
