@@ -283,7 +283,7 @@ class mainDevice extends Device {
 				}
 			}
 		} catch (error) {
-			this.setUnavailable(error);
+			await this.setUnavailable(error);
 			this.log(error);
 		}
 	}
@@ -339,7 +339,7 @@ class mainDevice extends Device {
 	async setCapabilityValuesInterval() {
 		try {
 			this.log(`[Device] ${this.getName()}: ${this.getData().id} onPollInterval =>`, POLL_INTERVAL);
-			this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
+			this.onPollInterval = this.homey.setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
 		} catch (error) {
 			this.setUnavailable(error);
 			this.log(error);
