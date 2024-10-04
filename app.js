@@ -1,7 +1,6 @@
 'use strict';
 
 const Homey = require('homey');
-const { Log } = require('homey-log');
 const flowActions = require('./lib/flows/actions');
 const flowConditions = require('./lib/flows/conditions');
 
@@ -12,7 +11,6 @@ class GoeCharger extends Homey.App {
    */
 	async onInit() {
 		this.log(`${this.homey.manifest.id} - ${this.homey.manifest.version} started...`);
-		this.homeyLog = new Log({ homey: this.homey });
 
 		await flowActions.init(this.homey);
 		await flowConditions.init(this.homey);
