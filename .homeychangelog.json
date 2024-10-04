@@ -97,5 +97,8 @@
   },
   "2.7.6": {
     "en": "Switch to Homey specific setInterval"
+  },
+  "2.7.7": {
+    "en": "Remove homey-log/sentry.io"
   }
 }
