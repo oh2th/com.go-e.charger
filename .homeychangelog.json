@@ -94,5 +94,8 @@
   },
   "2.7.5": {
     "en": "Capabilities updates for upcoming HP23 12.2.0 firmware changes"
+  },
+  "2.7.6": {
+    "en": "Switch to Homey specific setInterval"
   }
 }
