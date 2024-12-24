@@ -5,6 +5,12 @@
     "de": "Ladestatus geändert",
     "fr": "Charge modifiée"
   },
+  "titleFormatted": {
+    "en": "Charging changed",
+    "nl": "Laden gewijzigd",
+    "de": "Ladestatus geändert",
+    "fr": "Charge modifiée"
+  },
   "hint": {
     "en": "A car has started/stopped charging.",
     "nl": "Een auto is begonnen/gestopt met laden.",

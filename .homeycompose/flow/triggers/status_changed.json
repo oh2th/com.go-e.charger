@@ -5,6 +5,12 @@
     "de": "Status geändert",
     "fr": "Statut modifié"
   },
+  "titleFormatted": {
+    "en": "Status changed",
+    "nl": "Status gewijzigd",
+    "de": "Status geändert",
+    "fr": "Statut modifié"
+  },
   "hint": {
     "en": "Device state has changed.",
     "nl": "Apparaatstatus is gewijzigd.",

@@ -5,6 +5,12 @@
     "de": "Einphasig Laden geändert",
     "fr": "Charge monophasée modifié"
   },
+  "titleFormatted": {
+    "en": "Single phase charging changed",
+    "nl": "Eenfasig laden gewijzigd",
+    "de": "Einphasig Laden geändert",
+    "fr": "Charge monophasée modifié"
+  },
   "hint": {
     "en": "Device has changed between 1-phase or 3-phase charging.",
     "nl": "Toestel is gewisseld tussen 1-fase of 3-fase laden.",

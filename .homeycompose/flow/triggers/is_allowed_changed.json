@@ -4,7 +4,13 @@
     "nl": "Laden toegestaan gewijzigd",
     "de": "Laden erlaubt geändert",
     "fr": "Charge autorisé modifié"
-    },
+  },
+  "titleFormatted": {
+    "en": "Charging allowed changed",
+    "nl": "Laden toegestaan gewijzigd",
+    "de": "Laden erlaubt geändert",
+    "fr": "Charge autorisé modifié"
+  },
   "hint": {
     "en": "Charging has been allowed or disabled from the charger.",
     "nl": "Laden is toegestaan of uitgeschakeld vanaf de oplader.",

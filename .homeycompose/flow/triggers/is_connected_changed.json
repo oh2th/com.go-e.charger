@@ -5,6 +5,12 @@
     "de": "Autoverbindung geändert",
     "fr": "Connexion de la voiture modifiée"
   },
+  "titleFormatted": {
+    "en": "Car connection changed",
+    "nl": "Autoverbinding gewijzigd",
+    "de": "Autoverbindung geändert",
+    "fr": "Connexion de la voiture modifiée"
+  },
   "hint": {
     "en": "Connection with a car has changed.",
     "nl": "Verbinding met een auto is gewijzigd.",

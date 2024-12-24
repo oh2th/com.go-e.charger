@@ -5,6 +5,12 @@
     "de": "!{{Lädt|Lädt nicht}}",
     "fr": "!{{Charge|Ne charge pas}}"
   },
+  "titleFormatted": {
+    "en": "!{{Is|Isn't}} charging",
+    "nl": "!{{Bezig|Niet bezig}} met laden",
+    "de": "!{{Lädt|Lädt nicht}}",
+    "fr": "!{{Charge|Ne charge pas}}"
+  },
   "hint": {
     "en": "Charging is/isn't ongoing.",
     "nl": "Het laden is/is niet aan de gang.",
