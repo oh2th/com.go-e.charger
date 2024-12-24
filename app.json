@@ -2,7 +2,7 @@
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.go-e.charger",
   "version": "2.7.7",
-  "compatibility": ">=5.0.0",
+  "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
     "local"
@@ -616,7 +616,7 @@
   },
   "drivers": [
     {
-      "class": "socket",
+      "class": "evcharger",
       "platforms": [
         "local"
       ],
@@ -758,7 +758,7 @@
       "id": "go-eCharger_V1"
     },
     {
-      "class": "socket",
+      "class": "evcharger",
       "platforms": [
         "local"
       ],
@@ -900,7 +900,7 @@
       "id": "go-eCharger_V2"
     },
     {
-      "class": "socket",
+      "class": "evcharger",
       "platforms": [
         "local"
       ],
@@ -1090,7 +1090,7 @@
       "id": "go-eCharger_V3"
     },
     {
-      "class": "socket",
+      "class": "evcharger",
       "platforms": [
         "local"
       ],
@@ -1716,111 +1716,6 @@
       "setable": false,
       "getable": true,
       "insights": false
-    },
-    "z_measure_current": {
-      "type": "number",
-      "title": {
-        "en": "Current",
-        "nl": "Stroom",
-        "de": "Strom",
-        "fr": "Courant"
-      },
-      "hint": {
-        "en": "Currently delivered current in amperes.",
-        "nl": "Momenteel geleverde stroom in ampère.",
-        "de": "Momentan gelieferte Stromstärke in Ampere.",
-        "fr": "Courant actuellement délivré en ampères."
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "A"
-      },
-      "insights": true
-    },
-    "z_measure_power": {
-      "type": "number",
-      "title": {
-        "en": "Power",
-        "nl": "Vermogen",
-        "de": "Leistung",
-        "fr": "Puissance"
-      },
-      "hint": {
-        "en": "Currently delivered power in watts.",
-        "nl": "Momenteel geleverd vermogen in watt.",
-        "de": "Momentan gelieferte Leistung in Watt.",
-        "fr": "Puissance actuellement délivrée en watts."
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "W"
-      },
-      "insights": true
-    },
-    "z_measure_temperature": {
-      "type": "number",
-      "title": {
-        "en": "Temperature",
-        "nl": "Temperatuur",
-        "de": "Temperatur",
-        "fr": "Température"
-      },
-      "hint": {
-        "en": "The internal temperature of the device.",
-        "nl": "De interne temperatuur van het apparaat.",
-        "de": "Die interne Temperatur des Geräts.",
-        "fr": "La température interne de l'appareil."
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "C"
-      },
-      "insights": true
-    },
-    "z_measure_voltage": {
-      "type": "number",
-      "title": {
-        "en": "Input Voltage",
-        "nl": "Ingangsspanning",
-        "de": "Eingangsspannung",
-        "fr": "Tension d'entrée"
-      },
-      "hint": {
-        "en": "Input voltage in volts.",
-        "nl": "Ingangsspanning in Volt.",
-        "de": "Eingangsspannung in Volt.",
-        "fr": "Tension d'entrée en volts."
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "V"
-      },
-      "insights": true
-    },
-    "z_meter_power": {
-      "type": "number",
-      "title": {
-        "en": "Total Energy",
-        "nl": "Totaal Energie",
-        "de": "Gesamtenergie",
-        "fr": "Énergie totale"
-      },
-      "hint": {
-        "en": "Total energy since counter was reset on the device.",
-        "nl": "Totaal geleverde energie sinds de teller op het apparaat is gereset.",
-        "de": "Gesamtenergie seit dem Zähler auf dem Gerät zurückgesetzt wurde.",
-        "fr": "Énergie totale depuis que le compteur a été réinitialisé sur l'appareil."
-      },
-      "getable": true,
-      "setable": false,
-      "units": {
-        "en": "kWh"
-      },
-      "insights": true
     }
   },
   "discovery": {

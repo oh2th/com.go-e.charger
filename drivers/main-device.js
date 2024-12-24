@@ -283,7 +283,7 @@ class mainDevice extends Device {
 				}
 			}
 		} catch (error) {
-			await this.setUnavailable(error);
+			await this.setUnavailable(error).catch(this.error);
 			this.log(error);
 		}
 	}

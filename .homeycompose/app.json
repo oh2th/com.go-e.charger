@@ -1,7 +1,7 @@
 {
   "id": "com.go-e.charger",
   "version": "2.7.7",
-  "compatibility": ">=5.0.0",
+  "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
     "local"
