@@ -100,5 +100,8 @@
   },
   "2.7.7": {
     "en": "Remove homey-log/sentry.io"
+  },
+  "2.8.0": {
+    "en": "Change device class to \"evcharger\" and require Homey Pro firmware v12.2.0."
   }
 }
