@@ -6,10 +6,10 @@
     "fr": "Charge !{{est|n'est pas}} autorisée"
   },
   "titleFormatted": {
-    "en": "Charging {{is|isn't}} allowed",
-    "nl": "Laden {{is|is niet}} toegestaan",
-    "de": "Laden {{ist|ist nicht}} erlaubt",
-    "fr": "Charge {{est|n'est pas}} autorisée"
+    "en": "Charging !{{is|isn't}} allowed",
+    "nl": "Laden !{{is|is niet}} toegestaan",
+    "de": "Laden !{{ist|ist nicht}} erlaubt",
+    "fr": "Charge !{{est|n'est pas}} autorisée"
   },
   "hint": {
     "en": "Charging is/isn't allowed.",
