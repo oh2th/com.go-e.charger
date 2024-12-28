@@ -6,10 +6,10 @@
     "fr": "!{{Voiture|Pas de voiture}} connectée"
   },
   "titleFormatted": {
-    "en": "Car {{is|isn't}} connected",
-    "nl": "{{Auto|Geen auto}} verbonden",
-    "de": "{{Auto|Keine Auto}} verbunden",
-    "fr": "{{Voiture|Pas de voiture}} connectée"
+    "en": "Car !{{is|isn't}} connected",
+    "nl": "!{{Auto|Geen auto}} verbonden",
+    "de": "!{{Auto|Keine Auto}} verbunden",
+    "fr": "!{{Voiture|Pas de voiture}} connectée"
   },
   "hint": {
     "en": "A car is/isn't plugged in.",

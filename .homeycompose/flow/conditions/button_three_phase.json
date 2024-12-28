@@ -6,10 +6,10 @@
     "fr": "Triphasée !{{est|n'est pas}} active"
   },
   "titleFormatted": {
-    "en": "Three phase {{is|isn't}} active",
-    "nl": "Driefasig {{is|is niet}} actief",
-    "de": "Dreiphasig {{ist|ist nicht}} aktiv",
-    "fr": "Triphasée {{est|n'est pas}} active"
+    "en": "Three phase !{{is|isn't}} active",
+    "nl": "Driefasig !{{is|is niet}} actief",
+    "de": "Dreiphasig !{{ist|ist nicht}} aktiv",
+    "fr": "Triphasée !{{est|n'est pas}} active"
   },
   "hint": {
     "en": "Three phase charging is/isn't active.",
