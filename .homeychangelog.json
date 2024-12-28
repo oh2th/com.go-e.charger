@@ -103,5 +103,8 @@
   },
   "2.8.1": {
     "en": "Change device class to \"evcharger\" and require Homey Pro firmware v12.2.0."
+  },
+  "2.8.2": {
+    "en": "Fix titleFormatted strings in flow conditions to include negation"
   }
 }
